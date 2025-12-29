@@ -1,3 +1,4 @@
+const isAdmin = new URLSearchParams(window.location.search).get("admin") === "1";
 const games = [
   { id: "ds1", title: "Dark Souls", file: "data/ds1.json" },
   { id: "ds2", title: "Dark Souls II", file: "data/ds2.json" },
@@ -113,17 +114,17 @@ function renderBoss(boss, gameId) {
     <span class="boss-name">${boss.name}</span>
 
     <div class="stat">
-      <input type="number" value="${saved.tries}" min="0">
+      <input type="number" value="${saved.tries}" min="0" ${isAdmin ? "" : "disabled"}>
       <small>Try</small>
     </div>
 
     <div class="stat">
-      <input type="number" value="${saved.deaths}" min="0">
+      <input type="number" value="${saved.deaths}" min="0" ${isAdmin ? "" : "disabled"}>
       <small>Death</small>
     </div>
 
     <label class="killed">
-      <input type="checkbox" ${saved.killed ? "checked" : ""}>
+      <input type="checkbox" ${saved.killed ? "checked" : ""} ${isAdmin ? "" : "disabled"}>
       Убит
     </label>
   `;
@@ -168,6 +169,7 @@ function updateTotalDeaths() {
 
   counter.textContent = `Всего смертей: ${total}`;
 }
+
 
 
 
