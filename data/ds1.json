@@ -1,36 +1,43 @@
 {
-  "id": "ds1",
-  "name": "Dark Souls",
-  "poster": "https://i.imgur.com/LZbZJ6Q.jpg",
-  "description": "Dark Souls — хардкорная action-RPG в мрачном мире Лордрана.",
-  "sections": {
-    "Основные боссы": [
-      { "id": "asylum_demon", "name": "Асилумский демон" },
-      { "id": "taurus_demon", "name": "Таурус-демон" },
-      { "id": "bell_gargoyles", "name": "Колокольные гаргульи" },
-      { "id": "capra_demon", "name": "Капра-демон" },
-      { "id": "gapindragon", "name": "Разверзшийся дракон" },
-      { "id": "quelaag", "name": "Квилег" },
-      { "id": "iron_golem", "name": "Железный голем" },
-      { "id": "ornstein_smough", "name": "Орнштейн и Смоуг" },
-      { "id": "seath", "name": "Сит Безчешуйчатый" },
-      { "id": "four_kings", "name": "Четыре короля" },
-      { "id": "bed_of_chaos", "name": "Ложе Хаоса" },
-      { "id": "gwyn", "name": "Гвин, Повелитель Пепла" }
-    ],
-    "Второстепенные боссы": [
-      { "id": "moonlight_butterfly", "name": "Лунная бабочка" },
-      { "id": "gaping_dragon", "name": "Разверзшийся дракон" },
-      { "id": "ceaseless", "name": "Неутомимый разряд" },
-      { "id": "centipede", "name": "Многоножка-демон" },
-      { "id": "stray_demon", "name": "Бродячий демон" },
-      { "id": "crossbreed_priscilla", "name": "Полукровка Присцилла" }
-    ],
-    "DLC — Artorias of the Abyss": [
-      { "id": "sanctuary_guardian", "name": "Страж святилища" },
-      { "id": "artorias", "name": "Арториас, Путник Бездны" },
-      { "id": "manus", "name": "Манус, Отец Бездны" },
-      { "id": "kalameet", "name": "Чёрный дракон Каламит" }
-    ]
-  }
+  "title": "Dark Souls",
+  "logo": "images/logos/ds1.png",
+  "sections": [
+    {
+      "name": "Основные боссы",
+      "bosses": [
+        { "id": "asylum_demon", "name": "Демон-убежище", "icon": "images/bosses/placeholder.png" },
+        { "id": "taurus_demon", "name": "Демон Тельца", "icon": "images/bosses/placeholder.png" },
+        { "id": "bell_gargoyles", "name": "Колокольные горгульи", "icon": "images/bosses/placeholder.png" },
+        { "id": "capra_demon", "name": "Демон Капры", "icon": "images/bosses/placeholder.png" },
+        { "id": "gapdragon", "name": "Зияющая пасть", "icon": "images/bosses/placeholder.png" },
+        { "id": "chaos_witch_quelaag", "name": "Ведьма Хаоса Квилег", "icon": "images/bosses/placeholder.png" },
+        { "id": "iron_golem", "name": "Железный голем", "icon": "images/bosses/placeholder.png" },
+        { "id": "ornstein_smough", "name": "Орнштейн и Смоуг", "icon": "images/bosses/placeholder.png" },
+        { "id": "seath", "name": "Сит Бесчешуйчатый", "icon": "images/bosses/placeholder.png" },
+        { "id": "four_kings", "name": "Четыре короля", "icon": "images/bosses/placeholder.png" },
+        { "id": "bed_of_chaos", "name": "Ложе Хаоса", "icon": "images/bosses/placeholder.png" },
+        { "id": "pinwheel", "name": "Колесо", "icon": "images/bosses/placeholder.png" },
+        { "id": "nito", "name": "Нито — Повелитель могил", "icon": "images/bosses/placeholder.png" },
+        { "id": "ceaseless_discharge", "name": "Нескончаемый разряд", "icon": "images/bosses/placeholder.png" },
+        { "id": "demon_firesage", "name": "Демон Огненный Мудрец", "icon": "images/bosses/placeholder.png" },
+        { "id": "centipede_demon", "name": "Многоножий демон", "icon": "images/bosses/placeholder.png" },
+        { "id": "gwyndolin", "name": "Темное солнце Гвиндолин", "icon": "images/bosses/placeholder.png" },
+        { "id": "priscilla", "name": "Полудраконица Присцилла", "icon": "images/bosses/placeholder.png" },
+        { "id": "sif", "name": "Великий серый волк Сиф", "icon": "images/bosses/placeholder.png" },
+        { "id": "moonlight_butterfly", "name": "Лунная бабочка", "icon": "images/bosses/placeholder.png" },
+        { "id": "gwynevere_guardians", "name": "Стражи Анор Лондо", "icon": "images/bosses/placeholder.png" },
+        { "id": "gwyn", "name": "Гвин — Повелитель Пепла", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "DLC — Artorias of the Abyss",
+      "bosses": [
+        { "id": "sanctuary_guardian", "name": "Страж Святилища", "icon": "images/bosses/placeholder.png" },
+        { "id": "artorias", "name": "Рыцарь Арториас Путник Бездны", "icon": "images/bosses/placeholder.png" },
+        { "id": "manus", "name": "Манус, Отец Бездны", "icon": "images/bosses/placeholder.png" },
+        { "id": "kalameet", "name": "Чёрный дракон Каламит", "icon": "images/bosses/placeholder.png" }
+      ]
+    }
+  ]
 }
+
