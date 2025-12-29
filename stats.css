@@ -80,6 +80,7 @@ body {
 /* ===== BOSS ROW ===== */
 
 .boss-row {
+  overflow: visible;
   display: grid;
   grid-template-columns: 64px 1fr 140px 140px 90px;
   align-items: center;
@@ -109,6 +110,14 @@ body {
   height: 56px;
   object-fit: contain;
   filter: drop-shadow(0 0 6px black);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+}
+
+.boss-icon:hover {
+  transform: scale(1.35);
+  filter: drop-shadow(0 0 10px #8b0000);
+  z-index: 10;
 }
 
 .boss-name {
@@ -199,6 +208,7 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
 
 
 
