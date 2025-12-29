@@ -1,15 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const games = [
-    { id: "ds1", name: "Dark Souls", json: "data/ds1.json" },
-    { id: "ds2", name: "Dark Souls II", json: "data/ds2.json" },
-    { id: "ds3", name: "Dark Souls III", json: "data/ds3.json" },
-    { id: "sekiro", name: "Sekiro", json: "data/sekiro.json" },
-    { id: "elden", name: "Elden Ring", json: "data/elden_ring.json" }
+    { id: "ds1", name: "Dark Souls", file: "data/ds1.json" },
+    { id: "ds2", name: "Dark Souls II", file: "data/ds2.json" },
+    { id: "ds3", name: "Dark Souls III", file: "data/ds3.json" },
+    { id: "sekiro", name: "Sekiro", file: "data/sekiro.json" },
+    { id: "elden", name: "Elden Ring", file: "data/elden_ring.json" }
   ];
 
   let currentGame = null;
-  let currentRegion = null;
   let gameData = null;
 
   const sidebar = document.getElementById("game-list");
@@ -20,102 +19,50 @@ document.addEventListener("DOMContentLoaded", () => {
   initSidebar();
   loadGame(games[0]);
 
-  /* ---------------- SIDEBAR ---------------- */
+  /* ---------- SIDEBAR ---------- */
 
   function initSidebar() {
     sidebar.innerHTML = "";
-    games.forEach(game => {
+    games.forEach(g => {
       const btn = document.createElement("button");
       btn.className = "game-btn";
-      btn.textContent = game.name;
-      btn.onclick = () => loadGame(game);
+      btn.textContent = g.name;
+      btn.onclick = () => loadGame(g);
       sidebar.appendChild(btn);
     });
   }
 
-  /* ---------------- STORAGE ---------------- */
+  /* ---------- STORAGE ---------- */
 
-  function storageKey(gameId, region = null) {
-    return region
-      ? `soulsofon_progress_${gameId}_${region}`
-      : `soulsofon_progress_${gameId}`;
+  function storageKey(gameId) {
+    return `soulsofon_${gameId}`;
   }
 
   function saveProgress() {
     if (!currentGame || !gameData) return;
-    const key = storageKey(currentGame.id, currentRegion);
-    localStorage.setItem(key, JSON.stringify(gameData));
+    localStorage.setItem(storageKey(currentGame.id), JSON.stringify(gameData));
   }
 
-  function loadProgress(game, region = null) {
-    const key = storageKey(game.id, region);
-    const saved = localStorage.getItem(key);
-    return saved ? JSON.parse(saved) : null;
+  function loadProgress(game, original) {
+    const saved = localStorage.getItem(storageKey(game.id));
+    return saved ? JSON.parse(saved) : structuredClone(original);
   }
 
-  /* ---------------- LOAD GAME ---------------- */
+  /* ---------- LOAD GAME ---------- */
 
   async function loadGame(game) {
     currentGame = game;
-    currentRegion = null;
     content.innerHTML = "Загрузка...";
 
-    const res = await fetch(game.json);
-    const raw = await res.json();
+    const res = await fetch(game.file);
+    const json = await res.json();
 
-    if (game.id === "elden") {
-      renderRegionSelector(raw);
-      return;
-    }
-
-    gameData = loadProgress(game) || raw;
+    gameData = loadProgress(game, json);
     saveProgress();
     renderGame();
   }
 
-  /* ---------------- ELDEN RING ---------------- */
-
-  function renderRegionSelector(raw) {
-    content.innerHTML = "";
-
-    const header = document.createElement("div");
-    header.className = "game-header";
-    header.innerHTML = `
-      <img class="game-poster" src="${raw.poster}">
-      <h1>${raw.title}</h1>
-    `;
-
-    const select = document.createElement("select");
-    select.className = "region-select";
-
-    Object.entries(raw.regions).forEach(([key, r]) => {
-      const opt = document.createElement("option");
-      opt.value = key;
-      opt.textContent = r.name;
-      select.appendChild(opt);
-    });
-
-    select.onchange = () => loadRegion(raw, select.value);
-
-    content.append(header, select);
-    loadRegion(raw, select.value);
-  }
-
-  function loadRegion(raw, key) {
-    currentRegion = key;
-    const region = raw.regions[key];
-
-    gameData = loadProgress(currentGame, key) || {
-      title: `${raw.title} — ${region.name}`,
-      poster: raw.poster,
-      sections: region.sections
-    };
-
-    saveProgress();
-    renderGame();
-  }
-
-  /* ---------------- RENDER ---------------- */
+  /* ---------- RENDER ---------- */
 
   function renderGame() {
     content.innerHTML = "";
@@ -137,34 +84,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateProgress();
 
-    for (const section in gameData.sections) {
-      renderSection(section, gameData.sections[section]);
+    for (const key in gameData.sections) {
+      renderSection(gameData.sections[key]);
     }
   }
 
-  function renderSection(key, bosses) {
-    const s = document.createElement("section");
-    s.innerHTML = `<h2>${key}</h2>`;
-    bosses.forEach((b, i) => s.appendChild(renderBoss(b, key, i)));
-    content.appendChild(s);
+  function renderSection(section) {
+    const block = document.createElement("section");
+    block.innerHTML = `<h2>${section.name}</h2>`;
+
+    section.bosses.forEach(boss => {
+      block.appendChild(renderBoss(boss));
+    });
+
+    content.appendChild(block);
   }
 
-  /* ---------------- BOSSES ---------------- */
+  /* ---------- BOSS ---------- */
 
-  function renderBoss(boss, section, index) {
+  function renderBoss(boss) {
     const row = document.createElement("div");
     row.className = "boss-row";
     row.dataset.status = boss.killed ? "killed" : "alive";
 
     row.innerHTML = `
       <span>${boss.name}</span>
-      <button>${boss.killed ? "☠" : "⚔"}</button>
+
+      <div class="boss-stats">
+        <div>
+          <input type="number" min="0" value="${boss.tries}">
+          <small>Try</small>
+        </div>
+        <div>
+          <input type="number" min="0" value="${boss.deaths}">
+          <small>Death</small>
+        </div>
+        <button class="kill-btn">${boss.killed ? "☠" : "⚔"}</button>
+      </div>
     `;
 
-    row.querySelector("button").onclick = () => {
+    const [triesInput, deathsInput] = row.querySelectorAll("input");
+    const killBtn = row.querySelector(".kill-btn");
+
+    triesInput.oninput = () => {
+      boss.tries = +triesInput.value;
+      saveProgress();
+    };
+
+    deathsInput.oninput = () => {
+      boss.deaths = +deathsInput.value;
+      saveProgress();
+      updateProgress();
+    };
+
+    killBtn.onclick = () => {
       boss.killed = !boss.killed;
       row.dataset.status = boss.killed ? "killed" : "alive";
-      row.querySelector("button").textContent = boss.killed ? "☠" : "⚔";
+      killBtn.textContent = boss.killed ? "☠" : "⚔";
       saveProgress();
       updateProgress();
     };
@@ -172,14 +148,14 @@ document.addEventListener("DOMContentLoaded", () => {
     return row;
   }
 
-  /* ---------------- PROGRESS ---------------- */
+  /* ---------- PROGRESS ---------- */
 
   function updateProgress() {
     let total = 0;
     let killed = 0;
 
-    for (const sec in gameData.sections) {
-      gameData.sections[sec].forEach(b => {
+    for (const key in gameData.sections) {
+      gameData.sections[key].bosses.forEach(b => {
         total++;
         if (b.killed) killed++;
       });
@@ -187,14 +163,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const percent = total ? Math.floor((killed / total) * 100) : 0;
 
-    const fill = document.querySelector(".progress-fill");
-    const text = document.querySelector(".progress-text");
-
-    if (fill) fill.style.width = percent + "%";
-    if (text) text.textContent = `${percent}% — ${killed} / ${total}`;
+    document.querySelector(".progress-fill").style.width = percent + "%";
+    document.querySelector(".progress-text").textContent =
+      `${percent}% — ${killed}/${total}`;
   }
 
 });
+
 
 
 
