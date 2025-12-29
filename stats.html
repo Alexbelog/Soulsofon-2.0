@@ -2,23 +2,69 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Статистика</title>
-  <link rel="stylesheet" href="style.css">
+  <title>SOULSFON 2.0 — Статистика</title>
+  <link rel="stylesheet" href="stats.css">
   <script defer src="app.js"></script>
 </head>
-<body>
+<body class="stats-page">
 
-<header>
-  <a href="index.html" class="back">← Назад</a>
-  <h1 id="gameTitle">Загрузка...</h1>
-</header>
+<div class="stats-layout">
 
-<nav id="eldenRegions" class="subtabs"></nav>
+  <!-- ================= LEFT ================= -->
+  <section class="main-panel">
 
-<main id="bossContainer"></main>
+    <!-- БАННЕР ИГРЫ -->
+    <div class="game-banner">
+      <img src="images/banners/ds1.jpg" alt="Game Banner" id="gameBanner">
+    </div>
+
+    <!-- СТАТИСТИКА -->
+    <div class="death-stats">
+      <div class="stat">
+        <span class="label">Deaths (Game)</span>
+        <span class="value" id="gameDeaths">0</span>
+      </div>
+      <div class="stat">
+        <span class="label">Deaths (Total)</span>
+        <span class="value" id="totalDeaths">0</span>
+      </div>
+    </div>
+
+    <!-- СПИСОК БОССОВ -->
+    <div id="bossList" class="boss-list">
+      <!-- app.js -->
+    </div>
+
+  </section>
+
+  <!-- ================= RIGHT ================= -->
+  <aside class="side-panel">
+
+    <h2>Games</h2>
+
+    <button class="game-btn" data-game="ds1">Dark Souls</button>
+    <button class="game-btn" data-game="ds2">Dark Souls II</button>
+    <button class="game-btn" data-game="ds3">Dark Souls III</button>
+    <button class="game-btn" data-game="sekiro">Sekiro</button>
+
+    <div class="elden-ring">
+      <button class="game-btn" data-game="elden">Elden Ring</button>
+      <div class="elden-regions">
+        <button data-region="limgrave">Limgrave</button>
+        <button data-region="caelid">Caelid</button>
+        <button data-region="altus">Altus</button>
+        <button data-region="mountaintops">Mountaintops</button>
+      </div>
+    </div>
+
+  </aside>
+
+</div>
 
 </body>
 </html>
+
+
 
 
 
