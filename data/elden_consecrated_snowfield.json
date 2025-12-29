@@ -1,53 +1,61 @@
 {
+  "id": "elden_consecrated_snowfield",
   "title": "Elden Ring — Освящённое снежное поле",
-  "logo": "images/logos/elden_ring.png",
+  "banner": "images/banners/elden/consecrated_snowfield.jpg",
   "sections": [
     {
-      "name": "Мир Освящённого снежного поля",
+      "title": "Основные боссы региона",
       "bosses": [
         {
-          "id": "er_night_cavalry_snowfield",
-          "name": "Ночной всадник (Освящённое снежное поле)",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_deathbird_snowfield",
-          "name": "Птица смерти (Освящённое снежное поле)",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_putrid_avatar_snowfield",
+          "id": "putrid_avatar_snowfield",
           "name": "Гниющий аватар Древа Эрд",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_putrid_tree_spirit_snowfield",
-          "name": "Гниющий дух древа",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_misbegotten_crucible_duo",
-          "name": "Бастард и рыцарь Тигля (дуэт)",
-          "icon": "images/bosses/placeholder.png"
+          "icon": "images/bosses/elden/consecrated/putrid_avatar.png"
         }
       ]
     },
     {
-      "name": "Подземелья Освящённого снежного поля",
+      "title": "Полевые боссы",
       "bosses": [
         {
-          "id": "er_astel_stars_of_darkness",
-          "name": "Астель, Звёзды Тьмы",
-          "icon": "images/bosses/placeholder.png"
+          "id": "death_rite_bird_snowfield",
+          "name": "Птица обряда смерти",
+          "icon": "images/bosses/elden/consecrated/death_rite_bird.png"
         },
         {
-          "id": "er_alabaster_lord",
-          "name": "Алебастровый владыка",
-          "icon": "images/bosses/placeholder.png"
+          "id": "night_cavalry_snowfield",
+          "name": "Ночная кавалерия",
+          "icon": "images/bosses/elden/consecrated/night_cavalry.png"
+        },
+        {
+          "id": "great_wyrm_theodorix",
+          "name": "Великий змей Теодорикс",
+          "icon": "images/bosses/elden/consecrated/theodorix.png"
+        }
+      ]
+    },
+    {
+      "title": "Подземелья и мини-боссы",
+      "bosses": [
+        {
+          "id": "misbegotten_warrior_snowfield",
+          "name": "Воин-полукровка",
+          "icon": "images/bosses/elden/consecrated/misbegotten_warrior.png"
+        },
+        {
+          "id": "perfumer_tricia",
+          "name": "Парфюмер Триция",
+          "icon": "images/bosses/elden/consecrated/perfumer_tricia.png"
+        },
+        {
+          "id": "crystalian_trio",
+          "name": "Кристалийцы (трое)",
+          "icon": "images/bosses/elden/consecrated/crystalian_trio.png"
         }
       ]
     }
   ]
 }
+
+
 
 
