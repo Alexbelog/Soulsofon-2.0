@@ -45,14 +45,28 @@ function createGame(game) {
       <img src="${game.poster}">
       <h2>${game.name}</h2>
       <p>${game.description}</p>
+
       <div class="game-stats">
         💀 Смертей в игре: <span class="game-deaths">0</span>
+        <div class="progress">
+          Прогресс: <span class="progress-text">0 / 0 (0%)</span>
+        </div>
       </div>
     </div>
-    <div class="bosses"></div>
+
+    <div class="bosses">
+      <div class="filter-buttons">
+        <button data-filter="all" class="active">Все</button>
+        <button data-filter="alive">Живые</button>
+        <button data-filter="killed">Убитые</button>
+      </div>
+    </div>
   `;
 
   const bossesDiv = div.querySelector(".bosses");
+  setupFilters(div);
+
+  let totalBosses = 0;
 
   for (const section in game.sections) {
     const sec = document.createElement("div");
@@ -61,7 +75,7 @@ function createGame(game) {
       <h3>${section}</h3>
       <div class="boss-grid-header">
         <span></span>
-        <span class="name">Босс</span>
+        <span>Босс</span>
         <span>Траи</span>
         <span>Смерти</span>
         <span>Статус</span>
@@ -71,13 +85,33 @@ function createGame(game) {
 
     const grid = sec.querySelector(".boss-grid");
     game.sections[section].forEach(boss => {
+      totalBosses++;
       grid.appendChild(createBossCard(game.id, boss));
     });
 
     bossesDiv.appendChild(sec);
   }
 
+  div.dataset.totalBosses = totalBosses;
   content.appendChild(div);
+}
+
+function setupFilters(gameEl) {
+  const buttons = gameEl.querySelectorAll(".filter-buttons button");
+
+  buttons.forEach(btn => {
+    btn.onclick = () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+      gameEl.querySelectorAll(".boss-card").forEach(card => {
+        if (filter === "all") card.style.display = "";
+        if (filter === "alive") card.style.display = card.classList.contains("killed") ? "none" : "";
+        if (filter === "killed") card.style.display = card.classList.contains("killed") ? "" : "none";
+      });
+    };
+  });
 }
 
 function createBossCard(gameId, boss) {
@@ -142,7 +176,9 @@ function recalcStats() {
 
   document.querySelectorAll(".game").forEach(gameEl => {
     let gameDeaths = 0;
+    let killedInGame = 0;
     const gameId = gameEl.id;
+    const total = +gameEl.dataset.totalBosses;
 
     Object.keys(localStorage).forEach(k => {
       if (!k.startsWith(gameId + "_")) return;
@@ -150,12 +186,21 @@ function recalcStats() {
         const d = JSON.parse(localStorage.getItem(k));
         gameDeaths += d.deaths || 0;
         globalDeaths += d.deaths || 0;
-        if (d.killed) globalKilled++;
+        if (d.killed) {
+          killedInGame++;
+          globalKilled++;
+        }
       } catch {}
     });
 
-    const counter = gameEl.querySelector(".game-deaths");
-    if (counter) counter.textContent = gameDeaths;
+    const deathsEl = gameEl.querySelector(".game-deaths");
+    const progressEl = gameEl.querySelector(".progress-text");
+
+    if (deathsEl) deathsEl.textContent = gameDeaths;
+    if (progressEl) {
+      const percent = total ? Math.round((killedInGame / total) * 100) : 0;
+      progressEl.textContent = `${killedInGame} / ${total} (${percent}%)`;
+    }
   });
 
   document.getElementById("global-deaths").textContent = globalDeaths;
