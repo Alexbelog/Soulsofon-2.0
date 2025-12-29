@@ -1,36 +1,44 @@
 {
+  "id": "elden_caelid",
   "title": "Elden Ring — Кэлид",
-  "logo": "images/logos/elden_ring.png",
+  "banner": "images/banners/elden/caelid.jpg",
   "sections": [
     {
-      "name": "Основные боссы",
+      "title": "Основные боссы региона",
       "bosses": [
-        { "id": "er_starscourge_radahn", "name": "Звёздная скверна Радан", "icon": "images/bosses/placeholder.png" }
+        { "id": "starscourge_radahn", "name": "Бич звёзд Радан", "icon": "images/bosses/elden/caelid/radahn.png" }
       ]
     },
+
     {
-      "name": "Мир Кэлида",
+      "title": "Полевые боссы",
       "bosses": [
-        { "id": "er_decaying_ekzykes", "name": "Гниющий дракон Экзикес", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_flying_dragon_greyll", "name": "Летающий дракон Грейлл", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_putrid_avatar_caelid", "name": "Гниющий аватар Древа Эрд", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_putrid_tree_spirit_caelid", "name": "Гниющий дух древа", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_night_cavalry_caelid", "name": "Ночной всадник (Кэлид)", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_deathbird_caelid", "name": "Птица смерти (Кэлид)", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_bell_bearing_hunter_caelid", "name": "Охотник за колокольными подшипниками (Кэлид)", "icon": "images/bosses/placeholder.png" }
+        { "id": "decaying_ekzykes", "name": "Гниющий Экзикес", "icon": "images/bosses/elden/caelid/ekzykes.png" },
+        { "id": "black_blade_kindred_caelid", "name": "Родич Чёрного Клинка", "icon": "images/bosses/elden/caelid/black_blade_kindred.png" },
+        { "id": "night_cavalry_caelid", "name": "Ночной всадник", "icon": "images/bosses/elden/caelid/night_cavalry.png" },
+        { "id": "deathbird_caelid", "name": "Птица смерти", "icon": "images/bosses/elden/caelid/deathbird.png" },
+        { "id": "putrid_avatar", "name": "Гниющий аватар Древа Эрд", "icon": "images/bosses/elden/caelid/putrid_avatar.png" },
+        { "id": "bell_bearing_hunter_caelid", "name": "Охотник за колокольными подношениями", "icon": "images/bosses/elden/caelid/bell_bearing_hunter.png" }
       ]
     },
+
     {
-      "name": "Подземелья Кэлида",
+      "title": "Эвергаолы",
       "bosses": [
-        { "id": "er_crucible_knight_caelid", "name": "Рыцарь Тигля", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_crucible_knight_and_misbegotten", "name": "Рыцарь Тигля и бастард", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_mad_pumpkin_head", "name": "Безумная тыквоголовая тварь", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_cemetery_shade_caelid", "name": "Тень кладбища (Кэлид)", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_battlemage_hugues", "name": "Боевой маг Хьюгес", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_cleanrot_knight_duo", "name": "Рыцари гниения (дуэт)", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_fallingstar_beast", "name": "Звёздопадающий зверь", "icon": "images/bosses/placeholder.png" }
+        { "id": "battlemage_hugues", "name": "Боевой маг Юг", "icon": "images/bosses/elden/caelid/hugues.png" }
+      ]
+    },
+
+    {
+      "title": "Подземелья",
+      "bosses": [
+        { "id": "putrid_crystalian_trio", "name": "Гнилые кристаллианцы (трое)", "icon": "images/bosses/elden/caelid/crystalians.png" },
+        { "id": "beastman_faruma_caelid", "name": "Зверочеловек из Фарум-Азулы", "icon": "images/bosses/elden/caelid/beastman.png" },
+        { "id": "mad_pumpkin_head", "name": "Безумная тыквоголовая", "icon": "images/bosses/elden/caelid/pumpkin_head.png" },
+        { "id": "cemetery_shade", "name": "Тень кладбища", "icon": "images/bosses/elden/caelid/cemetery_shade.png" }
       ]
     }
   ]
 }
+
+
