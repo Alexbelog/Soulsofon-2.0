@@ -1,147 +1,77 @@
 body {
-  margin: 0;
-  background: #0e0e0e;
-  color: #eee;
+  background:#0e0e0e;
+  color:#eee;
   font-family: Arial, sans-serif;
+  padding:20px;
 }
 
-header {
-  padding: 10px;
-  background: #111;
+h1 {
+  margin-bottom:10px;
 }
 
-nav button {
-  margin-right: 6px;
-  padding: 6px 10px;
-  background: #222;
-  color: #fff;
-  border: 1px solid #444;
-  cursor: pointer;
+.tabs button {
+  margin-right:5px;
+  padding:6px 10px;
+  cursor:pointer;
 }
 
 .game {
-  display: none;
-  padding: 16px;
+  margin-top:20px;
 }
 
-.game.active {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 20px;
-}
-
-.game-info img {
-  width: 100%;
-  border-radius: 6px;
-}
-
-.game-stats {
-  margin-top: 10px;
-  padding: 8px;
-  background: #141414;
-  border: 1px solid #333;
-  font-size: 14px;
-}
-
-.progress {
-  margin-top: 6px;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 10px;
-  background: #222;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-top: 4px;
-}
-
-.progress-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #2a5, #4f9);
-  transition: width 0.3s;
-}
-
-.filter-buttons,
-.section-filters {
-  margin: 10px 0;
-}
-
-.filter-buttons button,
-.section-filters button {
-  margin-right: 6px;
-  padding: 4px 8px;
-  font-size: 12px;
-  background: #222;
-  border: 1px solid #444;
-  color: #fff;
-  cursor: pointer;
-}
-
-.filter-buttons button.active,
-.section-filters button.active {
-  background: #2a5;
-  border-color: #3c7;
-}
-
-.boss-section {
-  margin-bottom: 24px;
+.boss-grid-header,
+.boss-row {
+  display:grid;
+  grid-template-columns: 160px 60px 70px 80px;
+  gap:8px;
+  align-items:center;
 }
 
 .boss-grid-header {
-  display: grid;
-  grid-template-columns: 44px 1fr 60px 70px 80px;
-  gap: 6px;
-  font-size: 12px;
-  color: #aaa;
-  margin-bottom: 6px;
+  font-size:12px;
+  color:#aaa;
+  margin-bottom:6px;
 }
 
-.boss-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 6px;
+.boss-row {
+  padding:6px;
+  border-bottom:1px solid #333;
 }
 
-.boss-card {
-  display: grid;
-  grid-template-columns: 44px 1fr 60px 70px 80px;
-  gap: 6px;
-  align-items: center;
-  padding: 6px;
-  background: #1a1a1a;
-  border: 1px solid #333;
+.boss-row.killed {
+  background:#143814;
 }
 
-.boss-card.killed {
-  background: #132;
-  opacity: 0.7;
+.boss-name {
+  font-size:14px;
 }
 
-.boss-card img {
-  width: 40px;
-  height: 40px;
-}
-
-input[type="number"] {
-  width: 56px;
+input {
+  width:55px;
 }
 
 .kill-btn {
-  padding: 4px 6px;
-  background: #222;
-  border: 1px solid #555;
-  color: #fff;
-  cursor: pointer;
-  font-size: 12px;
+  padding:4px;
+  background:#222;
+  border:1px solid #555;
+  color:#fff;
+  cursor:pointer;
 }
 
 .kill-btn.active {
-  background: #2a5;
-  border-color: #3c7;
+  background:#2a5;
 }
 
-.hidden {
-  display: none;
+.game-stats {
+  margin-top:10px;
+  padding:8px;
+  background:#141414;
+  border:1px solid #333;
+}
+
+.global-stats {
+  margin-top:20px;
+  padding:10px;
+  background:#111;
+  border:1px solid #333;
 }

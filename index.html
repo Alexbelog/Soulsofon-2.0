@@ -2,25 +2,28 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Soulslike Марафон</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+  <title>Soulslike Marathon</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>🔥 Soulslike Марафон</h1>
-  <nav id="tabs"></nav>
-</header>
+<h1>Soulslike Marathon</h1>
+<div id="admin-badge"></div>
 
-<main id="content"></main>
+<div class="tabs">
+  <button data-tab="ds1">Dark Souls</button>
+  <button data-tab="ds2">Dark Souls II</button>
+  <button data-tab="ds3">Dark Souls III</button>
+  <button data-tab="sekiro">Sekiro</button>
+</div>
 
-<section id="global-stats" class="hidden">
-  <h2>📊 Общая статистика</h2>
-  <p>💀 Всего смертей: <span id="global-deaths">0</span></p>
-  <p>✅ Убито боссов: <span id="global-killed">0</span></p>
-</section>
+<div id="content"></div>
 
-<script src="./app.js"></script>
+<div class="global-stats">
+  💀 Всего смертей: <span id="global-deaths">0</span> |
+  ☠️ Убито боссов: <span id="global-killed">0</span>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
