@@ -1,40 +1,50 @@
 {
-  "id": "sekiro",
-  "name": "Sekiro: Shadows Die Twice",
-  "poster": "https://i.imgur.com/p4RzZzZ.jpg",
-  "description": "Sekiro — экшен от FromSoftware о синоби, который бросает вызов судьбе, смерти и собственному пути.",
-  "sections": {
-
-    "Основные боссы": [
-      { "id": "gyoubu", "name": "Гёбу Масатака Онива" },
-      { "id": "lady_butterfly", "name": "Леди Баттерфляй" },
-      { "id": "genichiro", "name": "Гэничиро Асина" },
-      { "id": "folding_screen_monkeys", "name": "Обезьяны за ширмами" },
-      { "id": "guardian_ape", "name": "Обезьяна-страж" },
-      { "id": "headless_ape", "name": "Обезьяна-страж (без головы)" },
-      { "id": "corrupted_monk", "name": "Искажённый монах" },
-      { "id": "great_shinobi_owl", "name": "Великий синоби — Сова" },
-      { "id": "true_corrupted_monk", "name": "Истинный искажённый монах" },
-      { "id": "divine_dragon", "name": "Божественный дракон" },
-      { "id": "isshin_sword_saint", "name": "Иссин, Святой меча" }
-    ],
-
-    "Опциональные боссы": [
-      { "id": "genichiro_way_of_tomoe", "name": "Гэничиро — Путь Томоэ" },
-      { "id": "isshin_ashina", "name": "Иссин Асина" },
-      { "id": "owl_father", "name": "Сова (Отец)" },
-      { "id": "emma", "name": "Эмма, Тихий клинок" }
-    ],
-
-    "Мини-боссы": [
-      { "id": "chained_ogre", "name": "Закованный огр" },
-      { "id": "shinobi_hunter", "name": "Охотник на синоби Энсин" },
-      { "id": "general_naomori", "name": "Генерал Наомори Каварада" },
-      { "id": "blazing_bull", "name": "Пылающий бык" },
-      { "id": "seven_spears", "name": "Асина — Семь копий" },
-      { "id": "lone_shadow", "name": "Одинокая тень — длинный меч" },
-      { "id": "headless", "name": "Безголовый" },
-      { "id": "shichimen_warrior", "name": "Воин Ситимэн" }
-    ]
-  }
+  "title": "Sekiro: Shadows Die Twice",
+  "logo": "images/logos/sekiro.png",
+  "sections": [
+    {
+      "name": "Основные боссы",
+      "bosses": [
+        { "id": "sek_genichiro_ashina", "name": "Гэнитиро Асина", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_lady_butterfly", "name": "Леди Баттерфляй", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_gyoubu", "name": "Гёбу Масатака Онива", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_folding_screen_monkeys", "name": "Обезьяны складных ширм", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_guardian_ape", "name": "Страж-обезьяна", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_headless_ape", "name": "Обезьяна без головы", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_corrupted_monk", "name": "Искажённая монахиня", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_true_corrupted_monk", "name": "Истинная монахиня", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_great_shinobi_owl", "name": "Великий шиноби Филин", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_owl_father", "name": "Филин (Отец)", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_divine_dragon", "name": "Божественный дракон", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_isshin_sword_saint", "name": "Иссин, Святой меча", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_isshin_ashina", "name": "Иссин Асина", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_demon_of_hatred", "name": "Демон ненависти", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Мини-боссы",
+      "bosses": [
+        { "id": "sek_chained_ogre", "name": "Закованный огр", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_general_naomori", "name": "Генерал Наомори Каварада", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_general_tenzen", "name": "Генерал Тэндзэн Ямаути", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_general_kuranosuke", "name": "Генерал Кураносуке Мацумото", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_general_kuranosuke_2", "name": "Генерал Кураносуке (вторая встреча)", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_blazing_bull", "name": "Пылающий бык", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_shinobi_hunter", "name": "Охотник на шиноби Энсин", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_drunkard_juzou", "name": "Пьяница Дзюдзо", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_lone_shadow_swordsman", "name": "Одинокая тень — мечник", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_lone_shadow_spearbearer", "name": "Одинокая тень — копейщик", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_lone_shadow_vilehand", "name": "Одинокая тень — Злая Рука", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_seven_spears", "name": "Семь копий Асина", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_shichimen_warrior", "name": "Воин Ситимэн", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_headless", "name": "Безголовый", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_okami_leader", "name": "Лидер Оками Сидзу", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_sakura_bull", "name": "Сакуровый бык", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_snake_eyes_shirahagi", "name": "Змеиные глаза Сирахаги", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_snake_eyes_shirafuji", "name": "Змеиные глаза Сирафудзи", "icon": "images/bosses/placeholder.png" },
+        { "id": "sek_ashina_elite", "name": "Элита Асина — Дзинсукэ Садзуки", "icon": "images/bosses/placeholder.png" }
+      ]
+    }
+  ]
 }
+
