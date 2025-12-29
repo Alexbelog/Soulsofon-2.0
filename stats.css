@@ -63,7 +63,7 @@ body {
 .death-count span {
   color: #ff2a2a;
   font-size: 48px;
-  animation: breathe 3s infinite;
+  text-shadow: 0 0 10px #600;
 }
 
 @keyframes breathe {
@@ -123,6 +123,7 @@ body {
   color: #fff;
   cursor: pointer;
 }
+
 
 
 
