@@ -1,9 +1,10 @@
-// ================================
-// SOULSFON 2.0 — app.js
-// ================================
+// ===================================
+// SOULSFON 2.0 — app.js (FINAL)
+// ===================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  // ---------- CONFIG ----------
   const games = [
     { id: "ds1", name: "Dark Souls", json: "data/ds1.json" },
     { id: "ds2", name: "Dark Souls II", json: "data/ds2.json" },
@@ -12,9 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "elden", name: "Elden Ring", json: "data/elden_ring.json" }
   ];
 
+  // ---------- STATE ----------
   let currentGame = null;
+  let currentRegion = null;
   let gameData = null;
 
+  // ---------- DOM ----------
   const sidebar = document.getElementById("game-list");
   const content = document.getElementById("content");
 
@@ -26,53 +30,132 @@ document.addEventListener("DOMContentLoaded", () => {
   initSidebar();
   loadGame(games[0]);
 
+  // ===================================
+  // SIDEBAR
+  // ===================================
+
   function initSidebar() {
     sidebar.innerHTML = "";
     games.forEach(game => {
       const btn = document.createElement("button");
-      btn.textContent = game.name;
       btn.className = "game-btn";
+      btn.textContent = game.name;
       btn.onclick = () => loadGame(game);
       sidebar.appendChild(btn);
     });
   }
 
-  function storageKey(id) {
-    return `soulsofon_progress_${id}`;
+  // ===================================
+  // STORAGE
+  // ===================================
+
+  function storageKey(gameId, region = null) {
+    return region
+      ? `soulsofon_progress_${gameId}_${region}`
+      : `soulsofon_progress_${gameId}`;
   }
 
   function saveProgress() {
-    if (currentGame && gameData) {
-      localStorage.setItem(storageKey(currentGame.id), JSON.stringify(gameData));
-    }
+    if (!currentGame || !gameData) return;
+
+    const key = storageKey(
+      currentGame.id,
+      currentGame.id === "elden" ? currentRegion : null
+    );
+
+    localStorage.setItem(key, JSON.stringify(gameData));
   }
 
-  function loadProgress(game) {
-    const saved = localStorage.getItem(storageKey(game.id));
+  function loadProgress(game, region = null) {
+    const key = storageKey(game.id, region);
+    const saved = localStorage.getItem(key);
     return saved ? JSON.parse(saved) : null;
   }
 
+  // ===================================
+  // LOAD GAME
+  // ===================================
+
   async function loadGame(game) {
     currentGame = game;
+    currentRegion = null;
     content.innerHTML = "<p>Загрузка...</p>";
-
-    const saved = loadProgress(game);
-    if (saved) {
-      gameData = saved;
-      renderGame();
-      return;
-    }
 
     try {
       const res = await fetch(game.json);
-      gameData = await res.json();
-      saveProgress();
+      const rawData = await res.json();
+
+      // Elden Ring → регионы
+      if (game.id === "elden") {
+        renderRegionSelector(rawData);
+        return;
+      }
+
+      // Обычные игры
+      const saved = loadProgress(game);
+      gameData = saved || rawData;
+
+      if (!saved) saveProgress();
       renderGame();
+
     } catch (e) {
       console.error(e);
       content.innerHTML = "<p>Ошибка загрузки данных</p>";
     }
   }
+
+  // ===================================
+  // ELDEN RING — REGIONS
+  // ===================================
+
+  function renderRegionSelector(rawData) {
+    content.innerHTML = "";
+
+    const header = document.createElement("div");
+    header.className = "game-header";
+    header.innerHTML = `
+      <img src="${rawData.poster}" class="game-poster">
+      <h1>${rawData.title}</h1>
+    `;
+
+    const select = document.createElement("select");
+    select.className = "region-select";
+
+    Object.entries(rawData.regions).forEach(([key, region]) => {
+      const option = document.createElement("option");
+      option.value = key;
+      option.textContent = region.name;
+      select.appendChild(option);
+    });
+
+    select.onchange = () => loadRegion(rawData, select.value);
+
+    content.appendChild(header);
+    content.appendChild(select);
+
+    // автозагрузка первого региона
+    loadRegion(rawData, select.value);
+  }
+
+  function loadRegion(rawData, regionKey) {
+    currentRegion = regionKey;
+
+    const region = rawData.regions[regionKey];
+    const saved = loadProgress(currentGame, regionKey);
+
+    gameData = saved || {
+      title: `${rawData.title} — ${region.name}`,
+      poster: rawData.poster,
+      sections: region.sections
+    };
+
+    if (!saved) saveProgress();
+    renderGame();
+  }
+
+  // ===================================
+  // RENDER GAME
+  // ===================================
 
   function renderGame() {
     content.innerHTML = "";
@@ -98,20 +181,24 @@ document.addEventListener("DOMContentLoaded", () => {
     section.className = "boss-section";
     section.innerHTML = `<h2>${sectionTitle(key)}</h2>`;
 
-    bosses.forEach((boss, i) => {
-      section.appendChild(renderBossRow(boss, key, i));
+    bosses.forEach((boss, index) => {
+      section.appendChild(renderBossRow(boss, key, index));
     });
 
     content.appendChild(section);
   }
 
-  function sectionTitle(k) {
+  function sectionTitle(key) {
     return {
       main: "Основные боссы",
       optional: "Опциональные боссы",
       dlc: "Боссы DLC"
-    }[k] || k;
+    }[key] || key;
   }
+
+  // ===================================
+  // BOSS ROW
+  // ===================================
 
   function renderBossRow(boss, section, index) {
     const row = document.createElement("div");
@@ -141,8 +228,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    row.querySelectorAll("input").forEach(i => {
-      i.addEventListener("input", updateBossValue);
+    row.querySelectorAll("input").forEach(input => {
+      input.addEventListener("input", updateBossValue);
     });
 
     row.querySelector(".boss-toggle").onclick = () => {
@@ -156,6 +243,10 @@ document.addEventListener("DOMContentLoaded", () => {
     return row;
   }
 
+  // ===================================
+  // UPDATE / STATS
+  // ===================================
+
   function updateBossValue(e) {
     const { section, index, field } = e.target.dataset;
     gameData.sections[section][index][field] = Number(e.target.value);
@@ -165,8 +256,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function countDeaths() {
     let total = 0;
-    for (const s in gameData.sections) {
-      gameData.sections[s].forEach(b => {
+    for (const section in gameData.sections) {
+      gameData.sections[section].forEach(b => {
         total += Number(b.deaths || 0);
       });
     }
@@ -179,6 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
 
 
