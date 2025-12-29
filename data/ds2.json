@@ -1,63 +1,62 @@
 {
-  "id": "ds2",
-  "name": "Dark Souls II",
-  "poster": "https://i.imgur.com/XpY9BfL.jpg",
-  "description": "Dark Souls II — путешествие проклятого в королевстве Дранглик, полном распада и забвения.",
-  "sections": {
-
-    "Основные боссы": [
-      { "id": "last_giant", "name": "Последний гигант" },
-      { "id": "pursuer", "name": "Преследователь" },
-      { "id": "dragonrider", "name": "Всадник дракона" },
-      { "id": "old_dragonslayer", "name": "Старый убийца драконов" },
-      { "id": "flexile_sentry", "name": "Гибкий страж" },
-      { "id": "ruin_sentinels", "name": "Стражи руин" },
-      { "id": "lost_sinner", "name": "Потерянная грешница" },
-      { "id": "executioner_chariot", "name": "Колесница палача" },
-      { "id": "skeleton_lords", "name": "Лорды скелетов" },
-      { "id": "covetous_demon", "name": "Жадный демон" },
-      { "id": "mytha", "name": "Мита, королева яда" },
-      { "id": "smelter_demon", "name": "Плавильный демон" },
-      { "id": "old_iron_king", "name": "Старый железный король" },
-      { "id": "scorpioness_najka", "name": "Скорпионесса Наджка" },
-      { "id": "royal_rat_authority", "name": "Королевская крыса-властелин" },
-      { "id": "the_rotten", "name": "Гнилец" },
-      { "id": "duke_freja", "name": "Герцогиня Фрейя" },
-      { "id": "looking_glass_knight", "name": "Рыцарь Зеркала" },
-      { "id": "demon_of_song", "name": "Демон песни" },
-      { "id": "velstadt", "name": "Велстадт, Королевский Эгид" },
-      { "id": "guardian_dragon", "name": "Страж-дракон" },
-      { "id": "ancient_dragon", "name": "Древний дракон" },
-      { "id": "giant_lord", "name": "Лорд гигантов" },
-      { "id": "throne_watcher_defender", "name": "Страж и Защитник трона" },
-      { "id": "nashandra", "name": "Нашандра" },
-      { "id": "aldia", "name": "Алдия, Ученый Первого Греха" }
-    ],
-
-    "Второстепенные боссы": [
-      { "id": "dragonrider_twin", "name": "Два всадника дракона" },
-      { "id": "royal_rat_vanguard", "name": "Авангард королевских крыс" },
-      { "id": "prowling_magus", "name": "Бродячий маг и община" },
-      { "id": "congregation", "name": "Конгрегация" },
-      { "id": "darklurker", "name": "Тёмный скиталец" }
-    ],
-
-    "DLC — Crown of the Sunken King": [
-      { "id": "elena", "name": "Элена, королева Сферы" },
-      { "id": "sinh", "name": "Синх, Спящий дракон" },
-      { "id": "gank_squad", "name": "Три стража святилища" }
-    ],
-
-    "DLC — Crown of the Old Iron King": [
-      { "id": "blue_smelter", "name": "Синий плавильный демон" },
-      { "id": "sir_alonne", "name": "Сэр Алонн" },
-      { "id": "fume_knight", "name": "Дымный рыцарь" }
-    ],
-
-    "DLC — Crown of the Ivory King": [
-      { "id": "aava", "name": "Аава, питомец короля" },
-      { "id": "burnt_ivory_king", "name": "Сожжённый король слоновой кости" },
-      { "id": "lud_zallen", "name": "Луд и Заллен, королевские питомцы" }
-    ]
-  }
+  "title": "Dark Souls II",
+  "logo": "images/logos/ds2.png",
+  "sections": [
+    {
+      "name": "Основная игра",
+      "bosses": [
+        { "id": "ds2_last_giant", "name": "Последний гигант", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_pursuer", "name": "Преследователь", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_dragonrider", "name": "Драконоборец", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_old_dragonslayer", "name": "Старый драконоборец", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_flexile_sentry", "name": "Гибкий страж", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_ruin_sentinels", "name": "Стражи руин", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_lost_sinner", "name": "Потерянная грешница", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_belfry_gargoyles", "name": "Горгульи колокольни", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_skeleton_lords", "name": "Повелители скелетов", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_executioners_chariot", "name": "Колесница палача", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_covetous_demon", "name": "Алчный демон", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_mytha", "name": "Мита, королева яда", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_smelt_demon", "name": "Плавильный демон", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_old_iron_king", "name": "Старый Железный Король", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_rotten", "name": "Гниющий", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_scorpioness", "name": "Скорпионесса Наджка", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_royal_rat_authority", "name": "Королевская крысиная власть", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_dukes_dear_freja", "name": "Возлюбленная герцога Фрейя", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_royal_rat_vanguard", "name": "Королевский крысиный авангард", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_prowling_magus", "name": "Бродячий маг и конгрегация", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_frejas_spider", "name": "Паучья прислуга Фрейи", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_guardian_dragon", "name": "Дракон-страж", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_ancient_dragon", "name": "Древний дракон", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_vendrick", "name": "Вендрик", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_watchers_defender", "name": "Страж и Защитник трона", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_nashandra", "name": "Нашандра", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_aldia", "name": "Алдия, Учёный первородного греха", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "DLC — Crown of the Sunken King",
+      "bosses": [
+        { "id": "ds2_elana", "name": "Элана, скверная королева", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_sinh", "name": "Син, дремлющий дракон", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_gank_squad", "name": "Сборище в Шулве", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "DLC — Crown of the Old Iron King",
+      "bosses": [
+        { "id": "ds2_fume_knight", "name": "Рыцарь Дым", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_blue_smelt", "name": "Синий плавильный демон", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_sir_alonne", "name": "Сэр Алонн", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "DLC — Crown of the Ivory King",
+      "bosses": [
+        { "id": "ds2_aava", "name": "Аава, питомец короля", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_burnt_ivory_king", "name": "Сожжённый Король Слоновой Кости", "icon": "images/bosses/placeholder.png" },
+        { "id": "ds2_lud_zallen", "name": "Люд и Заллен, короли-питомцы", "icon": "images/bosses/placeholder.png" }
+      ]
+    }
+  ]
 }
