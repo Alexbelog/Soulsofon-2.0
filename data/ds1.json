@@ -6,16 +6,17 @@
     {
       "title": "Основные боссы",
       "bosses": [
-        { "id": "asylum_demon", "name": "Демон-убежища", "icon": "images/bosses/ds1/asylum_demon.png" },
-        { "id": "taurus_demon", "name": "Демон Тельца", "icon": "images/bosses/ds1/taurus_demon.png" },
+        { "id": "asylum_demon", "name": "Демон Прибежища", "icon": "images/bosses/ds1/asylum_demon.png" },
         { "id": "bell_gargoyles", "name": "Гаргульи колокола", "icon": "images/bosses/ds1/bell_gargoyles.png" },
-        { "id": "chaos_witch_quelaag", "name": "Ведьма Хаоса Квилег", "icon": "images/bosses/ds1/quelaag.png" },
+        { "id": "chaos_witch_quelaag", "name": "Квилег Ведьма Хаоса", "icon": "images/bosses/ds1/quelaag.png" },
+        { "id": "pinwheel", "name": "Вихрь", "icon": "images/bosses/ds1/pinwheel.png" },
+        { "id": "sif_great_wolf", "name": "Сиф Великий Волк", "icon": "images/bosses/ds1/sif_great_wolf.png" },
         { "id": "iron_golem", "name": "Железный голем", "icon": "images/bosses/ds1/iron_golem.png" },
         { "id": "ornstein_smough", "name": "Орнштейн и Смоуг", "icon": "images/bosses/ds1/ornstein_smough.png" },
-        { "id": "seath", "name": "Сит Безчешуйчатый", "icon": "images/bosses/ds1/seath.png" },
+        { "id": "seath", "name": "Нагой Сит", "icon": "images/bosses/ds1/seath.png" },
         { "id": "four_kings", "name": "Четыре Короля", "icon": "images/bosses/ds1/four_kings.png" },
         { "id": "bed_of_chaos", "name": "Ложе Хаоса", "icon": "images/bosses/ds1/bed_of_chaos.png" },
-        { "id": "nito", "name": "Нито — Первый из мёртвых", "icon": "images/bosses/ds1/nito.png" },
+        { "id": "nito", "name": "Нито Повелитель Могил", "icon": "images/bosses/ds1/nito.png" },
         { "id": "gwyn", "name": "Гвин, Повелитель Пепла", "icon": "images/bosses/ds1/gwyn.png" }
       ]
     },
@@ -23,30 +24,31 @@
     {
       "title": "Второстепенные боссы",
       "bosses": [
-        { "id": "moonlight_butterfly", "name": "Лунная бабочка", "icon": "images/bosses/ds1/moonlight_butterfly.png" },
+        { "id": "taurus_demon", "name": "Демон Телец", "icon": "images/bosses/ds1/taurus_demon.png" },
         { "id": "capra_demon", "name": "Демон Капра", "icon": "images/bosses/ds1/capra_demon.png" },
-        { "id": "gapin_dragon", "name": "Зияющий дракон", "icon": "images/bosses/ds1/gaping_dragon.png" },
-        { "id": "stray_demon", "name": "Блуждающий демон", "icon": "images/bosses/ds1/stray_demon.png" },
-        { "id": "demon_firesage", "name": "Огненный демон-мудрец", "icon": "images/bosses/ds1/demon_firesage.png" },
-        { "id": "centipede_demon", "name": "Демон-многоножка", "icon": "images/bosses/ds1/centipede_demon.png" },
-        { "id": "ceaseless_discharge", "name": "Неутомимый выброс", "icon": "images/bosses/ds1/ceaseless_discharge.png" },
-        { "id": "crossbreed_priscilla", "name": "Полукровка Присцилла", "icon": "images/bosses/ds1/priscilla.png" },
-        { "id": "gwyndolin", "name": "Темный Солнцегосподин Гвиндолин", "icon": "images/bosses/ds1/gwyndolin.png" },
-        { "id": "pinwheel", "name": "Вертун", "icon": "images/bosses/ds1/pinwheel.png" }
+        { "id": "moonlight_butterfly", "name": "Лунная бабочка", "icon": "images/bosses/ds1/moonlight_butterfly.png" },
+        { "id": "gapin_dragon", "name": "Разверстый дракон", "icon": "images/bosses/ds1/gaping_dragon.png" },
+        { "id": "stray_demon", "name": "Бродячий демон", "icon": "images/bosses/ds1/stray_demon.png" },
+        { "id": "demon_firesage", "name": "Мудрый демон огня", "icon": "images/bosses/ds1/demon_firesage.png" },
+        { "id": "centipede_demon", "name": "Демон стоног", "icon": "images/bosses/ds1/centipede_demon.png" },
+        { "id": "ceaseless_discharge", "name": "Неутомимый воин", "icon": "images/bosses/ds1/ceaseless_discharge.png" },
+        { "id": "crossbreed_priscilla", "name": "Присцилла Полукровка", "icon": "images/bosses/ds1/priscilla.png" },
+        { "id": "gwyndolin", "name": "Гвиндолин Темное Солнце", "icon": "images/bosses/ds1/gwyndolin.png" }
       ]
     },
 
     {
       "title": "DLC — Artorias of the Abyss",
       "bosses": [
-        { "id": "sanctuary_guardian", "name": "Хранитель святилища", "icon": "images/bosses/ds1/sanctuary_guardian.png" },
-        { "id": "artorias", "name": "Рыцарь Арториас", "icon": "images/bosses/ds1/artorias.png" },
+        { "id": "sanctuary_guardian", "name": "Страж Святилища", "icon": "images/bosses/ds1/sanctuary_guardian.png" },
+        { "id": "artorias", "name": "Арториас Путник Бездны", "icon": "images/bosses/ds1/artorias.png" },
         { "id": "manus", "name": "Манус, Отец Бездны", "icon": "images/bosses/ds1/manus.png" },
         { "id": "kalameet", "name": "Чёрный дракон Каламит", "icon": "images/bosses/ds1/kalameet.png" }
       ]
     }
   ]
 }
+
 
 
 
