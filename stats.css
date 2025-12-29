@@ -6,24 +6,24 @@ body {
 }
 
 .fade-in { animation: fadeIn 1s ease; }
-@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
 
 #layout {
   display: flex;
   min-height: 100vh;
 }
 
-/* GAME LIST */
+/* ПРАВАЯ КОЛОНКА */
 #game-list {
   width: 260px;
   padding: 20px;
   background: #080808;
 }
 
-/* YOU DEATH STYLE BUTTON */
+/* КНОПКИ ИГР (YOU DEATH STYLE) */
 .game-btn {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   padding: 14px;
   background: linear-gradient(145deg,#7a1b1b,#4e0f0f);
   border: none;
@@ -33,16 +33,14 @@ body {
   box-shadow: inset 0 0 18px rgba(0,0,0,.7),0 0 25px rgba(139,30,30,.6);
   transition: .25s;
 }
-
 .game-btn:hover {
   box-shadow: inset 0 0 22px rgba(0,0,0,.8),0 0 40px rgba(180,40,40,1);
 }
-
 .game-btn.active {
   background: linear-gradient(145deg,#b02a2a,#731818);
 }
 
-/* CONTENT */
+/* КОНТЕНТ */
 #content {
   flex: 1;
   padding: 20px;
@@ -55,7 +53,7 @@ body {
   filter: brightness(.8);
 }
 
-/* DEATH STATS */
+/* СТАТА */
 #death-stats {
   display: flex;
   gap: 40px;
@@ -74,7 +72,20 @@ body {
   100%{text-shadow:0 0 5px #600}
 }
 
-/* BOSSES */
+/* СЕЛЕКТОР РЕГИОНА */
+#region-select {
+  margin: 20px 0;
+  padding: 12px;
+  width: 320px;
+  background: #120909;
+  color: #f2f2f2;
+  border: 1px solid #600;
+  letter-spacing: 2px;
+  box-shadow: inset 0 0 12px rgba(0,0,0,.8),
+              0 0 18px rgba(120,0,0,.6);
+}
+
+/* БОССЫ */
 .boss {
   display: grid;
   grid-template-columns: 1fr 80px 80px 90px;
@@ -82,12 +93,10 @@ body {
   padding: 8px;
   border-bottom: 1px solid #222;
 }
-
 .boss.dead {
   text-decoration: line-through;
   border-left: 4px solid #a00;
 }
-
 .boss input {
   width: 60px;
   background: #111;
@@ -95,7 +104,7 @@ body {
   border: 1px solid #400;
 }
 
-/* KILL BUTTON */
+/* КНОПКА УБИТ */
 .kill-btn {
   background: linear-gradient(145deg,#7a1b1b,#4e0f0f);
   border: none;
@@ -114,6 +123,8 @@ body {
   color: #fff;
   cursor: pointer;
 }
+
+
 
 
 
