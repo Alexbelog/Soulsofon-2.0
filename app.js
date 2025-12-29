@@ -1,140 +1,107 @@
-// ===== ADMIN MODE (НЕВИДИМЫЙ) =====
-const isAdmin = new URLSearchParams(location.search).get("admin") === "1";
+const ADMIN = location.search.includes("admin=1");
 
-// ===== JSON FILES =====
-const gameFiles = {
-  ds1: "data/ds1.json",
-  ds2: "data/ds2.json",
-  ds3: "data/ds3.json",
-  sekiro: "data/sekiro.json"
-};
-
+const sidebar = document.getElementById("sidebar");
 const content = document.getElementById("content");
+const globalStats = document.getElementById("global");
 
-// ===== TABS =====
-document.querySelectorAll(".tabs button").forEach(btn => {
-  btn.onclick = () => loadGame(btn.dataset.tab);
-});
+fetch("data/games.json")
+  .then(r => r.json())
+  .then(games => {
+    games.forEach(game => {
+      const btn = document.createElement("div");
+      btn.className = "game-btn";
+      btn.textContent = game.title;
+      btn.onclick = () => loadGame(game);
+      sidebar.appendChild(btn);
+    });
 
-loadGame("ds1");
+    loadGame(games[0]);
+    recalcGlobal();
+  });
 
-// ===== LOAD GAME =====
-async function loadGame(gameId) {
-  content.innerHTML = "Загрузка...";
+function loadGame(game) {
+  fetch(game.file)
+    .then(r => r.json())
+    .then(data => renderGame(data));
+}
 
-  const res = await fetch(gameFiles[gameId]);
-  const game = await res.json();
-
-  content.innerHTML = "";
-
-  const gameEl = document.createElement("div");
-  gameEl.className = "game";
-  gameEl.id = game.id;
-
-  gameEl.innerHTML = `
-    <h2>${game.title}</h2>
-
-    <div class="boss-grid-header">
-      <span>Босс</span>
-      <span>Траи</span>
-      <span>Смерти</span>
-      <span>Статус</span>
-    </div>
-
-    <div class="boss-list"></div>
-
-    <div class="game-stats">
-      💀 Смертей в игре: <span class="game-deaths">0</span>
+function renderGame(data) {
+  content.innerHTML = `
+    <div class="game-header">
+      <img src="${data.logo}">
+      <div class="deaths-big" id="gameDeaths">0</div>
+      <div>Смертей в игре</div>
     </div>
   `;
 
-  content.appendChild(gameEl);
+  let gameDeaths = 0;
 
-  const list = gameEl.querySelector(".boss-list");
+  data.sections.forEach(section => {
+    const block = document.createElement("div");
+    block.className = "section";
+    block.innerHTML = `<h2>${section.name}</h2>`;
 
-  game.bosses.forEach(boss => {
-    list.appendChild(createBossRow(game.id, boss));
-  });
+    section.bosses.forEach(boss => {
+      const key = boss.id;
+      const saved = JSON.parse(localStorage.getItem(key) || "{}");
 
-  recalcStats();
-}
+      gameDeaths += saved.deaths || 0;
 
-// ===== BOSS ROW =====
-function createBossRow(gameId, boss) {
-  const key = `${gameId}_${boss.id}`;
-  const saved = JSON.parse(localStorage.getItem(key) || "{}");
+      const row = document.createElement("div");
+      row.className = "boss";
+      if (saved.killed) row.classList.add("killed");
 
-  const row = document.createElement("div");
-  row.className = "boss-row";
-  if (saved.killed) row.classList.add("killed");
+      row.innerHTML = `
+        <img src="${boss.icon}">
+        <div>${boss.name}</div>
+        <input type="number" value="${saved.tries || 0}">
+        <input type="number" value="${saved.deaths || 0}">
+        <div class="status">${saved.killed ? "УБИТ" : "ЖИВ"}</div>
+      `;
 
-  row.innerHTML = `
-    <div class="boss-name">${boss.name}</div>
-    <input type="number" min="0" value="${saved.tries || 0}">
-    <input type="number" min="0" value="${saved.deaths || 0}">
-    <button class="kill-btn ${saved.killed ? "active" : ""}">
-      ${saved.killed ? "УБИТ" : "ЖИВ"}
-    </button>
-  `;
+      const [tries, deaths] = row.querySelectorAll("input");
 
-  const [tries, deaths] = row.querySelectorAll("input");
-  const btn = row.querySelector("button");
+      if (!ADMIN) {
+        tries.disabled = true;
+        deaths.disabled = true;
+      }
 
-  function save(killed = saved.killed) {
-    if (!isAdmin) return;
+      function save(killed = saved.killed) {
+        if (!ADMIN) return;
+        localStorage.setItem(key, JSON.stringify({
+          tries:+tries.value,
+          deaths:+deaths.value,
+          killed
+        }));
+        recalcGlobal();
+      }
 
-    const data = {
-      tries: +tries.value,
-      deaths: +deaths.value,
-      killed
-    };
+      tries.onchange = save;
+      deaths.onchange = save;
 
-    localStorage.setItem(key, JSON.stringify(data));
-    row.classList.toggle("killed", killed);
-    recalcStats();
-  }
+      row.onclick = () => {
+        if (!ADMIN) return;
+        saved.killed = !saved.killed;
+        save(saved.killed);
+        renderGame(data);
+      };
 
-  tries.onchange = () => save();
-  deaths.onchange = () => save();
-
-  btn.onclick = () => {
-    saved.killed = !saved.killed;
-    btn.textContent = saved.killed ? "УБИТ" : "ЖИВ";
-    btn.classList.toggle("active", saved.killed);
-    save(saved.killed);
-  };
-
-  if (!isAdmin) {
-    row.querySelectorAll("input, button").forEach(el => {
-      el.disabled = true;
-      el.style.opacity = "0.6";
-      el.style.cursor = "not-allowed";
-    });
-  }
-
-  return row;
-}
-
-// ===== STATS =====
-function recalcStats() {
-  let globalDeaths = 0;
-  let globalKilled = 0;
-
-  document.querySelectorAll(".game").forEach(game => {
-    let gameDeaths = 0;
-    const id = game.id;
-
-    Object.keys(localStorage).forEach(k => {
-      if (!k.startsWith(id + "_")) return;
-      const d = JSON.parse(localStorage.getItem(k));
-      gameDeaths += d.deaths || 0;
-      globalDeaths += d.deaths || 0;
-      if (d.killed) globalKilled++;
+      block.appendChild(row);
     });
 
-    game.querySelector(".game-deaths").textContent = gameDeaths;
+    content.appendChild(block);
   });
 
-  document.getElementById("global-deaths").textContent = globalDeaths;
-  document.getElementById("global-killed").textContent = globalKilled;
+  document.getElementById("gameDeaths").textContent = gameDeaths;
+}
+
+function recalcGlobal() {
+  let sum = 0;
+  Object.values(localStorage).forEach(v => {
+    try {
+      const d = JSON.parse(v);
+      if (d.deaths) sum += d.deaths;
+    } catch {}
+  });
+  globalStats.textContent = sum;
 }
