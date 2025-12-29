@@ -2,67 +2,79 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>SOULSFON 2.0 — Статистика</title>
+  <title>Soulsofon 2.0 — Статистика марафона</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="stats.css">
-  <script defer src="app.js"></script>
 </head>
-<body class="stats-page">
+<body>
 
-<div class="stats-layout">
+  <div class="stats-layout">
 
-  <!-- ================= LEFT ================= -->
-  <section class="main-panel">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- КНОПКИ ИГР ГЕНЕРИРУЮТСЯ ИЗ app.js -->
+    </aside>
 
-    <!-- БАННЕР ИГРЫ -->
-    <div class="game-banner">
-      <img src="images/banners/ds1.jpg" alt="Game Banner" id="gameBanner">
-    </div>
+    <!-- MAIN CONTENT -->
+    <main class="content">
 
-    <!-- СТАТИСТИКА -->
-    <div class="death-stats">
-      <div class="stat">
-        <span class="label">Deaths (Game)</span>
-        <span class="value" id="gameDeaths">0</span>
+      <!-- GAME BANNER -->
+      <!-- вставляется из app.js -->
+
+      <!-- GAME STATS -->
+      <!--
+      <div class="game-stats">
+        <div class="stat">Смерти в игре: <span class="stat-value">0</span></div>
+        <div class="stat">Прогресс: <span class="stat-value">0%</span></div>
       </div>
-      <div class="stat">
-        <span class="label">Deaths (Total)</span>
-        <span class="value" id="totalDeaths">0</span>
+      -->
+
+      <!-- PROGRESS BAR -->
+      <!--
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
       </div>
-    </div>
+      -->
 
-    <!-- СПИСОК БОССОВ -->
-    <div id="bossList" class="boss-list">
-      <!-- app.js -->
-    </div>
+      <!-- FILTERS -->
+      <div class="filters">
+        <select id="filterStatus">
+          <option value="all">Все боссы</option>
+          <option value="alive">Живые</option>
+          <option value="killed">Убитые</option>
+        </select>
 
-  </section>
-
-  <!-- ================= RIGHT ================= -->
-  <aside class="side-panel">
-
-    <h2>Games</h2>
-
-    <button class="game-btn" data-game="ds1">Dark Souls</button>
-    <button class="game-btn" data-game="ds2">Dark Souls II</button>
-    <button class="game-btn" data-game="ds3">Dark Souls III</button>
-    <button class="game-btn" data-game="sekiro">Sekiro</button>
-
-    <div class="elden-ring">
-      <button class="game-btn" data-game="elden">Elden Ring</button>
-      <div class="elden-regions">
-        <button data-region="limgrave">Limgrave</button>
-        <button data-region="caelid">Caelid</button>
-        <button data-region="altus">Altus</button>
-        <button data-region="mountaintops">Mountaintops</button>
+        <select id="filterSection">
+          <option value="all">Все секции</option>
+          <option value="Основные">Основные</option>
+          <option value="Опциональные">Опциональные</option>
+          <option value="Мини">Мини-боссы</option>
+          <option value="DLC">DLC</option>
+        </select>
       </div>
-    </div>
 
-  </aside>
+      <!-- BOSS LIST -->
+      <!--
+      <div class="boss-list">
+        app.js рендерит сюда секции и строки боссов
+      </div>
+      -->
 
-</div>
+    </main>
 
+  </div>
+
+  <!-- SCRIPT -->
+  <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
