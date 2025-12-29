@@ -1,0 +1,36 @@
+{
+  "id": "ds1",
+  "name": "Dark Souls",
+  "poster": "https://i.imgur.com/LZbZJ6Q.jpg",
+  "description": "Dark Souls — хардкорная action-RPG в мрачном мире Лордрана.",
+  "sections": {
+    "Основные боссы": [
+      { "id": "asylum_demon", "name": "Асилумский демон" },
+      { "id": "taurus_demon", "name": "Таурус-демон" },
+      { "id": "bell_gargoyles", "name": "Колокольные гаргульи" },
+      { "id": "capra_demon", "name": "Капра-демон" },
+      { "id": "gapindragon", "name": "Разверзшийся дракон" },
+      { "id": "quelaag", "name": "Квилег" },
+      { "id": "iron_golem", "name": "Железный голем" },
+      { "id": "ornstein_smough", "name": "Орнштейн и Смоуг" },
+      { "id": "seath", "name": "Сит Безчешуйчатый" },
+      { "id": "four_kings", "name": "Четыре короля" },
+      { "id": "bed_of_chaos", "name": "Ложе Хаоса" },
+      { "id": "gwyn", "name": "Гвин, Повелитель Пепла" }
+    ],
+    "Второстепенные боссы": [
+      { "id": "moonlight_butterfly", "name": "Лунная бабочка" },
+      { "id": "gaping_dragon", "name": "Разверзшийся дракон" },
+      { "id": "ceaseless", "name": "Неутомимый разряд" },
+      { "id": "centipede", "name": "Многоножка-демон" },
+      { "id": "stray_demon", "name": "Бродячий демон" },
+      { "id": "crossbreed_priscilla", "name": "Полукровка Присцилла" }
+    ],
+    "DLC — Artorias of the Abyss": [
+      { "id": "sanctuary_guardian", "name": "Страж святилища" },
+      { "id": "artorias", "name": "Арториас, Путник Бездны" },
+      { "id": "manus", "name": "Манус, Отец Бездны" },
+      { "id": "kalameet", "name": "Чёрный дракон Каламит" }
+    ]
+  }
+}

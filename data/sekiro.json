@@ -1,0 +1,40 @@
+{
+  "id": "sekiro",
+  "name": "Sekiro: Shadows Die Twice",
+  "poster": "https://i.imgur.com/p4RzZzZ.jpg",
+  "description": "Sekiro — экшен от FromSoftware о синоби, который бросает вызов судьбе, смерти и собственному пути.",
+  "sections": {
+
+    "Основные боссы": [
+      { "id": "gyoubu", "name": "Гёбу Масатака Онива" },
+      { "id": "lady_butterfly", "name": "Леди Баттерфляй" },
+      { "id": "genichiro", "name": "Гэничиро Асина" },
+      { "id": "folding_screen_monkeys", "name": "Обезьяны за ширмами" },
+      { "id": "guardian_ape", "name": "Обезьяна-страж" },
+      { "id": "headless_ape", "name": "Обезьяна-страж (без головы)" },
+      { "id": "corrupted_monk", "name": "Искажённый монах" },
+      { "id": "great_shinobi_owl", "name": "Великий синоби — Сова" },
+      { "id": "true_corrupted_monk", "name": "Истинный искажённый монах" },
+      { "id": "divine_dragon", "name": "Божественный дракон" },
+      { "id": "isshin_sword_saint", "name": "Иссин, Святой меча" }
+    ],
+
+    "Опциональные боссы": [
+      { "id": "genichiro_way_of_tomoe", "name": "Гэничиро — Путь Томоэ" },
+      { "id": "isshin_ashina", "name": "Иссин Асина" },
+      { "id": "owl_father", "name": "Сова (Отец)" },
+      { "id": "emma", "name": "Эмма, Тихий клинок" }
+    ],
+
+    "Мини-боссы": [
+      { "id": "chained_ogre", "name": "Закованный огр" },
+      { "id": "shinobi_hunter", "name": "Охотник на синоби Энсин" },
+      { "id": "general_naomori", "name": "Генерал Наомори Каварада" },
+      { "id": "blazing_bull", "name": "Пылающий бык" },
+      { "id": "seven_spears", "name": "Асина — Семь копий" },
+      { "id": "lone_shadow", "name": "Одинокая тень — длинный меч" },
+      { "id": "headless", "name": "Безголовый" },
+      { "id": "shichimen_warrior", "name": "Воин Ситимэн" }
+    ]
+  }
+}

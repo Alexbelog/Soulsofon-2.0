@@ -1,0 +1,74 @@
+body {
+  background: #0f0f0f;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+header {
+  background: #111;
+  padding: 10px;
+}
+
+nav button {
+  margin-right: 5px;
+  padding: 6px 10px;
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+  cursor: pointer;
+}
+
+.game {
+  display: none;
+  padding: 15px;
+}
+
+.game.active {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+}
+
+.game-info img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.boss-section {
+  margin-bottom: 20px;
+}
+
+.boss-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.boss-card {
+  display: grid;
+  grid-template-columns: 48px 1fr auto auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+}
+
+.boss-card.killed {
+  background: #123;
+  opacity: 0.7;
+}
+
+.boss-card img {
+  width: 40px;
+  height: 40px;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+.hidden {
+  display: none;
+}

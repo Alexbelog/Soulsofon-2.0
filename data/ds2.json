@@ -1,0 +1,63 @@
+{
+  "id": "ds2",
+  "name": "Dark Souls II",
+  "poster": "https://i.imgur.com/XpY9BfL.jpg",
+  "description": "Dark Souls II — путешествие проклятого в королевстве Дранглик, полном распада и забвения.",
+  "sections": {
+
+    "Основные боссы": [
+      { "id": "last_giant", "name": "Последний гигант" },
+      { "id": "pursuer", "name": "Преследователь" },
+      { "id": "dragonrider", "name": "Всадник дракона" },
+      { "id": "old_dragonslayer", "name": "Старый убийца драконов" },
+      { "id": "flexile_sentry", "name": "Гибкий страж" },
+      { "id": "ruin_sentinels", "name": "Стражи руин" },
+      { "id": "lost_sinner", "name": "Потерянная грешница" },
+      { "id": "executioner_chariot", "name": "Колесница палача" },
+      { "id": "skeleton_lords", "name": "Лорды скелетов" },
+      { "id": "covetous_demon", "name": "Жадный демон" },
+      { "id": "mytha", "name": "Мита, королева яда" },
+      { "id": "smelter_demon", "name": "Плавильный демон" },
+      { "id": "old_iron_king", "name": "Старый железный король" },
+      { "id": "scorpioness_najka", "name": "Скорпионесса Наджка" },
+      { "id": "royal_rat_authority", "name": "Королевская крыса-властелин" },
+      { "id": "the_rotten", "name": "Гнилец" },
+      { "id": "duke_freja", "name": "Герцогиня Фрейя" },
+      { "id": "looking_glass_knight", "name": "Рыцарь Зеркала" },
+      { "id": "demon_of_song", "name": "Демон песни" },
+      { "id": "velstadt", "name": "Велстадт, Королевский Эгид" },
+      { "id": "guardian_dragon", "name": "Страж-дракон" },
+      { "id": "ancient_dragon", "name": "Древний дракон" },
+      { "id": "giant_lord", "name": "Лорд гигантов" },
+      { "id": "throne_watcher_defender", "name": "Страж и Защитник трона" },
+      { "id": "nashandra", "name": "Нашандра" },
+      { "id": "aldia", "name": "Алдия, Ученый Первого Греха" }
+    ],
+
+    "Второстепенные боссы": [
+      { "id": "dragonrider_twin", "name": "Два всадника дракона" },
+      { "id": "royal_rat_vanguard", "name": "Авангард королевских крыс" },
+      { "id": "prowling_magus", "name": "Бродячий маг и община" },
+      { "id": "congregation", "name": "Конгрегация" },
+      { "id": "darklurker", "name": "Тёмный скиталец" }
+    ],
+
+    "DLC — Crown of the Sunken King": [
+      { "id": "elena", "name": "Элена, королева Сферы" },
+      { "id": "sinh", "name": "Синх, Спящий дракон" },
+      { "id": "gank_squad", "name": "Три стража святилища" }
+    ],
+
+    "DLC — Crown of the Old Iron King": [
+      { "id": "blue_smelter", "name": "Синий плавильный демон" },
+      { "id": "sir_alonne", "name": "Сэр Алонн" },
+      { "id": "fume_knight", "name": "Дымный рыцарь" }
+    ],
+
+    "DLC — Crown of the Ivory King": [
+      { "id": "aava", "name": "Аава, питомец короля" },
+      { "id": "burnt_ivory_king", "name": "Сожжённый король слоновой кости" },
+      { "id": "lud_zallen", "name": "Луд и Заллен, королевские питомцы" }
+    ]
+  }
+}

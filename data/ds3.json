@@ -1,0 +1,46 @@
+{
+  "id": "ds3",
+  "name": "Dark Souls III",
+  "poster": "https://i.imgur.com/Uh1Xv1R.jpg",
+  "description": "Dark Souls III — финал трилогии, где мир догорает, а пепел прошлого возвращается, чтобы пожрать будущее.",
+  "sections": {
+
+    "Основные боссы": [
+      { "id": "iudex_gundyr", "name": "Иудекс Гундир" },
+      { "id": "vordt", "name": "Вордт Северной долины" },
+      { "id": "curse_rotted_greatwood", "name": "Проклятое Великое древо" },
+      { "id": "crystal_sage", "name": "Кристальный мудрец" },
+      { "id": "deacons", "name": "Дьяконы глубин" },
+      { "id": "abyss_watchers", "name": "Хранители Бездны" },
+      { "id": "high_lord_wolnir", "name": "Верховный лорд Вольнир" },
+      { "id": "pontiff_sulyvahn", "name": "Понтифик Саливан" },
+      { "id": "yhorm", "name": "Йорм Великан" },
+      { "id": "aldrich", "name": "Олдрик, Пожиратель богов" },
+      { "id": "dancer", "name": "Танцовщица Холодной долины" },
+      { "id": "oceiros", "name": "Оцейрос, Пожиратель королей" },
+      { "id": "champion_gundyr", "name": "Чемпион Гундир" },
+      { "id": "lothric_lorian", "name": "Лотрик и Лориан" },
+      { "id": "ancient_wyvern", "name": "Древняя виверна" },
+      { "id": "nameless_king", "name": "Безымянный король" },
+      { "id": "soul_of_cinder", "name": "Душа пепла" }
+    ],
+
+    "Второстепенные боссы": [
+      { "id": "old_demon_king", "name": "Старый король демонов" },
+      { "id": "rotted_greatwood", "name": "Гниющее великое древо" }
+    ],
+
+    "DLC — Ashes of Ariandel": [
+      { "id": "champion_gravetender", "name": "Чемпион-страж могилы и Великий волк" },
+      { "id": "sister_friede", "name": "Сестра Фриде" }
+    ],
+
+    "DLC — The Ringed City": [
+      { "id": "demon_prince", "name": "Принц демонов" },
+      { "id": "halflight", "name": "Полусвет, Копьё церкви" },
+      { "id": "darkeater_midir", "name": "Пожиратель тьмы Мидир" },
+      { "id": "slave_knight_gael", "name": "Рыцарь-раб Гаэль" }
+    ]
+  }
+}
+
