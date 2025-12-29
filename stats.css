@@ -20,7 +20,7 @@ body {
   background: #080808;
 }
 
-/* КНОПКИ ИГР (YOU DEATH STYLE) */
+/* КНОПКИ ИГР */
 .game-btn {
   width: 100%;
   margin-bottom: 12px;
@@ -31,10 +31,6 @@ body {
   letter-spacing: 3px;
   cursor: pointer;
   box-shadow: inset 0 0 18px rgba(0,0,0,.7),0 0 25px rgba(139,30,30,.6);
-  transition: .25s;
-}
-.game-btn:hover {
-  box-shadow: inset 0 0 22px rgba(0,0,0,.8),0 0 40px rgba(180,40,40,1);
 }
 .game-btn.active {
   background: linear-gradient(145deg,#b02a2a,#731818);
@@ -66,23 +62,29 @@ body {
   text-shadow: 0 0 10px #600;
 }
 
-@keyframes breathe {
-  0%{text-shadow:0 0 5px #600}
-  50%{text-shadow:0 0 20px #f00}
-  100%{text-shadow:0 0 5px #600}
+/* ПРОГРЕСС */
+.progress-block { margin: 15px 0; }
+.progress-bar {
+  height: 10px;
+  background: #1a1a1a;
 }
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#600,#f00);
+  transition: width .4s;
+}
+.progress-text { color: #f33; }
 
-/* СЕЛЕКТОР РЕГИОНА */
-#region-select {
-  margin: 20px 0;
-  padding: 12px;
-  width: 320px;
-  background: #120909;
-  color: #f2f2f2;
+/* ФИЛЬТР */
+#filters { margin: 15px 0; }
+.filter-btn {
+  margin-right: 8px;
+  padding: 6px 10px;
+  background: #300;
   border: 1px solid #600;
-  letter-spacing: 2px;
-  box-shadow: inset 0 0 12px rgba(0,0,0,.8),
-              0 0 18px rgba(120,0,0,.6);
+  color: #f2f2f2;
+  cursor: pointer;
 }
 
 /* БОССЫ */
@@ -97,6 +99,18 @@ body {
   text-decoration: line-through;
   border-left: 4px solid #a00;
 }
+
+.boss-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.boss-icon {
+  width: 28px;
+  height: 28px;
+}
+
 .boss input {
   width: 60px;
   background: #111;
@@ -104,7 +118,7 @@ body {
   border: 1px solid #400;
 }
 
-/* КНОПКА УБИТ */
+/* УБИТ */
 .kill-btn {
   background: linear-gradient(145deg,#7a1b1b,#4e0f0f);
   border: none;
@@ -121,8 +135,9 @@ body {
   background: linear-gradient(145deg,#7a1b1b,#4e0f0f);
   border: none;
   color: #fff;
-  cursor: pointer;
 }
+
+
 
 
 
