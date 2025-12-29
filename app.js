@@ -19,10 +19,11 @@ const bossesEl=document.getElementById("bosses");
 const bannerImg=document.getElementById("game-banner-img");
 const gameDeathsEl=document.getElementById("game-deaths");
 const totalDeathsEl=document.getElementById("total-deaths");
-const eldenMap=document.getElementById("elden-map-wrapper");
+const eldenMapWrapper=document.getElementById("elden-map-wrapper");
+const eldenMap=document.getElementById("elden-map");
+const resetMapBtn=document.getElementById("reset-map");
 
 let currentGame=null;
-let currentBosses=[];
 
 Object.keys(games).forEach(id=>{
   const b=document.createElement("button");
@@ -38,7 +39,9 @@ function loadGame(id){
   fetch(games[id].file).then(r=>r.json()).then(data=>{
     currentGame=id;
     bannerImg.src=games[id].banner;
-    eldenMap.classList.toggle("hidden",id!=="elden");
+
+    eldenMapWrapper.classList.toggle("hidden",id!=="elden");
+    resetMapBtn.classList.toggle("hidden",id!=="elden");
 
     if(id==="elden") initEldenMap(data);
     else renderBosses(flatten(data.sections));
@@ -53,8 +56,6 @@ function flatten(sections){
 
 function renderBosses(bosses){
   bossesEl.innerHTML="";
-  currentBosses=bosses;
-
   let gameDeaths=0;
 
   bosses.forEach(b=>{
@@ -86,7 +87,7 @@ function renderBosses(bosses){
       s.dead=true;
       saveState(b.id,s);
       showYouDied();
-      setTimeout(()=>loadGame(currentGame),1000);
+      setTimeout(()=>loadGame(currentGame),900);
     };
 
     row.querySelector("input").onchange=e=>{
@@ -143,17 +144,39 @@ function showYouDied(){
   setTimeout(()=>o.classList.remove("show"),900);
 }
 
-/* ELDEN MAP */
+/* ===== ELDEN MAP ===== */
+
 function initEldenMap(data){
   document.querySelectorAll(".region").forEach(r=>{
     r.onclick=()=>{
       document.querySelectorAll(".region").forEach(x=>x.classList.remove("active"));
       r.classList.add("active");
       renderBosses(data.regions[r.dataset.region].bosses);
+      zoomToRegion(r);
     };
   });
   document.querySelector(".region")?.click();
 }
+
+function zoomToRegion(regionEl){
+  const mapRect=eldenMap.getBoundingClientRect();
+  const rRect=regionEl.getBoundingClientRect();
+
+  const offsetX=(rRect.left+rRect.width/2)-(mapRect.left+mapRect.width/2);
+  const offsetY=(rRect.top+rRect.height/2)-(mapRect.top+mapRect.height/2);
+
+  const scale=1.8;
+  eldenMap.classList.add("zoomed");
+  eldenMap.style.transform=
+    `scale(${scale}) translate(${-offsetX/scale}px, ${-offsetY/scale}px)`;
+}
+
+resetMapBtn.onclick=()=>{
+  eldenMap.classList.remove("zoomed");
+  eldenMap.style.transform="scale(1)";
+};
+
+
 
 
 
