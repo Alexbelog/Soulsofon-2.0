@@ -1,122 +1,196 @@
-/* =================================
-   SOULSOFON — ELDEN MAP STABLE
-   ================================= */
+// ==========================
+// CONFIG
+// ==========================
 
-/* ===== CONFIG ===== */
 const GAMES = [
-  { id: "elden", name: "Elden Ring", file: "data/elden_ring.json" }
+  { id: "ds1", title: "Dark Souls", file: "data/ds1.json" },
+  { id: "ds2", title: "Dark Souls II", file: "data/ds2.json" },
+  { id: "ds3", title: "Dark Souls III", file: "data/ds3.json" },
+  { id: "sekiro", title: "Sekiro", file: "data/sekiro.json" },
+  { id: "elden", title: "Elden Ring", file: "data/elden_ring.json" }
 ];
 
-/* ===== DOM ===== */
-const gameListEl = document.getElementById("game-list");
-const contentEl = document.getElementById("content");
+const STORAGE_KEY = "soulsofon_progress_v1";
 
-/* ===== INIT ===== */
-initGameList();
+// ==========================
+// STATE
+// ==========================
 
-/* ======================
-   GAME LIST
-   ====================== */
-function initGameList() {
-  gameListEl.innerHTML = "";
+let currentGame = null;
+let progress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+
+// ==========================
+// DOM
+// ==========================
+
+const gameList = document.getElementById("game-list");
+const content = document.getElementById("content");
+
+// ==========================
+// INIT
+// ==========================
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderGameButtons();
+  loadGame(GAMES[0]);
+});
+
+// ==========================
+// GAME LIST
+// ==========================
+
+function renderGameButtons() {
+  gameList.innerHTML = "";
 
   GAMES.forEach(game => {
     const btn = document.createElement("button");
-    btn.textContent = game.name;
     btn.className = "game-btn";
+    btn.textContent = game.title;
     btn.onclick = () => loadGame(game);
-    gameListEl.appendChild(btn);
+    gameList.appendChild(btn);
   });
 }
 
-/* ======================
-   LOAD GAME
-   ====================== */
-async function loadGame(game) {
-  contentEl.innerHTML = "";
+// ==========================
+// LOAD GAME
+// ==========================
 
-  try {
-    const res = await fetch(game.file);
-    const data = await res.json();
-    renderEldenMap(data);
-  } catch (e) {
-    console.error("Ошибка загрузки Elden Ring:", e);
+async function loadGame(game) {
+  const res = await fetch(game.file);
+  const data = await res.json();
+
+  currentGame = data;
+  initProgress(data);
+  renderGame(data);
+}
+
+// ==========================
+// PROGRESS
+// ==========================
+
+function initProgress(gameData) {
+  if (!progress[gameData.id]) {
+    progress[gameData.id] = {};
+    gameData.sections.forEach(section => {
+      section.bosses.forEach(boss => {
+        progress[gameData.id][boss.id] = {
+          deaths: 0,
+          tries: 0,
+          killed: false
+        };
+      });
+    });
+    saveProgress();
   }
 }
 
-/* ======================
-   ELDEN RING MAP
-   ====================== */
-function renderEldenMap(data) {
-  contentEl.innerHTML = "";
+function saveProgress() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+}
 
-  /* MAP WRAPPER */
-  const wrapper = document.createElement("div");
-  wrapper.id = "elden-map-wrapper";
+// ==========================
+// RENDER GAME
+// ==========================
 
-  /* MAP IMAGE */
-  const map = document.createElement("img");
-  map.id = "elden-map";
-  map.src = data.map;
-  map.alt = "Elden Ring Map";
+function renderGame(gameData) {
+  content.innerHTML = "";
 
-  wrapper.appendChild(map);
-  contentEl.appendChild(wrapper);
+  // Banner
+  const banner = document.createElement("img");
+  banner.src = gameData.banner;
+  banner.className = "game-banner";
+  content.appendChild(banner);
 
-  /* REGIONS */
-  const regionsBox = document.createElement("div");
-  regionsBox.id = "elden-regions";
+  // Sections
+  gameData.sections.forEach(section => {
+    const sectionEl = document.createElement("section");
+    sectionEl.className = "boss-section";
 
-  Object.entries(data.regions).forEach(([key, region]) => {
-    const btn = document.createElement("button");
-    btn.className = "region";
-    btn.textContent = region.name;
+    const title = document.createElement("h2");
+    title.textContent = section.title;
+    sectionEl.appendChild(title);
 
-    btn.onclick = () => zoomToRegion(btn, map);
+    const grid = document.createElement("div");
+    grid.className = "boss-grid";
 
-    regionsBox.appendChild(btn);
+    section.bosses.forEach(boss => {
+      grid.appendChild(renderBoss(gameData.id, boss));
+    });
+
+    sectionEl.appendChild(grid);
+    content.appendChild(sectionEl);
+  });
+}
+
+// ==========================
+// RENDER BOSS
+// ==========================
+
+function renderBoss(gameId, boss) {
+  const state = progress[gameId][boss.id];
+
+  const card = document.createElement("div");
+  card.className = "boss-card";
+  if (state.killed) card.classList.add("killed");
+
+  const icon = document.createElement("img");
+  icon.src = boss.icon;
+  icon.className = "boss-icon";
+
+  const name = document.createElement("div");
+  name.className = "boss-name";
+  name.textContent = boss.name;
+
+  const stats = document.createElement("div");
+  stats.className = "boss-stats";
+
+  const tries = document.createElement("span");
+  tries.textContent = `Try: ${state.tries}`;
+
+  const deaths = document.createElement("span");
+  deaths.textContent = `Death: ${state.deaths}`;
+
+  stats.append(tries, deaths);
+
+  const controls = document.createElement("div");
+  controls.className = "boss-controls";
+
+  const addTry = button("+Try", () => {
+    state.tries++;
+    saveProgress();
+    renderGame(currentGame);
   });
 
-  contentEl.appendChild(regionsBox);
+  const addDeath = button("+Death", () => {
+    state.deaths++;
+    saveProgress();
+    renderGame(currentGame);
+  });
 
-  /* RESET BUTTON */
-  const resetBtn = document.createElement("button");
-  resetBtn.id = "reset-map";
-  resetBtn.textContent = "СБРОС КАРТЫ";
-  resetBtn.onclick = () => resetMap(map);
+  const kill = button("Убит", () => {
+    state.killed = !state.killed;
+    saveProgress();
+    renderGame(currentGame);
+  });
 
-  contentEl.appendChild(resetBtn);
+  controls.append(addTry, addDeath, kill);
+
+  card.append(icon, name, stats, controls);
+  return card;
 }
 
-/* ======================
-   MAP ZOOM
-   ====================== */
-function zoomToRegion(regionBtn, map) {
-  const mapRect = map.getBoundingClientRect();
-  const btnRect = regionBtn.getBoundingClientRect();
+// ==========================
+// UI HELPERS
+// ==========================
 
-  const offsetX =
-    (btnRect.left + btnRect.width / 2) -
-    (mapRect.left + mapRect.width / 2);
-
-  const offsetY =
-    (btnRect.top + btnRect.height / 2) -
-    (mapRect.top + mapRect.height / 2);
-
-  const scale = 1.8;
-
-  map.style.transform = `
-    scale(${scale})
-    translate(${-offsetX / scale}px, ${-offsetY / scale}px)
-  `;
+function button(text, onClick) {
+  const btn = document.createElement("button");
+  btn.textContent = text;
+  btn.onclick = onClick;
+  return btn;
 }
 
-/* ======================
-   RESET MAP
-   ====================== */
-function resetMap(map) {
-  map.style.transform = "scale(1)";
-}
+
 
 
 
