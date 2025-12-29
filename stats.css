@@ -1,191 +1,121 @@
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: #050507;
-  color: #d0d0d0;
+  margin: 0;
+  background: #0b0b0b;
+  color: #ddd;
   font-family: "Cinzel", serif;
-  min-height: 100vh;
-  overflow-x: hidden;
 }
 
-/* ================= FADE ================= */
-.fade-in {
-  animation: fadeIn 0.5s ease forwards;
-}
-.fade-out {
-  animation: fadeOut 0.4s ease forwards;
-}
+.fade-in { animation: fadeIn 1s ease; }
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
 
-@keyframes fadeIn {
-  from { opacity: 0 }
-  to { opacity: 1 }
-}
-@keyframes fadeOut {
-  from { opacity: 1 }
-  to { opacity: 0 }
-}
-
-/* ================= LAYOUT ================= */
 #layout {
   display: flex;
   min-height: 100vh;
 }
 
-/* ================= SIDEBAR ================= */
+/* GAME LIST */
 #game-list {
   width: 260px;
-  background: linear-gradient(180deg, #0b0b10, #040406);
-  border-left: 1px solid #1f1f24;
-  padding: 25px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  padding: 20px;
+  background: #080808;
 }
 
-.sidebar-logo {
-  text-align: center;
-  font-size: 22px;
-  letter-spacing: 4px;
-  color: #8b1e1e;
-  margin-bottom: 20px;
+/* YOU DEATH STYLE BUTTON */
+.game-btn {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 14px;
+  background: linear-gradient(145deg,#7a1b1b,#4e0f0f);
+  border: none;
+  color: #f2f2f2;
+  letter-spacing: 3px;
+  cursor: pointer;
+  box-shadow: inset 0 0 18px rgba(0,0,0,.7),0 0 25px rgba(139,30,30,.6);
+  transition: .25s;
 }
 
-/* ================= CONTENT ================= */
+.game-btn:hover {
+  box-shadow: inset 0 0 22px rgba(0,0,0,.8),0 0 40px rgba(180,40,40,1);
+}
+
+.game-btn.active {
+  background: linear-gradient(145deg,#b02a2a,#731818);
+}
+
+/* CONTENT */
 #content {
   flex: 1;
-  padding: 30px 50px 80px;
+  padding: 20px;
 }
 
-/* ================= BANNER ================= */
-.game-banner {
+#game-banner {
   width: 100%;
-  max-height: 360px;
-  overflow: hidden;
-  position: relative;
-}
-
-.game-banner img {
-  width: 100%;
+  max-height: 400px;
   object-fit: cover;
-  filter: brightness(0.75) contrast(1.1);
+  filter: brightness(.8);
 }
 
-/* ================= DEATH COUNTERS ================= */
-.souls-deaths {
+/* DEATH STATS */
+#death-stats {
   display: flex;
-  gap: 50px;
-  margin: 35px 0 45px;
+  gap: 40px;
+  margin: 20px 0;
 }
 
-.death-counter {
-  text-align: center;
-  padding: 22px 36px;
-  background: linear-gradient(145deg, #120f12, #09090b);
-  border: 1px solid #2a2a30;
-  box-shadow:
-    inset 0 0 25px rgba(0,0,0,0.7),
-    0 0 30px rgba(139,30,30,0.25);
+.death-count span {
+  color: #ff2a2a;
+  font-size: 48px;
+  animation: breathe 3s infinite;
 }
 
-.death-number {
-  display: block;
-  font-size: 56px;
-  font-weight: 700;
-  color: #8b1e1e;
-  letter-spacing: 3px;
-  text-shadow:
-    0 0 10px rgba(139,30,30,0.6),
-    0 0 30px rgba(139,30,30,0.3);
-  animation: soulsBreath 3.5s ease-in-out infinite;
+@keyframes breathe {
+  0%{text-shadow:0 0 5px #600}
+  50%{text-shadow:0 0 20px #f00}
+  100%{text-shadow:0 0 5px #600}
 }
 
-.death-label {
-  margin-top: 8px;
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: #9a9a9a;
-}
-
-/* ================= BOSSES ================= */
-#bosses {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 18px;
-}
-
+/* BOSSES */
 .boss {
-  padding: 14px 18px;
-  background: linear-gradient(145deg, #0d0d12, #060608);
-  border: 1px solid #1e1e24;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 90px;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #222;
 }
 
-.boss.killed {
-  opacity: 0.55;
+.boss.dead {
   text-decoration: line-through;
+  border-left: 4px solid #a00;
 }
 
-.boss.killed::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #8b1e1e;
+.boss input {
+  width: 60px;
+  background: #111;
+  color: #f2f2f2;
+  border: 1px solid #400;
 }
 
-/* ================= BUTTONS ================= */
+/* KILL BUTTON */
 .kill-btn {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10px;
-  background: linear-gradient(145deg, #7a1b1b, #4e0f0f);
+  background: linear-gradient(145deg,#7a1b1b,#4e0f0f);
   border: none;
   color: #fff;
-  letter-spacing: 2px;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(139,30,30,0.6);
 }
 
-.kill-btn:hover {
-  background: linear-gradient(145deg, #a02121, #6a1515);
-}
-
-/* ================= BACK BUTTON ================= */
+/* BACK */
 #back-btn {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  padding: 14px 26px;
-  background: linear-gradient(145deg, #7a1b1b, #4e0f0f);
+  right: 20px;
+  bottom: 20px;
+  padding: 12px 20px;
+  background: linear-gradient(145deg,#7a1b1b,#4e0f0f);
   border: none;
   color: #fff;
-  letter-spacing: 3px;
   cursor: pointer;
-  box-shadow: 0 0 25px rgba(139,30,30,0.6);
 }
 
-/* ================= BREATH ================= */
-@keyframes soulsBreath {
-  0% {
-    opacity: 0.85;
-    text-shadow: 0 0 8px rgba(139,30,30,0.4);
-  }
-  50% {
-    opacity: 1;
-    text-shadow: 0 0 18px rgba(139,30,30,0.8);
-  }
-  100% {
-    opacity: 0.85;
-    text-shadow: 0 0 8px rgba(139,30,30,0.4);
-  }
-}
+
 
 
 
