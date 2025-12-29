@@ -1,17 +1,17 @@
 body {
-  background: #0f0f0f;
+  margin: 0;
+  background: #0e0e0e;
   color: #eee;
   font-family: Arial, sans-serif;
-  margin: 0;
 }
 
 header {
-  background: #111;
   padding: 10px;
+  background: #111;
 }
 
 nav button {
-  margin-right: 5px;
+  margin-right: 6px;
   padding: 6px 10px;
   background: #222;
   color: #fff;
@@ -21,7 +21,7 @@ nav button {
 
 .game {
   display: none;
-  padding: 15px;
+  padding: 16px;
 }
 
 .game.active {
@@ -35,28 +35,53 @@ nav button {
   border-radius: 6px;
 }
 
+.game-stats {
+  margin-top: 10px;
+  padding: 8px;
+  background: #141414;
+  border: 1px solid #333;
+  font-size: 14px;
+}
+
 .boss-section {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+.boss-grid-header {
+  display: grid;
+  grid-template-columns: 44px 1fr 60px 70px 80px;
+  gap: 6px;
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+.boss-grid-header span {
+  text-align: center;
+}
+
+.boss-grid-header .name {
+  text-align: left;
 }
 
 .boss-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 6px;
 }
 
 .boss-card {
   display: grid;
-  grid-template-columns: 48px 1fr auto auto auto;
+  grid-template-columns: 44px 1fr 60px 70px 80px;
+  gap: 6px;
   align-items: center;
-  gap: 8px;
   padding: 6px;
-  border: 1px solid #333;
   background: #1a1a1a;
+  border: 1px solid #333;
 }
 
 .boss-card.killed {
-  background: #123;
+  background: #132;
   opacity: 0.7;
 }
 
@@ -66,7 +91,21 @@ nav button {
 }
 
 input[type="number"] {
-  width: 50px;
+  width: 56px;
+}
+
+.kill-btn {
+  padding: 4px 6px;
+  background: #222;
+  border: 1px solid #555;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.kill-btn.active {
+  background: #2a5;
+  border-color: #3c7;
 }
 
 .hidden {
