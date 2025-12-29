@@ -1,72 +1,34 @@
 {
+  "id": "elden_leyndell",
   "title": "Elden Ring — Лейнделл, столица королевства",
-  "logo": "images/logos/elden_ring.png",
+  "banner": "images/banners/elden/leyndell.jpg",
   "sections": [
     {
-      "name": "Основные боссы",
+      "title": "Основные боссы региона",
       "bosses": [
-        {
-          "id": "er_godfrey_first_elden_lord_shade",
-          "name": "Годфри, первый повелитель Элдена (тень)",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_morgott_omen_king",
-          "name": "Морготт, Король знамений",
-          "icon": "images/bosses/placeholder.png"
-        }
+        { "id": "godfrey_golden_shade", "name": "Годфри, Золотая тень", "icon": "images/bosses/elden/leyndell/godfrey_shade.png" },
+        { "id": "morgott", "name": "Моргoтт, Король Знамений", "icon": "images/bosses/elden/leyndell/morgott.png" }
       ]
     },
+
     {
-      "name": "Лейнделл — мир",
+      "title": "Полевые и опциональные боссы",
       "bosses": [
-        {
-          "id": "er_erdtree_avatar_leyndell",
-          "name": "Аватар Древа Эрд (Лейнделл)",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_tree_spirit_leyndell",
-          "name": "Дух древа (Лейнделл)",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_crucible_knight_leyndell",
-          "name": "Рыцарь Тигля (Лейнделл)",
-          "icon": "images/bosses/placeholder.png"
-        }
+        { "id": "fell_twins", "name": "Павшие близнецы", "icon": "images/bosses/elden/leyndell/fell_twins.png" },
+        { "id": "crucible_knight_ordovis", "name": "Рыцарь Горнила Ордовис", "icon": "images/bosses/elden/leyndell/ordovis.png" },
+        { "id": "crucible_knight_siluria", "name": "Рыцарь Горнила Силурия", "icon": "images/bosses/elden/leyndell/siluria.png" }
       ]
     },
+
     {
-      "name": "Подземелья Лейнделла",
+      "title": "Подземелья и подрегионы",
       "bosses": [
-        {
-          "id": "er_esgar_priest_of_blood",
-          "name": "Эсгар, жрец крови",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_lord_of_blood_duelist",
-          "name": "Дуэлянт, повелитель крови",
-          "icon": "images/bosses/placeholder.png"
-        }
-      ]
-    },
-    {
-      "name": "Подземелья — Катакомбы и могилы",
-      "bosses": [
-        {
-          "id": "er_crucible_knight_ordovis",
-          "name": "Рыцарь Тигля Ордовис",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_crucible_knight_siluria",
-          "name": "Рыцарь Тигля Силурия",
-          "icon": "images/bosses/placeholder.png"
-        }
+        { "id": "esgar_priest", "name": "Эсгар, Жрец Крови", "icon": "images/bosses/elden/leyndell/esgar.png" },
+        { "id": "erdtree_avatar_leyndell", "name": "Аватар Древа Эрд", "icon": "images/bosses/elden/leyndell/erdtree_avatar.png" }
       ]
     }
   ]
 }
+
+
 
