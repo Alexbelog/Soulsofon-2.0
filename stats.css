@@ -115,7 +115,7 @@ body {
 }
 
 .boss-icon:hover {
-  transform: scale(1.35);
+  transform: scale(3.35);
   filter: drop-shadow(0 0 10px #8b0000);
   z-index: 10;
 }
@@ -208,6 +208,7 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
 
 
 
