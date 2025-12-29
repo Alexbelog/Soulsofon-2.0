@@ -1,90 +1,85 @@
 /* =========================
-   THEME / VARIABLES
+   BASE
 ========================= */
-:root {
-  --bg-main: #0b0b0b;
-  --bg-panel: #141414;
-  --bg-row: #121212;
-  --bg-hover: #1a1a1a;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
 
-  --text-main: #e0e0e0;
+:root {
+  --bg-main: #0b0b0d;
+  --bg-panel: #141417;
+  --bg-panel-light: #1c1c21;
+
+  --text-main: #e6e6e6;
   --text-muted: #9a9a9a;
 
-  --accent-red: #8b0000;
-  --accent-red-bright: #b00000;
-  --accent-red-glow: rgba(139, 0, 0, 0.6);
+  --accent-red: #8b1e1e;
+  --accent-red-glow: rgba(139, 30, 30, 0.6);
 
-  --border-soft: #1f1f1f;
+  --border-dark: #2a2a2f;
 }
 
-/* =========================
-   RESET / BASE
-========================= */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #0b0b0b, #121212);
+  background: radial-gradient(circle at top, #111 0%, #050507 80%);
   color: var(--text-main);
-  font-family: Inter, Roboto, Arial, sans-serif;
-  overflow-x: hidden;
-}
-
-/* =========================
-   MAIN LAYOUT
-========================= */
-.stats-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
+  font-family: 'Cinzel', serif;
   min-height: 100vh;
 }
 
 /* =========================
-   SIDEBAR (GAMES / REGIONS)
+   LAYOUT
 ========================= */
-.sidebar {
-  background: #0e0e0e;
-  border-right: 1px solid var(--border-soft);
-  padding: 16px;
-}
-
-.sidebar h3 {
-  margin: 0 0 12px;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.sidebar button {
-  width: 100%;
-  background: none;
-  border: none;
-  color: var(--text-main);
-  padding: 10px;
-  margin-bottom: 4px;
-  text-align: left;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.sidebar button:hover {
-  background: var(--bg-hover);
-}
-
-.sidebar button.active {
-  color: var(--accent-red);
-  background: rgba(139, 0, 0, 0.15);
+#layout {
+  display: flex;
+  min-height: 100vh;
 }
 
 /* =========================
-   CONTENT AREA
+   SIDEBAR
 ========================= */
-.content {
+#game-list {
+  width: 260px;
+  background: linear-gradient(to bottom, #0e0e12, #08080a);
+  border-right: 1px solid var(--border-dark);
+  padding: 20px 14px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+.game-btn {
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  color: var(--text-main);
+  padding: 14px 12px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.game-btn:hover {
+  border-color: var(--accent-red);
+  color: #fff;
+  box-shadow: 0 0 12px var(--accent-red-glow);
+}
+
+.game-btn.active {
+  background: rgba(139, 30, 30, 0.15);
+  border-color: var(--accent-red);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+#content {
+  flex: 1;
+  padding: 30px 40px 60px;
+  overflow-y: auto;
 }
 
 /* =========================
@@ -92,84 +87,50 @@ body {
 ========================= */
 .game-banner {
   width: 100%;
-  height: 320px;
+  max-height: 400px;
   object-fit: cover;
-  border-bottom: 1px solid var(--border-soft);
-}
-
-/* =========================
-   GLOBAL STATS
-========================= */
-.game-stats {
-  display: flex;
-  gap: 40px;
-  padding: 16px;
-  font-size: 20px;
-  align-items: center;
-}
-
-.stat {
-  color: var(--text-muted);
-}
-
-.stat-value {
-  color: var(--accent-red);
-  font-weight: bold;
-  margin-left: 6px;
-}
-
-/* =========================
-   FILTERS
-========================= */
-.filters {
-  display: flex;
-  gap: 12px;
-  padding: 0 16px 16px;
-}
-
-.filters select {
-  background: #111;
-  color: var(--text-main);
-  border: 1px solid var(--border-soft);
-  padding: 6px 8px;
   border-radius: 4px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
 
 /* =========================
-   PROGRESS BAR
+   TITLES
 ========================= */
-.progress-bar {
-  height: 10px;
-  background: #1e1e1e;
-  margin: 0 16px 16px;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent-red), var(--accent-red-bright));
-  box-shadow: 0 0 8px var(--accent-red-glow);
-  transition: width 0.3s ease;
-}
-
-/* =========================
-   BOSS LIST
-========================= */
-.boss-list {
-  padding: 0 16px 32px;
-}
-
-/* =========================
-   SECTION TITLE
-========================= */
-.boss-section-title {
-  margin: 24px 0 8px;
-  font-size: 14px;
+h1 {
+  margin: 10px 0 30px;
+  font-size: 36px;
+  letter-spacing: 3px;
   text-transform: uppercase;
+}
+
+h2 {
+  margin: 40px 0 20px;
+  font-size: 22px;
+  letter-spacing: 2px;
   color: var(--text-muted);
-  border-bottom: 1px solid var(--border-soft);
-  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 6px;
+}
+
+/* =========================
+   TOTAL DEATHS
+========================= */
+.total-deaths {
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  padding: 12px 18px;
+  background: linear-gradient(145deg, #120f12, #0a090b);
+  border: 1px solid var(--border-dark);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+  margin-bottom: 30px;
+}
+
+/* =========================
+   BOSS SECTION
+========================= */
+.boss-section {
+  margin-bottom: 50px;
 }
 
 /* =========================
@@ -177,95 +138,129 @@ body {
 ========================= */
 .boss-row {
   display: grid;
-  grid-template-columns: 48px 1fr 90px 90px 60px;
-  gap: 12px;
+  grid-template-columns: 44px 1fr 90px 90px 90px;
   align-items: center;
-  padding: 10px;
-  background: var(--bg-row);
-  border-bottom: 1px solid var(--border-soft);
-  transition: background 0.15s ease;
+  gap: 14px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  background: linear-gradient(to right, #151519, #101013);
+  border: 1px solid var(--border-dark);
+  transition: all 0.2s ease;
 }
 
 .boss-row:hover {
-  background: var(--bg-hover);
+  border-color: var(--accent-red);
 }
 
 /* =========================
-   BOSS ICON
+   BOSS ICON + NAME
 ========================= */
 .boss-icon {
-  width: 42px;
-  height: 42px;
-  object-fit: cover;
-  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(20%);
 }
 
-/* =========================
-   BOSS NAME
-========================= */
 .boss-name {
   font-size: 15px;
+  letter-spacing: 1px;
 }
 
 /* =========================
-   INPUTS (TRY / DEATH)
+   STATS
 ========================= */
-.boss-input-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 11px;
-  color: var(--text-muted);
+.stat {
+  text-align: center;
 }
 
-.boss-input {
-  width: 60px;
-  background: #0f0f0f;
-  border: 1px solid var(--border-soft);
+.stat input {
+  width: 100%;
+  background: #0b0b0d;
+  border: 1px solid var(--border-dark);
   color: var(--text-main);
+  font-family: inherit;
+  font-size: 15px;
   text-align: center;
-  padding: 4px;
-  border-radius: 4px;
-  margin-bottom: 2px;
+  padding: 6px 4px;
+}
+
+.stat small {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* =========================
+   KILLED CHECKBOX
+========================= */
+.killed {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.killed input {
+  accent-color: var(--accent-red);
 }
 
 /* =========================
    KILLED STATE
 ========================= */
-.boss-row.killed {
-  opacity: 0.4;
-  filter: grayscale(1);
+.boss-row:has(.killed input:checked) {
+  background: linear-gradient(to right, rgba(139,30,30,0.15), #101013);
+  border-color: var(--accent-red);
 }
 
-.boss-killed {
-  accent-color: var(--accent-red);
-  transform: scale(1.2);
+.boss-row:has(.killed input:checked) .boss-name {
+  text-decoration: line-through;
+  color: #b0b0b0;
 }
 
 /* =========================
    SCROLLBAR
 ========================= */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
-  border-radius: 3px;
+  background: #2a2a2f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red);
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
-@media (max-width: 1024px) {
-  .stats-layout {
-    grid-template-columns: 1fr;
+@media (max-width: 1100px) {
+  #layout {
+    flex-direction: column;
   }
 
-  .sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--border-soft);
+  #game-list {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .boss-row {
+    grid-template-columns: 36px 1fr 70px 70px 70px;
   }
 }
+
 
 
