@@ -241,6 +241,20 @@ body {
   background: var(--red-main);
 }
 
+/* ================= FADE TRANSITION ================= */
+body.fade-out {
+  animation: fadeOut 0.6s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 
 
 
