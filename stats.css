@@ -13,7 +13,7 @@ body {
   min-height: 100vh;
 }
 
-/* ===== GAME LIST (RIGHT COLUMN) ===== */
+/* ===== GAME LIST ===== */
 
 #game-list {
   background: linear-gradient(#140000, #000);
@@ -28,10 +28,10 @@ body {
   background: linear-gradient(#7a0000, #3a0000);
   color: #fff;
   border: 1px solid #aa0000;
-  padding: 12px;
+  padding: 14px;
   font-size: 18px;
+  letter-spacing: 2px;
   cursor: pointer;
-  letter-spacing: 1px;
 }
 
 .game-btn:hover {
@@ -46,14 +46,12 @@ body {
   margin: 0 auto;
 }
 
-/* ===== BANNER ===== */
-
 .game-banner {
   width: 100%;
   max-height: 360px;
   object-fit: cover;
-  margin-bottom: 16px;
   border: 1px solid #300;
+  margin-bottom: 16px;
 }
 
 /* ===== PROGRESS ===== */
@@ -73,11 +71,10 @@ body {
 }
 
 .boss-section h2 {
-  margin: 24px 0 12px;
   font-size: 28px;
-  color: #eee;
   border-bottom: 1px solid #400;
   padding-bottom: 6px;
+  margin-bottom: 16px;
 }
 
 /* ===== BOSS ROW ===== */
@@ -107,16 +104,12 @@ body {
   background: #8b0000;
 }
 
-/* ===== ICON ===== */
-
 .boss-icon {
   width: 36px;
   height: 36px;
   object-fit: contain;
   filter: drop-shadow(0 0 4px black);
 }
-
-/* ===== NAME ===== */
 
 .boss-name {
   font-size: 18px;
@@ -136,7 +129,6 @@ body {
   color: #fff;
   border: 1px solid #400;
   text-align: center;
-  font-size: 16px;
 }
 
 .stat-label {
@@ -145,19 +137,31 @@ body {
   margin-top: 4px;
 }
 
-/* ===== KILL BUTTON ===== */
+/* ===== BUTTONS ===== */
 
-.kill-btn {
+.kill-btn,
+.back-btn {
   background: linear-gradient(#7a0000, #3a0000);
   color: #fff;
   border: 1px solid #aa0000;
-  padding: 6px;
+  padding: 8px 16px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
-.kill-btn:hover {
+.kill-btn:hover,
+.back-btn:hover {
   background: #aa0000;
+}
+
+/* ===== BACK ===== */
+
+.back-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
 }
 
 /* ===== YOU DIED ===== */
@@ -172,12 +176,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 3000;
 }
 
-.you-died.hidden {
+.hidden {
   display: none;
 }
+
+/* ===== FADE ===== */
+
+.fade-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 4000;
+  pointer-events: none;
+}
+
+.fade-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
 
 
 
