@@ -9,15 +9,12 @@
 
 <div id="layout">
 
-  <!-- ПРАВАЯ КОЛОНКА -->
   <aside id="game-list"></aside>
 
-  <!-- ОСНОВНОЙ КОНТЕНТ -->
   <main id="content">
 
     <img id="game-banner" src="" alt="">
 
-    <!-- СТАТИСТИКА -->
     <div id="death-stats">
       <div class="death-count">
         <span id="game-deaths">0</span>
@@ -29,10 +26,34 @@
       </div>
     </div>
 
-    <!-- СЕЛЕКТОР РЕГИОНА (ТОЛЬКО ELDEN) -->
+    <!-- ПРОГРЕСС ИГРЫ -->
+    <div class="progress-block">
+      <div class="progress-label">PROGRESS</div>
+      <div class="progress-bar">
+        <div id="game-progress" class="progress-fill"></div>
+      </div>
+      <div id="game-progress-text" class="progress-text">0%</div>
+    </div>
+
+    <!-- ПРОГРЕСС МАРАФОНА -->
+    <div class="progress-block">
+      <div class="progress-label">MARATHON PROGRESS</div>
+      <div class="progress-bar">
+        <div id="total-progress" class="progress-fill"></div>
+      </div>
+      <div id="total-progress-text" class="progress-text">0%</div>
+    </div>
+
+    <!-- РЕГИОНЫ (ELDEN) -->
     <select id="region-select" style="display:none"></select>
 
-    <!-- БОССЫ -->
+    <!-- ФИЛЬТР -->
+    <div id="filters">
+      <button class="filter-btn" data-filter="all">ALL</button>
+      <button class="filter-btn" data-filter="alive">ALIVE</button>
+      <button class="filter-btn" data-filter="dead">DEAD</button>
+    </div>
+
     <div id="boss-list"></div>
 
   </main>
@@ -43,6 +64,8 @@
 <script src="app.js"></script>
 </body>
 </html>
+
+
 
 
 
