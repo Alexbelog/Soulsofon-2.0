@@ -1,69 +1,88 @@
-body {
+/* ===== ОБЩЕЕ ===== */
+* {
   margin: 0;
-  background: #0b0b0b;
-  color: #ddd;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-  padding: 20px;
-  text-align: center;
-  border-bottom: 1px solid #333;
-}
-
-.back {
-  color: #888;
-  text-decoration: none;
-  float: left;
-}
-
-.tabs, .subtabs {
+body.index-page {
+  background: radial-gradient(circle at top, #1a1a1a 0%, #000 70%);
+  color: #e0e0e0;
+  font-family: "Cinzel", "Times New Roman", serif;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 15px;
-}
-
-.tabs a, .subtabs button {
-  background: #1a1a1a;
-  color: #fff;
-  padding: 10px 15px;
-  border: 1px solid #444;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.tabs a:hover, .subtabs button:hover {
-  background: #7a1c1c;
-}
-
-#bossContainer {
-  padding: 30px;
-}
-
-.section {
-  margin-bottom: 30px;
-}
-
-.boss {
-  display: grid;
-  grid-template-columns: 40px 1fr 80px 80px;
   align-items: center;
-  gap: 10px;
-  padding: 8px;
-  border-bottom: 1px solid #222;
+  justify-content: center;
 }
 
-.boss img {
-  width: 40px;
-}
-
-input {
-  background: #111;
-  color: #fff;
-  border: 1px solid #444;
+/* ===== ЦЕНТРАЛЬНЫЙ БЛОК ===== */
+.landing {
   text-align: center;
 }
+
+/* ===== ЗАГОЛОВОК ===== */
+.title {
+  font-size: 64px;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+  text-shadow:
+    0 0 10px rgba(255, 60, 60, 0.4),
+    0 0 30px rgba(255, 0, 0, 0.2);
+}
+
+/* ===== ПОСТЕР ===== */
+.poster {
+  max-width: 70vw;
+  max-height: 60vh;
+  border: 2px solid #3a3a3a;
+  box-shadow:
+    0 0 30px rgba(0, 0, 0, 0.9),
+    0 0 60px rgba(120, 0, 0, 0.3);
+  margin-bottom: 36px;
+}
+
+/* ===== КНОПКА YOU DEATH ===== */
+.start-button {
+  display: inline-block;
+  padding: 18px 60px;
+  font-size: 28px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #8b0000;
+  background: linear-gradient(
+    180deg,
+    #b00000 0%,
+    #5a0000 100%
+  );
+  box-shadow:
+    0 0 15px rgba(255, 0, 0, 0.4),
+    inset 0 0 10px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease;
+}
+
+/* ===== ХОВЕР ===== */
+.start-button:hover {
+  background: linear-gradient(
+    180deg,
+    #ff2a2a 0%,
+    #8b0000 100%
+  );
+  box-shadow:
+    0 0 25px rgba(255, 0, 0, 0.7),
+    inset 0 0 12px rgba(0, 0, 0, 0.8);
+  transform: translateY(-2px);
+}
+
+/* ===== НАЖАТИЕ ===== */
+.start-button:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 0 10px rgba(255, 0, 0, 0.5),
+    inset 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+
 
 
 
