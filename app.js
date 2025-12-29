@@ -1,178 +1,135 @@
-/* ================================
-   SOULSOFON 2.0 — app.js (FINAL)
-   ================================ */
+// =========================
+// SOULSFON 2.0 — app.js
+// =========================
 
-/* ---------- РЕЕСТР ИГР ---------- */
-
-const GAMES = [
-  {
-    id: "ds1",
-    title: "Dark Souls",
-    json: "data/ds1.json"
-  },
-  {
-    id: "ds2",
-    title: "Dark Souls II",
-    json: "data/ds2.json"
-  },
-  {
-    id: "ds3",
-    title: "Dark Souls III",
-    json: "data/ds3.json"
-  },
-  {
-    id: "sekiro",
-    title: "Sekiro: Shadows Die Twice",
-    json: "data/sekiro.json"
-  },
-  {
-    id: "elden",
-    title: "Elden Ring",
-    json: "data/elden_ring.json"
-  }
+const games = [
+  { id: "ds1", name: "Dark Souls", json: "data/ds1.json" },
+  { id: "ds2", name: "Dark Souls II", json: "data/ds2.json" },
+  { id: "ds3", name: "Dark Souls III", json: "data/ds3.json" },
+  { id: "sekiro", name: "Sekiro", json: "data/sekiro.json" },
+  { id: "elden", name: "Elden Ring", json: "data/elden_ring.json" }
 ];
 
 let currentGame = null;
 let gameData = null;
 
-/* ---------- DOM ---------- */
+const sidebar = document.querySelector("#game-list");
+const content = document.querySelector("#content");
 
-const sidebar = document.querySelector(".sidebar");
-const content = document.querySelector(".content");
-
-/* ---------- INIT ---------- */
+// =========================
+// INIT
+// =========================
 
 initSidebar();
-loadGame(GAMES[0]); // по умолчанию первая игра
-
-/* ---------- SIDEBAR ---------- */
+loadGame(games[0]);
 
 function initSidebar() {
-  sidebar.innerHTML = "";
-
-  GAMES.forEach(game => {
+  games.forEach(game => {
     const btn = document.createElement("button");
-    btn.className = "game-btn";
-    btn.textContent = game.title;
-
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".game-btn")
-        .forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      loadGame(game);
-    });
-
+    btn.textContent = game.name;
+    btn.onclick = () => loadGame(game);
     sidebar.appendChild(btn);
   });
-
-  sidebar.querySelector(".game-btn")?.classList.add("active");
 }
 
-/* ---------- LOAD GAME ---------- */
+// =========================
+// LOCAL STORAGE
+// =========================
+
+function saveProgress() {
+  if (!currentGame || !gameData) return;
+  localStorage.setItem(
+    `soulsofon_progress_${currentGame.id}`,
+    JSON.stringify(gameData)
+  );
+}
+
+function loadProgress(game) {
+  const saved = localStorage.getItem(`soulsofon_progress_${game.id}`);
+  return saved ? JSON.parse(saved) : null;
+}
+
+// =========================
+// LOAD GAME
+// =========================
 
 async function loadGame(game) {
   currentGame = game;
+  content.innerHTML = "<p>Загрузка...</p>";
 
-  content.classList.add("fade-out");
+  const saved = loadProgress(game);
+
+  if (saved) {
+    gameData = saved;
+    renderGame();
+    return;
+  }
 
   try {
-    const response = await fetch(game.json);
-    gameData = await response.json();
-
-    setTimeout(() => {
-      renderGame();
-      content.classList.remove("fade-out");
-    }, 300);
-
-  } catch (err) {
-    console.error("Ошибка загрузки JSON:", err);
+    const res = await fetch(game.json);
+    gameData = await res.json();
+    saveProgress();
+    renderGame();
+  } catch (e) {
+    content.innerHTML = "<p>Ошибка загрузки данных</p>";
+    console.error(e);
   }
 }
 
-/* ---------- RENDER GAME ---------- */
+// =========================
+// RENDER GAME
+// =========================
 
 function renderGame() {
   content.innerHTML = "";
 
-  renderHeader();
-  renderFilters();
-  renderBosses();
-}
-
-/* ---------- HEADER ---------- */
-
-function renderHeader() {
+  // Poster + title
   const header = document.createElement("div");
   header.className = "game-header";
 
   header.innerHTML = `
+    <img src="${gameData.poster}" class="game-poster">
     <h1>${gameData.title}</h1>
-    ${gameData.description ? `<p>${gameData.description}</p>` : ""}
+    <div class="death-counter">
+      Смертей в игре: <strong>${countDeaths()}</strong>
+    </div>
   `;
 
   content.appendChild(header);
+
+  for (const section in gameData.sections) {
+    renderSection(section, gameData.sections[section]);
+  }
 }
 
-/* ---------- FILTERS ---------- */
+// =========================
+// RENDER SECTION
+// =========================
 
-function renderFilters() {
-  const filters = document.createElement("div");
-  filters.className = "filters";
+function renderSection(sectionName, bosses) {
+  const section = document.createElement("section");
+  section.className = "boss-section";
 
-  filters.innerHTML = `
-    <select id="filterStatus">
-      <option value="all">Все боссы</option>
-      <option value="alive">Живые</option>
-      <option value="killed">Убитые</option>
-    </select>
+  section.innerHTML = `<h2>${sectionTitle(sectionName)}</h2>`;
 
-    <select id="filterSection">
-      <option value="all">Все секции</option>
-    </select>
-  `;
-
-  content.appendChild(filters);
-
-  fillSectionsFilter();
-  bindFilters();
-}
-
-function fillSectionsFilter() {
-  const select = document.getElementById("filterSection");
-
-  Object.keys(gameData.sections).forEach(section => {
-    const opt = document.createElement("option");
-    opt.value = section;
-    opt.textContent = section;
-    select.appendChild(opt);
-  });
-}
-
-/* ---------- BOSSES ---------- */
-
-function renderBosses() {
-  const list = document.createElement("div");
-  list.className = "boss-list";
-
-  Object.entries(gameData.sections).forEach(([sectionName, bosses]) => {
-    const section = document.createElement("div");
-    section.className = "boss-section";
-    section.dataset.section = sectionName;
-
-    section.innerHTML = `<h2>${sectionName}</h2>`;
-
-    bosses.forEach((boss, index) => {
-      section.appendChild(renderBossRow(boss, sectionName, index));
-    });
-
-    list.appendChild(section);
+  bosses.forEach((boss, index) => {
+    section.appendChild(renderBossRow(boss, sectionName, index));
   });
 
-  content.appendChild(list);
+  content.appendChild(section);
 }
 
-/* ---------- BOSS ROW ---------- */
+function sectionTitle(key) {
+  return {
+    main: "Основные боссы",
+    optional: "Опциональные боссы",
+    dlc: "Боссы DLC"
+  }[key] || key;
+}
+
+// =========================
+// BOSS ROW
+// =========================
 
 function renderBossRow(boss, section, index) {
   const row = document.createElement("div");
@@ -180,71 +137,70 @@ function renderBossRow(boss, section, index) {
   row.dataset.status = boss.killed ? "killed" : "alive";
 
   row.innerHTML = `
-    <div class="boss-name">${boss.name}</div>
+    <div class="boss-left">
+      <img src="${boss.icon || ""}" class="boss-icon">
+      <div class="boss-name">${boss.name}</div>
+    </div>
 
-    <input type="number" min="0" class="boss-input"
-      value="${boss.tries}"
-      data-field="tries"
-      data-section="${section}"
-      data-index="${index}">
+    <div class="boss-stats">
+      <div>
+        <input type="number" min="0" value="${boss.tries || 0}"
+          data-section="${section}" data-index="${index}" data-field="tries">
+        <span>Try</span>
+      </div>
 
-    <input type="number" min="0" class="boss-input"
-      value="${boss.deaths}"
-      data-field="deaths"
-      data-section="${section}"
-      data-index="${index}">
+      <div>
+        <input type="number" min="0" value="${boss.deaths || 0}"
+          data-section="${section}" data-index="${index}" data-field="deaths">
+        <span>Death</span>
+      </div>
 
-    <button class="boss-toggle">
-      ${boss.killed ? "☠" : "⚔"}
-    </button>
+      <button class="boss-toggle">${boss.killed ? "☠" : "⚔"}</button>
+    </div>
   `;
 
-  row.querySelector(".boss-toggle").addEventListener("click", () => {
+  row.querySelectorAll("input").forEach(input => {
+    input.addEventListener("change", updateBossValue);
+  });
+
+  row.querySelector(".boss-toggle").onclick = () => {
     boss.killed = !boss.killed;
     row.dataset.status = boss.killed ? "killed" : "alive";
     row.querySelector(".boss-toggle").textContent = boss.killed ? "☠" : "⚔";
-  });
-
-  row.querySelectorAll(".boss-input").forEach(input => {
-    input.addEventListener("change", updateBossValue);
-  });
+    saveProgress();
+    updateDeathCounter();
+  };
 
   return row;
 }
 
-/* ---------- UPDATE ---------- */
+// =========================
+// UPDATE
+// =========================
 
 function updateBossValue(e) {
   const { section, index, field } = e.target.dataset;
   gameData.sections[section][index][field] = Number(e.target.value);
+  saveProgress();
+  updateDeathCounter();
 }
 
-/* ---------- FILTER LOGIC ---------- */
-
-function bindFilters() {
-  document.getElementById("filterStatus")
-    .addEventListener("change", applyFilters);
-
-  document.getElementById("filterSection")
-    .addEventListener("change", applyFilters);
-}
-
-function applyFilters() {
-  const status = document.getElementById("filterStatus").value;
-  const section = document.getElementById("filterSection").value;
-
-  document.querySelectorAll(".boss-section").forEach(sec => {
-    const showSection = section === "all" || sec.dataset.section === section;
-    sec.style.display = showSection ? "" : "none";
-
-    sec.querySelectorAll(".boss-row").forEach(row => {
-      const showStatus =
-        status === "all" || row.dataset.status === status;
-
-      row.style.display = showStatus ? "" : "none";
+function countDeaths() {
+  let total = 0;
+  for (const section in gameData.sections) {
+    gameData.sections[section].forEach(b => {
+      total += Number(b.deaths || 0);
     });
-  });
+  }
+  return total;
 }
+
+function updateDeathCounter() {
+  const counter = document.querySelector(".death-counter strong");
+  if (counter) counter.textContent = countDeaths();
+}
+
+
 
 
 
