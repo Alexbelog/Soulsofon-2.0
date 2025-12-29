@@ -24,6 +24,9 @@ const eldenMap=document.getElementById("elden-map");
 const resetMapBtn=document.getElementById("reset-map");
 
 let currentGame=null;
+let currentBosses=[];
+
+/* ---------- GAME LIST ---------- */
 
 Object.keys(games).forEach(id=>{
   const b=document.createElement("button");
@@ -35,37 +38,63 @@ Object.keys(games).forEach(id=>{
 
 loadGame("ds1");
 
+/* ---------- LOAD GAME ---------- */
+
 function loadGame(id){
-  fetch(games[id].file).then(r=>r.json()).then(data=>{
-    currentGame=id;
-    bannerImg.src=games[id].banner;
+  fetch(games[id].file)
+    .then(r=>r.json())
+    .then(data=>{
+      currentGame=id;
+      bannerImg.src=games[id].banner;
 
-    eldenMapWrapper.classList.toggle("hidden",id!=="elden");
-    resetMapBtn.classList.toggle("hidden",id!=="elden");
+      eldenMapWrapper.classList.toggle("hidden",id!=="elden");
+      resetMapBtn.classList.toggle("hidden",id!=="elden");
 
-    if(id==="elden") initEldenMap(data);
-    else renderBosses(flatten(data.sections));
-  });
+      if(id==="elden"){
+        initEldenMap(data);
+      } else {
+        currentBosses = flatten(data.sections);
+        renderBosses(currentBosses);
+      }
+    });
 }
+
+/* ---------- HELPERS ---------- */
 
 function flatten(sections){
   let arr=[];
-  Object.values(sections).forEach(v=>Array.isArray(v)&&arr.push(...v));
+  Object.values(sections).forEach(v=>{
+    if(Array.isArray(v)) arr.push(...v);
+  });
   return arr;
 }
 
+function saveState(id,d){
+  localStorage.setItem("boss_"+id,JSON.stringify(d));
+}
+function loadState(id){
+  return JSON.parse(localStorage.getItem("boss_"+id)||"{}");
+}
+
+/* ---------- RENDER BOSSES ---------- */
+
 function renderBosses(bosses){
   bossesEl.innerHTML="";
+  currentBosses=bosses;
+
   let gameDeaths=0;
 
   bosses.forEach(b=>{
-    const s=loadState(b.id);
-    if(s.dead) gameDeaths+=s.deaths||0;
+    const state=loadState(b.id);
+    const deaths=state.deaths||0;
+    const dead=state.dead===true;
+
+    if(dead) gameDeaths+=deaths;
 
     const row=document.createElement("div");
-    row.className="boss"+(s.dead?" dead":"");
+    row.className="boss"+(dead?" dead":"");
 
-    const deaths=s.deaths||0;
+    /* heatmap */
     let heat=0;
     if(deaths>=1)heat=1;
     if(deaths>=5)heat=2;
@@ -74,34 +103,51 @@ function renderBosses(bosses){
     row.dataset.heat=heat;
 
     row.innerHTML=`
-      <img class="boss-icon" src="images/bosses/${currentGame}/${b.id}.png"
+      <img class="boss-icon"
+           src="images/bosses/${currentGame}/${b.id}.png"
            onerror="this.src='images/bosses/placeholder.png'">
+
       <span class="boss-name">${b.name}</span>
+
       <div class="boss-stats">
-        <input type="number" value="${deaths}">
-        <button>УБИТ</button>
+        <input type="number" min="0" value="${deaths}">
+        <button class="kill-btn">
+          ${dead ? "ВОСКРЕС" : "УБИТ"}
+        </button>
       </div>
     `;
 
-    row.querySelector("button").onclick=()=>{
-      s.dead=true;
-      saveState(b.id,s);
-      showYouDied();
-      setTimeout(()=>loadGame(currentGame),900);
+    /* deaths input */
+    row.querySelector("input").onchange=e=>{
+      state.deaths=Math.max(0, +e.target.value);
+      saveState(b.id,state);
+      updateAll();
     };
 
-    row.querySelector("input").onchange=e=>{
-      s.deaths=+e.target.value;
-      saveState(b.id,s);
-      updateTotals();
+    /* KILL / REVIVE */
+    row.querySelector(".kill-btn").onclick=()=>{
+      state.dead=!state.dead;
+
+      if(state.dead){
+        showYouDied();
+      }
+
+      saveState(b.id,state);
+      renderBosses(currentBosses);
     };
 
     bossesEl.appendChild(row);
   });
 
   gameDeathsEl.textContent=gameDeaths;
+  updateAll();
+}
+
+/* ---------- TOTALS & PROGRESS ---------- */
+
+function updateAll(){
   updateTotals();
-  updateProgress(bosses);
+  updateProgress();
 }
 
 function updateTotals(){
@@ -109,34 +155,40 @@ function updateTotals(){
   Object.keys(localStorage).forEach(k=>{
     if(k.startsWith("boss_")){
       const d=JSON.parse(localStorage[k]);
-      if(d.deaths) total+=d.deaths;
+      if(d.dead && d.deaths) total+=d.deaths;
     }
   });
   totalDeathsEl.textContent=total;
-  updateTotalProgress();
 }
 
-function updateProgress(bosses){
+function updateProgress(){
   let killed=0;
-  bosses.forEach(b=>loadState(b.id).dead&&killed++);
-  document.getElementById("game-progress").style.width=
-    (bosses.length?Math.round(killed/bosses.length*100):0)+"%";
-}
+  currentBosses.forEach(b=>{
+    if(loadState(b.id).dead) killed++;
+  });
 
-function updateTotalProgress(){
-  let total=0,killed=0;
+  const gamePercent=currentBosses.length
+    ? Math.round(killed/currentBosses.length*100)
+    : 0;
+
+  document.getElementById("game-progress").style.width=gamePercent+"%";
+
+  let total=0, totalKilled=0;
   Object.keys(localStorage).forEach(k=>{
     if(k.startsWith("boss_")){
       total++;
-      JSON.parse(localStorage[k]).dead&&killed++;
+      if(JSON.parse(localStorage[k]).dead) totalKilled++;
     }
   });
-  document.getElementById("total-progress").style.width=
-    (total?Math.round(killed/total*100):0)+"%";
+
+  const totalPercent=total
+    ? Math.round(totalKilled/total*100)
+    : 0;
+
+  document.getElementById("total-progress").style.width=totalPercent+"%";
 }
 
-function saveState(id,d){ localStorage.setItem("boss_"+id,JSON.stringify(d)); }
-function loadState(id){ return JSON.parse(localStorage.getItem("boss_"+id)||"{}"); }
+/* ---------- YOU DIED ---------- */
 
 function showYouDied(){
   const o=document.getElementById("you-died-overlay");
@@ -144,14 +196,17 @@ function showYouDied(){
   setTimeout(()=>o.classList.remove("show"),900);
 }
 
-/* ===== ELDEN MAP ===== */
+/* ---------- ELDEN MAP ---------- */
 
 function initEldenMap(data){
   document.querySelectorAll(".region").forEach(r=>{
     r.onclick=()=>{
       document.querySelectorAll(".region").forEach(x=>x.classList.remove("active"));
       r.classList.add("active");
-      renderBosses(data.regions[r.dataset.region].bosses);
+
+      currentBosses=data.regions[r.dataset.region].bosses;
+      renderBosses(currentBosses);
+
       zoomToRegion(r);
     };
   });
@@ -175,6 +230,8 @@ resetMapBtn.onclick=()=>{
   eldenMap.classList.remove("zoomed");
   eldenMap.style.transform="scale(1)";
 };
+
+
 
 
 
