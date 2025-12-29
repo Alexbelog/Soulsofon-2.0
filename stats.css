@@ -41,8 +41,8 @@ body {
 /* ===== CONTENT ===== */
 
 #content {
-  padding: 24px 32px;
-  max-width: 1200px;
+  padding: 32px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -50,14 +50,15 @@ body {
 
 #game-banner {
   position: relative;
-  margin-bottom: 32px;
+  max-width: 1100px;        /* 👈 БАННЕР УЖЕ */
+  margin: 0 auto 40px;      /* 👈 ЦЕНТР */
 }
 
 #banner-img {
   width: 100%;
-  max-height: 360px;
+  max-height: 300px;        /* 👈 ЧУТЬ МЕНЬШЕ */
   object-fit: cover;
-  border: 1px solid #300;
+  border: 1px solid #400;
   display: block;
 }
 
@@ -65,16 +66,18 @@ body {
 
 #death-summary {
   position: absolute;
-  right: 32px;
-  bottom: 24px;
+  right: 24px;
+  bottom: 20px;
 
   display: flex;
-  gap: 32px;
+  gap: 28px;
 
-  background: rgba(0, 0, 0, 0.65);
-  padding: 14px 20px;
-  border: 1px solid #500;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 14px 22px;
+  border: 1px solid #700;
 }
+
+/* ===== DEATH BOX ===== */
 
 .death-box {
   text-align: center;
@@ -83,15 +86,18 @@ body {
 .death-label {
   font-size: 14px;
   color: #aaa;
+  margin-bottom: 4px;
 }
 
 .death-value {
-  font-size: 36px;
+  font-size: 38px;
   color: darkred;
-  text-shadow: 0 0 12px #000, 0 0 6px #600;
+  text-shadow:
+    0 0 10px #000,
+    0 0 20px #600;
 }
 
-/* controls */
+/* ===== CONTROLS ===== */
 
 .death-controls {
   display: flex;
@@ -102,15 +108,15 @@ body {
 .death-controls button {
   width: 34px;
   height: 34px;
-  background: linear-gradient(#500, #200);
-  border: 1px solid #700;
+  background: linear-gradient(#600, #200);
+  border: 1px solid #900;
   color: white;
   font-size: 22px;
   cursor: pointer;
 }
 
 .death-controls button:hover {
-  background: #900;
+  background: #a00000;
 }
 
 /* ===== PROGRESS ===== */
@@ -176,8 +182,8 @@ body {
 }
 
 .boss-icon:hover {
-  transform: scale(3.35);
-  filter: drop-shadow(0 0 10px #8b0000);
+  transform: scale(3.2);
+  filter: drop-shadow(0 0 12px #8b0000);
   z-index: 10;
 }
 
@@ -269,6 +275,7 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
 
 
 
