@@ -14,31 +14,37 @@
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
   <main id="content">
-    <div id="game-header">
-      <img id="game-banner" src="" alt="">
-      <div id="death-stats">
-        <div class="death-count">
-          <span id="game-deaths">0</span>
-          <small>DEATHS (GAME)</small>
-        </div>
-        <div class="death-count">
-          <span id="total-deaths">0</span>
-          <small>DEATHS (TOTAL)</small>
-        </div>
+
+    <img id="game-banner" src="" alt="">
+
+    <!-- СТАТИСТИКА -->
+    <div id="death-stats">
+      <div class="death-count">
+        <span id="game-deaths">0</span>
+        <small>DEATHS (GAME)</small>
+      </div>
+      <div class="death-count">
+        <span id="total-deaths">0</span>
+        <small>DEATHS (TOTAL)</small>
       </div>
     </div>
 
-    <div id="boss-list"></div>
-  </main>
+    <!-- СЕЛЕКТОР РЕГИОНА (ТОЛЬКО ELDEN) -->
+    <select id="region-select" style="display:none"></select>
 
+    <!-- БОССЫ -->
+    <div id="boss-list"></div>
+
+  </main>
 </div>
 
-<!-- BACK -->
 <button id="back-btn">BACK</button>
 
 <script src="app.js"></script>
 </body>
 </html>
+
+
 
 
 
