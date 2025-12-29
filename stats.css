@@ -1,150 +1,161 @@
 body {
-  background: #050505;
-  color: #eee;
-  font-family: serif;
+  background:#050505;
+  color:#eee;
+  font-family:serif;
 }
 
-#layout {
-  display: flex;
-}
+#layout { display:flex; }
 
 /* ПРАВАЯ КОЛОНКА */
 #game-list {
-  width: 220px;
-  padding: 20px;
+  width:220px;
+  padding:20px;
 }
 
-/* КНОПКИ ИГР */
 .game-btn {
-  background: #7a0000;
-  border: none;
-  color: #fff;
-  padding: 12px;
-  margin-bottom: 10px;
-  width: 100%;
-  cursor: pointer;
-  font-size: 16px;
+  width:100%;
+  margin-bottom:10px;
+  padding:12px;
+  background:#7a0000;
+  color:#fff;
+  border:none;
+  cursor:pointer;
 }
-
-.game-btn:hover {
-  background: #b00000;
-}
+.game-btn:hover { background:#b00000; }
 
 /* КОНТЕНТ */
-#content {
-  flex: 1;
-  padding: 20px;
-}
+#content { flex:1; padding:20px; }
 
 #game-banner img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
+  width:100%;
+  max-height:300px;
+  object-fit:cover;
 }
 
 /* СМЕРТИ */
 #death-stats {
-  display: flex;
-  gap: 40px;
-  margin: 20px 0;
+  display:flex;
+  gap:40px;
+  margin:20px 0;
 }
-
 .death-box strong {
-  font-size: 48px;
-  color: red;
+  font-size:48px;
+  color:red;
 }
 
-/* КАРТА ELDEN */
+/* ПРОГРЕСС */
+.progress-label {
+  font-size:14px;
+  color:#aaa;
+  margin:6px 0;
+}
+.progress-bar {
+  height:12px;
+  background:#222;
+  margin-bottom:14px;
+}
+.progress-bar div {
+  height:100%;
+  background:darkred;
+  width:0%;
+  transition:width .4s;
+}
+
+/* КАРТА */
 #elden-map-wrapper {
-  position: relative;
-  max-width: 1000px;
-  margin: 30px auto;
+  position:relative;
+  max-width:1000px;
+  margin:30px auto;
 }
-
-#elden-map {
-  width: 100%;
-  filter: brightness(0.6);
-}
+#elden-map { width:100%; filter:brightness(.6); }
 
 .region {
-  position: absolute;
-  cursor: pointer;
+  position:absolute;
+  cursor:pointer;
 }
-
 .region:hover {
-  outline: 2px solid red;
-  background: rgba(255,0,0,0.2);
+  outline:2px solid red;
+  background:rgba(255,0,0,.2);
 }
 
-.hidden {
-  display: none;
-}
+.hidden { display:none; }
 
-/* ===== БОССЫ ===== */
-
+/* БОССЫ */
 .boss {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-  padding-left: 6px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:8px;
+  padding-left:6px;
 }
-
 .boss.dead {
-  text-decoration: line-through;
-  border-left: 4px solid red;
+  text-decoration:line-through;
+  border-left:4px solid red;
 }
 
-/* ИКОНКА */
 .boss-icon {
-  width: 36px;
-  height: 36px;
-  object-fit: cover;
-  border-radius: 4px;
-  filter: grayscale(20%) brightness(0.9);
+  width:36px;
+  height:36px;
+  border-radius:4px;
+  object-fit:cover;
 }
-
 .boss.dead .boss-icon {
-  filter: grayscale(100%) brightness(0.4);
+  filter:grayscale(100%) brightness(.4);
 }
 
-.boss-name {
-  flex: 1;
-}
+.boss-name { flex:1; }
 
 .boss-stats {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display:flex;
+  gap:8px;
+}
+.boss-stats input { width:60px; }
+
+/* ТЕПЛОВАЯ КАРТА */
+.boss[data-heat="1"] { background:rgba(255,0,0,.05); }
+.boss[data-heat="2"] { background:rgba(255,0,0,.12); }
+.boss[data-heat="3"] { background:rgba(255,0,0,.2); }
+.boss[data-heat="4"] { background:rgba(255,0,0,.3); }
+
+/* YOU DIED */
+#you-died-overlay {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .4s;
+  z-index:9999;
+}
+#you-died-overlay.show { opacity:1; }
+
+.you-died-text {
+  font-size:96px;
+  color:darkred;
+  letter-spacing:6px;
+  animation:diedPulse 1.2s infinite;
 }
 
-.boss-stats input {
-  width: 60px;
+@keyframes diedPulse {
+  0%{opacity:.4;}
+  50%{opacity:1;}
+  100%{opacity:.4;}
 }
 
-/* КНОПКА УБИТ */
-.boss-stats button {
-  background: #7a0000;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  cursor: pointer;
-}
-
-.boss-stats button:hover {
-  background: #b00000;
-}
-
-/* КНОПКА НАЗАД */
+/* BACK */
 #back-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: darkred;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:darkred;
+  color:white;
+  padding:12px 20px;
+  text-decoration:none;
 }
+
 
 
 
