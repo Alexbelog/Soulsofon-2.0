@@ -46,21 +46,34 @@ body {
   margin: 0 auto;
 }
 
-.game-banner {
+/* ===== BANNER ===== */
+
+#game-banner {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+#banner-img {
   width: 100%;
   max-height: 360px;
   object-fit: cover;
   border: 1px solid #300;
-  margin-bottom: 16px;
+  display: block;
 }
 
-/* СМЕРТИ */
+/* ===== DEATH SUMMARY ===== */
+
 #death-summary {
   position: absolute;
-  right: 40px;
-  top: 220px;
+  right: 32px;
+  bottom: 24px;
+
   display: flex;
-  gap: 36px;
+  gap: 32px;
+
+  background: rgba(0, 0, 0, 0.65);
+  padding: 14px 20px;
+  border: 1px solid #500;
 }
 
 .death-box {
@@ -75,8 +88,10 @@ body {
 .death-value {
   font-size: 36px;
   color: darkred;
-  text-shadow: 0 0 10px black;
+  text-shadow: 0 0 12px #000, 0 0 6px #600;
 }
+
+/* controls */
 
 .death-controls {
   display: flex;
@@ -148,6 +163,8 @@ body {
   width: 4px;
   background: #8b0000;
 }
+
+/* ===== ICON ===== */
 
 .boss-icon {
   width: 56px;
@@ -252,6 +269,7 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
 
 
 
