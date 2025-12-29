@@ -1,24 +1,29 @@
 const games = [
-  { id: "ds1", file: "data/ds1.json" }
-  { id: "ds2", file: "data/ds2.json" }
-  { id: "ds3", file: "data/ds3.json" }
-  { id: "sekiro", file: "data/sekiro.json" }
+  { id: "ds1", file: "./data/ds1.json" },
+  { id: "ds2", file: "./data/ds2.json" },
+  { id: "ds3", file: "./data/ds3.json" },
+  { id: "sekiro", file: "./data/sekiro.json" }
 ];
 
-const content = document.getElementById("content");
 const tabs = document.getElementById("tabs");
+const content = document.getElementById("content");
 
 async function loadGames() {
   for (const g of games) {
-    const data = await fetch(g.file).then(r => r.json());
+    const res = await fetch(g.file);
+    if (!res.ok) {
+      console.error("Ошибка загрузки:", g.file);
+      continue;
+    }
+    const data = await res.json();
     createTab(data);
     createGame(data);
   }
 
-  const statsBtn = document.createElement("button");
-  statsBtn.textContent = "📊 Статистика";
-  statsBtn.onclick = showGlobalStats;
-  tabs.appendChild(statsBtn);
+  const statBtn = document.createElement("button");
+  statBtn.textContent = "📊 Статистика";
+  statBtn.onclick = showStats;
+  tabs.appendChild(statBtn);
 }
 
 function createTab(game) {
@@ -30,7 +35,8 @@ function createTab(game) {
 
 function openGame(id) {
   document.querySelectorAll(".game").forEach(g => g.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+  const el = document.getElementById(id);
+  if (el) el.classList.add("active");
   document.getElementById("global-stats").classList.add("hidden");
 }
 
@@ -68,51 +74,60 @@ function createGame(game) {
 
 function createBossCard(gameId, boss) {
   const key = `${gameId}_${boss.id}`;
-  const data = JSON.parse(localStorage.getItem(key)) || { tries:0, deaths:0, killed:false };
+  const saved = JSON.parse(localStorage.getItem(key)) || {
+    tries: 0,
+    deaths: 0,
+    killed: false
+  };
 
   const card = document.createElement("div");
   card.className = "boss-card";
-  if (data.killed) card.classList.add("killed");
+  if (saved.killed) card.classList.add("killed");
 
   card.innerHTML = `
-    <img src="icons/${gameId}/${boss.id}.png" onerror="this.src='https://i.imgur.com/6X8QZQp.png'">
+    <img src="./icons/${gameId}/${boss.id}.png" onerror="this.src='https://i.imgur.com/6X8QZQp.png'">
     <strong>${boss.name}</strong>
-    <input type="number" value="${data.tries}">
-    <input type="number" value="${data.deaths}">
-    <input type="checkbox" ${data.killed ? "checked" : ""}>
+    <input type="number" value="${saved.tries}">
+    <input type="number" value="${saved.deaths}">
+    <input type="checkbox" ${saved.killed ? "checked" : ""}>
   `;
 
-  const [tries, deaths, killed] = card.querySelectorAll("input");
+  const [tries, deaths, checkbox] = card.querySelectorAll("input");
 
   function save() {
-    const newData = {
+    const data = {
       tries: +tries.value,
       deaths: +deaths.value,
-      killed: killed.checked
+      killed: checkbox.checked
     };
-    localStorage.setItem(key, JSON.stringify(newData));
-    card.classList.toggle("killed", killed.checked);
-    recalcGlobal();
+    localStorage.setItem(key, JSON.stringify(data));
+    card.classList.toggle("killed", data.killed);
+    recalcStats();
   }
 
-  tries.onchange = deaths.onchange = killed.onchange = save;
+  tries.onchange = save;
+  deaths.onchange = save;
+  checkbox.onchange = save;
+
   return card;
 }
 
-function showGlobalStats() {
+function showStats() {
   document.querySelectorAll(".game").forEach(g => g.classList.remove("active"));
   document.getElementById("global-stats").classList.remove("hidden");
-  recalcGlobal();
+  recalcStats();
 }
 
-function recalcGlobal() {
+function recalcStats() {
   let deaths = 0;
   let killed = 0;
 
-  Object.keys(localStorage).forEach(k => {
-    const d = JSON.parse(localStorage.getItem(k));
-    if (d?.deaths) deaths += d.deaths;
-    if (d?.killed) killed++;
+  Object.values(localStorage).forEach(v => {
+    try {
+      const d = JSON.parse(v);
+      deaths += d.deaths || 0;
+      if (d.killed) killed++;
+    } catch {}
   });
 
   document.getElementById("global-deaths").textContent = deaths;
@@ -120,3 +135,4 @@ function recalcGlobal() {
 }
 
 loadGames();
+
