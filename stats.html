@@ -3,34 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Soulsofon 2.0 — Статистика</title>
-
   <link rel="stylesheet" href="stats.css">
 </head>
 <body>
 
 <div id="layout">
 
-  <!-- ПРАВАЯ КОЛОНКА: ИГРЫ -->
-  <aside id="game-list">
-    <!-- кнопки игр добавляются через JS -->
-  </aside>
+  <!-- ПРАВАЯ КОЛОНКА -->
+  <aside id="game-list"></aside>
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
-  <main id="content">
-    <!-- контент игры рендерится через JS -->
-  </main>
+  <main id="content"></main>
 
 </div>
 
-<!-- YOU DIED OVERLAY -->
-<div id="you-died" class="you-died hidden">
-  YOU DIED
-</div>
+<!-- YOU DIED -->
+<div id="you-died" class="you-died hidden">YOU DIED</div>
 
-<!-- JS СТРОГО В КОНЦЕ -->
+<!-- BACK -->
+<button id="back-btn" class="back-btn">BACK</button>
+
+<!-- FADE -->
+<div id="fade-overlay" class="fade-overlay hidden"></div>
+
 <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
