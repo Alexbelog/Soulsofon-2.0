@@ -1,119 +1,104 @@
 {
+  "id": "elden",
   "title": "Elden Ring",
-  "banner": "images/elden/banner.jpg",
-
-  "regions": {
-
-    "limgrave": {
-      "name": "Лимгрейв",
+  "banner": "images/banners/elden_ring.jpg",
+  "sections": [
+    {
+      "title": "Лимгрейв",
       "bosses": [
-        { "id": "tree_sentinel", "name": "Древний страж" },
-        { "id": "margit", "name": "Маргит, Ужасное Предзнаменование" },
-        { "id": "godrick", "name": "Годрик Сторукий" },
-        { "id": "flying_dragon_agheel", "name": "Летающий дракон Агиль" },
-        { "id": "erdtree_burial_watchdog", "name": "Погребальный страж Древа Эрд" }
+        {
+          "id": "margit",
+          "name": "Маргит, Ужасное Предзнаменование",
+          "icon": "images/bosses/elden/limgrave/margit.png"
+        },
+        {
+          "id": "godrick",
+          "name": "Годрик Сторукий",
+          "icon": "images/bosses/elden/limgrave/godrick.png"
+        },
+        {
+          "id": "tree_sentinel",
+          "name": "Древесный Страж",
+          "icon": "images/bosses/elden/limgrave/tree_sentinel.png"
+        }
       ]
     },
-
-    "weeping_peninsula": {
-      "name": "Плачущий полуостров",
+    {
+      "title": "Каэлид",
       "bosses": [
-        { "id": "leonine_misbegotten", "name": "Львиный полукровка" },
-        { "id": "cemetery_shade", "name": "Тень кладбища" },
-        { "id": "erdtree_avatar_weeping", "name": "Аватар Древа Эрд" }
+        {
+          "id": "radahn",
+          "name": "Радан, Бич Звёзд",
+          "icon": "images/bosses/elden/caelid/radahn.png"
+        },
+        {
+          "id": "decaying_ekzykes",
+          "name": "Гниющий Экзикес",
+          "icon": "images/bosses/elden/caelid/ekzykes.png"
+        }
       ]
     },
-
-    "liurnia": {
-      "name": "Лиурния Озёр",
+    {
+      "title": "Альтусское плато",
       "bosses": [
-        { "id": "red_wolf_radagon", "name": "Красный волк Радагона" },
-        { "id": "rennala", "name": "Реннала, Королева Полнолуния" },
-        { "id": "glintstone_dragon_smarag", "name": "Блестящий каменный дракон Смараг" }
+        {
+          "id": "draconic_tree_sentinel",
+          "name": "Драконий Древесный Страж",
+          "icon": "images/bosses/elden/altus/draconic_tree_sentinel.png"
+        }
       ]
     },
-
-    "caelid": {
-      "name": "Кэлид",
+    {
+      "title": "Лейнделл, Столица",
       "bosses": [
-        { "id": "starscourge_radahn", "name": "Радан, Бич Звёзд" },
-        { "id": "commander_oneil", "name": "Командир О’Нил" },
-        { "id": "decaying_ekzykes", "name": "Гниющий Экзикес" }
+        {
+          "id": "godfrey",
+          "name": "Годфри, Первый Лорд Элдена",
+          "icon": "images/bosses/elden/leyndell/godfrey.png"
+        },
+        {
+          "id": "morgott",
+          "name": "Морготт, Король Знамений",
+          "icon": "images/bosses/elden/leyndell/morgott.png"
+        }
       ]
     },
-
-    "altus_plateau": {
-      "name": "Плато Альтус",
+    {
+      "title": "Вершины Великанов",
       "bosses": [
-        { "id": "draconic_tree_sentinel", "name": "Драконий древний страж" },
-        { "id": "godskin_apostle_altus", "name": "Апостол Божественной кожи" }
+        {
+          "id": "fire_giant",
+          "name": "Огненный Великан",
+          "icon": "images/bosses/elden/mountains/fire_giant.png"
+        }
       ]
     },
-
-    "mt_gelmir": {
-      "name": "Гора Гельмир",
+    {
+      "title": "Халигтри Микеллы",
       "bosses": [
-        { "id": "fallingstar_beast", "name": "Звёздное чудище" },
-        { "id": "fullgrown_fallingstar", "name": "Взрослое звёздное чудище" }
+        {
+          "id": "malenia",
+          "name": "Маления, Клинок Микеллы",
+          "icon": "images/bosses/elden/haligtree/malenia.png"
+        }
       ]
     },
-
-    "volcano_manor": {
-      "name": "Вулканово поместье",
+    {
+      "title": "Фарум-Азула",
       "bosses": [
-        { "id": "godskin_noble", "name": "Знатный из Божественной кожи" },
-        { "id": "rykard", "name": "Рикард, Богохульный владыка" }
-      ]
-    },
-
-    "leyndell": {
-      "name": "Лейнделл, Столица",
-      "bosses": [
-        { "id": "morgott", "name": "Морготт, Король Предзнаменований" },
-        { "id": "godfrey_gold", "name": "Годфри, Первый Повелитель Элдена (Золотой дух)" }
-      ]
-    },
-
-    "mountaintops": {
-      "name": "Вершины великанов",
-      "bosses": [
-        { "id": "fire_giant", "name": "Огненный великан" },
-        { "id": "borealis", "name": "Бореалис, Ледяной туман" }
-      ]
-    },
-
-    "consecrated_snowfield": {
-      "name": "Освящённое снежное поле",
-      "bosses": [
-        { "id": "deathrite_bird", "name": "Птица обряда смерти" },
-        { "id": "putrid_avatar", "name": "Гниющий аватар Древа Эрд" }
-      ]
-    },
-
-    "haligtree": {
-      "name": "Халигтри",
-      "bosses": [
-        { "id": "malenia", "name": "Маления, Клинок Микеллы" }
-      ]
-    },
-
-    "farum_azula": {
-      "name": "Фарум-Азула",
-      "bosses": [
-        { "id": "godskin_duo", "name": "Дуэт Божественной кожи" },
-        { "id": "maliketh", "name": "Маликет, Чёрный клинок" }
-      ]
-    },
-
-    "ashen_capital": {
-      "name": "Пепельная столица",
-      "bosses": [
-        { "id": "gideon", "name": "Гидеон Офнир, Всезнающий" },
-        { "id": "godfrey", "name": "Годфри, Первый Повелитель Элдена" },
-        { "id": "elden_beast", "name": "Зверь Элдена" }
+        {
+          "id": "maliketh",
+          "name": "Маликет, Чёрный Клинок",
+          "icon": "images/bosses/elden/farum_azula/maliketh.png"
+        },
+        {
+          "id": "placidusax",
+          "name": "Пласидусакс, Повелитель Драконов",
+          "icon": "images/bosses/elden/farum_azula/placidusax.png"
+        }
       ]
     }
-
-  }
+  ]
 }
+
 
