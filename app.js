@@ -1,80 +1,167 @@
-const params = new URLSearchParams(window.location.search);
-const game = params.get("game");
+// ================= CONFIG =================
+const GAMES = {
+  ds1: "ds1.json",
+  ds2: "ds2.json",
+  ds3: "ds3.json",
+  sekiro: "sekiro.json"
+  // Elden Ring будем добавлять отдельно по регионам
+};
 
-const bossContainer = document.getElementById("bossContainer");
-const title = document.getElementById("gameTitle");
-const eldenTabs = document.getElementById("eldenRegions");
+let currentGame = null;
+let currentData = null;
 
-const eldenRegions = [
-  ["elden_limgrave.json", "Лимгрейв"],
-  ["elden_caelid.json", "Калид"],
-  ["elden_liurnia.json", "Лиурния"],
-  ["elden_altus_gelmir.json", "Альтус / Гельмир"],
-  ["elden_leyndell.json", "Лейнделл"],
-  ["elden_mountaintops.json", "Вершины"],
-  ["elden_haligtree.json", "Халигтри"],
-  ["elden_farum_azula.json", "Фарум Азула"],
-  ["elden_underground.json", "Подземелья"],
-  ["elden_volcano_manor.json", "Вулканово поместье"],
-  ["elden_consecrated_snowfield.json", "Священное поле"]
-];
-
-if (game === "elden") {
-  eldenRegions.forEach(([file, name]) => {
-    const btn = document.createElement("button");
-    btn.textContent = name;
-    btn.onclick = () => loadGame(`data/${file}`);
-    eldenTabs.appendChild(btn);
+// ================= INIT =================
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".game-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const game = btn.dataset.game;
+      if (game && GAMES[game]) {
+        loadGame(game);
+      }
+    });
   });
-} else {
-  loadGame(`data/${game}.json`);
+});
+
+// ================= LOAD GAME =================
+async function loadGame(gameKey) {
+  currentGame = gameKey;
+
+  const response = await fetch(GAMES[gameKey]);
+  const data = await response.json();
+  currentData = data;
+
+  document.getElementById("gameBanner").src = data.banner;
+  renderBosses(data);
+  updateStats();
 }
 
-function loadGame(path) {
-  fetch(path)
-    .then(res => res.json())
-    .then(renderGame);
-}
-
-function renderGame(data) {
-  title.textContent = data.title;
-  bossContainer.innerHTML = "";
+// ================= RENDER BOSSES =================
+function renderBosses(data) {
+  const bossList = document.getElementById("bossList");
+  bossList.innerHTML = "";
 
   data.sections.forEach(section => {
-    const sec = document.createElement("div");
-    sec.className = "section";
-    sec.innerHTML = `<h2>${section.name}</h2>`;
+    const sectionEl = document.createElement("div");
+    sectionEl.className = "boss-section";
+
+    const title = document.createElement("h3");
+    title.textContent = section.title;
+    sectionEl.appendChild(title);
 
     section.bosses.forEach(boss => {
-      const key = `${data.title}_${boss.id}`;
-      const saved = JSON.parse(localStorage.getItem(key)) || { tries: 0, deaths: 0 };
-
       const row = document.createElement("div");
-      row.className = "boss";
-      row.innerHTML = `
-        <img src="${boss.icon}">
-        <div>${boss.name}</div>
-        <input type="number" value="${saved.tries}">
-        <input type="number" value="${saved.deaths}">
-      `;
+      row.className = "boss-row";
 
-      const [triesInput, deathsInput] = row.querySelectorAll("input");
-      triesInput.oninput = deathsInput.oninput = () => {
-        localStorage.setItem(
-          key,
-          JSON.stringify({
-            tries: +triesInput.value,
-            deaths: +deathsInput.value
-          })
-        );
-      };
+      const saved = loadBossState(boss.id);
 
-      sec.appendChild(row);
+      if (saved.killed) row.classList.add("killed");
+
+      // ICON
+      const icon = document.createElement("img");
+      icon.src = boss.icon;
+      icon.className = "boss-icon";
+
+      // NAME
+      const name = document.createElement("div");
+      name.className = "boss-name";
+      name.textContent = boss.name;
+
+      // TRY
+      const tryBox = createValueInput("Try", saved.try, value => {
+        saved.try = value;
+        saveBossState(boss.id, saved);
+      });
+
+      // DEATH
+      const deathBox = createValueInput("Death", saved.death, value => {
+        saved.death = value;
+        saveBossState(boss.id, saved);
+        updateStats();
+      });
+
+      // KILLED
+      const killedBox = document.createElement("div");
+      killedBox.className = "boss-killed";
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = saved.killed;
+
+      checkbox.addEventListener("change", () => {
+        saved.killed = checkbox.checked;
+        row.classList.toggle("killed", checkbox.checked);
+        saveBossState(boss.id, saved);
+      });
+
+      killedBox.appendChild(checkbox);
+
+      row.append(icon, name, tryBox, deathBox, killedBox);
+      sectionEl.appendChild(row);
     });
 
-    bossContainer.appendChild(sec);
+    bossList.appendChild(sectionEl);
   });
 }
+
+// ================= INPUT CREATOR =================
+function createValueInput(label, value, onChange) {
+  const box = document.createElement("div");
+  box.className = "boss-value";
+
+  const input = document.createElement("input");
+  input.type = "number";
+  input.min = 0;
+  input.value = value;
+
+  input.addEventListener("input", () => {
+    const v = parseInt(input.value) || 0;
+    onChange(v);
+  });
+
+  const span = document.createElement("span");
+  span.textContent = label;
+
+  box.append(input, span);
+  return box;
+}
+
+// ================= STORAGE =================
+function storageKey(id) {
+  return `soulsofon_${currentGame}_${id}`;
+}
+
+function loadBossState(id) {
+  const raw = localStorage.getItem(storageKey(id));
+  return raw
+    ? JSON.parse(raw)
+    : { try: 0, death: 0, killed: false };
+}
+
+function saveBossState(id, state) {
+  localStorage.setItem(storageKey(id), JSON.stringify(state));
+}
+
+// ================= STATS =================
+function updateStats() {
+  let gameDeaths = 0;
+  let totalDeaths = 0;
+
+  Object.keys(localStorage).forEach(key => {
+    if (key.startsWith("soulsofon_")) {
+      const data = JSON.parse(localStorage.getItem(key));
+      totalDeaths += data.death || 0;
+
+      if (key.startsWith(`soulsofon_${currentGame}_`)) {
+        gameDeaths += data.death || 0;
+      }
+    }
+  });
+
+  document.getElementById("gameDeaths").textContent = gameDeaths;
+  document.getElementById("totalDeaths").textContent = totalDeaths;
+}
+
+
 
 
 
