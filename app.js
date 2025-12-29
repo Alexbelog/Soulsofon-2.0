@@ -7,6 +7,7 @@ const GAMES = [
 ];
 
 const STORAGE_KEY = "soulsofon_progress";
+const MARATHON_DEATHS_KEY = "soulsofon_marathon_deaths";
 
 const gameList = document.getElementById("game-list");
 const content = document.getElementById("content");
@@ -14,15 +15,28 @@ const youDied = document.getElementById("you-died");
 const backBtn = document.getElementById("back-btn");
 const fadeOverlay = document.getElementById("fade-overlay");
 
+const gameDeathsEl = document.getElementById("game-deaths");
+const marathonDeathsEl = document.getElementById("marathon-deaths");
+const marathonPlus = document.getElementById("marathon-plus");
+const marathonMinus = document.getElementById("marathon-minus");
+
 let progress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+let marathonDeaths =
+  parseInt(localStorage.getItem(MARATHON_DEATHS_KEY)) || 0;
+
 let currentGame = null;
 
 init();
 
+/* ================= INIT ================= */
+
 async function init() {
   renderGameButtons();
+  updateMarathonDeathsUI();
   await loadGame(GAMES[0]);
 }
+
+/* ================= GAME BUTTONS ================= */
 
 function renderGameButtons() {
   gameList.innerHTML = "";
@@ -35,6 +49,8 @@ function renderGameButtons() {
   });
 }
 
+/* ================= LOAD GAME ================= */
+
 async function loadGame(game) {
   currentGame = game;
   const res = await fetch(game.file);
@@ -42,6 +58,8 @@ async function loadGame(game) {
   ensureProgress(gameData);
   renderGame(gameData);
 }
+
+/* ================= RENDER GAME ================= */
 
 function renderGame(gameData) {
   content.innerHTML = "";
@@ -55,7 +73,10 @@ function renderGame(gameData) {
 
   const progressBar = document.createElement("div");
   progressBar.id = "progress-bar";
-  progressBar.innerHTML = `<div id="game-progress"></div><div id="marathon-progress"></div>`;
+  progressBar.innerHTML = `
+    <div id="game-progress"></div>
+    <div id="marathon-progress"></div>
+  `;
   content.appendChild(progressBar);
 
   gameData.sections.forEach(section => {
@@ -106,7 +127,10 @@ function renderGame(gameData) {
   });
 
   updateProgress(gameData);
+  updateDeathCounters(gameData);
 }
+
+/* ================= INPUTS ================= */
 
 function statInput(label, state, key, gameData) {
   const wrap = document.createElement("div");
@@ -114,11 +138,14 @@ function statInput(label, state, key, gameData) {
 
   const input = document.createElement("input");
   input.type = "number";
+  input.min = 0;
   input.value = state[key];
+
   input.onchange = () => {
     state[key] = +input.value;
     save();
     updateProgress(gameData);
+    updateDeathCounters(gameData);
   };
 
   const l = document.createElement("div");
@@ -128,6 +155,8 @@ function statInput(label, state, key, gameData) {
   wrap.append(input, l);
   return wrap;
 }
+
+/* ================= PROGRESS ================= */
 
 function updateProgress(gameData) {
   let gTotal = 0, gKilled = 0;
@@ -154,12 +183,52 @@ function updateProgress(gameData) {
     `Марафон: ${Math.round((mKilled / mTotal) * 100)}%`;
 }
 
+/* ================= DEATH COUNTERS ================= */
+
+function updateDeathCounters(gameData) {
+  let gameDeaths = 0;
+
+  gameData.sections.forEach(s =>
+    s.bosses.forEach(b => {
+      gameDeaths += progress[gameData.id][b.id].deaths || 0;
+    })
+  );
+
+  if (gameDeathsEl) gameDeathsEl.textContent = gameDeaths;
+  updateMarathonDeathsUI();
+}
+
+function updateMarathonDeathsUI() {
+  if (marathonDeathsEl) marathonDeathsEl.textContent = marathonDeaths;
+}
+
+/* ручное управление марафоном */
+if (marathonPlus)
+  marathonPlus.onclick = () => {
+    marathonDeaths++;
+    localStorage.setItem(MARATHON_DEATHS_KEY, marathonDeaths);
+    updateMarathonDeathsUI();
+  };
+
+if (marathonMinus)
+  marathonMinus.onclick = () => {
+    if (marathonDeaths > 0) marathonDeaths--;
+    localStorage.setItem(MARATHON_DEATHS_KEY, marathonDeaths);
+    updateMarathonDeathsUI();
+  };
+
+/* ================= STORAGE ================= */
+
 function ensureProgress(gameData) {
   if (!progress[gameData.id]) progress[gameData.id] = {};
   gameData.sections.forEach(s =>
     s.bosses.forEach(b => {
       if (!progress[gameData.id][b.id])
-        progress[gameData.id][b.id] = { tries: 0, deaths: 0, killed: false };
+        progress[gameData.id][b.id] = {
+          tries: 0,
+          deaths: 0,
+          killed: false
+        };
     })
   );
   save();
@@ -169,12 +238,16 @@ function save() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
 }
 
+/* ================= YOU DIED ================= */
+
 function showYouDied() {
+  if (!youDied) return;
   youDied.classList.remove("hidden");
   setTimeout(() => youDied.classList.add("hidden"), 1500);
 }
 
-/* BACK + FADE */
+/* ================= BACK + FADE ================= */
+
 backBtn.onclick = () => {
   fadeOverlay.classList.remove("hidden");
   fadeOverlay.classList.add("active");
