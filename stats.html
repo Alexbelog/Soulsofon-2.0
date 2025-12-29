@@ -2,74 +2,25 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Soulsofon — Soulslike Marathon</title>
-
+  <title>Статистика</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="app.js"></script>
-
-  <!-- Dark Fantasy шрифт -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div id="app">
+<header>
+  <a href="index.html" class="back">← Назад</a>
+  <h1 id="gameTitle">Загрузка...</h1>
+</header>
 
-  <!-- ЛЕВАЯ ЧАСТЬ -->
-  <main id="content">
+<nav id="eldenRegions" class="subtabs"></nav>
 
-    <!-- ЛОГО ИГРЫ -->
-    <div id="gameHeader">
-      <img id="gameLogo" src="" alt="">
-    </div>
-
-    <!-- СТАТИСТИКА -->
-    <div id="deathStats">
-      <div>
-        <span id="gameDeaths">0</span>
-        <small>Deaths (Game)</small>
-      </div>
-      <div>
-        <span id="totalDeaths">0</span>
-        <small>Deaths (Total)</small>
-      </div>
-    </div>
-
-    <!-- СПИСОК БОССОВ -->
-    <div id="bossList"></div>
-
-  </main>
-
-  <!-- ПРАВАЯ КОЛОНКА -->
-  <aside id="sidebar">
-
-    <h2>GAMES</h2>
-
-    <button onclick="loadGame('ds1')">Dark Souls</button>
-    <button onclick="loadGame('ds2')">Dark Souls II</button>
-    <button onclick="loadGame('ds3')">Dark Souls III</button>
-    <button onclick="loadGame('sekiro')">Sekiro</button>
-
-    <h3 onclick="toggleElden()">Elden Ring ▼</h3>
-    <div id="eldenRegions" class="hidden">
-      <button onclick="loadGame('elden_limgrave')">Лимгрейв</button>
-      <button onclick="loadGame('elden_liurnia')">Лиурния</button>
-      <button onclick="loadGame('elden_caelid')">Кэлид</button>
-      <button onclick="loadGame('elden_altus_gelmir')">Альтус + Гельмир</button>
-      <button onclick="loadGame('elden_volcano_manor')">Вулканово поместье</button>
-      <button onclick="loadGame('elden_leyndell')">Лейнделл</button>
-      <button onclick="loadGame('elden_mountaintops')">Вершины великанов</button>
-      <button onclick="loadGame('elden_consecrated_snowfield')">Освящённое снежное поле</button>
-      <button onclick="loadGame('elden_haligtree')">Халигтри</button>
-      <button onclick="loadGame('elden_underground')">Подземные регионы</button>
-      <button onclick="loadGame('elden_farum_azula')">Фарум-Азула</button>
-    </div>
-
-  </aside>
-
-</div>
+<main id="bossContainer"></main>
 
 </body>
 </html>
+
+
 
 
 
