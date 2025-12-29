@@ -2,76 +2,37 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>SOULSFON 2.0 — Статистика</title>
+  <title>Soulsofon 2.0 — Статистика</title>
+
   <link rel="stylesheet" href="stats.css">
 </head>
 <body>
 
 <div id="layout">
 
-  <!-- ПРАВАЯ КОЛОНКА -->
-  <aside id="game-list"></aside>
+  <!-- ПРАВАЯ КОЛОНКА: ИГРЫ -->
+  <aside id="game-list">
+    <!-- кнопки игр добавляются через JS -->
+  </aside>
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
   <main id="content">
-
-    <!-- БАННЕР -->
-    <div id="game-banner">
-      <img id="game-banner-img">
-    </div>
-
-    <!-- СМЕРТИ -->
-    <div id="death-stats">
-      <div class="death-box">
-        <span>СМЕРТИ В ИГРЕ</span>
-        <strong id="game-deaths">0</strong>
-      </div>
-      <div class="death-box">
-        <span>ВСЕГО СМЕРТЕЙ</span>
-        <strong id="total-deaths">0</strong>
-      </div>
-    </div>
-
-    <!-- ПРОГРЕСС -->
-    <div id="progress-wrapper">
-      <div class="progress-label">ПРОГРЕСС ИГРЫ / РЕГИОНА</div>
-      <div class="progress-bar"><div id="game-progress"></div></div>
-
-      <div class="progress-label">ПРОГРЕСС МАРАФОНА</div>
-      <div class="progress-bar"><div id="total-progress"></div></div>
-    </div>
-
-    <!-- КАРТА ELDEN RING -->
-    <div id="elden-map-wrapper" class="hidden">
-      <img src="images/elden_map.png" id="elden-map">
-
-      <div class="region" data-region="limgrave"></div>
-      <div class="region" data-region="caelid"></div>
-      <div class="region" data-region="altus"></div>
-      <div class="region" data-region="leyndell"></div>
-      <div class="region" data-region="mountaintops"></div>
-      <div class="region" data-region="snowfield"></div>
-      <div class="region" data-region="haligtree"></div>
-    </div>
-
-    <button id="reset-map" class="hidden">ОБЩАЯ КАРТА</button>
-
-    <!-- БОССЫ -->
-    <section id="bosses"></section>
-
+    <!-- контент игры рендерится через JS -->
   </main>
+
 </div>
 
-<!-- YOU DIED -->
-<div id="you-died-overlay">
-  <div class="you-died-text">YOU DIED</div>
+<!-- YOU DIED OVERLAY -->
+<div id="you-died" class="you-died hidden">
+  YOU DIED
 </div>
 
-<a href="index.html" id="back-btn">BACK</a>
-
+<!-- JS СТРОГО В КОНЦЕ -->
 <script src="app.js"></script>
 </body>
 </html>
+
+
 
 
 
