@@ -1,10 +1,5 @@
-// ===================================
-// SOULSFON 2.0 — app.js (FINAL)
-// ===================================
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ---------- CONFIG ----------
   const games = [
     { id: "ds1", name: "Dark Souls", json: "data/ds1.json" },
     { id: "ds2", name: "Dark Souls II", json: "data/ds2.json" },
@@ -13,26 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "elden", name: "Elden Ring", json: "data/elden_ring.json" }
   ];
 
-  // ---------- STATE ----------
   let currentGame = null;
   let currentRegion = null;
   let gameData = null;
 
-  // ---------- DOM ----------
   const sidebar = document.getElementById("game-list");
   const content = document.getElementById("content");
 
-  if (!sidebar || !content) {
-    console.error("❌ Не найдены #game-list или #content");
-    return;
-  }
+  if (!sidebar || !content) return;
 
   initSidebar();
   loadGame(games[0]);
 
-  // ===================================
-  // SIDEBAR
-  // ===================================
+  /* ---------------- SIDEBAR ---------------- */
 
   function initSidebar() {
     sidebar.innerHTML = "";
@@ -45,9 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===================================
-  // STORAGE
-  // ===================================
+  /* ---------------- STORAGE ---------------- */
 
   function storageKey(gameId, region = null) {
     return region
@@ -57,12 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function saveProgress() {
     if (!currentGame || !gameData) return;
-
-    const key = storageKey(
-      currentGame.id,
-      currentGame.id === "elden" ? currentRegion : null
-    );
-
+    const key = storageKey(currentGame.id, currentRegion);
     localStorage.setItem(key, JSON.stringify(gameData));
   }
 
@@ -72,90 +53,69 @@ document.addEventListener("DOMContentLoaded", () => {
     return saved ? JSON.parse(saved) : null;
   }
 
-  // ===================================
-  // LOAD GAME
-  // ===================================
+  /* ---------------- LOAD GAME ---------------- */
 
   async function loadGame(game) {
     currentGame = game;
     currentRegion = null;
-    content.innerHTML = "<p>Загрузка...</p>";
+    content.innerHTML = "Загрузка...";
 
-    try {
-      const res = await fetch(game.json);
-      const rawData = await res.json();
+    const res = await fetch(game.json);
+    const raw = await res.json();
 
-      // Elden Ring → регионы
-      if (game.id === "elden") {
-        renderRegionSelector(rawData);
-        return;
-      }
-
-      // Обычные игры
-      const saved = loadProgress(game);
-      gameData = saved || rawData;
-
-      if (!saved) saveProgress();
-      renderGame();
-
-    } catch (e) {
-      console.error(e);
-      content.innerHTML = "<p>Ошибка загрузки данных</p>";
+    if (game.id === "elden") {
+      renderRegionSelector(raw);
+      return;
     }
+
+    gameData = loadProgress(game) || raw;
+    saveProgress();
+    renderGame();
   }
 
-  // ===================================
-  // ELDEN RING — REGIONS
-  // ===================================
+  /* ---------------- ELDEN RING ---------------- */
 
-  function renderRegionSelector(rawData) {
+  function renderRegionSelector(raw) {
     content.innerHTML = "";
 
     const header = document.createElement("div");
     header.className = "game-header";
     header.innerHTML = `
-      <img src="${rawData.poster}" class="game-poster">
-      <h1>${rawData.title}</h1>
+      <img class="game-poster" src="${raw.poster}">
+      <h1>${raw.title}</h1>
     `;
 
     const select = document.createElement("select");
     select.className = "region-select";
 
-    Object.entries(rawData.regions).forEach(([key, region]) => {
-      const option = document.createElement("option");
-      option.value = key;
-      option.textContent = region.name;
-      select.appendChild(option);
+    Object.entries(raw.regions).forEach(([key, r]) => {
+      const opt = document.createElement("option");
+      opt.value = key;
+      opt.textContent = r.name;
+      select.appendChild(opt);
     });
 
-    select.onchange = () => loadRegion(rawData, select.value);
+    select.onchange = () => loadRegion(raw, select.value);
 
-    content.appendChild(header);
-    content.appendChild(select);
-
-    // автозагрузка первого региона
-    loadRegion(rawData, select.value);
+    content.append(header, select);
+    loadRegion(raw, select.value);
   }
 
-  function loadRegion(rawData, regionKey) {
-    currentRegion = regionKey;
+  function loadRegion(raw, key) {
+    currentRegion = key;
+    const region = raw.regions[key];
 
-    const region = rawData.regions[regionKey];
-    const saved = loadProgress(currentGame, regionKey);
-
-    gameData = saved || {
-      title: `${rawData.title} — ${region.name}`,
-      poster: rawData.poster,
+    gameData = loadProgress(currentGame, key) || {
+      title: `${raw.title} — ${region.name}`,
+      poster: raw.poster,
       sections: region.sections
     };
 
-    if (!saved) saveProgress();
+    saveProgress();
     renderGame();
   }
 
-  // ===================================
-  // RENDER GAME
-  // ===================================
+  /* ---------------- RENDER ---------------- */
 
   function renderGame() {
     content.innerHTML = "";
@@ -163,13 +123,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.createElement("div");
     header.className = "game-header";
     header.innerHTML = `
-      <img src="${gameData.poster}" class="game-poster">
+      <img class="game-poster" src="${gameData.poster}">
       <h1>${gameData.title}</h1>
-      <div class="death-counter">
-        Смертей в игре: <strong>${countDeaths()}</strong>
+
+      <div class="progress-wrap">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="progress-text"></div>
       </div>
     `;
     content.appendChild(header);
+
+    updateProgress();
 
     for (const section in gameData.sections) {
       renderSection(section, gameData.sections[section]);
@@ -177,99 +143,59 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderSection(key, bosses) {
-    const section = document.createElement("section");
-    section.className = "boss-section";
-    section.innerHTML = `<h2>${sectionTitle(key)}</h2>`;
-
-    bosses.forEach((boss, index) => {
-      section.appendChild(renderBossRow(boss, key, index));
-    });
-
-    content.appendChild(section);
+    const s = document.createElement("section");
+    s.innerHTML = `<h2>${key}</h2>`;
+    bosses.forEach((b, i) => s.appendChild(renderBoss(b, key, i)));
+    content.appendChild(s);
   }
 
-  function sectionTitle(key) {
-    return {
-      main: "Основные боссы",
-      optional: "Опциональные боссы",
-      dlc: "Боссы DLC"
-    }[key] || key;
-  }
+  /* ---------------- BOSSES ---------------- */
 
-  // ===================================
-  // BOSS ROW
-  // ===================================
-
-  function renderBossRow(boss, section, index) {
+  function renderBoss(boss, section, index) {
     const row = document.createElement("div");
     row.className = "boss-row";
     row.dataset.status = boss.killed ? "killed" : "alive";
 
     row.innerHTML = `
-      <div class="boss-left">
-        <img src="${boss.icon || ""}" class="boss-icon">
-        <div class="boss-name">${boss.name}</div>
-      </div>
-
-      <div class="boss-right">
-        <div class="stat">
-          <input type="number" min="0" value="${boss.tries || 0}"
-            data-section="${section}" data-index="${index}" data-field="tries">
-          <span>Try</span>
-        </div>
-
-        <div class="stat">
-          <input type="number" min="0" value="${boss.deaths || 0}"
-            data-section="${section}" data-index="${index}" data-field="deaths">
-          <span>Death</span>
-        </div>
-
-        <button class="boss-toggle">${boss.killed ? "☠" : "⚔"}</button>
-      </div>
+      <span>${boss.name}</span>
+      <button>${boss.killed ? "☠" : "⚔"}</button>
     `;
 
-    row.querySelectorAll("input").forEach(input => {
-      input.addEventListener("input", updateBossValue);
-    });
-
-    row.querySelector(".boss-toggle").onclick = () => {
+    row.querySelector("button").onclick = () => {
       boss.killed = !boss.killed;
       row.dataset.status = boss.killed ? "killed" : "alive";
-      row.querySelector(".boss-toggle").textContent = boss.killed ? "☠" : "⚔";
+      row.querySelector("button").textContent = boss.killed ? "☠" : "⚔";
       saveProgress();
-      updateDeathCounter();
+      updateProgress();
     };
 
     return row;
   }
 
-  // ===================================
-  // UPDATE / STATS
-  // ===================================
+  /* ---------------- PROGRESS ---------------- */
 
-  function updateBossValue(e) {
-    const { section, index, field } = e.target.dataset;
-    gameData.sections[section][index][field] = Number(e.target.value);
-    saveProgress();
-    updateDeathCounter();
-  }
-
-  function countDeaths() {
+  function updateProgress() {
     let total = 0;
-    for (const section in gameData.sections) {
-      gameData.sections[section].forEach(b => {
-        total += Number(b.deaths || 0);
+    let killed = 0;
+
+    for (const sec in gameData.sections) {
+      gameData.sections[sec].forEach(b => {
+        total++;
+        if (b.killed) killed++;
       });
     }
-    return total;
-  }
 
-  function updateDeathCounter() {
-    const el = document.querySelector(".death-counter strong");
-    if (el) el.textContent = countDeaths();
+    const percent = total ? Math.floor((killed / total) * 100) : 0;
+
+    const fill = document.querySelector(".progress-fill");
+    const text = document.querySelector(".progress-text");
+
+    if (fill) fill.style.width = percent + "%";
+    if (text) text.textContent = `${percent}% — ${killed} / ${total}`;
   }
 
 });
+
 
 
 
