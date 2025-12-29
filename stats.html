@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <!-- БОССЫ -->
+    <!-- СЕКЦИИ БОССОВ -->
     <div id="boss-sections"></div>
 
   </main>
@@ -43,12 +43,28 @@
 </div>
 
 <!-- КНОПКА НАЗАД -->
-<a href="index.html" class="back-btn">BACK</a>
+<a href="index.html" class="back-btn" id="backBtn">BACK</a>
 
-<!-- JS СТРОГО В КОНЦЕ -->
+<!-- ОСНОВНОЙ JS -->
 <script src="app.js"></script>
+
+<!-- FADE-ПЕРЕХОД -->
+<script>
+  const backBtn = document.getElementById("backBtn");
+
+  backBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+      window.location.href = this.href;
+    }, 600);
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
