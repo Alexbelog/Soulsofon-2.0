@@ -13,31 +13,34 @@
   <aside id="game-list"></aside>
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
-  <main id="content"></main>
+  <main id="content">
 
     <!-- БАННЕР -->
     <div id="game-banner">
       <img id="banner-img" src="" alt="">
-    </div>
 
-    <!-- СМЕРТИ -->
-    <div id="death-summary">
-      <div class="death-box">
-        <span class="death-label">Смерти в игре</span>
-        <span id="game-deaths" class="death-value">0</span>
-      </div>
+      <!-- СМЕРТИ (ПРИВЯЗАНЫ К БАННЕРУ) -->
+      <div id="death-summary">
+        <div class="death-box">
+          <span class="death-label">Смерти в игре</span>
+          <span id="game-deaths" class="death-value">0</span>
+        </div>
 
-      <div class="death-box editable">
-        <span class="death-label">Смерти марафона</span>
-        <div class="death-controls">
-          <button id="marathon-minus">−</button>
-          <span id="marathon-deaths" class="death-value">0</span>
-          <button id="marathon-plus">+</button>
+        <div class="death-box editable">
+          <span class="death-label">Смерти марафона</span>
+          <div class="death-controls">
+            <button id="marathon-minus">−</button>
+            <span id="marathon-deaths" class="death-value">0</span>
+            <button id="marathon-plus">+</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- КОНТЕНТ -->
+    <!-- ПРОГРЕСС -->
+    <div id="progress-bar"></div>
+
+    <!-- СЕКЦИИ -->
     <div id="sections"></div>
 
   </main>
@@ -55,6 +58,8 @@
 <script src="app.js"></script>
 </body>
 </html>
+
+
 
 
 
