@@ -50,6 +50,9 @@ function createGame(game) {
         💀 Смертей в игре: <span class="game-deaths">0</span>
         <div class="progress">
           Прогресс: <span class="progress-text">0 / 0 (0%)</span>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -60,17 +63,27 @@ function createGame(game) {
         <button data-filter="alive">Живые</button>
         <button data-filter="killed">Убитые</button>
       </div>
+
+      <div class="section-filters">
+        <button data-section="all" class="active">Все</button>
+        <button data-section="Основные">Основные</button>
+        <button data-section="Второстепенные">Второстепенные</button>
+        <button data-section="DLC">DLC</button>
+      </div>
     </div>
   `;
 
   const bossesDiv = div.querySelector(".bosses");
   setupFilters(div);
+  setupSectionFilters(div);
 
   let totalBosses = 0;
 
   for (const section in game.sections) {
     const sec = document.createElement("div");
     sec.className = "boss-section";
+    sec.dataset.section = section;
+
     sec.innerHTML = `
       <h3>${section}</h3>
       <div class="boss-grid-header">
@@ -109,6 +122,26 @@ function setupFilters(gameEl) {
         if (filter === "all") card.style.display = "";
         if (filter === "alive") card.style.display = card.classList.contains("killed") ? "none" : "";
         if (filter === "killed") card.style.display = card.classList.contains("killed") ? "" : "none";
+      });
+    };
+  });
+}
+
+function setupSectionFilters(gameEl) {
+  const buttons = gameEl.querySelectorAll(".section-filters button");
+
+  buttons.forEach(btn => {
+    btn.onclick = () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const section = btn.dataset.section;
+      gameEl.querySelectorAll(".boss-section").forEach(sec => {
+        if (section === "all" || sec.dataset.section === section) {
+          sec.style.display = "";
+        } else {
+          sec.style.display = "none";
+        }
       });
     };
   });
@@ -195,11 +228,14 @@ function recalcStats() {
 
     const deathsEl = gameEl.querySelector(".game-deaths");
     const progressEl = gameEl.querySelector(".progress-text");
+    const fillEl = gameEl.querySelector(".progress-fill");
 
     if (deathsEl) deathsEl.textContent = gameDeaths;
-    if (progressEl) {
+
+    if (progressEl && fillEl) {
       const percent = total ? Math.round((killedInGame / total) * 100) : 0;
       progressEl.textContent = `${killedInGame} / ${total} (${percent}%)`;
+      fillEl.style.width = percent + "%";
     }
   });
 
