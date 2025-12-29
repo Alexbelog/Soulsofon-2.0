@@ -4,28 +4,59 @@
   box-sizing: border-box;
 }
 
+/* ===== ФОН ===== */
 body.index-page {
-  background: radial-gradient(circle at top, #1a1a1a 0%, #000 70%);
+  background: radial-gradient(circle at center, #1b1b1b 0%, #050505 70%);
   color: #e0e0e0;
   font-family: "Cinzel", "Times New Roman", serif;
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
+/* ===== ОБЩИЙ КОНТЕЙНЕР ===== */
 .landing {
+  width: 100%;
+  max-width: 1920px;
   text-align: center;
 }
 
 /* ===== ЗАГОЛОВОК ===== */
 .title {
-  font-size: 64px;
-  letter-spacing: 6px;
-  margin-bottom: 24px;
+  font-size: 72px;
+  color: #b00000;
+  letter-spacing: 8px;
+  margin-bottom: 28px;
   text-shadow:
-    0 0 12px rgba(255, 60, 60, 0.5),
-    0 0 40px rgba(120, 0, 0, 0.3);
+    0 0 12px rgba(255, 40, 40, 0.6),
+    0 0 40px rgba(120, 0, 0, 0.4);
+}
+
+/* ===== ЭФФЕКТ ДЫХАНИЯ ===== */
+@keyframes breathing {
+  0% {
+    opacity: 0.85;
+    text-shadow:
+      0 0 10px rgba(255, 40, 40, 0.4),
+      0 0 30px rgba(120, 0, 0, 0.3);
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 20px rgba(255, 60, 60, 0.9),
+      0 0 60px rgba(160, 0, 0, 0.6);
+  }
+  100% {
+    opacity: 0.85;
+    text-shadow:
+      0 0 10px rgba(255, 40, 40, 0.4),
+      0 0 30px rgba(120, 0, 0, 0.3);
+  }
+}
+
+.breathing {
+  animation: breathing 4s ease-in-out infinite;
 }
 
 /* ===== ОБЁРТКА ПОСТЕРА ===== */
@@ -34,37 +65,39 @@ body.index-page {
   display: inline-block;
 }
 
-/* ===== ПОСТЕР (АДАПТИВНЫЙ) ===== */
+/* ===== ПОСТЕР (АДАПТИВ ПОД 1920x1080) ===== */
 .poster {
   max-width: 90vw;
   max-height: 70vh;
   width: auto;
   height: auto;
   display: block;
-  border: 2px solid #3a3a3a;
+
+  border: 2px solid #2c2c2c;
   box-shadow:
-    0 0 30px rgba(0, 0, 0, 0.9),
-    0 0 70px rgba(120, 0, 0, 0.35);
+    0 0 40px rgba(0, 0, 0, 0.9),
+    0 0 90px rgba(120, 0, 0, 0.4);
 }
 
 /* ===== КНОПКА YOU DEATH ===== */
 .start-button {
   position: absolute;
-  bottom: -70px;
+  bottom: -80px;
   left: 50%;
   transform: translateX(-50%);
 
-  padding: 18px 64px;
-  font-size: 30px;
-  letter-spacing: 4px;
+  padding: 22px 72px;
+  font-size: 32px;
+  letter-spacing: 5px;
   text-decoration: none;
   color: #fff;
 
-  border: 2px solid #8b0000;
   background: linear-gradient(180deg, #b00000 0%, #5a0000 100%);
+  border: 2px solid #8b0000;
+
   box-shadow:
-    0 0 20px rgba(255, 0, 0, 0.5),
-    inset 0 0 12px rgba(0, 0, 0, 0.7);
+    0 0 25px rgba(255, 0, 0, 0.6),
+    inset 0 0 14px rgba(0, 0, 0, 0.8);
 
   transition: all 0.2s ease;
 }
@@ -72,14 +105,16 @@ body.index-page {
 .start-button:hover {
   background: linear-gradient(180deg, #ff2a2a 0%, #8b0000 100%);
   box-shadow:
-    0 0 30px rgba(255, 0, 0, 0.8),
-    inset 0 0 14px rgba(0, 0, 0, 0.85);
-  transform: translateX(-50%) translateY(-2px);
+    0 0 35px rgba(255, 0, 0, 0.9),
+    inset 0 0 16px rgba(0, 0, 0, 0.9);
+  transform: translateX(-50%) translateY(-3px);
 }
 
 .start-button:active {
   transform: translateX(-50%) translateY(1px);
 }
+
+
 
 
 
