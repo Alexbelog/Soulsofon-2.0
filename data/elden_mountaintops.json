@@ -1,63 +1,66 @@
 {
-  "title": "Elden Ring — Вершины великанов",
-  "logo": "images/logos/elden_ring.png",
+  "id": "elden_mountaintops",
+  "title": "Elden Ring — Вершины Великанов",
+  "banner": "images/banners/elden/mountaintops.jpg",
   "sections": [
     {
-      "name": "Основные боссы",
+      "title": "Основные боссы региона",
       "bosses": [
         {
-          "id": "er_fire_giant",
+          "id": "fire_giant",
           "name": "Огненный великан",
-          "icon": "images/bosses/placeholder.png"
+          "icon": "images/bosses/elden/mountaintops/fire_giant.png"
         }
       ]
     },
     {
-      "name": "Мир Вершин великанов",
+      "title": "Полевые боссы",
       "bosses": [
         {
-          "id": "er_borealis_freezing_fog",
-          "name": "Бореалис, Ледяной туман",
-          "icon": "images/bosses/placeholder.png"
+          "id": "borealis",
+          "name": "Бореалис, Туманный дракон",
+          "icon": "images/bosses/elden/mountaintops/borealis.png"
         },
         {
-          "id": "er_deathbird_mountaintops",
-          "name": "Птица смерти (Вершины великанов)",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_night_cavalry_mountaintops",
-          "name": "Ночной всадник (Вершины великанов)",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_putrid_tree_spirit_mountaintops",
-          "name": "Гниющий дух древа (Вершины великанов)",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_ulcerated_tree_spirit_mountaintops",
-          "name": "Изъязвлённый дух древа",
-          "icon": "images/bosses/placeholder.png"
-        }
-      ]
-    },
-    {
-      "name": "Подземелья Вершин великанов",
-      "bosses": [
-        {
-          "id": "er_commander_niall",
-          "name": "Командир Ниалл",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_death_rite_bird",
+          "id": "death_rite_bird",
           "name": "Птица обряда смерти",
-          "icon": "images/bosses/placeholder.png"
+          "icon": "images/bosses/elden/mountaintops/death_rite_bird.png"
+        },
+        {
+          "id": "erdtree_avatar_mountaintops",
+          "name": "Аватар Древа Эрд",
+          "icon": "images/bosses/elden/mountaintops/erdtree_avatar.png"
+        },
+        {
+          "id": "ulcerated_tree_spirit",
+          "name": "Изъязвлённый дух Древа",
+          "icon": "images/bosses/elden/mountaintops/ulcerated_tree_spirit.png"
+        }
+      ]
+    },
+    {
+      "title": "Подземелья и мини-боссы",
+      "bosses": [
+        {
+          "id": "zamoor_knight",
+          "name": "Рыцарь Замора",
+          "icon": "images/bosses/elden/mountaintops/zamoor_knight.png"
+        },
+        {
+          "id": "ancient_hero_zamor",
+          "name": "Древний герой Замора",
+          "icon": "images/bosses/elden/mountaintops/ancient_hero_zamor.png"
+        },
+        {
+          "id": "misbegotten_crusader",
+          "name": "Крестоносец-полукровка",
+          "icon": "images/bosses/elden/mountaintops/misbegotten_crusader.png"
         }
       ]
     }
   ]
 }
+
+
 
 
