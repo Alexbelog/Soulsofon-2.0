@@ -6,176 +6,111 @@ if (params.get("admin") === "1") {
 }
 
 const isAdmin = localStorage.getItem("soul_admin") === "true";
-const games = [
-  { id: "ds1", title: "Dark Souls", file: "data/ds1.json" },
-  { id: "ds2", title: "Dark Souls II", file: "data/ds2.json" },
-  { id: "ds3", title: "Dark Souls III", file: "data/ds3.json" },
-  { id: "sekiro", title: "Sekiro", file: "data/sekiro.json" },
-  { id: "elden", title: "Elden Ring", file: "data/elden_ring.json" }
-];
+const games = {
+  ds1: "data/ds1.json",
+  ds2: "data/ds2.json",
+  ds3: "data/ds3.json",
+  sekiro: "data/sekiro.json",
+  elden: "data/elden_ring.json"
+};
+
+const admin = new URLSearchParams(location.search).get("admin") === "1";
 
 const gameList = document.getElementById("game-list");
-const content = document.getElementById("content");
+const bossList = document.getElementById("boss-list");
+const gameBanner = document.getElementById("game-banner");
+const regionSelect = document.getElementById("region-select");
 
-if (!gameList || !content) {
-  console.error("❌ layout не найден");
-}
+function save(key,data){ localStorage.setItem(key,JSON.stringify(data)); }
+function load(key,fallback){ return JSON.parse(localStorage.getItem(key))||fallback; }
 
-/* =======================
-   INIT
-======================= */
-init();
+Object.entries(games).forEach(([id,path])=>{
+  const btn=document.createElement("button");
+  btn.className="game-btn";
+  btn.textContent=id.toUpperCase();
+  btn.onclick=()=>loadGame(id,path,btn);
+  gameList.appendChild(btn);
+});
 
-function init() {
-  renderGameButtons();
-  loadGame(games[0]);
-}
+async function loadGame(id,path,btn){
+  document.querySelectorAll(".game-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
 
-/* =======================
-   SIDEBAR
-======================= */
-function renderGameButtons() {
-  gameList.innerHTML = "";
+  const data=await (await fetch(path)).json();
+  gameBanner.src=data.banner||"";
+  regionSelect.style.display="none";
 
-  games.forEach(game => {
-    const btn = document.createElement("button");
-    btn.className = "game-btn";
-    btn.textContent = game.title;
+  if(id==="elden"){
+    regionSelect.style.display="block";
+    regionSelect.innerHTML="";
 
-    btn.onclick = () => loadGame(game);
-    gameList.appendChild(btn);
-  });
-}
-
-/* =======================
-   LOAD GAME
-======================= */
-async function loadGame(game) {
-  try {
-    const response = await fetch(game.file);
-    if (!response.ok) throw new Error("JSON не найден");
-
-    const gameData = await response.json();
-    renderGame(gameData, game.id);
-  } catch (e) {
-    console.error("❌ Ошибка загрузки", e);
-    content.innerHTML = "<p>Ошибка загрузки данных</p>";
-  }
-}
-
-/* =======================
-   RENDER GAME
-======================= */
-function renderGame(gameData, gameId) {
-  content.innerHTML = "";
-
-  // Banner
-  if (gameData.banner) {
-    const banner = document.createElement("img");
-    banner.src = gameData.banner;
-    banner.className = "game-banner";
-    content.appendChild(banner);
-  }
-
-  // Title
-  const title = document.createElement("h1");
-  title.textContent = gameData.title;
-  content.appendChild(title);
-
-  // Sections
-  gameData.sections.forEach(section => {
-    const sectionBlock = document.createElement("section");
-    sectionBlock.className = "boss-section";
-
-    const h2 = document.createElement("h2");
-    h2.textContent = section.title;
-    sectionBlock.appendChild(h2);
-
-    section.bosses.forEach(boss => {
-      sectionBlock.appendChild(renderBoss(boss, gameId));
+    Object.entries(data.regions).forEach(([k,r])=>{
+      const o=document.createElement("option");
+      o.value=k; o.textContent=r.name;
+      regionSelect.appendChild(o);
     });
 
-    content.appendChild(sectionBlock);
-  });
-
-  updateTotalDeaths(gameData, gameId);
-}
-
-/* =======================
-   BOSS ROW
-======================= */
-function renderBoss(boss, gameId) {
-  const key = `${gameId}_${boss.id}`;
-
-  const saved = JSON.parse(localStorage.getItem(key)) || {
-    tries: 0,
-    deaths: 0,
-    killed: false
-  };
-
-  const row = document.createElement("div");
-  row.className = "boss-row";
-
-  row.innerHTML = `
-    <img src="${boss.icon}" class="boss-icon">
-    <span class="boss-name">${boss.name}</span>
-
-    <div class="stat">
-      <input type="number" value="${saved.tries}" min="0" ${isAdmin ? "" : "disabled"}>
-      <small>Try</small>
-    </div>
-
-    <div class="stat">
-      <input type="number" value="${saved.deaths}" min="0" ${isAdmin ? "" : "disabled"}>
-      <small>Death</small>
-    </div>
-
-    <label class="killed">
-      <input type="checkbox" ${saved.killed ? "checked" : ""} ${isAdmin ? "" : "disabled"}>
-      Убит
-    </label>
-  `;
-
-  const inputs = row.querySelectorAll("input");
-
-  inputs.forEach(() => {
-    row.oninput = () => {
-      const updated = {
-        tries: +inputs[0].value,
-        deaths: +inputs[1].value,
-        killed: inputs[2].checked
-      };
-      localStorage.setItem(key, JSON.stringify(updated));
-      updateTotalDeaths();
+    const last=localStorage.getItem("elden_region")||Object.keys(data.regions)[0];
+    regionSelect.value=last;
+    regionSelect.onchange=()=>{
+      localStorage.setItem("elden_region",regionSelect.value);
+      renderBosses(id,data.regions[regionSelect.value].bosses);
     };
-  });
 
-  return row;
-}
-
-/* =======================
-   TOTAL DEATHS
-======================= */
-function updateTotalDeaths() {
-  let total = 0;
-
-  Object.keys(localStorage).forEach(k => {
-    try {
-      const data = JSON.parse(localStorage.getItem(k));
-      if (data?.deaths) total += data.deaths;
-    } catch {}
-  });
-
-  let counter = document.getElementById("total-deaths");
-  if (!counter) {
-    counter = document.createElement("div");
-    counter.id = "total-deaths";
-    counter.className = "total-deaths";
-    content.prepend(counter);
+    renderBosses(id,data.regions[last].bosses);
+    return;
   }
 
-  counter.textContent = `Всего смертей: ${total}`;
+  renderBosses(id,data.bosses);
 }
+
+function renderBosses(gameId,bosses){
+  bossList.innerHTML="";
+  const state=load(gameId,{});
+  let deaths=0;
+
+  bosses.forEach(b=>{
+    const s=state[b.id]||{tries:0,deaths:0,dead:false};
+    deaths+=s.deaths;
+
+    const row=document.createElement("div");
+    row.className="boss"+(s.dead?" dead":"");
+    row.innerHTML=`
+      <div>${b.name}</div>
+      <input type="number" value="${s.tries}" ${!admin?"disabled":""}>
+      <input type="number" value="${s.deaths}" ${!admin?"disabled":""}>
+      <button class="kill-btn">${s.dead?"DEAD":"KILL"}</button>
+    `;
+
+    if(admin){
+      row.querySelectorAll("input").forEach((i,n)=>{
+        i.onchange=()=>{
+          s[n===0?"tries":"deaths"]=+i.value;
+          state[b.id]=s; save(gameId,state);
+        };
+      });
+      row.querySelector(".kill-btn").onclick=()=>{
+        s.dead=!s.dead;
+        state[b.id]=s; save(gameId,state);
+        renderBosses(gameId,bosses);
+      };
+    }
+
+    bossList.appendChild(row);
+  });
+
+  document.getElementById("game-deaths").textContent=deaths;
+  document.getElementById("total-deaths").textContent=
+    Object.values(games).reduce((sum,g)=>sum+
+      Object.values(load(g,{})).reduce((a,b)=>a+b.deaths,0),0);
+}
+
+document.getElementById("back-btn").onclick=()=>{
+  document.body.style.opacity=0;
+  setTimeout(()=>location.href="index.html",400);
+};
+
+
 
 
 
