@@ -5,8 +5,7 @@
   <title>SOULSFON 2.0 — Статистика</title>
   <link rel="stylesheet" href="stats.css">
 </head>
-
-<body class="fade-in">
+<body>
 
 <div id="layout">
 
@@ -21,7 +20,7 @@
       <img id="game-banner-img">
     </div>
 
-    <!-- СЧЁТЧИКИ -->
+    <!-- СМЕРТИ -->
     <div id="death-stats">
       <div class="death-box">
         <span>СМЕРТИ В ИГРЕ</span>
@@ -33,10 +32,18 @@
       </div>
     </div>
 
+    <!-- ПРОГРЕСС -->
+    <div id="progress-wrapper">
+      <div class="progress-label">ПРОГРЕСС ИГРЫ / РЕГИОНА</div>
+      <div class="progress-bar"><div id="game-progress"></div></div>
+
+      <div class="progress-label">ПРОГРЕСС ВСЕГО МАРАФОНА</div>
+      <div class="progress-bar"><div id="total-progress"></div></div>
+    </div>
+
     <!-- КАРТА ELDEN RING -->
     <div id="elden-map-wrapper" class="hidden">
       <img src="images/elden_map.png" id="elden-map">
-
       <div class="region" data-region="limgrave"></div>
       <div class="region" data-region="caelid"></div>
       <div class="region" data-region="altus"></div>
@@ -52,11 +59,18 @@
   </main>
 </div>
 
+<!-- YOU DIED -->
+<div id="you-died-overlay">
+  <div class="you-died-text">YOU DIED</div>
+</div>
+
 <a href="index.html" id="back-btn">BACK</a>
 
 <script src="app.js"></script>
 </body>
 </html>
+
+
 
 
 
