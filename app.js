@@ -66,64 +66,76 @@ function renderBosses(bosses){
 
   bosses.forEach(b=>{
     const state = loadState(b.id);
-    if(state.dead) gameDeaths+=state.deaths||0;
+    if(state.dead) gameDeaths += state.deaths || 0;
 
     const row = document.createElement("div");
-    row.className="boss"+(state.dead?" dead":"");
+    row.className = "boss" + (state.dead ? " dead" : "");
 
-    row.innerHTML=`
-      <span>${b.name}</span>
-      <input type="number" value="${state.deaths||0}">
-      <button>УБИТ</button>
+    const iconPath = `images/bosses/${currentGame}/${b.id}.png`;
+
+    row.innerHTML = `
+      <img class="boss-icon"
+           src="${iconPath}"
+           onerror="this.src='images/bosses/placeholder.png'">
+
+      <span class="boss-name">${b.name}</span>
+
+      <div class="boss-stats">
+        <input type="number" value="${state.deaths || 0}">
+        <button>УБИТ</button>
+      </div>
     `;
 
-    row.querySelector("button").onclick=()=>{
-      state.dead=true;
-      saveState(b.id,state);
+    row.querySelector("button").onclick = ()=>{
+      state.dead = true;
+      saveState(b.id, state);
       loadGame(currentGame);
     };
 
-    row.querySelector("input").onchange=e=>{
-      state.deaths=+e.target.value;
-      saveState(b.id,state);
+    row.querySelector("input").onchange = e=>{
+      state.deaths = +e.target.value;
+      saveState(b.id, state);
       updateTotals();
     };
 
     bossesEl.appendChild(row);
   });
 
-  gameDeathsEl.textContent=gameDeaths;
+  gameDeathsEl.textContent = gameDeaths;
   updateTotals();
 }
 
 function updateTotals(){
-  let total=0;
+  let total = 0;
   Object.keys(localStorage).forEach(k=>{
-    const d=JSON.parse(localStorage[k]);
-    if(d.deaths) total+=d.deaths;
+    if(!k.startsWith("boss_")) return;
+    const d = JSON.parse(localStorage[k]);
+    if(d.deaths) total += d.deaths;
   });
-  totalDeathsEl.textContent=total;
+  totalDeathsEl.textContent = total;
 }
 
 function saveState(id,data){
-  localStorage.setItem("boss_"+id,JSON.stringify(data));
+  localStorage.setItem("boss_"+id, JSON.stringify(data));
 }
 
 function loadState(id){
-  return JSON.parse(localStorage.getItem("boss_"+id)||"{}");
+  return JSON.parse(localStorage.getItem("boss_"+id) || "{}");
 }
 
-/* ELDEN MAP */
+/* ELDEN RING — РЕГИОНЫ */
 function initEldenMap(data){
   document.querySelectorAll(".region").forEach(r=>{
-    r.onclick=()=>{
+    r.onclick = ()=>{
       document.querySelectorAll(".region").forEach(x=>x.classList.remove("active"));
       r.classList.add("active");
       renderBosses(data.regions[r.dataset.region].bosses);
     };
   });
-  document.querySelector(".region").click();
+  document.querySelector(".region")?.click();
 }
+
+
 
 
 
