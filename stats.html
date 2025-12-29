@@ -2,67 +2,45 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>SOULSFON 2.0 — STATS</title>
+  <title>SOULSFON 2.0 — Stats</title>
   <link rel="stylesheet" href="stats.css">
 </head>
-
 <body class="fade-in">
 
 <div id="layout">
 
-  <!-- ПРАВАЯ КОЛОНКА: ИГРЫ -->
-  <aside id="game-list">
-    <div class="sidebar-logo">SOULSFON</div>
-    <!-- кнопки игр добавляются через app.js -->
-  </aside>
+  <!-- ПРАВАЯ КОЛОНКА -->
+  <aside id="game-list"></aside>
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
   <main id="content">
-
-    <!-- БАННЕР ИГРЫ -->
-    <div class="game-banner">
-      <img id="game-poster" src="" alt="Game Poster">
+    <div id="game-header">
+      <img id="game-banner" src="" alt="">
+      <div id="death-stats">
+        <div class="death-count">
+          <span id="game-deaths">0</span>
+          <small>DEATHS (GAME)</small>
+        </div>
+        <div class="death-count">
+          <span id="total-deaths">0</span>
+          <small>DEATHS (TOTAL)</small>
+        </div>
+      </div>
     </div>
 
-    <!-- СЧЁТЧИК СМЕРТЕЙ -->
-    <div class="souls-deaths">
-
-      <div class="death-counter">
-        <span id="game-deaths" class="death-number">0</span>
-        <div class="death-label">DEATHS IN THIS GAME</div>
-      </div>
-
-      <div class="death-counter">
-        <span id="total-deaths" class="death-number">0</span>
-        <div class="death-label">TOTAL DEATHS</div>
-      </div>
-
-    </div>
-
-    <!-- БОССЫ -->
-    <section id="bosses">
-      <!-- рендерятся через app.js -->
-    </section>
-
+    <div id="boss-list"></div>
   </main>
 
 </div>
 
-<!-- КНОПКА НАЗАД -->
-<button id="back-btn">← BACK</button>
-
-<script>
-  document.getElementById("back-btn").addEventListener("click", () => {
-    document.body.classList.add("fade-out");
-    setTimeout(() => {
-      window.location.href = "index.html";
-    }, 400);
-  });
-</script>
+<!-- BACK -->
+<button id="back-btn">BACK</button>
 
 <script src="app.js"></script>
 </body>
 </html>
+
+
 
 
 
