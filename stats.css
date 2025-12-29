@@ -1,0 +1,204 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== ОСНОВА ===== */
+body.stats-page {
+  background: radial-gradient(circle at top, #1a1a1a 0%, #050505 70%);
+  color: #ddd;
+  font-family: "Cinzel", "Times New Roman", serif;
+  min-height: 100vh;
+}
+
+/* ===== LAYOUT ===== */
+.stats-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= LEFT PANEL ================= */
+.main-panel {
+  flex: 1;
+  padding: 30px 40px;
+  overflow-y: auto;
+}
+
+/* ===== GAME BANNER ===== */
+.game-banner img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border: 2px solid #2c2c2c;
+  box-shadow:
+    0 0 30px rgba(0, 0, 0, 0.9),
+    0 0 70px rgba(120, 0, 0, 0.3);
+  margin-bottom: 24px;
+}
+
+/* ===== STATS ===== */
+.death-stats {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.stat {
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid #333;
+  padding: 14px 26px;
+  min-width: 220px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.stat .label {
+  display: block;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.stat .value {
+  font-size: 34px;
+  color: #b00000;
+}
+
+/* ================= BOSSES ================= */
+.boss-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== SECTION ===== */
+.boss-section {
+  border-top: 1px solid #333;
+  padding-top: 18px;
+}
+
+.boss-section h3 {
+  font-size: 20px;
+  margin-bottom: 14px;
+  color: #b00000;
+  letter-spacing: 2px;
+}
+
+/* ===== BOSS ROW ===== */
+.boss-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 80px 80px 70px;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #2b2b2b;
+}
+
+.boss-row + .boss-row {
+  margin-top: 8px;
+}
+
+/* ===== BOSS ICON ===== */
+.boss-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: brightness(0.9);
+}
+
+/* ===== NAME ===== */
+.boss-name {
+  font-size: 16px;
+}
+
+/* ===== TRY / DEATH ===== */
+.boss-value {
+  text-align: center;
+}
+
+.boss-value input {
+  width: 60px;
+  background: #0a0a0a;
+  border: 1px solid #333;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  padding: 4px;
+}
+
+.boss-value span {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* ===== KILLED ===== */
+.boss-killed input {
+  transform: scale(1.3);
+}
+
+/* ===== KILLED STATE ===== */
+.boss-row.killed {
+  opacity: 0.5;
+  background: rgba(40, 0, 0, 0.4);
+}
+
+/* ================= RIGHT PANEL ================= */
+.side-panel {
+  width: 280px;
+  background: rgba(5, 5, 5, 0.9);
+  border-left: 1px solid #222;
+  padding: 30px 20px;
+}
+
+.side-panel h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #b00000;
+}
+
+/* ===== GAME BUTTONS ===== */
+.game-btn {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: #111;
+  border: 1px solid #333;
+  color: #ddd;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+}
+
+.game-btn:hover {
+  background: #7a1c1c;
+}
+
+/* ===== ELDEN ===== */
+.elden-ring {
+  margin-top: 20px;
+}
+
+.elden-regions {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.elden-regions button {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: #0d0d0d;
+  border: 1px solid #2b2b2b;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.elden-regions button:hover {
+  background: #551111;
+}
