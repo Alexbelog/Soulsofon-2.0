@@ -2,78 +2,31 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Soulsofon 2.0 — Статистика марафона</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
+  <title>SOULSFON 2.0 — Статистика</title>
   <link rel="stylesheet" href="stats.css">
 </head>
 <body>
 
-  <div class="stats-layout">
+<div id="layout">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <!-- КНОПКИ ИГР ГЕНЕРИРУЮТСЯ ИЗ app.js -->
-    </aside>
+  <!-- ПРАВАЯ КОЛОНКА: ИГРЫ -->
+  <aside id="game-list">
+    <!-- кнопки игр добавляются через JS -->
+  </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <main id="content">
+    <!-- здесь рендерится игра -->
+  </main>
 
-      <!-- GAME BANNER -->
-      <!-- вставляется из app.js -->
+</div>
 
-      <!-- GAME STATS -->
-      <!--
-      <div class="game-stats">
-        <div class="stat">Смерти в игре: <span class="stat-value">0</span></div>
-        <div class="stat">Прогресс: <span class="stat-value">0%</span></div>
-      </div>
-      -->
-
-      <!-- PROGRESS BAR -->
-      <!--
-      <div class="progress-bar">
-        <div class="progress-fill"></div>
-      </div>
-      -->
-
-      <!-- FILTERS -->
-      <div class="filters">
-        <select id="filterStatus">
-          <option value="all">Все боссы</option>
-          <option value="alive">Живые</option>
-          <option value="killed">Убитые</option>
-        </select>
-
-        <select id="filterSection">
-          <option value="all">Все секции</option>
-          <option value="Основные">Основные</option>
-          <option value="Опциональные">Опциональные</option>
-          <option value="Мини">Мини-боссы</option>
-          <option value="DLC">DLC</option>
-        </select>
-      </div>
-
-      <!-- BOSS LIST -->
-      <!--
-      <div class="boss-list">
-        app.js рендерит сюда секции и строки боссов
-      </div>
-      -->
-
-    </main>
-
-  </div>
-
-  <!-- SCRIPT -->
-  <script src="app.js"></script>
+<!-- JS ВСЕГДА В КОНЦЕ -->
+<script src="app.js"></script>
 </body>
 </html>
+
+
 
 
 
