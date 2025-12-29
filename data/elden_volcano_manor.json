@@ -1,71 +1,51 @@
 {
+  "id": "elden_volcano_manor",
   "title": "Elden Ring — Вулканово поместье",
-  "logo": "images/logos/elden_ring.png",
+  "banner": "images/banners/elden/volcano_manor.jpg",
   "sections": [
     {
-      "name": "Основные боссы",
+      "title": "Основные боссы региона",
       "bosses": [
         {
-          "id": "er_rykard_lord_of_blasphemy",
-          "name": "Рикард, повелитель богохульства",
-          "icon": "images/bosses/placeholder.png"
+          "id": "rykard_lord_of_blasphemy",
+          "name": "Рикард, Повелитель богохульства",
+          "icon": "images/bosses/elden/volcano/rykard.png"
         }
       ]
     },
+
     {
-      "name": "Вулканово поместье — мир",
+      "title": "Боссы Вулканова поместья",
       "bosses": [
         {
-          "id": "er_abductor_virgin_duo",
-          "name": "Похитители-девы (дуэт)",
-          "icon": "images/bosses/placeholder.png"
+          "id": "godskin_noble_volcano",
+          "name": "Аристократ кожи богов",
+          "icon": "images/bosses/elden/volcano/godskin_noble.png"
         },
         {
-          "id": "er_magma_wyrm_makar",
-          "name": "Магмовый вирм Макар",
-          "icon": "images/bosses/placeholder.png"
+          "id": "abductor_virgins",
+          "name": "Девы-похитители (двое)",
+          "icon": "images/bosses/elden/volcano/abductor_virgins.png"
         },
         {
-          "id": "er_magma_wyrm_gelmir",
-          "name": "Магмовый вирм (Гельмир)",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_kindred_of_rot_gelmir",
-          "name": "Родич гнили (Гельмир)",
-          "icon": "images/bosses/placeholder.png"
+          "id": "magma_wyrm_volcano",
+          "name": "Магмовый змей",
+          "icon": "images/bosses/elden/volcano/magma_wyrm.png"
         }
       ]
     },
+
     {
-      "name": "Контракты Вулканова поместья",
+      "title": "Опциональные боссы",
       "bosses": [
         {
-          "id": "er_old_knight_istvan",
-          "name": "Старый рыцарь Истван",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_rileigh_the_idle",
-          "name": "Райли Праздный",
-          "icon": "images/bosses/placeholder.png"
-        },
-        {
-          "id": "er_juno_hoslow",
-          "name": "Джуно Хослоу, Рыцарь крови",
-          "icon": "images/bosses/placeholder.png"
-        }
-      ]
-    },
-    {
-      "name": "Внутренние подземелья поместья",
-      "bosses": [
-        {
-          "id": "er_godskin_noble_volcano",
-          "name": "Знать кожи богов (Поместье)",
-          "icon": "images/bosses/placeholder.png"
+          "id": "kindred_black_blade_volcano",
+          "name": "Родич Чёрного клинка",
+          "icon": "images/bosses/elden/volcano/black_blade_kindred.png"
         }
       ]
     }
   ]
 }
+
+
