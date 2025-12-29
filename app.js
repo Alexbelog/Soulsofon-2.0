@@ -1,11 +1,4 @@
-// ===== ADMIN MODE =====
-const params = new URLSearchParams(window.location.search);
-
-if (params.get("admin") === "1") {
-  localStorage.setItem("soul_admin", "true");
-}
-
-const isAdmin = localStorage.getItem("soul_admin") === "true";
+const isAdmin = new URLSearchParams(window.location.search).get("admin") === "1";
 const games = {
   ds1:{name:"Dark Souls",file:"data/ds1.json",banner:"images/ds1.jpg"},
   ds2:{name:"Dark Souls II",file:"data/ds2.json",banner:"images/ds2.jpg"},
@@ -230,6 +223,7 @@ resetMapBtn.onclick=()=>{
   eldenMap.classList.remove("zoomed");
   eldenMap.style.transform="scale(1)";
 };
+
 
 
 
