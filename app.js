@@ -7,156 +7,125 @@ if (params.get("admin") === "1") {
 
 const isAdmin = localStorage.getItem("soul_admin") === "true";
 const games = {
-  ds1: "data/ds1.json",
-  ds2: "data/ds2.json",
-  ds3: "data/ds3.json",
-  sekiro: "data/sekiro.json",
-  elden: "data/elden_ring.json"
+  ds1: { name:"Dark Souls", file:"data/ds1.json", banner:"images/ds1.jpg" },
+  ds2: { name:"Dark Souls II", file:"data/ds2.json", banner:"images/ds2.jpg" },
+  ds3: { name:"Dark Souls III", file:"data/ds3.json", banner:"images/ds3.jpg" },
+  sekiro:{ name:"Sekiro", file:"data/sekiro.json", banner:"images/sekiro.jpg" },
+  elden:{ name:"Elden Ring", file:"data/elden_ring.json", banner:"images/elden.jpg" }
 };
 
-const admin = new URLSearchParams(location.search).get("admin") === "1";
+const list = document.getElementById("game-list");
+const bossesEl = document.getElementById("bosses");
+const bannerImg = document.getElementById("game-banner-img");
+const gameDeathsEl = document.getElementById("game-deaths");
+const totalDeathsEl = document.getElementById("total-deaths");
+const eldenMap = document.getElementById("elden-map-wrapper");
 
-const gameList = document.getElementById("game-list");
-const bossList = document.getElementById("boss-list");
-const gameBanner = document.getElementById("game-banner");
-const regionSelect = document.getElementById("region-select");
+let currentGame = null;
+let gameData = null;
 
-let currentFilter = "all";
-let lastGameId = null;
-let lastBosses = [];
-
-function save(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
-}
-function load(key) {
-  try { return JSON.parse(localStorage.getItem(key)) || {}; }
-  catch { return {}; }
-}
-
-/* КНОПКИ ИГР */
-Object.entries(games).forEach(([id, path]) => {
+Object.keys(games).forEach(id=>{
   const btn = document.createElement("button");
   btn.className = "game-btn";
-  btn.textContent = id.toUpperCase();
-  btn.onclick = () => loadGame(id, path, btn);
-  gameList.appendChild(btn);
+  btn.textContent = games[id].name;
+  btn.onclick = ()=>loadGame(id);
+  list.appendChild(btn);
 });
 
-/* ФИЛЬТР */
-document.querySelectorAll(".filter-btn").forEach(btn => {
-  btn.onclick = () => {
-    currentFilter = btn.dataset.filter;
-    renderBosses(lastGameId, lastBosses);
-  };
-});
+loadGame("ds1");
 
-async function loadGame(id, path, btn) {
-  document.querySelectorAll(".game-btn").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
+function loadGame(id){
+  fetch(games[id].file)
+    .then(r=>r.json())
+    .then(data=>{
+      currentGame = id;
+      gameData = data;
 
-  const data = await (await fetch(path)).json();
-  gameBanner.src = data.banner || "";
-  regionSelect.style.display = "none";
+      bannerImg.src = games[id].banner;
+      eldenMap.classList.toggle("hidden", id!=="elden");
 
-  if (id === "elden") {
-    regionSelect.style.display = "block";
-    regionSelect.innerHTML = "";
-
-    Object.entries(data.regions).forEach(([k, r]) => {
-      const o = document.createElement("option");
-      o.value = k;
-      o.textContent = r.name;
-      regionSelect.appendChild(o);
+      if(id==="elden"){
+        initEldenMap(data);
+      } else {
+        renderBosses(flatten(data.sections));
+      }
     });
-
-    const region = localStorage.getItem("elden_region") || Object.keys(data.regions)[0];
-    regionSelect.value = region;
-
-    regionSelect.onchange = () => {
-      localStorage.setItem("elden_region", regionSelect.value);
-      renderBosses(id, data.regions[regionSelect.value].bosses);
-    };
-
-    renderBosses(id, data.regions[region].bosses);
-    return;
-  }
-
-  const bosses = [];
-  Object.values(data.sections).forEach(s => s.bosses.forEach(b => bosses.push(b)));
-  renderBosses(id, bosses);
 }
 
-function renderBosses(gameId, bosses) {
-  lastGameId = gameId;
-  lastBosses = bosses;
-  bossList.innerHTML = "";
+function flatten(sections){
+  let arr=[];
+  Object.values(sections).forEach(v=>{
+    if(Array.isArray(v)) arr.push(...v);
+  });
+  return arr;
+}
 
-  const state = load(gameId);
-  let deaths = 0;
-  let killed = 0;
+function renderBosses(bosses){
+  bossesEl.innerHTML="";
+  let gameDeaths=0;
 
-  bosses.forEach(b => {
-    const s = state[b.id] || { tries:0, deaths:0, dead:false };
-    deaths += s.deaths;
-    if (s.dead) killed++;
-
-    if (
-      currentFilter === "dead" && !s.dead ||
-      currentFilter === "alive" && s.dead
-    ) return;
+  bosses.forEach(b=>{
+    const state = loadState(b.id);
+    if(state.dead) gameDeaths+=state.deaths||0;
 
     const row = document.createElement("div");
-    row.className = "boss" + (s.dead ? " dead":"");
+    row.className="boss"+(state.dead?" dead":"");
 
-    row.innerHTML = `
-      <div class="boss-name">
-        <img class="boss-icon" src="${b.icon || 'images/bosses/unknown.png'}">
-        ${b.name}
-      </div>
-      <input type="number" value="${s.tries}" ${!admin?"disabled":""}>
-      <input type="number" value="${s.deaths}" ${!admin?"disabled":""}>
-      <button class="kill-btn">${s.dead?"DEAD":"KILL"}</button>
+    row.innerHTML=`
+      <span>${b.name}</span>
+      <input type="number" value="${state.deaths||0}">
+      <button>УБИТ</button>
     `;
 
-    if (admin) {
-      const [t,d] = row.querySelectorAll("input");
-      t.onchange=()=>{s.tries=+t.value;state[b.id]=s;save(gameId,state);};
-      d.onchange=()=>{s.deaths=+d.value;state[b.id]=s;save(gameId,state);renderBosses(gameId,bosses);};
-      row.querySelector(".kill-btn").onclick=()=>{
-        s.dead=!s.dead;state[b.id]=s;save(gameId,state);renderBosses(gameId,bosses);
-      };
-    }
+    row.querySelector("button").onclick=()=>{
+      state.dead=true;
+      saveState(b.id,state);
+      loadGame(currentGame);
+    };
 
-    bossList.appendChild(row);
+    row.querySelector("input").onchange=e=>{
+      state.deaths=+e.target.value;
+      saveState(b.id,state);
+      updateTotals();
+    };
+
+    bossesEl.appendChild(row);
   });
 
-  document.getElementById("game-deaths").textContent = deaths;
-  document.getElementById("total-deaths").textContent =
-    Object.keys(games).reduce((sum,g)=>sum+
-      Object.values(load(g)).reduce((a,b)=>a+(b.deaths||0),0),0);
-
-  const percent = Math.round((killed / bosses.length) * 100);
-  document.getElementById("game-progress").style.width = percent+"%";
-  document.getElementById("game-progress-text").textContent = percent+"%";
-
-  let totalBosses=0,totalKilled=0;
-  Object.keys(games).forEach(g=>{
-    const s=load(g);
-    Object.values(s).forEach(b=>{
-      totalBosses++;
-      if(b.dead) totalKilled++;
-    });
-  });
-
-  const totalPercent = totalBosses ? Math.round((totalKilled/totalBosses)*100) : 0;
-  document.getElementById("total-progress").style.width = totalPercent+"%";
-  document.getElementById("total-progress-text").textContent = totalPercent+"%";
+  gameDeathsEl.textContent=gameDeaths;
+  updateTotals();
 }
 
-document.getElementById("back-btn").onclick=()=>{
-  document.body.style.opacity=0;
-  setTimeout(()=>location.href="index.html",400);
-};
+function updateTotals(){
+  let total=0;
+  Object.keys(localStorage).forEach(k=>{
+    const d=JSON.parse(localStorage[k]);
+    if(d.deaths) total+=d.deaths;
+  });
+  totalDeathsEl.textContent=total;
+}
+
+function saveState(id,data){
+  localStorage.setItem("boss_"+id,JSON.stringify(data));
+}
+
+function loadState(id){
+  return JSON.parse(localStorage.getItem("boss_"+id)||"{}");
+}
+
+/* ELDEN MAP */
+function initEldenMap(data){
+  document.querySelectorAll(".region").forEach(r=>{
+    r.onclick=()=>{
+      document.querySelectorAll(".region").forEach(x=>x.classList.remove("active"));
+      r.classList.add("active");
+      renderBosses(data.regions[r.dataset.region].bosses);
+    };
+  });
+  document.querySelector(".region").click();
+}
+
+
 
 
 
