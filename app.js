@@ -1,210 +1,251 @@
-const content = document.querySelector('.content');
-const sidebar = document.querySelector('.sidebar');
+/* ================================
+   SOULSOFON 2.0 — app.js (FINAL)
+   ================================ */
 
-const filterStatus = document.getElementById('filterStatus');
-const filterSection = document.getElementById('filterSection');
+/* ---------- РЕЕСТР ИГР ---------- */
+
+const GAMES = [
+  {
+    id: "ds1",
+    title: "Dark Souls",
+    json: "data/ds1.json"
+  },
+  {
+    id: "ds2",
+    title: "Dark Souls II",
+    json: "data/ds2.json"
+  },
+  {
+    id: "ds3",
+    title: "Dark Souls III",
+    json: "data/ds3.json"
+  },
+  {
+    id: "sekiro",
+    title: "Sekiro: Shadows Die Twice",
+    json: "data/sekiro.json"
+  },
+  {
+    id: "elden",
+    title: "Elden Ring",
+    json: "data/elden_ring.json"
+  }
+];
 
 let currentGame = null;
-let allBossRows = [];
+let gameData = null;
 
-/* =========================
-   LOAD GAME JSON
-========================= */
-async function loadGame(jsonPath) {
-  const res = await fetch(jsonPath);
-  const game = await res.json();
-  currentGame = game;
-  renderGame(game);
-}
+/* ---------- DOM ---------- */
 
-/* =========================
-   RENDER GAME
-========================= */
-function renderGame(game) {
-  content.innerHTML = '';
+const sidebar = document.querySelector(".sidebar");
+const content = document.querySelector(".content");
 
-  // Banner
-  if (game.banner) {
-    const banner = document.createElement('img');
-    banner.src = game.banner;
-    banner.className = 'game-banner';
-    content.appendChild(banner);
-  }
+/* ---------- INIT ---------- */
 
-  // Stats
-  const stats = document.createElement('div');
-  stats.className = 'game-stats';
-  stats.innerHTML = `
-    <div class="stat">Смерти в игре:
-      <span class="stat-value" id="gameDeaths">0</span>
-    </div>
-    <div class="stat">Прогресс:
-      <span class="stat-value" id="gameProgress">0%</span>
-    </div>
-  `;
-  content.appendChild(stats);
+initSidebar();
+loadGame(GAMES[0]); // по умолчанию первая игра
 
-  // Progress bar
-  const progressBar = document.createElement('div');
-  progressBar.className = 'progress-bar';
-  progressBar.innerHTML = `<div class="progress-fill" id="progressFill"></div>`;
-  content.appendChild(progressBar);
+/* ---------- SIDEBAR ---------- */
 
-  // Boss list
-  const list = document.createElement('div');
-  list.className = 'boss-list';
-  content.appendChild(list);
+function initSidebar() {
+  sidebar.innerHTML = "";
 
-  allBossRows = [];
+  GAMES.forEach(game => {
+    const btn = document.createElement("button");
+    btn.className = "game-btn";
+    btn.textContent = game.title;
 
-  game.regions?.forEach(region => {
-    region.sections.forEach(section => {
-      const sectionTitle = document.createElement('div');
-      sectionTitle.className = 'boss-section-title';
-      sectionTitle.textContent = `${region.title} — ${section.title}`;
-      list.appendChild(sectionTitle);
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".game-btn")
+        .forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
 
-      section.bosses.forEach(boss => {
-        const row = createBossRow(game.id, boss, section.title);
-        list.appendChild(row);
-        allBossRows.push(row);
-      });
+      loadGame(game);
     });
+
+    sidebar.appendChild(btn);
   });
 
-  updateStats();
+  sidebar.querySelector(".game-btn")?.classList.add("active");
 }
 
-/* =========================
-   CREATE BOSS ROW
-========================= */
-function createBossRow(gameId, boss, section) {
-  const saved = loadBossData(gameId, boss.id);
+/* ---------- LOAD GAME ---------- */
 
-  boss.tries = saved?.tries ?? 0;
-  boss.deaths = saved?.deaths ?? 0;
-  boss.killed = saved?.killed ?? false;
+async function loadGame(game) {
+  currentGame = game;
 
-  const row = document.createElement('div');
-  row.className = 'boss-row';
-  row.dataset.section = section;
+  content.classList.add("fade-out");
 
-  if (boss.killed) row.classList.add('killed');
+  try {
+    const response = await fetch(game.json);
+    gameData = await response.json();
 
-  row.innerHTML = `
-    <img class="boss-icon" src="${boss.icon || ''}">
-    <div class="boss-name">${boss.name}</div>
+    setTimeout(() => {
+      renderGame();
+      content.classList.remove("fade-out");
+    }, 300);
 
-    <div class="boss-input-wrapper">
-      <input type="number" class="boss-input try" value="${boss.tries}">
-      <div>Try</div>
-    </div>
+  } catch (err) {
+    console.error("Ошибка загрузки JSON:", err);
+  }
+}
 
-    <div class="boss-input-wrapper">
-      <input type="number" class="boss-input death" value="${boss.deaths}">
-      <div>Death</div>
-    </div>
+/* ---------- RENDER GAME ---------- */
 
-    <input type="checkbox" class="boss-killed" ${boss.killed ? 'checked' : ''}>
+function renderGame() {
+  content.innerHTML = "";
+
+  renderHeader();
+  renderFilters();
+  renderBosses();
+}
+
+/* ---------- HEADER ---------- */
+
+function renderHeader() {
+  const header = document.createElement("div");
+  header.className = "game-header";
+
+  header.innerHTML = `
+    <h1>${gameData.title}</h1>
+    ${gameData.description ? `<p>${gameData.description}</p>` : ""}
   `;
 
-  const tryInput = row.querySelector('.try');
-  const deathInput = row.querySelector('.death');
-  const killedCheckbox = row.querySelector('.boss-killed');
+  content.appendChild(header);
+}
 
-  tryInput.oninput = () => save();
-  deathInput.oninput = () => save();
-  killedCheckbox.onchange = () => {
-    row.classList.toggle('killed', killedCheckbox.checked);
-    save();
-  };
+/* ---------- FILTERS ---------- */
 
-  function save() {
-    boss.tries = +tryInput.value;
-    boss.deaths = +deathInput.value;
-    boss.killed = killedCheckbox.checked;
-    saveBossData(gameId, boss);
-    updateStats();
-  }
+function renderFilters() {
+  const filters = document.createElement("div");
+  filters.className = "filters";
+
+  filters.innerHTML = `
+    <select id="filterStatus">
+      <option value="all">Все боссы</option>
+      <option value="alive">Живые</option>
+      <option value="killed">Убитые</option>
+    </select>
+
+    <select id="filterSection">
+      <option value="all">Все секции</option>
+    </select>
+  `;
+
+  content.appendChild(filters);
+
+  fillSectionsFilter();
+  bindFilters();
+}
+
+function fillSectionsFilter() {
+  const select = document.getElementById("filterSection");
+
+  Object.keys(gameData.sections).forEach(section => {
+    const opt = document.createElement("option");
+    opt.value = section;
+    opt.textContent = section;
+    select.appendChild(opt);
+  });
+}
+
+/* ---------- BOSSES ---------- */
+
+function renderBosses() {
+  const list = document.createElement("div");
+  list.className = "boss-list";
+
+  Object.entries(gameData.sections).forEach(([sectionName, bosses]) => {
+    const section = document.createElement("div");
+    section.className = "boss-section";
+    section.dataset.section = sectionName;
+
+    section.innerHTML = `<h2>${sectionName}</h2>`;
+
+    bosses.forEach((boss, index) => {
+      section.appendChild(renderBossRow(boss, sectionName, index));
+    });
+
+    list.appendChild(section);
+  });
+
+  content.appendChild(list);
+}
+
+/* ---------- BOSS ROW ---------- */
+
+function renderBossRow(boss, section, index) {
+  const row = document.createElement("div");
+  row.className = "boss-row";
+  row.dataset.status = boss.killed ? "killed" : "alive";
+
+  row.innerHTML = `
+    <div class="boss-name">${boss.name}</div>
+
+    <input type="number" min="0" class="boss-input"
+      value="${boss.tries}"
+      data-field="tries"
+      data-section="${section}"
+      data-index="${index}">
+
+    <input type="number" min="0" class="boss-input"
+      value="${boss.deaths}"
+      data-field="deaths"
+      data-section="${section}"
+      data-index="${index}">
+
+    <button class="boss-toggle">
+      ${boss.killed ? "☠" : "⚔"}
+    </button>
+  `;
+
+  row.querySelector(".boss-toggle").addEventListener("click", () => {
+    boss.killed = !boss.killed;
+    row.dataset.status = boss.killed ? "killed" : "alive";
+    row.querySelector(".boss-toggle").textContent = boss.killed ? "☠" : "⚔";
+  });
+
+  row.querySelectorAll(".boss-input").forEach(input => {
+    input.addEventListener("change", updateBossValue);
+  });
 
   return row;
 }
 
-/* =========================
-   STATS
-========================= */
-function updateStats() {
-  let totalDeaths = 0;
-  let totalBosses = 0;
-  let killedBosses = 0;
+/* ---------- UPDATE ---------- */
 
-  currentGame.regions.forEach(region => {
-    region.sections.forEach(section => {
-      section.bosses.forEach(boss => {
-        totalBosses++;
-        totalDeaths += boss.deaths;
-        if (boss.killed) killedBosses++;
-      });
+function updateBossValue(e) {
+  const { section, index, field } = e.target.dataset;
+  gameData.sections[section][index][field] = Number(e.target.value);
+}
+
+/* ---------- FILTER LOGIC ---------- */
+
+function bindFilters() {
+  document.getElementById("filterStatus")
+    .addEventListener("change", applyFilters);
+
+  document.getElementById("filterSection")
+    .addEventListener("change", applyFilters);
+}
+
+function applyFilters() {
+  const status = document.getElementById("filterStatus").value;
+  const section = document.getElementById("filterSection").value;
+
+  document.querySelectorAll(".boss-section").forEach(sec => {
+    const showSection = section === "all" || sec.dataset.section === section;
+    sec.style.display = showSection ? "" : "none";
+
+    sec.querySelectorAll(".boss-row").forEach(row => {
+      const showStatus =
+        status === "all" || row.dataset.status === status;
+
+      row.style.display = showStatus ? "" : "none";
     });
   });
-
-  document.getElementById('gameDeaths').textContent = totalDeaths;
-  document.getElementById('gameProgress').textContent =
-    Math.round((killedBosses / totalBosses) * 100) + '%';
-
-  document.getElementById('progressFill').style.width =
-    (killedBosses / totalBosses) * 100 + '%';
 }
 
-/* =========================
-   FILTERS
-========================= */
-function applyFilters() {
-  const status = filterStatus?.value || 'all';
-  const section = filterSection?.value || 'all';
-
-  allBossRows.forEach(row => {
-    const killed = row.classList.contains('killed');
-    const rowSection = row.dataset.section;
-
-    let visible = true;
-
-    if (status === 'killed' && !killed) visible = false;
-    if (status === 'alive' && killed) visible = false;
-    if (section !== 'all' && !rowSection.includes(section)) visible = false;
-
-    row.style.display = visible ? 'grid' : 'none';
-  });
-}
-
-filterStatus?.addEventListener('change', applyFilters);
-filterSection?.addEventListener('change', applyFilters);
-
-/* =========================
-   LOCAL STORAGE
-========================= */
-function saveBossData(gameId, boss) {
-  localStorage.setItem(
-    `boss_${gameId}_${boss.id}`,
-    JSON.stringify(boss)
-  );
-}
-
-function loadBossData(gameId, bossId) {
-  const data = localStorage.getItem(`boss_${gameId}_${bossId}`);
-  return data ? JSON.parse(data) : null;
-}
-
-/* =========================
-   SIDEBAR BUTTONS
-========================= */
-document.querySelectorAll('[data-game]').forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll('.sidebar button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    loadGame(btn.dataset.game);
-  };
-});
 
 
 
