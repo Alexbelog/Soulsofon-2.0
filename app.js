@@ -7,126 +7,146 @@ if (params.get("admin") === "1") {
 
 const isAdmin = localStorage.getItem("soul_admin") === "true";
 const games = {
-  ds1: { name:"Dark Souls", file:"data/ds1.json", banner:"images/ds1.jpg" },
-  ds2: { name:"Dark Souls II", file:"data/ds2.json", banner:"images/ds2.jpg" },
-  ds3: { name:"Dark Souls III", file:"data/ds3.json", banner:"images/ds3.jpg" },
-  sekiro:{ name:"Sekiro", file:"data/sekiro.json", banner:"images/sekiro.jpg" },
-  elden:{ name:"Elden Ring", file:"data/elden_ring.json", banner:"images/elden.jpg" }
+  ds1:{name:"Dark Souls",file:"data/ds1.json",banner:"images/ds1.jpg"},
+  ds2:{name:"Dark Souls II",file:"data/ds2.json",banner:"images/ds2.jpg"},
+  ds3:{name:"Dark Souls III",file:"data/ds3.json",banner:"images/ds3.jpg"},
+  sekiro:{name:"Sekiro",file:"data/sekiro.json",banner:"images/sekiro.jpg"},
+  elden:{name:"Elden Ring",file:"data/elden_ring.json",banner:"images/elden.jpg"}
 };
 
-const list = document.getElementById("game-list");
-const bossesEl = document.getElementById("bosses");
-const bannerImg = document.getElementById("game-banner-img");
-const gameDeathsEl = document.getElementById("game-deaths");
-const totalDeathsEl = document.getElementById("total-deaths");
-const eldenMap = document.getElementById("elden-map-wrapper");
+const list=document.getElementById("game-list");
+const bossesEl=document.getElementById("bosses");
+const bannerImg=document.getElementById("game-banner-img");
+const gameDeathsEl=document.getElementById("game-deaths");
+const totalDeathsEl=document.getElementById("total-deaths");
+const eldenMap=document.getElementById("elden-map-wrapper");
 
-let currentGame = null;
-let gameData = null;
+let currentGame=null;
+let currentBosses=[];
 
 Object.keys(games).forEach(id=>{
-  const btn = document.createElement("button");
-  btn.className = "game-btn";
-  btn.textContent = games[id].name;
-  btn.onclick = ()=>loadGame(id);
-  list.appendChild(btn);
+  const b=document.createElement("button");
+  b.className="game-btn";
+  b.textContent=games[id].name;
+  b.onclick=()=>loadGame(id);
+  list.appendChild(b);
 });
 
 loadGame("ds1");
 
 function loadGame(id){
-  fetch(games[id].file)
-    .then(r=>r.json())
-    .then(data=>{
-      currentGame = id;
-      gameData = data;
+  fetch(games[id].file).then(r=>r.json()).then(data=>{
+    currentGame=id;
+    bannerImg.src=games[id].banner;
+    eldenMap.classList.toggle("hidden",id!=="elden");
 
-      bannerImg.src = games[id].banner;
-      eldenMap.classList.toggle("hidden", id!=="elden");
-
-      if(id==="elden"){
-        initEldenMap(data);
-      } else {
-        renderBosses(flatten(data.sections));
-      }
-    });
+    if(id==="elden") initEldenMap(data);
+    else renderBosses(flatten(data.sections));
+  });
 }
 
 function flatten(sections){
   let arr=[];
-  Object.values(sections).forEach(v=>{
-    if(Array.isArray(v)) arr.push(...v);
-  });
+  Object.values(sections).forEach(v=>Array.isArray(v)&&arr.push(...v));
   return arr;
 }
 
 function renderBosses(bosses){
   bossesEl.innerHTML="";
+  currentBosses=bosses;
+
   let gameDeaths=0;
 
   bosses.forEach(b=>{
-    const state = loadState(b.id);
-    if(state.dead) gameDeaths += state.deaths || 0;
+    const s=loadState(b.id);
+    if(s.dead) gameDeaths+=s.deaths||0;
 
-    const row = document.createElement("div");
-    row.className = "boss" + (state.dead ? " dead" : "");
+    const row=document.createElement("div");
+    row.className="boss"+(s.dead?" dead":"");
 
-    const iconPath = `images/bosses/${currentGame}/${b.id}.png`;
+    const deaths=s.deaths||0;
+    let heat=0;
+    if(deaths>=1)heat=1;
+    if(deaths>=5)heat=2;
+    if(deaths>=10)heat=3;
+    if(deaths>=20)heat=4;
+    row.dataset.heat=heat;
 
-    row.innerHTML = `
-      <img class="boss-icon"
-           src="${iconPath}"
+    row.innerHTML=`
+      <img class="boss-icon" src="images/bosses/${currentGame}/${b.id}.png"
            onerror="this.src='images/bosses/placeholder.png'">
-
       <span class="boss-name">${b.name}</span>
-
       <div class="boss-stats">
-        <input type="number" value="${state.deaths || 0}">
+        <input type="number" value="${deaths}">
         <button>УБИТ</button>
       </div>
     `;
 
-    row.querySelector("button").onclick = ()=>{
-      state.dead = true;
-      saveState(b.id, state);
-      loadGame(currentGame);
+    row.querySelector("button").onclick=()=>{
+      s.dead=true;
+      saveState(b.id,s);
+      showYouDied();
+      setTimeout(()=>loadGame(currentGame),1000);
     };
 
-    row.querySelector("input").onchange = e=>{
-      state.deaths = +e.target.value;
-      saveState(b.id, state);
+    row.querySelector("input").onchange=e=>{
+      s.deaths=+e.target.value;
+      saveState(b.id,s);
       updateTotals();
     };
 
     bossesEl.appendChild(row);
   });
 
-  gameDeathsEl.textContent = gameDeaths;
+  gameDeathsEl.textContent=gameDeaths;
   updateTotals();
+  updateProgress(bosses);
 }
 
 function updateTotals(){
-  let total = 0;
+  let total=0;
   Object.keys(localStorage).forEach(k=>{
-    if(!k.startsWith("boss_")) return;
-    const d = JSON.parse(localStorage[k]);
-    if(d.deaths) total += d.deaths;
+    if(k.startsWith("boss_")){
+      const d=JSON.parse(localStorage[k]);
+      if(d.deaths) total+=d.deaths;
+    }
   });
-  totalDeathsEl.textContent = total;
+  totalDeathsEl.textContent=total;
+  updateTotalProgress();
 }
 
-function saveState(id,data){
-  localStorage.setItem("boss_"+id, JSON.stringify(data));
+function updateProgress(bosses){
+  let killed=0;
+  bosses.forEach(b=>loadState(b.id).dead&&killed++);
+  document.getElementById("game-progress").style.width=
+    (bosses.length?Math.round(killed/bosses.length*100):0)+"%";
 }
 
-function loadState(id){
-  return JSON.parse(localStorage.getItem("boss_"+id) || "{}");
+function updateTotalProgress(){
+  let total=0,killed=0;
+  Object.keys(localStorage).forEach(k=>{
+    if(k.startsWith("boss_")){
+      total++;
+      JSON.parse(localStorage[k]).dead&&killed++;
+    }
+  });
+  document.getElementById("total-progress").style.width=
+    (total?Math.round(killed/total*100):0)+"%";
 }
 
-/* ELDEN RING — РЕГИОНЫ */
+function saveState(id,d){ localStorage.setItem("boss_"+id,JSON.stringify(d)); }
+function loadState(id){ return JSON.parse(localStorage.getItem("boss_"+id)||"{}"); }
+
+function showYouDied(){
+  const o=document.getElementById("you-died-overlay");
+  o.classList.add("show");
+  setTimeout(()=>o.classList.remove("show"),900);
+}
+
+/* ELDEN MAP */
 function initEldenMap(data){
   document.querySelectorAll(".region").forEach(r=>{
-    r.onclick = ()=>{
+    r.onclick=()=>{
       document.querySelectorAll(".region").forEach(x=>x.classList.remove("active"));
       r.classList.add("active");
       renderBosses(data.regions[r.dataset.region].bosses);
@@ -134,6 +154,8 @@ function initEldenMap(data){
   });
   document.querySelector(".region")?.click();
 }
+
+
 
 
 
