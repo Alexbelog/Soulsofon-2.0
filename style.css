@@ -1,21 +1,23 @@
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== ФОН ===== */
+/* ===== ОСНОВА ===== */
 body.index-page {
   background: radial-gradient(circle at center, #1b1b1b 0%, #050505 70%);
   color: #e0e0e0;
   font-family: "Cinzel", "Times New Roman", serif;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* ===== ОБЩИЙ КОНТЕЙНЕР ===== */
+/* ===== КОНТЕЙНЕР ===== */
 .landing {
   width: 100%;
   max-width: 1920px;
@@ -31,9 +33,10 @@ body.index-page {
   text-shadow:
     0 0 12px rgba(255, 40, 40, 0.6),
     0 0 40px rgba(120, 0, 0, 0.4);
+  animation: breathing 4s ease-in-out infinite;
 }
 
-/* ===== ЭФФЕКТ ДЫХАНИЯ ===== */
+/* ===== ДЫХАНИЕ ===== */
 @keyframes breathing {
   0% {
     opacity: 0.85;
@@ -55,17 +58,13 @@ body.index-page {
   }
 }
 
-.breathing {
-  animation: breathing 4s ease-in-out infinite;
-}
-
 /* ===== ОБЁРТКА ПОСТЕРА ===== */
 .poster-wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* ===== ПОСТЕР (АДАПТИВ ПОД 1920x1080) ===== */
+/* ===== ПОСТЕР ===== */
 .poster {
   max-width: 90vw;
   max-height: 70vh;
@@ -74,9 +73,50 @@ body.index-page {
   display: block;
 
   border: 2px solid #2c2c2c;
+  filter: brightness(0.9) contrast(1.05);
   box-shadow:
     0 0 40px rgba(0, 0, 0, 0.9),
     0 0 90px rgba(120, 0, 0, 0.4);
+}
+
+/* ===== ТУМАН ===== */
+.poster-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(255, 255, 255, 0.08),
+      rgba(0, 0, 0, 0) 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 40%,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0) 65%
+    );
+
+  opacity: 0.35;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: fogMove 18s ease-in-out infinite;
+}
+
+/* ===== АНИМАЦИЯ ТУМАНА ===== */
+@keyframes fogMove {
+  0% {
+    transform: translateX(-3%) translateY(-2%);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateX(3%) translateY(2%);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(-3%) translateY(-2%);
+    opacity: 0.25;
+  }
 }
 
 /* ===== КНОПКА YOU DEATH ===== */
@@ -102,6 +142,7 @@ body.index-page {
   transition: all 0.2s ease;
 }
 
+/* ===== HOVER ===== */
 .start-button:hover {
   background: linear-gradient(180deg, #ff2a2a 0%, #8b0000 100%);
   box-shadow:
@@ -110,9 +151,12 @@ body.index-page {
   transform: translateX(-50%) translateY(-3px);
 }
 
+/* ===== ACTIVE ===== */
 .start-button:active {
   transform: translateX(-50%) translateY(1px);
 }
+
+
 
 
 
