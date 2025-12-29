@@ -28,31 +28,44 @@ body.index-page {
     0 0 40px rgba(120, 0, 0, 0.3);
 }
 
-/* ===== ПОСТЕР 1280x720 ===== */
+/* ===== ОБЁРТКА ПОСТЕРА ===== */
+.poster-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* ===== ПОСТЕР (АДАПТИВНЫЙ) ===== */
 .poster {
-  width: 1280px;
-  height: 720px;
-  object-fit: cover;
+  max-width: 90vw;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  display: block;
   border: 2px solid #3a3a3a;
   box-shadow:
     0 0 30px rgba(0, 0, 0, 0.9),
     0 0 70px rgba(120, 0, 0, 0.35);
-  margin-bottom: 40px;
 }
 
 /* ===== КНОПКА YOU DEATH ===== */
 .start-button {
-  display: inline-block;
-  padding: 20px 70px;
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 18px 64px;
   font-size: 30px;
   letter-spacing: 4px;
   text-decoration: none;
   color: #fff;
+
   border: 2px solid #8b0000;
   background: linear-gradient(180deg, #b00000 0%, #5a0000 100%);
   box-shadow:
     0 0 20px rgba(255, 0, 0, 0.5),
     inset 0 0 12px rgba(0, 0, 0, 0.7);
+
   transition: all 0.2s ease;
 }
 
@@ -61,12 +74,14 @@ body.index-page {
   box-shadow:
     0 0 30px rgba(255, 0, 0, 0.8),
     inset 0 0 14px rgba(0, 0, 0, 0.85);
-  transform: translateY(-2px);
+  transform: translateX(-50%) translateY(-2px);
 }
 
 .start-button:active {
-  transform: translateY(1px);
+  transform: translateX(-50%) translateY(1px);
 }
+
+
 
 
 
