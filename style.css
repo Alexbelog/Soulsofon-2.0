@@ -10,7 +10,7 @@ h1 {
 }
 
 .tabs button {
-  margin-right:5px;
+  margin-right:6px;
   padding:6px 10px;
   cursor:pointer;
 }
@@ -22,7 +22,7 @@ h1 {
 .boss-grid-header,
 .boss-row {
   display:grid;
-  grid-template-columns: 160px 60px 70px 80px;
+  grid-template-columns: 1fr 60px 70px 80px;
   gap:8px;
   align-items:center;
 }
@@ -51,11 +51,12 @@ input {
 }
 
 .kill-btn {
-  padding:4px;
+  padding:4px 6px;
   background:#222;
   border:1px solid #555;
   color:#fff;
   cursor:pointer;
+  font-size:12px;
 }
 
 .kill-btn.active {

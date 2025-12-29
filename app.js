@@ -1,56 +1,35 @@
-// === ADMIN MODE ===
-const isAdmin = new URLSearchParams(window.location.search).get("admin") === "1";
+// ===== ADMIN MODE (НЕВИДИМЫЙ) =====
+const isAdmin = new URLSearchParams(location.search).get("admin") === "1";
 
-// === ADMIN BADGE ===
-if (isAdmin) {
-  const badge = document.getElementById("admin-badge");
-  badge.textContent = "🛠 РЕЖИМ АДМИНА";
-  badge.style.cssText = `
-    background:#8b0000;
-    color:#fff;
-    padding:6px 10px;
-    display:inline-block;
-    margin-bottom:10px;
-  `;
-}
-
-// === DATA ===
-const games = {
-  ds1: {
-    title: "Dark Souls",
-    bosses: ["Асмодей-демон", "Орнштейн и Смоуг"]
-  },
-  ds2: {
-    title: "Dark Souls II",
-    bosses: ["Последний гигант", "Преследователь"]
-  },
-  ds3: {
-    title: "Dark Souls III",
-    bosses: ["Иудекс Гундир", "Вордт"]
-  },
-  sekiro: {
-    title: "Sekiro",
-    bosses: ["Гэнитиро Асина", "Иссин, Меч Святого"]
-  }
+// ===== JSON FILES =====
+const gameFiles = {
+  ds1: "data/ds1.json",
+  ds2: "data/ds2.json",
+  ds3: "data/ds3.json",
+  sekiro: "data/sekiro.json"
 };
 
 const content = document.getElementById("content");
 
-// === TABS ===
+// ===== TABS =====
 document.querySelectorAll(".tabs button").forEach(btn => {
-  btn.onclick = () => openGame(btn.dataset.tab);
+  btn.onclick = () => loadGame(btn.dataset.tab);
 });
 
-openGame("ds1");
+loadGame("ds1");
 
-// === OPEN GAME ===
-function openGame(id) {
-  const game = games[id];
+// ===== LOAD GAME =====
+async function loadGame(gameId) {
+  content.innerHTML = "Загрузка...";
+
+  const res = await fetch(gameFiles[gameId]);
+  const game = await res.json();
+
   content.innerHTML = "";
 
   const gameEl = document.createElement("div");
   gameEl.className = "game";
-  gameEl.id = id;
+  gameEl.id = game.id;
 
   gameEl.innerHTML = `
     <h2>${game.title}</h2>
@@ -73,16 +52,16 @@ function openGame(id) {
 
   const list = gameEl.querySelector(".boss-list");
 
-  game.bosses.forEach(name => {
-    list.appendChild(createBossRow(id, name));
+  game.bosses.forEach(boss => {
+    list.appendChild(createBossRow(game.id, boss));
   });
 
   recalcStats();
 }
 
-// === BOSS ROW ===
-function createBossRow(gameId, name) {
-  const key = `${gameId}_${name}`;
+// ===== BOSS ROW =====
+function createBossRow(gameId, boss) {
+  const key = `${gameId}_${boss.id}`;
   const saved = JSON.parse(localStorage.getItem(key) || "{}");
 
   const row = document.createElement("div");
@@ -90,7 +69,7 @@ function createBossRow(gameId, name) {
   if (saved.killed) row.classList.add("killed");
 
   row.innerHTML = `
-    <div class="boss-name">${name}</div>
+    <div class="boss-name">${boss.name}</div>
     <input type="number" min="0" value="${saved.tries || 0}">
     <input type="number" min="0" value="${saved.deaths || 0}">
     <button class="kill-btn ${saved.killed ? "active" : ""}">
@@ -136,7 +115,7 @@ function createBossRow(gameId, name) {
   return row;
 }
 
-// === STATS ===
+// ===== STATS =====
 function recalcStats() {
   let globalDeaths = 0;
   let globalKilled = 0;
