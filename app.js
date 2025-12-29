@@ -1,155 +1,136 @@
-// ================================
-// CONFIG
-// ================================
 const GAMES = {
   ds1: "data/ds1.json",
   ds2: "data/ds2.json",
   ds3: "data/ds3.json",
   sekiro: "data/sekiro.json",
-  elden_ring: "data/elden_ring.json"
+  elden: "data/elden_ring.json"
 };
 
-let gameData = null;
-let currentGame = null;
+const gameList = document.getElementById("game-list");
+const content = document.getElementById("content");
 
-// ================================
-// DOM READY
-// ================================
-document.addEventListener("DOMContentLoaded", () => {
-  initGameButtons();
-});
+/* =============================
+   SIDEBAR (СПИСОК ИГР)
+============================= */
+function renderGameList() {
+  gameList.innerHTML = "";
 
-// ================================
-// INIT
-// ================================
-function initGameButtons() {
-  document.querySelectorAll("[data-game]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const game = btn.dataset.game;
-      loadGame(game);
-    });
+  Object.keys(GAMES).forEach(game => {
+    const btn = document.createElement("button");
+    btn.textContent = game.toUpperCase();
+    btn.className = "game-btn";
+    btn.onclick = () => loadGame(game);
+    gameList.appendChild(btn);
   });
 }
 
-// ================================
-// LOAD GAME
-// ================================
-async function loadGame(game) {
-  currentGame = game;
-
+/* =============================
+   LOAD GAME
+============================= */
+async function loadGame(gameKey) {
   try {
-    const response = await fetch(GAMES[game]);
-    const text = await response.text();
-    gameData = JSON.parse(text);
+    const res = await fetch(GAMES[gameKey]);
+    const gameData = await res.json();
+    renderGame(gameKey, gameData);
   } catch (e) {
-    console.error("Ошибка загрузки JSON:", e);
-    return;
+    content.innerHTML = `<p style="color:red">Ошибка загрузки ${gameKey}</p>`;
+    console.error(e);
   }
-
-  restoreProgress();
-  renderGame();
 }
 
-// ================================
-// RENDER
-// ================================
-function renderGame() {
-  const container = document.getElementById("content");
-  if (!container) return;
+/* =============================
+   RENDER GAME
+============================= */
+function renderGame(gameKey, gameData) {
+  content.innerHTML = "";
 
-  container.innerHTML = "";
+  /* HEADER */
+  const header = document.createElement("div");
+  header.className = "game-header";
+  header.innerHTML = `
+    <h1>${gameData.title}</h1>
+    <img src="${gameData.banner}" alt="${gameData.title}">
+  `;
+  content.appendChild(header);
 
-  gameData.sections.forEach((section, sectionIndex) => {
-    const sectionEl = document.createElement("div");
-    sectionEl.className = "section";
-
-    const title = document.createElement("h2");
-    title.textContent = section.title;
-    sectionEl.appendChild(title);
-
-    const grid = document.createElement("div");
-    grid.className = "boss-grid";
-
-    section.bosses.forEach(boss => {
-      const bossEl = document.createElement("div");
-      bossEl.className = "boss";
-
-      const img = document.createElement("img");
-      img.src = boss.icon;
-      img.alt = boss.name;
-
-      const name = document.createElement("div");
-      name.textContent = boss.name;
-
-      const counter = document.createElement("input");
-      counter.type = "number";
-      counter.min = 0;
-      counter.value = boss.deaths || 0;
-      counter.addEventListener("change", () => {
-        boss.deaths = parseInt(counter.value) || 0;
-        saveProgress();
-        updateStats();
-      });
-
-      bossEl.append(img, name, counter);
-      grid.appendChild(bossEl);
-    });
-
-    sectionEl.appendChild(grid);
-    container.appendChild(sectionEl);
-  });
-
-  updateStats();
-}
-
-// ================================
-// STATS
-// ================================
-function countDeaths() {
-  let total = 0;
-
+  /* SECTIONS */
   gameData.sections.forEach(section => {
+    const sectionEl = document.createElement("section");
+    sectionEl.className = "boss-section";
+
+    const h2 = document.createElement("h2");
+    h2.textContent = section.title;
+    sectionEl.appendChild(h2);
+
+    const table = document.createElement("table");
+    table.innerHTML = `
+      <tr>
+        <th>Босс</th>
+        <th>Трай</th>
+        <th>Смерти</th>
+      </tr>
+    `;
+
     section.bosses.forEach(boss => {
-      total += boss.deaths || 0;
+      const key = `${gameKey}_${boss.id}`;
+
+      const data = loadBossData(key);
+
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td class="boss-name">
+          <img src="${boss.icon}" alt="">
+          ${boss.name}
+        </td>
+        <td>
+          <input type="number" min="0" value="${data.tries}">
+        </td>
+        <td>
+          <input type="number" min="0" value="${data.deaths}">
+        </td>
+      `;
+
+      const inputs = row.querySelectorAll("input");
+      inputs[0].oninput = () => saveBossData(key, inputs[0].value, inputs[1].value);
+      inputs[1].oninput = () => saveBossData(key, inputs[0].value, inputs[1].value);
+
+      table.appendChild(row);
     });
+
+    sectionEl.appendChild(table);
+    content.appendChild(sectionEl);
   });
-
-  return total;
 }
 
-function updateStats() {
-  const el = document.getElementById("total-deaths");
-  if (el) el.textContent = countDeaths();
+/* =============================
+   LOCAL STORAGE
+============================= */
+function loadBossData(key) {
+  const saved = localStorage.getItem(key);
+  if (!saved) return { tries: 0, deaths: 0 };
+  return JSON.parse(saved);
 }
 
-// ================================
-// LOCAL STORAGE
-// ================================
-function saveProgress() {
-  if (!currentGame || !gameData) return;
+function saveBossData(key, tries, deaths) {
   localStorage.setItem(
-    `souls-progress-${currentGame}`,
-    JSON.stringify(gameData)
+    key,
+    JSON.stringify({
+      tries: Number(tries),
+      deaths: Number(deaths)
+    })
   );
 }
 
-function restoreProgress() {
-  const saved = localStorage.getItem(`souls-progress-${currentGame}`);
-  if (!saved) return;
+/* =============================
+   INIT
+============================= */
+document.addEventListener("DOMContentLoaded", () => {
+  renderGameList();
+  loadGame("ds1"); // автозагрузка, НЕТ белого экрана
+});
 
-  try {
-    const parsed = JSON.parse(saved);
 
-    gameData.sections.forEach((section, sIndex) => {
-      section.bosses.forEach((boss, bIndex) => {
-        boss.deaths =
-          parsed.sections?.[sIndex]?.bosses?.[bIndex]?.deaths || 0;
-      });
-    });
-  } catch (e) {
-    console.warn("Ошибка восстановления прогресса");
-  }
-}
 
 
 
