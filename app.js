@@ -1,134 +1,175 @@
-const GAMES = {
-  ds1: "data/ds1.json",
-  ds2: "data/ds2.json",
-  ds3: "data/ds3.json",
-  sekiro: "data/sekiro.json",
-  elden: "data/elden_ring.json"
-};
+const games = [
+  { id: "ds1", title: "Dark Souls", file: "data/ds1.json" },
+  { id: "ds2", title: "Dark Souls II", file: "data/ds2.json" },
+  { id: "ds3", title: "Dark Souls III", file: "data/ds3.json" },
+  { id: "sekiro", title: "Sekiro", file: "data/sekiro.json" },
+  { id: "elden", title: "Elden Ring", file: "data/elden_ring.json" }
+];
 
 const gameList = document.getElementById("game-list");
 const content = document.getElementById("content");
 
-/* =============================
-   SIDEBAR (СПИСОК ИГР)
-============================= */
-function renderGameList() {
+if (!gameList || !content) {
+  console.error("❌ layout не найден");
+}
+
+/* =======================
+   INIT
+======================= */
+init();
+
+function init() {
+  renderGameButtons();
+  loadGame(games[0]);
+}
+
+/* =======================
+   SIDEBAR
+======================= */
+function renderGameButtons() {
   gameList.innerHTML = "";
 
-  Object.keys(GAMES).forEach(game => {
+  games.forEach(game => {
     const btn = document.createElement("button");
-    btn.textContent = game.toUpperCase();
     btn.className = "game-btn";
+    btn.textContent = game.title;
+
     btn.onclick = () => loadGame(game);
     gameList.appendChild(btn);
   });
 }
 
-/* =============================
+/* =======================
    LOAD GAME
-============================= */
-async function loadGame(gameKey) {
+======================= */
+async function loadGame(game) {
   try {
-    const res = await fetch(GAMES[gameKey]);
-    const gameData = await res.json();
-    renderGame(gameKey, gameData);
+    const response = await fetch(game.file);
+    if (!response.ok) throw new Error("JSON не найден");
+
+    const gameData = await response.json();
+    renderGame(gameData, game.id);
   } catch (e) {
-    content.innerHTML = `<p style="color:red">Ошибка загрузки ${gameKey}</p>`;
-    console.error(e);
+    console.error("❌ Ошибка загрузки", e);
+    content.innerHTML = "<p>Ошибка загрузки данных</p>";
   }
 }
 
-/* =============================
+/* =======================
    RENDER GAME
-============================= */
-function renderGame(gameKey, gameData) {
+======================= */
+function renderGame(gameData, gameId) {
   content.innerHTML = "";
 
-  /* HEADER */
-  const header = document.createElement("div");
-  header.className = "game-header";
-  header.innerHTML = `
-    <h1>${gameData.title}</h1>
-    <img src="${gameData.banner}" alt="${gameData.title}">
-  `;
-  content.appendChild(header);
+  // Banner
+  if (gameData.banner) {
+    const banner = document.createElement("img");
+    banner.src = gameData.banner;
+    banner.className = "game-banner";
+    content.appendChild(banner);
+  }
 
-  /* SECTIONS */
+  // Title
+  const title = document.createElement("h1");
+  title.textContent = gameData.title;
+  content.appendChild(title);
+
+  // Sections
   gameData.sections.forEach(section => {
-    const sectionEl = document.createElement("section");
-    sectionEl.className = "boss-section";
+    const sectionBlock = document.createElement("section");
+    sectionBlock.className = "boss-section";
 
     const h2 = document.createElement("h2");
     h2.textContent = section.title;
-    sectionEl.appendChild(h2);
-
-    const table = document.createElement("table");
-    table.innerHTML = `
-      <tr>
-        <th>Босс</th>
-        <th>Трай</th>
-        <th>Смерти</th>
-      </tr>
-    `;
+    sectionBlock.appendChild(h2);
 
     section.bosses.forEach(boss => {
-      const key = `${gameKey}_${boss.id}`;
-
-      const data = loadBossData(key);
-
-      const row = document.createElement("tr");
-
-      row.innerHTML = `
-        <td class="boss-name">
-          <img src="${boss.icon}" alt="">
-          ${boss.name}
-        </td>
-        <td>
-          <input type="number" min="0" value="${data.tries}">
-        </td>
-        <td>
-          <input type="number" min="0" value="${data.deaths}">
-        </td>
-      `;
-
-      const inputs = row.querySelectorAll("input");
-      inputs[0].oninput = () => saveBossData(key, inputs[0].value, inputs[1].value);
-      inputs[1].oninput = () => saveBossData(key, inputs[0].value, inputs[1].value);
-
-      table.appendChild(row);
+      sectionBlock.appendChild(renderBoss(boss, gameId));
     });
 
-    sectionEl.appendChild(table);
-    content.appendChild(sectionEl);
+    content.appendChild(sectionBlock);
   });
+
+  updateTotalDeaths(gameData, gameId);
 }
 
-/* =============================
-   LOCAL STORAGE
-============================= */
-function loadBossData(key) {
-  const saved = localStorage.getItem(key);
-  if (!saved) return { tries: 0, deaths: 0 };
-  return JSON.parse(saved);
+/* =======================
+   BOSS ROW
+======================= */
+function renderBoss(boss, gameId) {
+  const key = `${gameId}_${boss.id}`;
+
+  const saved = JSON.parse(localStorage.getItem(key)) || {
+    tries: 0,
+    deaths: 0,
+    killed: false
+  };
+
+  const row = document.createElement("div");
+  row.className = "boss-row";
+
+  row.innerHTML = `
+    <img src="${boss.icon}" class="boss-icon">
+    <span class="boss-name">${boss.name}</span>
+
+    <div class="stat">
+      <input type="number" value="${saved.tries}" min="0">
+      <small>Try</small>
+    </div>
+
+    <div class="stat">
+      <input type="number" value="${saved.deaths}" min="0">
+      <small>Death</small>
+    </div>
+
+    <label class="killed">
+      <input type="checkbox" ${saved.killed ? "checked" : ""}>
+      Убит
+    </label>
+  `;
+
+  const inputs = row.querySelectorAll("input");
+
+  inputs.forEach(() => {
+    row.oninput = () => {
+      const updated = {
+        tries: +inputs[0].value,
+        deaths: +inputs[1].value,
+        killed: inputs[2].checked
+      };
+      localStorage.setItem(key, JSON.stringify(updated));
+      updateTotalDeaths();
+    };
+  });
+
+  return row;
 }
 
-function saveBossData(key, tries, deaths) {
-  localStorage.setItem(
-    key,
-    JSON.stringify({
-      tries: Number(tries),
-      deaths: Number(deaths)
-    })
-  );
+/* =======================
+   TOTAL DEATHS
+======================= */
+function updateTotalDeaths() {
+  let total = 0;
+
+  Object.keys(localStorage).forEach(k => {
+    try {
+      const data = JSON.parse(localStorage.getItem(k));
+      if (data?.deaths) total += data.deaths;
+    } catch {}
+  });
+
+  let counter = document.getElementById("total-deaths");
+  if (!counter) {
+    counter = document.createElement("div");
+    counter.id = "total-deaths";
+    counter.className = "total-deaths";
+    content.prepend(counter);
+  }
+
+  counter.textContent = `Всего смертей: ${total}`;
 }
 
-/* =============================
-   INIT
-============================= */
-document.addEventListener("DOMContentLoaded", () => {
-  renderGameList();
-  loadGame("ds1"); // автозагрузка, НЕТ белого экрана
-});
+
 
 
 
