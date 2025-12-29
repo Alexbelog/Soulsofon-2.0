@@ -2,68 +2,68 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>SOULSFON 2.0 — Статистика</title>
+  <title>SOULSFON 2.0 — STATS</title>
   <link rel="stylesheet" href="stats.css">
 </head>
 
-<body>
+<body class="fade-in">
 
 <div id="layout">
+
+  <!-- ПРАВАЯ КОЛОНКА: ИГРЫ -->
+  <aside id="game-list">
+    <div class="sidebar-logo">SOULSFON</div>
+    <!-- кнопки игр добавляются через app.js -->
+  </aside>
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
   <main id="content">
 
-    <!-- БАННЕР + СТАТИСТИКА -->
-    <div class="game-header">
-      <img id="game-banner" src="" alt="Game banner">
-
-      <div class="game-stats">
-        <div class="stat-block">
-          <span id="game-deaths">0</span>
-          <small>Deaths (Game)</small>
-        </div>
-        <div class="stat-block">
-          <span id="total-deaths">0</span>
-          <small>Deaths (Total)</small>
-        </div>
-      </div>
+    <!-- БАННЕР ИГРЫ -->
+    <div class="game-banner">
+      <img id="game-poster" src="" alt="Game Poster">
     </div>
 
-    <!-- СЕКЦИИ БОССОВ -->
-    <div id="boss-sections"></div>
+    <!-- СЧЁТЧИК СМЕРТЕЙ -->
+    <div class="souls-deaths">
+
+      <div class="death-counter">
+        <span id="game-deaths" class="death-number">0</span>
+        <div class="death-label">DEATHS IN THIS GAME</div>
+      </div>
+
+      <div class="death-counter">
+        <span id="total-deaths" class="death-number">0</span>
+        <div class="death-label">TOTAL DEATHS</div>
+      </div>
+
+    </div>
+
+    <!-- БОССЫ -->
+    <section id="bosses">
+      <!-- рендерятся через app.js -->
+    </section>
 
   </main>
-
-  <!-- ПРАВАЯ КОЛОНКА -->
-  <aside id="game-list">
-    <div class="sidebar-title">SOULS</div>
-    <!-- кнопки игр через JS -->
-  </aside>
 
 </div>
 
 <!-- КНОПКА НАЗАД -->
-<a href="index.html" class="back-btn" id="backBtn">BACK</a>
+<button id="back-btn">← BACK</button>
 
-<!-- ОСНОВНОЙ JS -->
-<script src="app.js"></script>
-
-<!-- FADE-ПЕРЕХОД -->
 <script>
-  const backBtn = document.getElementById("backBtn");
-
-  backBtn.addEventListener("click", function (e) {
-    e.preventDefault();
+  document.getElementById("back-btn").addEventListener("click", () => {
     document.body.classList.add("fade-out");
-
     setTimeout(() => {
-      window.location.href = this.href;
-    }, 600);
+      window.location.href = "index.html";
+    }, 400);
   });
 </script>
 
+<script src="app.js"></script>
 </body>
 </html>
+
 
 
 
