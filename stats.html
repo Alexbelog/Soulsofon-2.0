@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>SOULSFON 2.0 — Статистика</title>
-
-  <!-- ОБЯЗАТЕЛЬНО -->
   <link rel="stylesheet" href="stats.css">
 </head>
 
@@ -12,18 +10,42 @@
 
 <div id="layout">
 
-  <!-- ПРАВАЯ КОЛОНКА: ИГРЫ -->
-  <aside id="game-list"></aside>
-
   <!-- ОСНОВНОЙ КОНТЕНТ -->
-  <main id="content"></main>
+  <main id="content">
+
+    <!-- БАННЕР ИГРЫ -->
+    <div class="game-header">
+      <img id="game-banner" src="" alt="banner">
+      <div class="game-stats">
+        <div class="stat-block">
+          <span id="game-deaths">0</span>
+          <small>Deaths (Game)</small>
+        </div>
+        <div class="stat-block">
+          <span id="total-deaths">0</span>
+          <small>Deaths (Total)</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- СЕКЦИИ БОССОВ -->
+    <div id="boss-sections"></div>
+
+  </main>
+
+  <!-- ПРАВАЯ КОЛОНКА -->
+  <aside id="game-list">
+    <div class="sidebar-title">SOULS</div>
+    <!-- кнопки игр -->
+  </aside>
 
 </div>
 
-<!-- JS СТРОГО В КОНЦЕ BODY -->
 <script src="app.js"></script>
 </body>
 </html>
+
+
 
 
 
