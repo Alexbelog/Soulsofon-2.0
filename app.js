@@ -1,4 +1,3 @@
-const isAdmin = location.search.includes("~admin=1");
 const params = new URLSearchParams(window.location.search);
 const game = params.get("game");
 
@@ -76,6 +75,8 @@ function renderGame(data) {
     bossContainer.appendChild(sec);
   });
 }
+
+
 
 
 
