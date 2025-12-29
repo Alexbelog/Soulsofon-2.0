@@ -1,24 +1,52 @@
 {
+  "id": "elden_haligtree",
   "title": "Elden Ring — Халигтри Микеллы",
-  "logo": "images/logos/elden_ring.png",
+  "banner": "images/banners/elden/haligtree.jpg",
   "sections": [
     {
-      "name": "Халигтри Микеллы",
+      "title": "Основные боссы региона",
       "bosses": [
         {
-          "id": "er_loretta_knight_of_haligtree",
+          "id": "loretta_haligtree_knight",
           "name": "Лоретта, рыцарь Халигтри",
-          "icon": "images/bosses/loretta_haligtree.png"
+          "icon": "images/bosses/elden/haligtree/loretta.png"
         },
         {
-          "id": "er_malenia_blade_of_miquella",
+          "id": "malenia_blade_of_miquella",
           "name": "Маления, Клинок Микеллы",
-          "icon": "images/bosses/malenia.png"
+          "icon": "images/bosses/elden/haligtree/malenia.png"
+        }
+      ]
+    },
+    {
+      "title": "Полевые и опциональные боссы",
+      "bosses": [
+        {
+          "id": "putrid_avatar_haligtree",
+          "name": "Гниющий аватар Древа Эрд",
+          "icon": "images/bosses/elden/haligtree/putrid_avatar.png"
+        }
+      ]
+    },
+    {
+      "title": "Мини-боссы и элитные противники",
+      "bosses": [
+        {
+          "id": "misbegotten_crusader",
+          "name": "Полукровка-крестоносец",
+          "icon": "images/bosses/elden/haligtree/misbegotten_crusader.png"
+        },
+        {
+          "id": "crystalian_spear_ringblade",
+          "name": "Кристалийцы (копьё и кольцевой клинок)",
+          "icon": "images/bosses/elden/haligtree/crystalian_duo.png"
         }
       ]
     }
   ]
 }
+
+
 
 
 
