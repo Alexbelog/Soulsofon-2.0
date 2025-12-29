@@ -1,43 +1,46 @@
 {
-  "title": "Elden Ring — Замогилье",
-  "logo": "images/logos/elden_ring.png",
+  "id": "elden_limgrave",
+  "title": "Elden Ring — Лимгрейв",
+  "banner": "images/banners/elden/limgrave.jpg",
   "sections": [
     {
-      "name": "Основные боссы",
+      "title": "Основные боссы региона",
       "bosses": [
-        { "id": "er_margit", "name": "Маргит, Ужасный Знамение", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_godrick", "name": "Годрик Сторукий", "icon": "images/bosses/placeholder.png" }
+        { "id": "margit", "name": "Маргит, Ужасное Знамение", "icon": "images/bosses/elden/limgrave/margit.png" },
+        { "id": "godrick", "name": "Годрик Сторукий", "icon": "images/bosses/elden/limgrave/godrick.png" }
       ]
     },
+
     {
-      "name": "Замогилье — мир",
+      "title": "Полевые боссы",
       "bosses": [
-        { "id": "er_tree_sentinel", "name": "Древесный страж", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_flying_dragon_agheel", "name": "Летающий дракон Агхил", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_night_cavalry_limgrave", "name": "Ночной всадник (Замогилье)", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_deathbird_limgrave", "name": "Птица смерти (Замогилье)", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_bell_bearing_hunter_warmaster", "name": "Охотник за колокольными подшипниками (Военачальник)", "icon": "images/bosses/placeholder.png" }
+        { "id": "tree_sentinel", "name": "Древесный страж", "icon": "images/bosses/elden/limgrave/tree_sentinel.png" },
+        { "id": "flying_dragon_agheel", "name": "Летучий дракон Агиль", "icon": "images/bosses/elden/limgrave/agheel.png" },
+        { "id": "night_cavalry_limgrave", "name": "Ночной всадник", "icon": "images/bosses/elden/limgrave/night_cavalry.png" },
+        { "id": "deathbird_limgrave", "name": "Птица смерти", "icon": "images/bosses/elden/limgrave/deathbird.png" },
+        { "id": "bell_bearing_hunter", "name": "Охотник за колокольными подношениями", "icon": "images/bosses/elden/limgrave/bell_bearing_hunter.png" }
       ]
     },
+
     {
-      "name": "Подземелья Замогилья",
+      "title": "Эвергаолы",
       "bosses": [
-        { "id": "er_beastman_far_azula", "name": "Зверочеловек из Фарум-Азула", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_burial_watchdog", "name": "Погребальный сторожевой пёс", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_black_knife_assassin", "name": "Ассасин Чёрного Ножа", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_stonedigger_troll", "name": "Камнекоп-тролль", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_grave_warden_duelist", "name": "Дуэлянт — страж могил", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_runebear", "name": "Рунический медведь", "icon": "images/bosses/placeholder.png" }
+        { "id": "bloodhound_knight_darwil", "name": "Рыцарь-ищейка Дарривил", "icon": "images/bosses/elden/limgrave/darwil.png" },
+        { "id": "crucible_knight_limgrave", "name": "Рыцарь Горнила", "icon": "images/bosses/elden/limgrave/crucible_knight.png" }
       ]
     },
+
     {
-      "name": "Плачущий полуостров",
+      "title": "Подземелья",
       "bosses": [
-        { "id": "er_leonine_misbegotten", "name": "Львиноподобный бастард", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_ancient_hero_zamor", "name": "Древний герой Замора", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_deathbird_weeping", "name": "Птица смерти (Полуостров)", "icon": "images/bosses/placeholder.png" },
-        { "id": "er_night_cavalry_weeping", "name": "Ночной всадник (Полуостров)", "icon": "images/bosses/placeholder.png" }
+        { "id": "grave_warden_duelist", "name": "Дуэлянт-хранитель могил", "icon": "images/bosses/elden/limgrave/grave_warden.png" },
+        { "id": "erdtree_burial_watchdog", "name": "Сторож захоронений Древа Эрд", "icon": "images/bosses/elden/limgrave/watchdog.png" },
+        { "id": "beastman_farum", "name": "Зверочеловек из Фарум-Азулы", "icon": "images/bosses/elden/limgrave/beastman.png" },
+        { "id": "black_knife_assassin", "name": "Убийца Чёрного Ножа", "icon": "images/bosses/elden/limgrave/black_knife.png" },
+        { "id": "patches", "name": "Лоскутик", "icon": "images/bosses/elden/limgrave/patches.png" }
       ]
     }
   ]
 }
+
+
