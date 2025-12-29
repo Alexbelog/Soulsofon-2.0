@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const games = [
+  /* ============================
+     НАСТРОЙКИ ИГР
+  ============================ */
+
+  const GAMES = [
     { id: "ds1", name: "Dark Souls", file: "data/ds1.json" },
     { id: "ds2", name: "Dark Souls II", file: "data/ds2.json" },
     { id: "ds3", name: "Dark Souls III", file: "data/ds3.json" },
@@ -14,28 +18,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById("game-list");
   const content = document.getElementById("content");
 
-  if (!sidebar || !content) return;
+  if (!sidebar || !content) {
+    console.error("HTML layout error: sidebar or content not found");
+    return;
+  }
 
   initSidebar();
-  loadGame(games[0]);
+  loadGame(GAMES[0]);
 
-  /* ---------- SIDEBAR ---------- */
+  /* ============================
+     SIDEBAR
+  ============================ */
 
   function initSidebar() {
     sidebar.innerHTML = "";
-    games.forEach(g => {
+
+    GAMES.forEach(game => {
       const btn = document.createElement("button");
       btn.className = "game-btn";
-      btn.textContent = g.name;
-      btn.onclick = () => loadGame(g);
+      btn.textContent = game.name;
+      btn.onclick = () => loadGame(game);
       sidebar.appendChild(btn);
     });
   }
 
-  /* ---------- STORAGE ---------- */
+  /* ============================
+     STORAGE
+  ============================ */
 
   function storageKey(gameId) {
-    return `soulsofon_${gameId}`;
+    return `soulsofon_progress_${gameId}`;
   }
 
   function saveProgress() {
@@ -43,26 +55,86 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem(storageKey(currentGame.id), JSON.stringify(gameData));
   }
 
-  function loadProgress(game, original) {
+  function loadProgress(game, originalData) {
     const saved = localStorage.getItem(storageKey(game.id));
-    return saved ? JSON.parse(saved) : structuredClone(original);
+    return saved ? JSON.parse(saved) : structuredClone(originalData);
   }
 
-  /* ---------- LOAD GAME ---------- */
+  /* ============================
+     LOAD GAME
+  ============================ */
 
   async function loadGame(game) {
     currentGame = game;
-    content.innerHTML = "Загрузка...";
+    content.innerHTML = "<div class='loading'>Loading...</div>";
 
-    const res = await fetch(game.file);
-    const json = await res.json();
+    try {
+      const response = await fetch(game.file);
+      const json = await response.json();
 
-    gameData = loadProgress(game, json);
-    saveProgress();
-    renderGame();
+      gameData = loadProgress(game, json);
+      normalizeBossData();
+      saveProgress();
+      renderGame();
+
+    } catch (e) {
+      console.error("Failed to load game:", e);
+      content.innerHTML = "Ошибка загрузки данных.";
+    }
   }
 
-  /* ---------- RENDER ---------- */
+  /* ============================
+     NORMALIZE
+  ============================ */
+
+  function normalizeBossData() {
+    gameData.sections.forEach(section => {
+      section.bosses.forEach(boss => {
+        if (boss.tries === undefined) boss.tries = 0;
+        if (boss.deaths === undefined) boss.deaths = 0;
+        if (boss.killed === undefined) boss.killed = false;
+      });
+    });
+  }
+
+  /* ============================
+     ITERATOR (КЛЮЧЕВОЙ)
+  ============================ */
+
+  function iterateBosses(callback) {
+    gameData.sections.forEach(section => {
+      if (!Array.isArray(section.bosses)) return;
+      section.bosses.forEach(boss => callback(boss, section));
+    });
+  }
+
+  /* ============================
+     STATS
+  ============================ */
+
+  function countDeaths() {
+    let total = 0;
+    iterateBosses(boss => {
+      total += Number(boss.deaths) || 0;
+    });
+    return total;
+  }
+
+  function countProgress() {
+    let total = 0;
+    let killed = 0;
+
+    iterateBosses(boss => {
+      total++;
+      if (boss.killed) killed++;
+    });
+
+    return { total, killed };
+  }
+
+  /* ============================
+     RENDER
+  ============================ */
 
   function renderGame() {
     content.innerHTML = "";
@@ -70,28 +142,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.createElement("div");
     header.className = "game-header";
     header.innerHTML = `
-      <img class="game-poster" src="${gameData.poster}">
+      <img class="game-banner" src="${gameData.banner}">
       <h1>${gameData.title}</h1>
-
-      <div class="progress-wrap">
-        <div class="progress-bar">
-          <div class="progress-fill"></div>
-        </div>
-        <div class="progress-text"></div>
+      <div class="stats-line">
+        <span>Смертей: <b>${countDeaths()}</b></span>
+        <span class="progress-text"></span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
       </div>
     `;
     content.appendChild(header);
 
-    updateProgress();
+    updateProgressUI();
 
-    for (const key in gameData.sections) {
-      renderSection(gameData.sections[key]);
-    }
+    gameData.sections.forEach(section => {
+      renderSection(section);
+    });
   }
 
   function renderSection(section) {
     const block = document.createElement("section");
-    block.innerHTML = `<h2>${section.name}</h2>`;
+    block.className = "boss-section";
+    block.innerHTML = `<h2>${section.title}</h2>`;
 
     section.bosses.forEach(boss => {
       block.appendChild(renderBoss(boss));
@@ -100,15 +173,14 @@ document.addEventListener("DOMContentLoaded", () => {
     content.appendChild(block);
   }
 
-  /* ---------- BOSS ---------- */
-
   function renderBoss(boss) {
     const row = document.createElement("div");
     row.className = "boss-row";
-    row.dataset.status = boss.killed ? "killed" : "alive";
+    row.dataset.killed = boss.killed ? "1" : "0";
 
     row.innerHTML = `
-      <span>${boss.name}</span>
+      <img src="${boss.icon}" class="boss-icon">
+      <span class="boss-name">${boss.name}</span>
 
       <div class="boss-stats">
         <div>
@@ -134,41 +206,42 @@ document.addEventListener("DOMContentLoaded", () => {
     deathsInput.oninput = () => {
       boss.deaths = +deathsInput.value;
       saveProgress();
-      updateProgress();
+      updateHeaderStats();
     };
 
     killBtn.onclick = () => {
       boss.killed = !boss.killed;
-      row.dataset.status = boss.killed ? "killed" : "alive";
+      row.dataset.killed = boss.killed ? "1" : "0";
       killBtn.textContent = boss.killed ? "☠" : "⚔";
       saveProgress();
-      updateProgress();
+      updateProgressUI();
     };
 
     return row;
   }
 
-  /* ---------- PROGRESS ---------- */
+  /* ============================
+     UI UPDATES
+  ============================ */
 
-  function updateProgress() {
-    let total = 0;
-    let killed = 0;
+  function updateHeaderStats() {
+    content.querySelector(".stats-line b").textContent = countDeaths();
+  }
 
-    for (const key in gameData.sections) {
-      gameData.sections[key].bosses.forEach(b => {
-        total++;
-        if (b.killed) killed++;
-      });
-    }
-
+  function updateProgressUI() {
+    const { total, killed } = countProgress();
     const percent = total ? Math.floor((killed / total) * 100) : 0;
 
-    document.querySelector(".progress-fill").style.width = percent + "%";
-    document.querySelector(".progress-text").textContent =
-      `${percent}% — ${killed}/${total}`;
+    content.querySelector(".progress-fill").style.width = percent + "%";
+    content.querySelector(".progress-text").textContent =
+      `Прогресс: ${percent}% (${killed}/${total})`;
+
+    updateHeaderStats();
   }
 
 });
+
+
 
 
 
