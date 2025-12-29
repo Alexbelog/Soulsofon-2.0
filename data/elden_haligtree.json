@@ -1,0 +1,24 @@
+{
+  "title": "Elden Ring — Халигтри Микеллы",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Халигтри Микеллы",
+      "bosses": [
+        {
+          "id": "er_loretta_knight_of_haligtree",
+          "name": "Лоретта, рыцарь Халигтри",
+          "icon": "images/bosses/loretta_haligtree.png"
+        },
+        {
+          "id": "er_malenia_blade_of_miquella",
+          "name": "Маления, Клинок Микеллы",
+          "icon": "images/bosses/malenia.png"
+        }
+      ]
+    }
+  ]
+}
+
+
+

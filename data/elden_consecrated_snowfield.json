@@ -1,0 +1,53 @@
+{
+  "title": "Elden Ring — Освящённое снежное поле",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Мир Освящённого снежного поля",
+      "bosses": [
+        {
+          "id": "er_night_cavalry_snowfield",
+          "name": "Ночной всадник (Освящённое снежное поле)",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_deathbird_snowfield",
+          "name": "Птица смерти (Освящённое снежное поле)",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_putrid_avatar_snowfield",
+          "name": "Гниющий аватар Древа Эрд",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_putrid_tree_spirit_snowfield",
+          "name": "Гниющий дух древа",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_misbegotten_crucible_duo",
+          "name": "Бастард и рыцарь Тигля (дуэт)",
+          "icon": "images/bosses/placeholder.png"
+        }
+      ]
+    },
+    {
+      "name": "Подземелья Освящённого снежного поля",
+      "bosses": [
+        {
+          "id": "er_astel_stars_of_darkness",
+          "name": "Астель, Звёзды Тьмы",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_alabaster_lord",
+          "name": "Алебастровый владыка",
+          "icon": "images/bosses/placeholder.png"
+        }
+      ]
+    }
+  ]
+}
+
+

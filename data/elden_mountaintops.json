@@ -1,0 +1,63 @@
+{
+  "title": "Elden Ring — Вершины великанов",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Основные боссы",
+      "bosses": [
+        {
+          "id": "er_fire_giant",
+          "name": "Огненный великан",
+          "icon": "images/bosses/placeholder.png"
+        }
+      ]
+    },
+    {
+      "name": "Мир Вершин великанов",
+      "bosses": [
+        {
+          "id": "er_borealis_freezing_fog",
+          "name": "Бореалис, Ледяной туман",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_deathbird_mountaintops",
+          "name": "Птица смерти (Вершины великанов)",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_night_cavalry_mountaintops",
+          "name": "Ночной всадник (Вершины великанов)",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_putrid_tree_spirit_mountaintops",
+          "name": "Гниющий дух древа (Вершины великанов)",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_ulcerated_tree_spirit_mountaintops",
+          "name": "Изъязвлённый дух древа",
+          "icon": "images/bosses/placeholder.png"
+        }
+      ]
+    },
+    {
+      "name": "Подземелья Вершин великанов",
+      "bosses": [
+        {
+          "id": "er_commander_niall",
+          "name": "Командир Ниалл",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_death_rite_bird",
+          "name": "Птица обряда смерти",
+          "icon": "images/bosses/placeholder.png"
+        }
+      ]
+    }
+  ]
+}
+
+

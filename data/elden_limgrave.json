@@ -1,0 +1,43 @@
+{
+  "title": "Elden Ring — Замогилье",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Основные боссы",
+      "bosses": [
+        { "id": "er_margit", "name": "Маргит, Ужасный Знамение", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_godrick", "name": "Годрик Сторукий", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Замогилье — мир",
+      "bosses": [
+        { "id": "er_tree_sentinel", "name": "Древесный страж", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_flying_dragon_agheel", "name": "Летающий дракон Агхил", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_night_cavalry_limgrave", "name": "Ночной всадник (Замогилье)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_deathbird_limgrave", "name": "Птица смерти (Замогилье)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_bell_bearing_hunter_warmaster", "name": "Охотник за колокольными подшипниками (Военачальник)", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Подземелья Замогилья",
+      "bosses": [
+        { "id": "er_beastman_far_azula", "name": "Зверочеловек из Фарум-Азула", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_burial_watchdog", "name": "Погребальный сторожевой пёс", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_black_knife_assassin", "name": "Ассасин Чёрного Ножа", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_stonedigger_troll", "name": "Камнекоп-тролль", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_grave_warden_duelist", "name": "Дуэлянт — страж могил", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_runebear", "name": "Рунический медведь", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Плачущий полуостров",
+      "bosses": [
+        { "id": "er_leonine_misbegotten", "name": "Львиноподобный бастард", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_ancient_hero_zamor", "name": "Древний герой Замора", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_deathbird_weeping", "name": "Птица смерти (Полуостров)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_night_cavalry_weeping", "name": "Ночной всадник (Полуостров)", "icon": "images/bosses/placeholder.png" }
+      ]
+    }
+  ]
+}

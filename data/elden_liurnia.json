@@ -1,0 +1,43 @@
+{
+  "title": "Elden Ring — Лиурния Озёр",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Основные боссы",
+      "bosses": [
+        { "id": "er_red_wolf_radagon", "name": "Красный волк Радагона", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_rennala", "name": "Реннала, Королева Полнолуния", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Мир Лиурнии",
+      "bosses": [
+        { "id": "er_glintstone_dragon_smarag", "name": "Блестящий каменный дракон Смараг", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_glintstone_dragon_adula", "name": "Блестящий каменный дракон Адула", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_tree_sentinel_liurnia", "name": "Древесный страж (Лиурния)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_bell_bearing_hunter_church_vows", "name": "Охотник за колокольными подшипниками (Храм обетов)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_deathbird_liurnia", "name": "Птица смерти (Лиурния)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_night_cavalry_liurnia_north", "name": "Ночной всадник (Север Лиурнии)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_night_cavalry_liurnia_south", "name": "Ночной всадник (Юг Лиурнии)", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Подземелья Лиурнии",
+      "bosses": [
+        { "id": "er_cleanrot_knight", "name": "Рыцарь гниения", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_cemetery_shade", "name": "Тень кладбища", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_crystalian", "name": "Кристаллиец", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_crystalian_duo", "name": "Кристаллийцы (дуэт)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_royal_revenant", "name": "Королевский призрак", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_black_knife_assassin_liurnia", "name": "Ассасин Чёрного Ножа (Лиурния)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_erdtree_avatar_liurnia", "name": "Аватар Древа Эрд", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Карийское поместье",
+      "bosses": [
+        { "id": "er_royal_knight_loretta", "name": "Королевский рыцарь Лоретта", "icon": "images/bosses/placeholder.png" }
+      ]
+    }
+  ]
+}

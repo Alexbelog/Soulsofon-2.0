@@ -1,0 +1,36 @@
+{
+  "title": "Elden Ring — Кэлид",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Основные боссы",
+      "bosses": [
+        { "id": "er_starscourge_radahn", "name": "Звёздная скверна Радан", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Мир Кэлида",
+      "bosses": [
+        { "id": "er_decaying_ekzykes", "name": "Гниющий дракон Экзикес", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_flying_dragon_greyll", "name": "Летающий дракон Грейлл", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_putrid_avatar_caelid", "name": "Гниющий аватар Древа Эрд", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_putrid_tree_spirit_caelid", "name": "Гниющий дух древа", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_night_cavalry_caelid", "name": "Ночной всадник (Кэлид)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_deathbird_caelid", "name": "Птица смерти (Кэлид)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_bell_bearing_hunter_caelid", "name": "Охотник за колокольными подшипниками (Кэлид)", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Подземелья Кэлида",
+      "bosses": [
+        { "id": "er_crucible_knight_caelid", "name": "Рыцарь Тигля", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_crucible_knight_and_misbegotten", "name": "Рыцарь Тигля и бастард", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_mad_pumpkin_head", "name": "Безумная тыквоголовая тварь", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_cemetery_shade_caelid", "name": "Тень кладбища (Кэлид)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_battlemage_hugues", "name": "Боевой маг Хьюгес", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_cleanrot_knight_duo", "name": "Рыцари гниения (дуэт)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_fallingstar_beast", "name": "Звёздопадающий зверь", "icon": "images/bosses/placeholder.png" }
+      ]
+    }
+  ]
+}

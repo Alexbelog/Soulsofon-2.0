@@ -1,0 +1,50 @@
+{
+  "title": "Elden Ring — Фарум-Азула и Финал",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Крушащаяся Фарум-Азула",
+      "bosses": [
+        {
+          "id": "er_godskin_duo",
+          "name": "Дуэт Богоубийц",
+          "icon": "images/bosses/godskin_duo.png"
+        },
+        {
+          "id": "er_dragonlord_placidusax",
+          "name": "Драконлорд Пласидусакс",
+          "icon": "images/bosses/placidusax.png"
+        },
+        {
+          "id": "er_beast_clergyman",
+          "name": "Звериный священник / Маликет, Чёрный Клинок",
+          "icon": "images/bosses/maliketh.png"
+        }
+      ]
+    },
+    {
+      "name": "Финал Междуземья",
+      "bosses": [
+        {
+          "id": "er_godfrey_hoarah_loux",
+          "name": "Годфри, Первый Повелитель Элдена / Хоара Лукс",
+          "icon": "images/bosses/godfrey.png"
+        },
+        {
+          "id": "er_radagon",
+          "name": "Радагон Золотого Порядка",
+          "icon": "images/bosses/radagon.png"
+        },
+        {
+          "id": "er_elden_beast",
+          "name": "Зверь Элдена",
+          "icon": "images/bosses/elden_beast.png"
+        }
+      ]
+    }
+  ]
+}
+
+
+
+

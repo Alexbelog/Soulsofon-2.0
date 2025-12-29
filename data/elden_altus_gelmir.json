@@ -1,0 +1,41 @@
+{
+  "title": "Elden Ring — Плато Альтус и Гельмир",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Основные боссы",
+      "bosses": [
+        { "id": "er_draconic_tree_sentinel", "name": "Драконий древесный страж", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Плато Альтус — мир",
+      "bosses": [
+        { "id": "er_fallingstar_beast_altus", "name": "Звёздопадающий зверь (Альтус)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_ancient_dragon_lansseax", "name": "Древний дракон Ланссеакс", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_deathbird_altus", "name": "Птица смерти (Альтус)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_night_cavalry_altus", "name": "Ночной всадник (Альтус)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_bell_bearing_hunter_altus", "name": "Охотник за колокольными подшипниками (Альтус)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_tree_sentinel_duo", "name": "Древесные стражи (дуэт)", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Подземелья Альтуса",
+      "bosses": [
+        { "id": "er_perfumer_tricia", "name": "Парфюмер Триша и бастард", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_omenkiller_and_miranda", "name": "Убийца знамений и Миранда", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_godskin_apostle_altus", "name": "Апостол кожи богов (Альтус)", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_black_knife_assassin_altus", "name": "Ассасин Чёрного Ножа (Альтус)", "icon": "images/bosses/placeholder.png" }
+      ]
+    },
+    {
+      "name": "Гора Гельмир",
+      "bosses": [
+        { "id": "er_fullgrown_fallingstar_beast", "name": "Взрослый звёздопадающий зверь", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_demi_human_queen_maggie", "name": "Королева полулюдей Мэгги", "icon": "images/bosses/placeholder.png" },
+        { "id": "er_godskin_noble", "name": "Знать кожи богов", "icon": "images/bosses/placeholder.png" }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,94 @@
+{
+  "title": "Elden Ring — Подземные регионы",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Река Сиофра",
+      "bosses": [
+        {
+          "id": "er_ancestor_spirit",
+          "name": "Дух предка",
+          "icon": "images/bosses/ancestor_spirit.png"
+        },
+        {
+          "id": "er_regal_ancestor_spirit",
+          "name": "Царственный дух предка",
+          "icon": "images/bosses/regal_ancestor_spirit.png"
+        },
+        {
+          "id": "er_dragonkin_soldier_siofra",
+          "name": "Драконий солдат (Сиофра)",
+          "icon": "images/bosses/dragonkin_soldier.png"
+        }
+      ]
+    },
+    {
+      "name": "Река Айнсел",
+      "bosses": [
+        {
+          "id": "er_dragonkin_soldier_ainsel",
+          "name": "Драконий солдат (Айнсел)",
+          "icon": "images/bosses/dragonkin_soldier.png"
+        },
+        {
+          "id": "er_astel_naturalborn",
+          "name": "Астель, Рождённый Пустотой",
+          "icon": "images/bosses/astel_naturalborn.png"
+        }
+      ]
+    },
+    {
+      "name": "Нокрон, Вечный город",
+      "bosses": [
+        {
+          "id": "er_mimic_tear",
+          "name": "Слеза-подражатель",
+          "icon": "images/bosses/mimic_tear.png"
+        },
+        {
+          "id": "er_valiant_gargoyles",
+          "name": "Доблестные горгульи",
+          "icon": "images/bosses/valiant_gargoyles.png"
+        }
+      ]
+    },
+    {
+      "name": "Нокстелла, Вечный город",
+      "bosses": [
+        {
+          "id": "er_dragonkin_soldier_nokstella",
+          "name": "Драконий солдат Нокстеллы",
+          "icon": "images/bosses/dragonkin_soldier.png"
+        }
+      ]
+    },
+    {
+      "name": "Корни Великого Древа (Deeproot Depths)",
+      "bosses": [
+        {
+          "id": "er_fia_champions",
+          "name": "Чемпионы Фии",
+          "icon": "images/bosses/fia_champions.png"
+        },
+        {
+          "id": "er_lichdragon_fortissax",
+          "name": "Личдракон Фортиссакс",
+          "icon": "images/bosses/fortissax.png"
+        }
+      ]
+    },
+    {
+      "name": "Могвинов дворец",
+      "bosses": [
+        {
+          "id": "er_mohg_lord_of_blood",
+          "name": "Мог, Повелитель крови",
+          "icon": "images/bosses/mohg_lord_of_blood.png"
+        }
+      ]
+    }
+  ]
+}
+
+
+

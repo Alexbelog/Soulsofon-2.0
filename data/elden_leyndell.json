@@ -1,0 +1,72 @@
+{
+  "title": "Elden Ring — Лейнделл, столица королевства",
+  "logo": "images/logos/elden_ring.png",
+  "sections": [
+    {
+      "name": "Основные боссы",
+      "bosses": [
+        {
+          "id": "er_godfrey_first_elden_lord_shade",
+          "name": "Годфри, первый повелитель Элдена (тень)",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_morgott_omen_king",
+          "name": "Морготт, Король знамений",
+          "icon": "images/bosses/placeholder.png"
+        }
+      ]
+    },
+    {
+      "name": "Лейнделл — мир",
+      "bosses": [
+        {
+          "id": "er_erdtree_avatar_leyndell",
+          "name": "Аватар Древа Эрд (Лейнделл)",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_tree_spirit_leyndell",
+          "name": "Дух древа (Лейнделл)",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_crucible_knight_leyndell",
+          "name": "Рыцарь Тигля (Лейнделл)",
+          "icon": "images/bosses/placeholder.png"
+        }
+      ]
+    },
+    {
+      "name": "Подземелья Лейнделла",
+      "bosses": [
+        {
+          "id": "er_esgar_priest_of_blood",
+          "name": "Эсгар, жрец крови",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_lord_of_blood_duelist",
+          "name": "Дуэлянт, повелитель крови",
+          "icon": "images/bosses/placeholder.png"
+        }
+      ]
+    },
+    {
+      "name": "Подземелья — Катакомбы и могилы",
+      "bosses": [
+        {
+          "id": "er_crucible_knight_ordovis",
+          "name": "Рыцарь Тигля Ордовис",
+          "icon": "images/bosses/placeholder.png"
+        },
+        {
+          "id": "er_crucible_knight_siluria",
+          "name": "Рыцарь Тигля Силурия",
+          "icon": "images/bosses/placeholder.png"
+        }
+      ]
+    }
+  ]
+}
+
