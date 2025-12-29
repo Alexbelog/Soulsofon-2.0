@@ -1,4 +1,11 @@
-const isAdmin = new URLSearchParams(window.location.search).get("admin") === "1";
+// ===== ADMIN MODE =====
+const params = new URLSearchParams(window.location.search);
+
+if (params.get("admin") === "1") {
+  localStorage.setItem("soul_admin", "true");
+}
+
+const isAdmin = localStorage.getItem("soul_admin") === "true";
 const games = [
   { id: "ds1", title: "Dark Souls", file: "data/ds1.json" },
   { id: "ds2", title: "Dark Souls II", file: "data/ds2.json" },
@@ -169,6 +176,7 @@ function updateTotalDeaths() {
 
   counter.textContent = `Всего смертей: ${total}`;
 }
+
 
 
 
