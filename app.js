@@ -20,6 +20,10 @@ const fadeOverlay = document.getElementById("fade-overlay");
 
 const gameDeathsEl = document.getElementById("game-deaths");
 const marathonDeathsEl = document.getElementById("marathon-deaths");
+
+const gameProgressEl = document.getElementById("game-progress");
+const marathonProgressEl = document.getElementById("marathon-progress");
+
 const marathonPlus = document.getElementById("marathon-plus");
 const marathonMinus = document.getElementById("marathon-minus");
 
@@ -94,30 +98,25 @@ function renderGame(gameData) {
         row.className = "boss-row";
         if (state.killed) row.classList.add("killed");
 
-        /* ⭐ TOP BOSS */
-        if (boss.rank === "S" || state.deaths >= 10) {
+        if (boss.rank === "S" || state.deaths >= 30) {
           row.classList.add("top-boss");
         }
 
-        /* ===== RANK (КЛИКАБЕЛЬНЫЙ) ===== */
         const r = boss.rank || "-";
         const rank = document.createElement("div");
         rank.className = `boss-rank rank-${r}`;
         rank.textContent = `[${r}]`;
-        rank.title = "Нажми, чтобы сменить ранг";
         rank.style.cursor = "pointer";
 
         rank.onclick = () => {
-          const currentIndex = RANK_CYCLE.indexOf(r);
-          const nextRank = RANK_CYCLE[(currentIndex + 1) % RANK_CYCLE.length];
-          boss.rank = nextRank;
+          const idx = RANK_CYCLE.indexOf(r);
+          boss.rank = RANK_CYCLE[(idx + 1) % RANK_CYCLE.length];
           save();
           renderGame(gameData);
         };
 
         row.appendChild(rank);
 
-        /* ICON */
         if (boss.icon) {
           const img = document.createElement("img");
           img.src = boss.icon;
@@ -125,7 +124,6 @@ function renderGame(gameData) {
           row.appendChild(img);
         }
 
-        /* NAME */
         const name = document.createElement("div");
         name.className = "boss-name";
         name.textContent = boss.name;
@@ -134,7 +132,6 @@ function renderGame(gameData) {
         row.appendChild(statInput("Try", state, "tries", gameData));
         row.appendChild(statInput("Death", state, "deaths", gameData));
 
-        /* KILL */
         const kill = document.createElement("button");
         kill.className = "kill-btn";
         kill.textContent = "Убит";
@@ -144,15 +141,15 @@ function renderGame(gameData) {
           renderGame(gameData);
           if (state.killed) showYouDied();
         };
-        row.appendChild(kill);
 
+        row.appendChild(kill);
         sec.appendChild(row);
       });
 
     content.appendChild(sec);
   });
 
-  updateGameDeaths(gameData);
+  updateStats(gameData);
 }
 
 /* ================= STATS INPUT ================= */
@@ -167,7 +164,7 @@ function statInput(label, state, key, gameData) {
   input.onchange = () => {
     state[key] = Math.max(0, +input.value);
     save();
-    updateGameDeaths(gameData);
+    updateStats(gameData);
   };
 
   const l = document.createElement("div");
@@ -178,15 +175,40 @@ function statInput(label, state, key, gameData) {
   return wrap;
 }
 
-/* ================= DEATH COUNTERS ================= */
+/* ================= STATS (СМЕРТИ + ПРОЦЕНТЫ) ================= */
 
-function updateGameDeaths(gameData) {
+function updateStats(gameData) {
   let gameDeaths = 0;
+  let gameTotal = 0;
+  let gameKilled = 0;
+
+  let marathonTotal = 0;
+  let marathonKilled = 0;
+
   Object.values(progress[gameData.id]).forEach(b => {
     gameDeaths += b.deaths;
+    gameTotal++;
+    if (b.killed) gameKilled++;
   });
+
+  Object.values(progress).forEach(game =>
+    Object.values(game).forEach(b => {
+      marathonTotal++;
+      if (b.killed) marathonKilled++;
+    })
+  );
+
   gameDeathsEl.textContent = gameDeaths;
+  marathonDeathsEl.textContent = marathonDeaths;
+
+  gameProgressEl.textContent =
+    `Игра: ${Math.round((gameKilled / gameTotal) * 100)}%`;
+
+  marathonProgressEl.textContent =
+    `Марафон: ${Math.round((marathonKilled / marathonTotal) * 100)}%`;
 }
+
+/* ================= MARATHON DEATHS ================= */
 
 function updateMarathonDeaths() {
   marathonDeathsEl.textContent = marathonDeaths;
@@ -236,6 +258,8 @@ backBtn.onclick = () => {
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
+
 
 
 
