@@ -10,6 +10,10 @@ const STORAGE_KEY = "soulsofon_progress";
 const MARATHON_DEATHS_KEY = "soulsofon_marathon_deaths";
 const GAME_DEATHS_KEY = "soulsofon_game_deaths";
 
+/* 🔒 ADMIN MODE */
+const params = new URLSearchParams(window.location.search);
+const isAdmin = params.get("admin") === "1";
+
 const gameList = document.getElementById("game-list");
 const content = document.getElementById("content");
 const youDied = document.getElementById("you-died");
@@ -38,6 +42,21 @@ async function init() {
   renderGameButtons();
   bindDeathControls();
   await loadGame(GAMES[0]);
+
+  if (!isAdmin) lockViewerMode();
+}
+
+/* ===== VIEWER LOCK ===== */
+
+function lockViewerMode() {
+  document.body.classList.add("viewer");
+
+  document.querySelectorAll("input, button").forEach(el => {
+    if (el.id === "back-btn") return;
+    el.disabled = true;
+    el.style.pointerEvents = "none";
+    el.style.opacity = "0.6";
+  });
 }
 
 /* ===== GAME BUTTONS ===== */
@@ -118,14 +137,19 @@ function renderGame(gameData) {
       const kill = document.createElement("button");
       kill.className = "kill-btn";
       kill.textContent = "Убит";
-      kill.onclick = () => {
-        state.killed = !state.killed;
-        save();
-        renderGame(gameData);
-        if (state.killed) showYouDied();
-      };
-      row.appendChild(kill);
 
+      if (isAdmin) {
+        kill.onclick = () => {
+          state.killed = !state.killed;
+          save();
+          renderGame(gameData);
+          if (state.killed) showYouDied();
+        };
+      } else {
+        kill.disabled = true;
+      }
+
+      row.appendChild(kill);
       sec.appendChild(row);
     });
 
@@ -144,11 +168,16 @@ function statInput(label, state, key, gameData) {
   const input = document.createElement("input");
   input.type = "number";
   input.value = state[key];
-  input.onchange = () => {
-    state[key] = Number(input.value);
-    save();
-    updateStats(gameData);
-  };
+
+  if (isAdmin) {
+    input.onchange = () => {
+      state[key] = Number(input.value);
+      save();
+      updateStats(gameData);
+    };
+  } else {
+    input.disabled = true;
+  }
 
   const l = document.createElement("div");
   l.className = "stat-label";
@@ -184,7 +213,8 @@ function updateStats(gameData) {
     })
   );
 
-  const totalGameDeaths = autoGameDeaths + (manualGameDeaths[gameData.id] || 0);
+  const totalGameDeaths =
+    autoGameDeaths + (manualGameDeaths[gameData.id] || 0);
 
   gameDeathsEl.textContent = totalGameDeaths;
   marathonDeathsEl.textContent = marathonDeaths;
@@ -199,19 +229,22 @@ function updateStats(gameData) {
 /* ===== DEATH CONTROLS ===== */
 
 function bindDeathControls() {
-  if (gamePlus && gameMinus) {
-    gamePlus.onclick = () => {
-      manualGameDeaths[currentGame.id]++;
-      saveGameDeaths();
-      updateStats(currentGameData());
-    };
+  if (!isAdmin) return;
 
-    gameMinus.onclick = () => {
-      manualGameDeaths[currentGame.id] = Math.max(0, manualGameDeaths[currentGame.id] - 1);
-      saveGameDeaths();
-      updateStats(currentGameData());
-    };
-  }
+  gamePlus.onclick = () => {
+    manualGameDeaths[currentGame.id]++;
+    saveGameDeaths();
+    updateStats(currentGameData());
+  };
+
+  gameMinus.onclick = () => {
+    manualGameDeaths[currentGame.id] = Math.max(
+      0,
+      manualGameDeaths[currentGame.id] - 1
+    );
+    saveGameDeaths();
+    updateStats(currentGameData());
+  };
 
   marathonPlus.onclick = () => {
     marathonDeaths++;
@@ -222,10 +255,6 @@ function bindDeathControls() {
     marathonDeaths = Math.max(0, marathonDeaths - 1);
     saveMarathonDeaths();
   };
-}
-
-function currentGameData() {
-  return JSON.parse(localStorage.getItem("currentGameCache"));
 }
 
 /* ===== STORAGE ===== */
@@ -268,13 +297,14 @@ function showYouDied() {
   setTimeout(() => youDied.classList.add("hidden"), 1500);
 }
 
-/* ===== BACK + FADE ===== */
+/* ===== BACK ===== */
 
 backBtn.onclick = () => {
   fadeOverlay.classList.remove("hidden");
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
