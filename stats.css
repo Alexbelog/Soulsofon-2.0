@@ -67,6 +67,7 @@ body {
 
 #death-summary {
   position: absolute;
+  top: 32px;
   right: 16px;
   bottom: 14px;
 
@@ -299,6 +300,7 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
 
 
 
