@@ -7,12 +7,10 @@ const GAMES = [
 ];
 
 const STORAGE_KEY = "soulsofon_progress";
-const MARATHON_DEATHS_KEY = "soulsofon_marathon_deaths";
-const GAME_DEATHS_KEY = "soulsofon_game_deaths";
 
-/* 🔒 ADMIN MODE */
-const params = new URLSearchParams(window.location.search);
-const isAdmin = params.get("admin") === "1";
+/* ПОРЯДОК СЛОЖНОСТИ */
+const RANK_ORDER = { "S": 0, "A": 1, "B": 2, "C": 3, "-": 4 };
+const RANK_CYCLE = ["-", "C", "B", "A", "S"];
 
 const gameList = document.getElementById("game-list");
 const content = document.getElementById("content");
@@ -22,44 +20,24 @@ const fadeOverlay = document.getElementById("fade-overlay");
 
 const gameDeathsEl = document.getElementById("game-deaths");
 const marathonDeathsEl = document.getElementById("marathon-deaths");
-
-const gamePlus = document.getElementById("game-plus");
-const gameMinus = document.getElementById("game-minus");
 const marathonPlus = document.getElementById("marathon-plus");
 const marathonMinus = document.getElementById("marathon-minus");
 
 let progress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-let marathonDeaths = Number(localStorage.getItem(MARATHON_DEATHS_KEY)) || 0;
-let manualGameDeaths = JSON.parse(localStorage.getItem(GAME_DEATHS_KEY)) || {};
-
+let marathonDeaths = Number(localStorage.getItem("marathonDeaths")) || 0;
 let currentGame = null;
 
 init();
 
-/* ===== INIT ===== */
+/* ================= INIT ================= */
 
 async function init() {
   renderGameButtons();
-  bindDeathControls();
   await loadGame(GAMES[0]);
-
-  if (!isAdmin) lockViewerMode();
+  updateMarathonDeaths();
 }
 
-/* ===== VIEWER LOCK ===== */
-
-function lockViewerMode() {
-  document.body.classList.add("viewer");
-
-  document.querySelectorAll("input, button").forEach(el => {
-    if (el.id === "back-btn") return;
-    el.disabled = true;
-    el.style.pointerEvents = "none";
-    el.style.opacity = "0.6";
-  });
-}
-
-/* ===== GAME BUTTONS ===== */
+/* ================= GAME LIST ================= */
 
 function renderGameButtons() {
   gameList.innerHTML = "";
@@ -72,19 +50,17 @@ function renderGameButtons() {
   });
 }
 
-/* ===== LOAD GAME ===== */
+/* ================= LOAD GAME ================= */
 
 async function loadGame(game) {
   currentGame = game;
   const res = await fetch(game.file);
   const gameData = await res.json();
   ensureProgress(gameData);
-  if (!manualGameDeaths[game.id]) manualGameDeaths[game.id] = 0;
-  saveGameDeaths();
   renderGame(gameData);
 }
 
-/* ===== RENDER ===== */
+/* ================= RENDER ================= */
 
 function renderGame(gameData) {
   content.innerHTML = "";
@@ -96,14 +72,6 @@ function renderGame(gameData) {
     content.appendChild(banner);
   }
 
-  const progressBar = document.createElement("div");
-  progressBar.id = "progress-bar";
-  progressBar.innerHTML = `
-    <div id="game-progress"></div>
-    <div id="marathon-progress"></div>
-  `;
-  content.appendChild(progressBar);
-
   gameData.sections.forEach(section => {
     const sec = document.createElement("section");
     sec.className = "boss-section";
@@ -112,54 +80,82 @@ function renderGame(gameData) {
     h2.textContent = section.title;
     sec.appendChild(h2);
 
-    section.bosses.forEach(boss => {
-      const state = progress[gameData.id][boss.id];
+    [...section.bosses]
+      .sort((a, b) => {
+        const ra = RANK_ORDER[a.rank || "-"];
+        const rb = RANK_ORDER[b.rank || "-"];
+        return ra - rb;
+      })
+      .forEach(boss => {
 
-      const row = document.createElement("div");
-      row.className = "boss-row";
-      if (state.killed) row.classList.add("killed");
+        const state = progress[gameData.id][boss.id];
 
-      if (boss.icon) {
-        const img = document.createElement("img");
-        img.src = boss.icon;
-        img.className = "boss-icon";
-        row.appendChild(img);
-      }
+        const row = document.createElement("div");
+        row.className = "boss-row";
+        if (state.killed) row.classList.add("killed");
 
-      const name = document.createElement("div");
-      name.className = "boss-name";
-      name.textContent = boss.name;
-      row.appendChild(name);
+        /* ⭐ TOP BOSS */
+        if (boss.rank === "S" || state.deaths >= 10) {
+          row.classList.add("top-boss");
+        }
 
-      row.appendChild(statInput("Try", state, "tries", gameData));
-      row.appendChild(statInput("Death", state, "deaths", gameData));
+        /* ===== RANK (КЛИКАБЕЛЬНЫЙ) ===== */
+        const r = boss.rank || "-";
+        const rank = document.createElement("div");
+        rank.className = `boss-rank rank-${r}`;
+        rank.textContent = `[${r}]`;
+        rank.title = "Нажми, чтобы сменить ранг";
+        rank.style.cursor = "pointer";
 
-      const kill = document.createElement("button");
-      kill.className = "kill-btn";
-      kill.textContent = "Убит";
+        rank.onclick = () => {
+          const currentIndex = RANK_CYCLE.indexOf(r);
+          const nextRank = RANK_CYCLE[(currentIndex + 1) % RANK_CYCLE.length];
+          boss.rank = nextRank;
+          save();
+          renderGame(gameData);
+        };
 
-      if (isAdmin) {
+        row.appendChild(rank);
+
+        /* ICON */
+        if (boss.icon) {
+          const img = document.createElement("img");
+          img.src = boss.icon;
+          img.className = "boss-icon";
+          row.appendChild(img);
+        }
+
+        /* NAME */
+        const name = document.createElement("div");
+        name.className = "boss-name";
+        name.textContent = boss.name;
+        row.appendChild(name);
+
+        row.appendChild(statInput("Try", state, "tries", gameData));
+        row.appendChild(statInput("Death", state, "deaths", gameData));
+
+        /* KILL */
+        const kill = document.createElement("button");
+        kill.className = "kill-btn";
+        kill.textContent = "Убит";
         kill.onclick = () => {
           state.killed = !state.killed;
           save();
           renderGame(gameData);
           if (state.killed) showYouDied();
         };
-      } else {
-        kill.disabled = true;
-      }
+        row.appendChild(kill);
 
-      row.appendChild(kill);
-      sec.appendChild(row);
-    });
+        sec.appendChild(row);
+      });
 
     content.appendChild(sec);
   });
 
-  updateStats(gameData);
+  updateGameDeaths(gameData);
 }
 
-/* ===== INPUT ===== */
+/* ================= STATS INPUT ================= */
 
 function statInput(label, state, key, gameData) {
   const wrap = document.createElement("div");
@@ -168,16 +164,11 @@ function statInput(label, state, key, gameData) {
   const input = document.createElement("input");
   input.type = "number";
   input.value = state[key];
-
-  if (isAdmin) {
-    input.onchange = () => {
-      state[key] = Number(input.value);
-      save();
-      updateStats(gameData);
-    };
-  } else {
-    input.disabled = true;
-  }
+  input.onchange = () => {
+    state[key] = Math.max(0, +input.value);
+    save();
+    updateGameDeaths(gameData);
+  };
 
   const l = document.createElement("div");
   l.className = "stat-label";
@@ -187,91 +178,41 @@ function statInput(label, state, key, gameData) {
   return wrap;
 }
 
-/* ===== STATS ===== */
+/* ================= DEATH COUNTERS ================= */
 
-function updateStats(gameData) {
-  let autoGameDeaths = 0;
-  let gameTotal = 0;
-  let gameKilled = 0;
+function updateGameDeaths(gameData) {
+  let gameDeaths = 0;
+  Object.values(progress[gameData.id]).forEach(b => {
+    gameDeaths += b.deaths;
+  });
+  gameDeathsEl.textContent = gameDeaths;
+}
 
-  let marathonTotal = 0;
-  let marathonKilled = 0;
-
-  gameData.sections.forEach(s =>
-    s.bosses.forEach(b => {
-      const st = progress[gameData.id][b.id];
-      gameTotal++;
-      autoGameDeaths += st.deaths;
-      if (st.killed) gameKilled++;
-    })
-  );
-
-  Object.values(progress).forEach(game =>
-    Object.values(game).forEach(b => {
-      marathonTotal++;
-      if (b.killed) marathonKilled++;
-    })
-  );
-
-  const totalGameDeaths =
-    autoGameDeaths + (manualGameDeaths[gameData.id] || 0);
-
-  gameDeathsEl.textContent = totalGameDeaths;
+function updateMarathonDeaths() {
   marathonDeathsEl.textContent = marathonDeaths;
-
-  document.getElementById("game-progress").textContent =
-    `Игра: ${Math.round((gameKilled / gameTotal) * 100)}%`;
-
-  document.getElementById("marathon-progress").textContent =
-    `Марафон: ${Math.round((marathonKilled / marathonTotal) * 100)}%`;
+  localStorage.setItem("marathonDeaths", marathonDeaths);
 }
 
-/* ===== DEATH CONTROLS ===== */
+marathonPlus.onclick = () => {
+  marathonDeaths++;
+  updateMarathonDeaths();
+};
 
-function bindDeathControls() {
-  if (!isAdmin) return;
+marathonMinus.onclick = () => {
+  marathonDeaths = Math.max(0, marathonDeaths - 1);
+  updateMarathonDeaths();
+};
 
-  gamePlus.onclick = () => {
-    manualGameDeaths[currentGame.id]++;
-    saveGameDeaths();
-    updateStats(currentGameData());
-  };
-
-  gameMinus.onclick = () => {
-    manualGameDeaths[currentGame.id] = Math.max(
-      0,
-      manualGameDeaths[currentGame.id] - 1
-    );
-    saveGameDeaths();
-    updateStats(currentGameData());
-  };
-
-  marathonPlus.onclick = () => {
-    marathonDeaths++;
-    saveMarathonDeaths();
-  };
-
-  marathonMinus.onclick = () => {
-    marathonDeaths = Math.max(0, marathonDeaths - 1);
-    saveMarathonDeaths();
-  };
-}
-
-/* ===== STORAGE ===== */
+/* ================= STORAGE ================= */
 
 function ensureProgress(gameData) {
-  localStorage.setItem("currentGameCache", JSON.stringify(gameData));
-
   if (!progress[gameData.id]) progress[gameData.id] = {};
   gameData.sections.forEach(s =>
     s.bosses.forEach(b => {
       if (!progress[gameData.id][b.id]) {
-        progress[gameData.id][b.id] = {
-          tries: 0,
-          deaths: 0,
-          killed: false
-        };
+        progress[gameData.id][b.id] = { tries: 0, deaths: 0, killed: false };
       }
+      if (!b.rank) b.rank = "-";
     })
   );
   save();
@@ -281,29 +222,21 @@ function save() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
 }
 
-function saveGameDeaths() {
-  localStorage.setItem(GAME_DEATHS_KEY, JSON.stringify(manualGameDeaths));
-}
-
-function saveMarathonDeaths() {
-  localStorage.setItem(MARATHON_DEATHS_KEY, marathonDeaths);
-  marathonDeathsEl.textContent = marathonDeaths;
-}
-
-/* ===== EFFECTS ===== */
+/* ================= YOU DIED ================= */
 
 function showYouDied() {
   youDied.classList.remove("hidden");
   setTimeout(() => youDied.classList.add("hidden"), 1500);
 }
 
-/* ===== BACK ===== */
+/* ================= BACK + FADE ================= */
 
 backBtn.onclick = () => {
   fadeOverlay.classList.remove("hidden");
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
