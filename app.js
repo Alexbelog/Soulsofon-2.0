@@ -8,6 +8,15 @@ const GAMES = [
 
 const STORAGE_KEY = "soulsofon_progress";
 
+/* ПОРЯДОК СЛОЖНОСТИ */
+const RANK_ORDER = {
+  "S": 0,
+  "A": 1,
+  "B": 2,
+  "C": 3,
+  "-": 4
+};
+
 const gameList = document.getElementById("game-list");
 const content = document.getElementById("content");
 const youDied = document.getElementById("you-died");
@@ -25,11 +34,15 @@ let currentGame = null;
 
 init();
 
+/* ================= INIT ================= */
+
 async function init() {
   renderGameButtons();
   await loadGame(GAMES[0]);
   updateMarathonDeaths();
 }
+
+/* ================= GAME LIST ================= */
 
 function renderGameButtons() {
   gameList.innerHTML = "";
@@ -42,6 +55,8 @@ function renderGameButtons() {
   });
 }
 
+/* ================= LOAD GAME ================= */
+
 async function loadGame(game) {
   currentGame = game;
   const res = await fetch(game.file);
@@ -49,6 +64,8 @@ async function loadGame(game) {
   ensureProgress(gameData);
   renderGame(gameData);
 }
+
+/* ================= RENDER ================= */
 
 function renderGame(gameData) {
   content.innerHTML = "";
@@ -68,57 +85,67 @@ function renderGame(gameData) {
     h2.textContent = section.title;
     sec.appendChild(h2);
 
-    section.bosses.forEach(boss => {
-      const state = progress[gameData.id][boss.id];
+    /* ===== СОРТИРОВКА ПО СЛОЖНОСТИ ===== */
+    [...section.bosses]
+      .sort((a, b) => {
+        const ra = RANK_ORDER[a.rank || "-"];
+        const rb = RANK_ORDER[b.rank || "-"];
+        return ra - rb;
+      })
+      .forEach(boss => {
 
-      const row = document.createElement("div");
-      row.className = "boss-row";
-      if (state.killed) row.classList.add("killed");
+        const state = progress[gameData.id][boss.id];
 
-      // RANK (СЛЕВА)
-      const rank = document.createElement("div");
-      const r = boss.rank || "-";
-      rank.className = `boss-rank rank-${r}`;
-      rank.textContent = `[${r}]`;
-      row.appendChild(rank);
+        const row = document.createElement("div");
+        row.className = "boss-row";
+        if (state.killed) row.classList.add("killed");
 
-      // ICON
-      if (boss.icon) {
-        const img = document.createElement("img");
-        img.src = boss.icon;
-        img.className = "boss-icon";
-        row.appendChild(img);
-      }
+        /* RANK (СЛЕВА) */
+        const r = boss.rank || "-";
+        const rank = document.createElement("div");
+        rank.className = `boss-rank rank-${r}`;
+        rank.textContent = `[${r}]`;
+        row.appendChild(rank);
 
-      // NAME
-      const name = document.createElement("div");
-      name.className = "boss-name";
-      name.textContent = boss.name;
-      row.appendChild(name);
+        /* ICON */
+        if (boss.icon) {
+          const img = document.createElement("img");
+          img.src = boss.icon;
+          img.className = "boss-icon";
+          row.appendChild(img);
+        }
 
-      row.appendChild(statInput("Try", state, "tries", gameData));
-      row.appendChild(statInput("Death", state, "deaths", gameData));
+        /* NAME */
+        const name = document.createElement("div");
+        name.className = "boss-name";
+        name.textContent = boss.name;
+        row.appendChild(name);
 
-      // KILL BUTTON
-      const kill = document.createElement("button");
-      kill.className = "kill-btn";
-      kill.textContent = "Убит";
-      kill.onclick = () => {
-        state.killed = !state.killed;
-        save();
-        renderGame(gameData);
-        if (state.killed) showYouDied();
-      };
-      row.appendChild(kill);
+        row.appendChild(statInput("Try", state, "tries", gameData));
+        row.appendChild(statInput("Death", state, "deaths", gameData));
 
-      sec.appendChild(row);
-    });
+        /* KILL BUTTON */
+        const kill = document.createElement("button");
+        kill.className = "kill-btn";
+        kill.textContent = "Убит";
+        kill.onclick = () => {
+          state.killed = !state.killed;
+          save();
+          renderGame(gameData);
+          if (state.killed) showYouDied();
+        };
+        row.appendChild(kill);
+
+        sec.appendChild(row);
+      });
 
     content.appendChild(sec);
   });
 
-  updateDeaths(gameData);
+  updateGameDeaths(gameData);
 }
+
+/* ================= STATS INPUT ================= */
 
 function statInput(label, state, key, gameData) {
   const wrap = document.createElement("div");
@@ -130,7 +157,7 @@ function statInput(label, state, key, gameData) {
   input.onchange = () => {
     state[key] = Math.max(0, +input.value);
     save();
-    updateDeaths(gameData);
+    updateGameDeaths(gameData);
   };
 
   const l = document.createElement("div");
@@ -141,13 +168,13 @@ function statInput(label, state, key, gameData) {
   return wrap;
 }
 
-function updateDeaths(gameData) {
-  let gameDeaths = 0;
+/* ================= DEATH COUNTERS ================= */
 
+function updateGameDeaths(gameData) {
+  let gameDeaths = 0;
   Object.values(progress[gameData.id]).forEach(b => {
     gameDeaths += b.deaths;
   });
-
   gameDeathsEl.textContent = gameDeaths;
 }
 
@@ -166,12 +193,19 @@ marathonMinus.onclick = () => {
   updateMarathonDeaths();
 };
 
+/* ================= STORAGE ================= */
+
 function ensureProgress(gameData) {
   if (!progress[gameData.id]) progress[gameData.id] = {};
   gameData.sections.forEach(s =>
     s.bosses.forEach(b => {
-      if (!progress[gameData.id][b.id])
-        progress[gameData.id][b.id] = { tries: 0, deaths: 0, killed: false };
+      if (!progress[gameData.id][b.id]) {
+        progress[gameData.id][b.id] = {
+          tries: 0,
+          deaths: 0,
+          killed: false
+        };
+      }
     })
   );
   save();
@@ -181,17 +215,21 @@ function save() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
 }
 
+/* ================= YOU DIED ================= */
+
 function showYouDied() {
   youDied.classList.remove("hidden");
   setTimeout(() => youDied.classList.add("hidden"), 1500);
 }
 
-/* BACK + FADE */
+/* ================= BACK + FADE ================= */
+
 backBtn.onclick = () => {
   fadeOverlay.classList.remove("hidden");
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
