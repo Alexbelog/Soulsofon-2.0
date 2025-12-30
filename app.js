@@ -9,13 +9,8 @@ const GAMES = [
 const STORAGE_KEY = "soulsofon_progress";
 
 /* ПОРЯДОК СЛОЖНОСТИ */
-const RANK_ORDER = {
-  "S": 0,
-  "A": 1,
-  "B": 2,
-  "C": 3,
-  "-": 4
-};
+const RANK_ORDER = { "S": 0, "A": 1, "B": 2, "C": 3, "-": 4 };
+const RANK_CYCLE = ["-", "C", "B", "A", "S"];
 
 const gameList = document.getElementById("game-list");
 const content = document.getElementById("content");
@@ -85,7 +80,6 @@ function renderGame(gameData) {
     h2.textContent = section.title;
     sec.appendChild(h2);
 
-    /* ===== СОРТИРОВКА ПО СЛОЖНОСТИ ===== */
     [...section.bosses]
       .sort((a, b) => {
         const ra = RANK_ORDER[a.rank || "-"];
@@ -98,21 +92,29 @@ function renderGame(gameData) {
 
         const row = document.createElement("div");
         row.className = "boss-row";
-
         if (state.killed) row.classList.add("killed");
 
         /* ⭐ TOP BOSS */
-        const isTopRank = boss.rank === "S";
-        const isHardBoss = state.deaths >= 10; // ← ПОРОГ
-        if (isTopRank || isHardBoss) {
+        if (boss.rank === "S" || state.deaths >= 10) {
           row.classList.add("top-boss");
         }
 
-        /* RANK */
+        /* ===== RANK (КЛИКАБЕЛЬНЫЙ) ===== */
         const r = boss.rank || "-";
         const rank = document.createElement("div");
         rank.className = `boss-rank rank-${r}`;
         rank.textContent = `[${r}]`;
+        rank.title = "Нажми, чтобы сменить ранг";
+        rank.style.cursor = "pointer";
+
+        rank.onclick = () => {
+          const currentIndex = RANK_CYCLE.indexOf(r);
+          const nextRank = RANK_CYCLE[(currentIndex + 1) % RANK_CYCLE.length];
+          boss.rank = nextRank;
+          save();
+          renderGame(gameData);
+        };
+
         row.appendChild(rank);
 
         /* ICON */
@@ -208,12 +210,9 @@ function ensureProgress(gameData) {
   gameData.sections.forEach(s =>
     s.bosses.forEach(b => {
       if (!progress[gameData.id][b.id]) {
-        progress[gameData.id][b.id] = {
-          tries: 0,
-          deaths: 0,
-          killed: false
-        };
+        progress[gameData.id][b.id] = { tries: 0, deaths: 0, killed: false };
       }
+      if (!b.rank) b.rank = "-";
     })
   );
   save();
@@ -237,6 +236,7 @@ backBtn.onclick = () => {
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
