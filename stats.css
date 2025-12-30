@@ -1,4 +1,10 @@
-/* ===== BASE ===== */
+/* =========================
+   BASE
+========================= */
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -7,13 +13,19 @@ body {
   font-family: "Times New Roman", serif;
 }
 
+/* =========================
+   LAYOUT
+========================= */
+
 #layout {
   display: grid;
   grid-template-columns: 260px 1fr;
   min-height: 100vh;
 }
 
-/* ===== GAME LIST ===== */
+/* =========================
+   GAME LIST (RIGHT COLUMN)
+========================= */
 
 #game-list {
   background: linear-gradient(#140000, #000);
@@ -32,134 +44,120 @@ body {
   font-size: 18px;
   letter-spacing: 2px;
   cursor: pointer;
+  text-align: center;
 }
 
 .game-btn:hover {
   background: #aa0000;
 }
 
-/* ===== CONTENT ===== */
+/* =========================
+   CONTENT
+========================= */
 
 #content {
-  padding: 24px 32px;
-  max-width: 1400px;
+  padding: 24px 32px 80px;
+  max-width: 1280px;
   margin: 0 auto;
-}
-
-/* ===== BANNER (КОМПАКТНЫЙ) ===== */
-
-#game-banner {
   position: relative;
-  max-width: 900px;              /* 👈 УЖЕ */
-  margin: 0 0 24px 0;            /* 👈 ВЫРАВНЕН С КОНТЕНТОМ */
 }
 
-#banner-img {
-  width: 100%;
-  max-height: 220px;             /* 👈 КЛЮЧЕВО: НЕ ВЫЛЕЗАЕТ */
-  object-fit: cover;
-  border: 1px solid #400;
+/* =========================
+   GAME BANNER
+========================= */
+
+.game-banner {
   display: block;
-  background: #000;
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border: 1px solid #300;
+  margin: 0 auto 24px;
 }
 
-/* ===== DEATH SUMMARY ===== */
+/* =========================
+   DEATH COUNTERS
+========================= */
 
 #death-summary {
-  position: absolute;
-  top: 32px;
-  right: 16px;
-  bottom: 14px;
-
+  position: fixed;
+  top: 120px; /* ← регулируй положение */
+  right: 40px;
   display: flex;
-  gap: 24px;
-
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px 16px;
-  border: 1px solid #700;
+  gap: 36px;
+  z-index: 500;
 }
-
-/* ===== DEATH BOX ===== */
 
 .death-box {
   text-align: center;
 }
 
 .death-label {
-  font-size: 13px;
+  font-size: 14px;
   color: #aaa;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .death-value {
-  font-size: 32px;               /* 👈 ЧУТЬ МЕНЬШЕ */
+  font-size: 36px;
   color: darkred;
-  text-shadow:
-    0 0 10px #000,
-    0 0 18px #600;
+  text-shadow: 0 0 10px black;
 }
 
-/* ===== CONTROLS ===== */
+/* editable marathon deaths */
 
 .death-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .death-controls button {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(#600, #200);
-  border: 1px solid #900;
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(#500, #200);
+  border: 1px solid #700;
   color: white;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
 }
 
 .death-controls button:hover {
-  background: #a00000;
+  background: #900;
 }
 
-/* ===== PROGRESS ===== */
-
-#progress-bar {
-  display: flex;
-  gap: 32px;
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: #b30000;
-}
-
-/* ===== SECTIONS ===== */
+/* =========================
+   SECTIONS
+========================= */
 
 .boss-section {
-  margin-bottom: 36px;
+  margin-bottom: 48px;
 }
 
 .boss-section h2 {
-  font-size: 26px;
+  font-size: 28px;
   border-bottom: 1px solid #400;
   padding-bottom: 6px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
-/* ===== BOSS ROW ===== */
+/* =========================
+   BOSS ROW
+========================= */
 
 .boss-row {
-  overflow: visible;
+  position: relative;
   display: grid;
-  grid-template-columns: 64px 1fr 140px 140px 90px;
+  grid-template-columns: 72px 64px 1fr 140px 140px 90px;
   align-items: center;
   gap: 12px;
-  padding: 8px 6px;
+  padding: 10px 6px;
   border-bottom: 1px solid #1f0000;
 }
 
 .boss-row.killed {
   opacity: 0.45;
   text-decoration: line-through;
-  position: relative;
 }
 
 .boss-row.killed::before {
@@ -172,51 +170,81 @@ body {
   background: #8b0000;
 }
 
-/* ===== ICON ===== */
-
-.boss-icon {
-  width: 52px;                   /* 👈 ЧУТЬ МЕНЬШЕ */
-  height: 52px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 6px black);
-  transition: transform 0.2s ease, filter 0.2s ease;
-  cursor: pointer;
-}
-
-.boss-icon:hover {
-  transform: scale(3);
-  filter: drop-shadow(0 0 12px #8b0000);
-  z-index: 10;
-}
-
-.boss-name {
-  font-size: 17px;
-}
-
-/* ===== RANK ===== */
-
-.boss-name-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+/* =========================
+   BOSS RANKS
+========================= */
 
 .boss-rank {
   font-size: 48px;
   font-weight: bold;
-  cursor: pointer;
+  text-align: center;
+  font-family: "Times New Roman", serif;
+  letter-spacing: 2px;
   user-select: none;
-  text-shadow:
-    0 0 6px black,
-    0 0 12px currentColor;
 }
 
-.rank-c { color: #2ecc71; }
-.rank-b { color: #f1c40f; }
-.rank-a { color: #e67e22; }
-.rank-s { color: #c0392b; }
+/* UNKNOWN */
+.rank-- {
+  color: #777;
+  text-shadow: 0 0 10px #000;
+  opacity: 0.8;
+}
 
-/* ===== STATS ===== */
+/* C */
+.rank-C {
+  color: #2ecc71;
+  text-shadow: 0 0 10px #0a3;
+}
+
+/* B */
+.rank-B {
+  color: #f1c40f;
+  text-shadow: 0 0 10px #aa0;
+}
+
+/* A */
+.rank-A {
+  color: #e67e22;
+  text-shadow: 0 0 10px #c60;
+}
+
+/* S */
+.rank-S {
+  color: #b30000;
+  text-shadow: 0 0 14px #600;
+}
+
+/* =========================
+   BOSS ICON
+========================= */
+
+.boss-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px black);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.boss-icon:hover {
+  transform: scale(3.3);
+  filter: drop-shadow(0 0 12px #8b0000);
+  z-index: 10;
+}
+
+/* =========================
+   BOSS NAME
+========================= */
+
+.boss-name {
+  font-size: 18px;
+}
+
+/* =========================
+   STATS INPUTS
+========================= */
 
 .stat-wrap {
   display: flex;
@@ -225,7 +253,7 @@ body {
 }
 
 .stat-wrap input {
-  width: 60px;
+  width: 64px;
   background: #000;
   color: #fff;
   border: 1px solid #400;
@@ -233,21 +261,23 @@ body {
 }
 
 .stat-label {
-  font-size: 11px;
+  font-size: 12px;
   color: #888;
   margin-top: 4px;
 }
 
-/* ===== BUTTONS ===== */
+/* =========================
+   BUTTONS
+========================= */
 
 .kill-btn,
 .back-btn {
   background: linear-gradient(#7a0000, #3a0000);
   color: #fff;
   border: 1px solid #aa0000;
-  padding: 8px 14px;
+  padding: 8px 16px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: 2px;
 }
 
@@ -256,7 +286,9 @@ body {
   background: #aa0000;
 }
 
-/* ===== BACK ===== */
+/* =========================
+   BACK BUTTON
+========================= */
 
 .back-btn {
   position: fixed;
@@ -265,7 +297,9 @@ body {
   z-index: 1000;
 }
 
-/* ===== YOU DIED ===== */
+/* =========================
+   YOU DIED
+========================= */
 
 .you-died {
   position: fixed;
@@ -284,7 +318,9 @@ body {
   display: none;
 }
 
-/* ===== FADE ===== */
+/* =========================
+   FADE
+========================= */
 
 .fade-overlay {
   position: fixed;
@@ -300,6 +336,8 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
+
 
 
 
