@@ -38,10 +38,25 @@
     </div>
 
     <!-- ПРОЦЕНТЫ ПРОХОЖДЕНИЯ -->
-    <div id="progress-bar">
-      <span id="game-progress">Игра: 0%</span>
-      <span id="marathon-progress">Марафон: 0%</span>
+<div id="progress-bar">
+
+  <div class="progress-block">
+    <div class="progress-label">ПРОГРЕСС ИГРЫ</div>
+    <div class="progress-track">
+      <div id="game-progress-bar" class="progress-fill"></div>
     </div>
+    <div id="game-progress" class="progress-text">0%</div>
+  </div>
+
+  <div class="progress-block">
+    <div class="progress-label">ПРОГРЕСС МАРАФОНА</div>
+    <div class="progress-track">
+      <div id="marathon-progress-bar" class="progress-fill marathon"></div>
+    </div>
+    <div id="marathon-progress" class="progress-text">0%</div>
+  </div>
+
+</div>
 
     <!-- БОССЫ -->
     <div id="sections"></div>
@@ -61,6 +76,7 @@
 <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
