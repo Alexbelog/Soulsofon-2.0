@@ -98,9 +98,17 @@ function renderGame(gameData) {
 
         const row = document.createElement("div");
         row.className = "boss-row";
+
         if (state.killed) row.classList.add("killed");
 
-        /* RANK (СЛЕВА) */
+        /* ⭐ TOP BOSS */
+        const isTopRank = boss.rank === "S";
+        const isHardBoss = state.deaths >= 10; // ← ПОРОГ
+        if (isTopRank || isHardBoss) {
+          row.classList.add("top-boss");
+        }
+
+        /* RANK */
         const r = boss.rank || "-";
         const rank = document.createElement("div");
         rank.className = `boss-rank rank-${r}`;
@@ -124,7 +132,7 @@ function renderGame(gameData) {
         row.appendChild(statInput("Try", state, "tries", gameData));
         row.appendChild(statInput("Death", state, "deaths", gameData));
 
-        /* KILL BUTTON */
+        /* KILL */
         const kill = document.createElement("button");
         kill.className = "kill-btn";
         kill.textContent = "Убит";
@@ -229,6 +237,7 @@ backBtn.onclick = () => {
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
