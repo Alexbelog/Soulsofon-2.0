@@ -1,3 +1,15 @@
+/* ===== ADMIN MODE ===== */
+
+// admin если ?admin=1 ИЛИ сохранён ранее
+const isAdmin =
+  new URLSearchParams(window.location.search).get("admin") === "1" ||
+  localStorage.getItem("admin") === "1";
+
+// если вошли через URL — сохраняем
+if (new URLSearchParams(window.location.search).get("admin") === "1") {
+  localStorage.setItem("admin", "1");
+}
+
 const GAMES = [
   { id: "ds1", file: "data/ds1.json" },
   { id: "ds2", file: "data/ds2.json" },
@@ -236,6 +248,7 @@ backBtn.onclick = () => {
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
