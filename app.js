@@ -165,6 +165,13 @@ function statInput(label, state, key, gameData) {
     state[key] = Math.max(0, +input.value);
     save();
     updateStats(gameData);
+    // визуальные прогресс-бары
+document.getElementById("game-progress-bar").style.width =
+  Math.round((gameKilled / gameTotal) * 100) + "%";
+
+document.getElementById("marathon-progress-bar").style.width =
+  Math.round((marathonKilled / marathonTotal) * 100) + "%";
+
   };
 
   const l = document.createElement("div");
@@ -258,6 +265,7 @@ backBtn.onclick = () => {
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
