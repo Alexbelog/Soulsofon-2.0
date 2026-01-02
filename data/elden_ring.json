@@ -1,5 +1,5 @@
 {
-  "id": "elden",
+  "id": "elden ring",
   "title": "Elden Ring",
   "banner": "images/banners/elden_ring.jpg",
   "sections": [
@@ -100,5 +100,6 @@
     }
   ]
 }
+
 
 
