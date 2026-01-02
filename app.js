@@ -2,6 +2,7 @@ const GAMES = [
   { id: "ds1", file: "data/ds1.json" },
   { id: "ds2", file: "data/ds2.json" },
   { id: "ds3", file: "data/ds3.json" },
+  { id: "bloodborne", file: "data/bloodborne.json" },
   { id: "sekiro", file: "data/sekiro.json" },
   { id: "elden", file: "data/elden_ring.json" }
 ];
@@ -265,6 +266,7 @@ backBtn.onclick = () => {
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
