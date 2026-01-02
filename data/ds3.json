@@ -8,22 +8,16 @@
       "bosses": [
         { "id": "iudex_gundyr", "name": "Судия Гундир", "icon": "images/bosses/ds3/iudex_gundyr.png" },
         { "id": "vordt", "name": "Вордт из Холодной долины", "icon": "images/bosses/ds3/vordt.png" },
-        { "id": "curse_rotted_greatwood", "name": "Проклятое гниющее великое древо", "icon": "images/bosses/ds3/greatwood.png" },
-        { "id": "crystal_sage", "name": "Кристальный мудрец", "icon": "images/bosses/ds3/crystal_sage.png" },
-        { "id": "abyss_watchers", "name": "Хранители Бездны", "icon": "images/bosses/ds3/abyss_watchers.png" },
+        { "id": "crystal_sage", "name": "Знаток кристальных чар", "icon": "images/bosses/ds3/crystal_sage.png" },
         { "id": "deacons", "name": "Дьяконы глубин", "icon": "images/bosses/ds3/deacons.png" },
-        { "id": "wolnir", "name": "Верховный лорд Вольнир", "icon": "images/bosses/ds3/wolnir.png" },
-        { "id": "old_demon_king", "name": "Старый Король Демонов", "icon": "images/bosses/ds3/old_demon_king.png" },
+        { "id": "abyss_watchers", "name": "Хранители Бездны", "icon": "images/bosses/ds3/abyss_watchers.png" },
+        { "id": "wolnir", "name": "Верховный повелитель Вольнир", "icon": "images/bosses/ds3/wolnir.png" },
         { "id": "pontiff", "name": "Понтифик Саливан", "icon": "images/bosses/ds3/pontiff.png" },
         { "id": "aldrich", "name": "Олдрик, Пожиратель богов", "icon": "images/bosses/ds3/aldrich.png" },
-        { "id": "yhorm", "name": "Йорм Великан", "icon": "images/bosses/ds3/yhorm.png" },
+        { "id": "yhorm", "name": "Гигант Йорм", "icon": "images/bosses/ds3/yhorm.png" },
         { "id": "dancer", "name": "Танцовщица Холодной долины", "icon": "images/bosses/ds3/dancer.png" },
-        { "id": "oceiros", "name": "Оцейрос, Поглощённый король", "icon": "images/bosses/ds3/oceiros.png" },
-        { "id": "champion_gundyr", "name": "Чемпион Гундир", "icon": "images/bosses/ds3/champion_gundyr.png" },
         { "id": "dragonslayer_armor", "name": "Доспехи Драконоборца", "icon": "images/bosses/ds3/dragonslayer_armor.png" },
-        { "id": "lothric_lorian", "name": "Лотрик и Лориан", "icon": "images/bosses/ds3/lothric_lorian.png" },
-        { "id": "ancient_wyvern", "name": "Древняя виверна", "icon": "images/bosses/ds3/ancient_wyvern.png" },
-        { "id": "nameless_king", "name": "Безымянный король", "icon": "images/bosses/ds3/nameless_king.png" },
+        { "id": "lothric_lorian", "name": "Лотрик младший принц и Лориан старший принц", "icon": "images/bosses/ds3/lothric_lorian.png" },
         { "id": "soul_of_cinder", "name": "Душа Пепла", "icon": "images/bosses/ds3/soul_of_cinder.png" }
       ]
     },
@@ -31,15 +25,20 @@
     {
       "title": "Второстепенные боссы",
       "bosses": [
-        { "id": "rotten_greatwood_optional", "name": "Гниющее древо (опционально)", "icon": "images/bosses/ds3/greatwood.png" }
+        { "id": "curse_rotted_greatwood", "name": "Проклятое Великое древо", "icon": "images/bosses/ds3/greatwood.png" },
+        { "id": "old_demon_king", "name": "Старый Король Демонов", "icon": "images/bosses/ds3/old_demon_king.png" },
+        { "id": "oceiros", "name": "Оцейрос, Снедаемый король", "icon": "images/bosses/ds3/oceiros.png" },
+        { "id": "champion_gundyr", "name": "Чемпион Гундир", "icon": "images/bosses/ds3/champion_gundyr.png" },
+        { "id": "ancient_wyvern", "name": "Древняя виверна", "icon": "images/bosses/ds3/ancient_wyvern.png" },
+        { "id": "nameless_king", "name": "Безымянный король", "icon": "images/bosses/ds3/nameless_king.png" }
       ]
     },
 
     {
       "title": "DLC — Ashes of Ariandel",
       "bosses": [
-        { "id": "champion_gravetender", "name": "Чемпион-страж могилы и великий волк", "icon": "images/bosses/ds3/gravetender.png" },
-        { "id": "friede", "name": "Сестра Фриде и Отец Ариандель", "icon": "images/bosses/ds3/friede.png" }
+        { "id": "champion_gravetender", "name": "Хранитель могилы чемпиона и великий волк", "icon": "images/bosses/ds3/gravetender.png" },
+        { "id": "friede", "name": "Отец Арианлеот и Фриде", "icon": "images/bosses/ds3/friede.png" }
       ]
     },
 
@@ -47,13 +46,14 @@
       "title": "DLC — The Ringed City",
       "bosses": [
         { "id": "demon_prince", "name": "Демон-принц", "icon": "images/bosses/ds3/demon_prince.png" },
-        { "id": "halflight", "name": "Полусвет, копьё церкви", "icon": "images/bosses/ds3/halflight.png" },
-        { "id": "midir", "name": "Тёмный пожиратель Мидир", "icon": "images/bosses/ds3/midir.png" },
+        { "id": "midir", "name": "Мидир Пожиратель Тьмы", "icon": "images/bosses/ds3/midir.png" },
+        { "id": "halflight", "name": "Копьё церкви", "icon": "images/bosses/ds3/halflight.png" },
         { "id": "gael", "name": "Рыцарь-раб Гаэль", "icon": "images/bosses/ds3/gael.png" }
       ]
     }
   ]
 }
+
 
 
 
