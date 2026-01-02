@@ -52,8 +52,7 @@
       "bosses": [
         { "id": "gank_squad", "name": "Варг, Церах и Разорительница гробниц", "icon": "images/bosses/ds2/gank_squad.png" },
         { "id": "elena", "name": "Скверная королева Элана", "icon": "images/bosses/ds2/elena.png" },
-        { "id": "sinh", "name": "Син, Дремлющий дракон", "icon": "images/bosses/ds2/sinh.png" },
-
+        { "id": "sinh", "name": "Син, Дремлющий дракон", "icon": "images/bosses/ds2/sinh.png" }
       ]
     },
 
@@ -76,6 +75,7 @@
     }
   ]
 }
+
 
 
 
