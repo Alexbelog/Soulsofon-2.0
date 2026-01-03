@@ -49,22 +49,24 @@ body {
 /* ===== BANNER ===== */
 
 .game-banner {
-  display: block;
-  margin: 0 auto 16px;
   width: 100%;
-  max-width: 1100px;
-  max-height: 300px;
+  max-height: 280px;
   object-fit: cover;
   border: 1px solid #300;
+  margin-bottom: 18px;
 }
 
-/* ===== DEATH COUNTERS ===== */
+/* ===== DEATH COUNTERS (ПОД БАННЕРОМ) ===== */
 
 #death-summary {
   display: flex;
   justify-content: center;
   gap: 64px;
-  margin: 24px 0 32px;
+  margin-bottom: 28px;
+  padding: 14px 24px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid #400;
+  backdrop-filter: blur(2px);
 }
 
 .death-box {
@@ -78,22 +80,21 @@ body {
 }
 
 .death-value {
-  font-size: 42px;
+  font-size: 36px;
   color: darkred;
   text-shadow: 0 0 10px black;
-  margin: 6px 0;
 }
 
+/* ручное управление марафоном */
 .death-controls {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .death-controls button {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   background: linear-gradient(#500, #200);
   border: 1px solid #700;
   color: white;
@@ -110,8 +111,8 @@ body {
 #progress-bar {
   display: flex;
   justify-content: center;
-  gap: 48px;
-  margin-bottom: 32px;
+  gap: 40px;
+  margin-bottom: 28px;
   font-size: 22px;
   color: #b30000;
 }
@@ -132,13 +133,13 @@ body {
 /* ===== BOSS ROW ===== */
 
 .boss-row {
+  position: relative;
   display: grid;
-  grid-template-columns: 64px 64px 1fr 140px 140px 90px;
+  grid-template-columns: 64px 1fr 140px 140px 90px;
   align-items: center;
   gap: 12px;
   padding: 10px 6px;
   border-bottom: 1px solid #1f0000;
-  position: relative;
 }
 
 .boss-row.killed {
@@ -156,22 +157,7 @@ body {
   background: #8b0000;
 }
 
-/* ===== RANK ===== */
-
-.boss-rank {
-  font-size: 48px;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-}
-
-.rank-S { color: #b30000; }
-.rank-A { color: #ff8800; }
-.rank-B { color: #e0c200; }
-.rank-C { color: #5fa35f; }
-.rank-- { color: #777; }
-
-/* ===== ICON ===== */
+/* ===== BOSS ICON ===== */
 
 .boss-icon {
   width: 56px;
@@ -183,12 +169,12 @@ body {
 }
 
 .boss-icon:hover {
-  transform: scale(2.8);
+  transform: scale(3.2);
   filter: drop-shadow(0 0 10px #8b0000);
   z-index: 10;
 }
 
-/* ===== NAME ===== */
+/* ===== BOSS NAME ===== */
 
 .boss-name {
   font-size: 18px;
@@ -278,6 +264,7 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
 
 
 
