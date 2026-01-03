@@ -44,6 +44,7 @@ body {
   padding: 24px 32px;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 /* ===== BANNER ===== */
@@ -53,20 +54,24 @@ body {
   max-height: 280px;
   object-fit: cover;
   border: 1px solid #300;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
+  display: block;
 }
 
-/* ===== DEATH COUNTERS (ПОД БАННЕРОМ) ===== */
+/* ===== DEATH COUNTERS (СТАБИЛЬНО ПОД БАННЕРОМ) ===== */
 
 #death-summary {
   display: flex;
   justify-content: center;
   gap: 64px;
-  margin-bottom: 28px;
-  padding: 14px 24px;
-  background: rgba(0,0,0,0.55);
+  margin-bottom: 24px;
+
+  background: rgba(0,0,0,0.6);
   border: 1px solid #400;
-  backdrop-filter: blur(2px);
+  padding: 14px 24px;
+
+  position: relative;
+  z-index: 5; /* ВЫШЕ БАННЕРА */
 }
 
 .death-box {
@@ -76,7 +81,6 @@ body {
 .death-label {
   font-size: 14px;
   color: #aaa;
-  letter-spacing: 1px;
 }
 
 .death-value {
@@ -85,7 +89,6 @@ body {
   text-shadow: 0 0 10px black;
 }
 
-/* ручное управление марафоном */
 .death-controls {
   display: flex;
   align-items: center;
@@ -130,12 +133,15 @@ body {
   margin-bottom: 16px;
 }
 
-/* ===== BOSS ROW ===== */
+/* ===== BOSS ROW (ИСПРАВЛЕННАЯ СЕТКА) ===== */
 
 .boss-row {
   position: relative;
   display: grid;
-  grid-template-columns: 64px 1fr 140px 140px 90px;
+
+  /* rank | icon | name | try | death | kill */
+  grid-template-columns: 60px 64px 1fr 120px 120px 90px;
+
   align-items: center;
   gap: 12px;
   padding: 10px 6px;
@@ -157,7 +163,21 @@ body {
   background: #8b0000;
 }
 
-/* ===== BOSS ICON ===== */
+/* ===== RANK ===== */
+
+.boss-rank {
+  font-size: 48px;
+  text-align: center;
+  user-select: none;
+}
+
+.rank-S { color: darkred; }
+.rank-A { color: orange; }
+.rank-B { color: gold; }
+.rank-C { color: #3fa93f; }
+.rank-- { color: #777; }
+
+/* ===== ICON ===== */
 
 .boss-icon {
   width: 56px;
@@ -169,15 +189,16 @@ body {
 }
 
 .boss-icon:hover {
-  transform: scale(3.2);
+  transform: scale(3);
   filter: drop-shadow(0 0 10px #8b0000);
   z-index: 10;
 }
 
-/* ===== BOSS NAME ===== */
+/* ===== NAME ===== */
 
 .boss-name {
   font-size: 18px;
+  white-space: nowrap;
 }
 
 /* ===== STATS ===== */
@@ -264,6 +285,8 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+
+
 
 
 
