@@ -21,10 +21,6 @@ const fadeOverlay = document.getElementById("fade-overlay");
 
 const gameDeathsEl = document.getElementById("game-deaths");
 const marathonDeathsEl = document.getElementById("marathon-deaths");
-
-const gameProgressEl = document.getElementById("game-progress");
-const marathonProgressEl = document.getElementById("marathon-progress");
-
 const marathonPlus = document.getElementById("marathon-plus");
 const marathonMinus = document.getElementById("marathon-minus");
 
@@ -86,11 +82,7 @@ function renderGame(gameData) {
     sec.appendChild(h2);
 
     [...section.bosses]
-      .sort((a, b) => {
-        const ra = RANK_ORDER[a.rank || "-"];
-        const rb = RANK_ORDER[b.rank || "-"];
-        return ra - rb;
-      })
+      .sort((a, b) => RANK_ORDER[a.rank || "-"] - RANK_ORDER[b.rank || "-"])
       .forEach(boss => {
 
         const state = progress[gameData.id][boss.id];
@@ -99,23 +91,15 @@ function renderGame(gameData) {
         row.className = "boss-row";
         if (state.killed) row.classList.add("killed");
 
-        if (boss.rank === "S" || state.deaths >= 30) {
-          row.classList.add("top-boss");
-        }
-
-        const r = boss.rank || "-";
         const rank = document.createElement("div");
-        rank.className = `boss-rank rank-${r}`;
-        rank.textContent = `[${r}]`;
-        rank.style.cursor = "pointer";
-
+        rank.className = `boss-rank rank-${boss.rank || "-"}`;
+        rank.textContent = `[${boss.rank || "-"}]`;
         rank.onclick = () => {
-          const idx = RANK_CYCLE.indexOf(r);
-          boss.rank = RANK_CYCLE[(idx + 1) % RANK_CYCLE.length];
+          const i = RANK_CYCLE.indexOf(boss.rank || "-");
+          boss.rank = RANK_CYCLE[(i + 1) % RANK_CYCLE.length];
           save();
           renderGame(gameData);
         };
-
         row.appendChild(rank);
 
         if (boss.icon) {
@@ -142,15 +126,15 @@ function renderGame(gameData) {
           renderGame(gameData);
           if (state.killed) showYouDied();
         };
-
         row.appendChild(kill);
+
         sec.appendChild(row);
       });
 
     content.appendChild(sec);
   });
 
-  updateStats(gameData);
+  updateGameDeaths(gameData);
 }
 
 /* ================= STATS INPUT ================= */
@@ -165,14 +149,7 @@ function statInput(label, state, key, gameData) {
   input.onchange = () => {
     state[key] = Math.max(0, +input.value);
     save();
-    updateStats(gameData);
-    // визуальные прогресс-бары
-document.getElementById("game-progress-bar").style.width =
-  Math.round((gameKilled / gameTotal) * 100) + "%";
-
-document.getElementById("marathon-progress-bar").style.width =
-  Math.round((marathonKilled / marathonTotal) * 100) + "%";
-
+    updateGameDeaths(gameData);
   };
 
   const l = document.createElement("div");
@@ -183,43 +160,19 @@ document.getElementById("marathon-progress-bar").style.width =
   return wrap;
 }
 
-/* ================= STATS (СМЕРТИ + ПРОЦЕНТЫ) ================= */
+/* ================= DEATH COUNTERS ================= */
 
-function updateStats(gameData) {
+function updateGameDeaths(gameData) {
   let gameDeaths = 0;
-  let gameTotal = 0;
-  let gameKilled = 0;
-
-  let marathonTotal = 0;
-  let marathonKilled = 0;
-
   Object.values(progress[gameData.id]).forEach(b => {
     gameDeaths += b.deaths;
-    gameTotal++;
-    if (b.killed) gameKilled++;
   });
 
-  Object.values(progress).forEach(game =>
-    Object.values(game).forEach(b => {
-      marathonTotal++;
-      if (b.killed) marathonKilled++;
-    })
-  );
-
-  gameDeathsEl.textContent = gameDeaths;
-  marathonDeathsEl.textContent = marathonDeaths;
-
-  gameProgressEl.textContent =
-    `Игра: ${Math.round((gameKilled / gameTotal) * 100)}%`;
-
-  marathonProgressEl.textContent =
-    `Марафон: ${Math.round((marathonKilled / marathonTotal) * 100)}%`;
+  animateCounter(gameDeathsEl, gameDeaths);
 }
 
-/* ================= MARATHON DEATHS ================= */
-
 function updateMarathonDeaths() {
-  marathonDeathsEl.textContent = marathonDeaths;
+  animateCounter(marathonDeathsEl, marathonDeaths);
   localStorage.setItem("marathonDeaths", marathonDeaths);
 }
 
@@ -232,6 +185,16 @@ marathonMinus.onclick = () => {
   marathonDeaths = Math.max(0, marathonDeaths - 1);
   updateMarathonDeaths();
 };
+
+/* ===== 💀 ANIMATION (ДОБАВЛЕНО, КОД НЕ ЛОМАЛСЯ) ===== */
+
+function animateCounter(el, value) {
+  if (!el) return;
+  el.textContent = value;
+  el.classList.remove("pulse");
+  void el.offsetWidth;
+  el.classList.add("pulse");
+}
 
 /* ================= STORAGE ================= */
 
@@ -259,13 +222,13 @@ function showYouDied() {
   setTimeout(() => youDied.classList.add("hidden"), 1500);
 }
 
-/* ================= BACK + FADE ================= */
+/* ================= BACK ================= */
 
 backBtn.onclick = () => {
-  fadeOverlay.classList.remove("hidden");
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
