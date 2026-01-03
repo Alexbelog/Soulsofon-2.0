@@ -411,6 +411,50 @@ body {
   text-align: right;
 }
 
+#death-summary {
+  display: flex;
+  gap: 40px;
+  margin: 24px 0 32px;
+}
+
+.death-box {
+  text-align: center;
+}
+
+.death-label {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.death-value {
+  font-size: 42px;
+  color: darkred;
+  min-width: 80px;
+  text-align: center;
+}
+
+.death-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.death-controls button {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(#500, #200);
+  border: 1px solid #800;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.death-controls button:hover {
+  background: #900;
+}
+
 
 
 
