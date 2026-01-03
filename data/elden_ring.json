@@ -1,7 +1,7 @@
 {
-  "id": "elden ring",
+  "id": "elden",
   "title": "Elden Ring",
-  "banner": "images/banners/elden_ring.jpg",
+  "banner": "images/banners/elden.jpg",
   "sections": [
     {
       "title": "Лимгрейв",
@@ -100,6 +100,7 @@
     }
   ]
 }
+
 
 
 
