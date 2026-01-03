@@ -234,6 +234,33 @@ backBtn.onclick = () => {
   setTimeout(() => (location.href = "index.html"), 600);
 };
 
+function calcGameDeaths(gameId) {
+  let sum = 0;
+  Object.values(progress[gameId]).forEach(b => {
+    sum += Number(b.deaths) || 0;
+  });
+  return sum;
+}
+
+function calcAllBossDeaths() {
+  let sum = 0;
+  Object.values(progress).forEach(game => {
+    Object.values(game).forEach(boss => {
+      sum += Number(boss.deaths) || 0;
+    });
+  });
+  return sum;
+}
+
+function updateDeathCounters(gameData) {
+  const gameDeaths = calcGameDeaths(gameData.id);
+  const allBossDeaths = calcAllBossDeaths();
+
+  gameDeathsEl.textContent = gameDeaths;
+  marathonDeathsEl.textContent = allBossDeaths + marathonDeaths;
+}
+
+
 
 
 
