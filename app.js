@@ -66,12 +66,7 @@ async function loadGame(game) {
 function renderGame(gameData) {
   content.innerHTML = "";
 
-  if (gameData.banner) {
-    const banner = document.createElement("img");
-    banner.src = gameData.banner;
-    banner.className = "game-banner";
-    content.appendChild(banner);
-  }
+  /* ❌ БАННЕРЫ УБРАНЫ ПОЛНОСТЬЮ */
 
   gameData.sections.forEach(section => {
     const sec = document.createElement("section");
@@ -91,6 +86,7 @@ function renderGame(gameData) {
         row.className = "boss-row";
         if (state.killed) row.classList.add("killed");
 
+        /* ===== RANK ===== */
         const rank = document.createElement("div");
         rank.className = `boss-rank rank-${boss.rank || "-"}`;
         rank.textContent = `[${boss.rank || "-"}]`;
@@ -102,6 +98,7 @@ function renderGame(gameData) {
         };
         row.appendChild(rank);
 
+        /* ICON */
         if (boss.icon) {
           const img = document.createElement("img");
           img.src = boss.icon;
@@ -109,6 +106,7 @@ function renderGame(gameData) {
           row.appendChild(img);
         }
 
+        /* NAME */
         const name = document.createElement("div");
         name.className = "boss-name";
         name.textContent = boss.name;
@@ -117,6 +115,7 @@ function renderGame(gameData) {
         row.appendChild(statInput("Try", state, "tries", gameData));
         row.appendChild(statInput("Death", state, "deaths", gameData));
 
+        /* KILL */
         const kill = document.createElement("button");
         kill.className = "kill-btn";
         kill.textContent = "Убит";
@@ -167,7 +166,6 @@ function updateGameDeaths(gameData) {
   Object.values(progress[gameData.id]).forEach(b => {
     gameDeaths += b.deaths;
   });
-
   animateCounter(gameDeathsEl, gameDeaths);
 }
 
@@ -186,7 +184,7 @@ marathonMinus.onclick = () => {
   updateMarathonDeaths();
 };
 
-/* ===== 💀 ANIMATION (ДОБАВЛЕНО, КОД НЕ ЛОМАЛСЯ) ===== */
+/* ===== 💀 ANIMATION ===== */
 
 function animateCounter(el, value) {
   if (!el) return;
@@ -228,6 +226,7 @@ backBtn.onclick = () => {
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
