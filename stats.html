@@ -18,28 +18,29 @@
     <!-- БАННЕР ИГРЫ -->
     <img id="banner-img" class="game-banner" src="" alt="">
 
-    <!-- СЧЁТЧИКИ СМЕРТЕЙ -->
-    <div id="death-summary">
-
-      <div class="death-box">
-        <span class="death-label">Смерти в игре</span>
-        <span id="game-deaths" class="death-value">0</span>
-      </div>
-
-      <div class="death-box editable">
-        <span class="death-label">Смерти марафона</span>
-        <div class="death-controls">
-          <button id="marathon-minus">−</button>
-          <span id="marathon-deaths" class="death-value">0</span>
-          <button id="marathon-plus">+</button>
-        </div>
-      </div>
-
+<!-- DEATH COUNTERS -->
+<div id="death-summary">
+  <div class="death-box">
+    <span class="death-label">Смерти в игре</span>
+    <div class="death-controls">
+      <button id="game-minus">−</button>
+      <span id="game-deaths" class="death-value">0</span>
+      <button id="game-plus">+</button>
     </div>
+  </div>
+
+  <div class="death-box">
+    <span class="death-label">Смерти марафона</span>
+    <div class="death-controls">
+      <button id="marathon-minus">−</button>
+      <span id="marathon-deaths" class="death-value">0</span>
+      <button id="marathon-plus">+</button>
+    </div>
+  </div>
+</div>
 
     <!-- ПРОЦЕНТЫ ПРОХОЖДЕНИЯ -->
 <div id="progress-bar">
-
   <div class="progress-block">
     <div class="progress-label">ПРОГРЕСС ИГРЫ</div>
     <div class="progress-track">
@@ -55,12 +56,10 @@
     </div>
     <div id="marathon-progress" class="progress-text">0%</div>
   </div>
-
 </div>
 
     <!-- БОССЫ -->
     <div id="sections"></div>
-
   </main>
 </div>
 
@@ -76,6 +75,7 @@
 <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
