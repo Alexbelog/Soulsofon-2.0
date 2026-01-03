@@ -25,13 +25,29 @@ body {
 }
 
 .game-btn {
+  height: 120px;              /* было меньше — из-за этого резало */
+  padding: 0;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background: linear-gradient(#7a0000, #3a0000);
-  color: #fff;
   border: 1px solid #aa0000;
-  padding: 14px;
-  font-size: 18px;
-  letter-spacing: 2px;
   cursor: pointer;
+}
+
+.game-btn img {
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;        /* ❗ ГЛАВНОЕ */
+  filter: drop-shadow(0 0 8px black);
+  pointer-events: none;
 }
 
 .game-btn:hover {
@@ -330,6 +346,7 @@ body {
   filter: brightness(1.05);
   transform: scale(1.02);
 }
+
 
 
 
