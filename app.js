@@ -42,11 +42,18 @@ async function init() {
 
 function renderGameButtons() {
   gameList.innerHTML = "";
+
   GAMES.forEach(game => {
     const btn = document.createElement("button");
-    btn.className = "game-btn";
-    btn.textContent = game.id.toUpperCase();
+    btn.className = "game-btn banner-btn";
     btn.onclick = () => loadGame(game);
+
+    const img = document.createElement("img");
+    img.src = `images/banners/${game.id}.jpg`;
+    img.alt = game.id;
+    img.className = "game-banner-btn";
+
+    btn.appendChild(img);
     gameList.appendChild(btn);
   });
 }
@@ -226,6 +233,7 @@ backBtn.onclick = () => {
   fadeOverlay.classList.add("active");
   setTimeout(() => (location.href = "index.html"), 600);
 };
+
 
 
 
