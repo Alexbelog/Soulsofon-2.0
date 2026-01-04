@@ -1,4 +1,4 @@
-// Soulsofon Achievements (RU, Steam/Souls vibe)
+// Soulsfon 2.0 Achievements (RU, Steam/Souls vibe)
 // Works on BOTH pages:
 // - achievements.html: renders the grid + manual buttons + boss bindings
 // - stats.html: provides auto-unlock checks + boss-bound quick chips
@@ -331,8 +331,9 @@
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "ach-btn";
-      btn.textContent = isDone ? "ВЫПОЛНЕНО ✓" : "ОТМЕТИТЬ";
-      btn.disabled = a.kind === "auto" ? true : false;
+      btn.textContent = isDone ? "Выполнено ✓" : "Выполнено";
+      btn.disabled = (a.kind === "auto") || (!window.SoulAuth?.isAdmin?.());
+      if (!window.SoulAuth?.isAdmin?.()) btn.title = "Только администратор может отмечать достижения";
 
       if (a.kind === "manual"){
         btn.onclick = () => {
@@ -403,7 +404,7 @@
   }
 
   // --- Export API for stats page ---
-  window.SoulsofonAchievements = {
+  window.Soulsfon 2.0Achievements = {
     list: () => ACH.slice(),
     checkAndNotify,
     markDone,

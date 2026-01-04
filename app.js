@@ -1,6 +1,6 @@
 const GAMES = [
-  { id: "ds1", title: "Dark Souls", file: "data/ds1.json" },
-  { id: "ds2", title: "Dark Souls II", file: "data/ds2.json" },
+  { id: "ds1", title: "Dark Souls I", file: "data/ds1.json" },
+  { id: "ds2", title: "Dark Souls II: Scholar of the First Sin", file: "data/ds2.json" },
   { id: "ds3", title: "Dark Souls III", file: "data/ds3.json" },
   { id: "bloodborne", title: "Bloodborne", file: "data/bloodborne.json" },
   { id: "sekiro", title: "Sekiro", file: "data/sekiro.json" },
@@ -8,11 +8,41 @@ const GAMES = [
 ];
 
 
-const STORAGE_KEY = "soulsofon_progress";
+const STORAGE_KEY = "soulsfon_progress";
 
 /* ПОРЯДОК СЛОЖНОСТИ */
 const RANK_ORDER = { "S": 0, "A": 1, "B": 2, "C": 3, "-": 4 };
 const RANK_CYCLE = ["-", "C", "B", "A", "S"];
+
+// Карта Elden Ring: точки ставим только для "больших" боссов.
+// Ключи — нормализованные имена (см. normalizeBossName).
+const ELDEN_MAP_COORDS = {
+  "margit the fell omen": [44, 55],
+  "godrick the grafted": [42, 60],
+  "tree sentinel": [48, 50],
+  "rennala queen of the full moon": [35, 50],
+  "starscourge radahn": [58, 72],
+  "rykard lord of blasphemy": [22, 62],
+  "morgott the omen king": [48, 42],
+  "fire giant": [58, 20],
+  "maliketh the black blade": [66, 24],
+  "godfrey first elden lord": [47, 40],
+  "hoarah loux warrior": [47, 40],
+  "radagon of the golden order": [50, 38],
+  "elden beast": [50, 36],
+  "malenia blade of miquella": [84, 18],
+  "mohg lord of blood": [33, 26]
+};
+
+function normalizeBossName(name){
+  return String(name || "")
+    .toLowerCase()
+    .replace(/[\u2019'`]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 
 const gameList = document.getElementById("game-list");
 const content = document.getElementById("content");
@@ -71,6 +101,7 @@ function sumGameExtra(){
 
 let currentGame = null;
 let currentGameData = null;
+let eldenQuery = "";
 
 init();
 
@@ -98,8 +129,10 @@ function renderGameButtons() {
       loadGame(game);
     };
 
-    const thumb = document.createElement("div");
+    const thumb = document.createElement("img");
     thumb.className = "thumb";
+    thumb.alt = game.title;
+    thumb.src = `images/game_icons/${game.id}.png`;
     const img = document.createElement("img");
     img.src = `images/banners/${game.id}.jpg`;
     img.alt = game.title;
@@ -112,7 +145,7 @@ function renderGameButtons() {
     title.textContent = game.title;
     const sub = document.createElement("div");
     sub.className = "sub";
-    sub.textContent = "Select game";
+    sub.textContent = "Выбор игры";
     meta.append(title, sub);
 
     btn.append(thumb, meta);
@@ -124,12 +157,112 @@ function renderGameButtons() {
 
 async function loadGame(game) {
   currentGame = game;
-  const res = await fetch(game.file);
-  const gameData = await res.json();
+  let gameData = null;
+
+  // Elden Ring: стараемся подтянуть ПОЛНЫЙ список боссов из публичного API.
+  // Если нет интернета/заблокировано — используем локальный JSON как запасной вариант.
+  if (game.id === "elden") {
+    try {
+      gameData = await loadEldenFromApi();
+    } catch (e) {
+      console.warn("Elden API unavailable, fallback to local data", e);
+      const res = await fetch(game.file);
+      gameData = await res.json();
+    }
+  } else {
+    const res = await fetch(game.file);
+    gameData = await res.json();
+  }
   currentGameData = gameData;
   ensureProgress(gameData);
   renderGame(gameData);
 }
+
+/* ================= ELDEN RING API LOADER ================= */
+
+const ELDEN_API_CACHE_KEY = "soulsfon_elden_api_cache_v1";
+
+async function loadEldenFromApi(){
+  // 1) Пробуем кэш (чтобы не долбить API каждый запуск)
+  try {
+    const cached = JSON.parse(localStorage.getItem(ELDEN_API_CACHE_KEY) || "null");
+    if (cached && cached.version === 1 && Array.isArray(cached.bosses) && cached.bosses.length) {
+      return buildEldenGameDataFromBosses(cached.bosses);
+    }
+  } catch {}
+
+  // 2) Тянем все страницы
+  const all = [];
+  const limit = 100;
+  for (let page = 0; page < 20; page++) {
+    const url = `https://eldenring.fanapis.com/api/bosses?limit=${limit}&page=${page}`;
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Elden API HTTP ${res.status}`);
+    const json = await res.json();
+    const data = json?.data || [];
+    if (!Array.isArray(data) || data.length === 0) break;
+    all.push(...data);
+    // если меньше лимита — это последняя страница
+    if (data.length < limit) break;
+  }
+
+  // 3) Кладём в кэш
+  try {
+    localStorage.setItem(ELDEN_API_CACHE_KEY, JSON.stringify({ version: 1, bosses: all }));
+  } catch {}
+
+  return buildEldenGameDataFromBosses(all);
+}
+
+function buildEldenGameDataFromBosses(apiBosses, dlcBosses = []){
+  const bosses = (apiBosses || []).map(b => ({
+    id: b.id,
+    name: b.name,
+    icon: b.image,
+    rank: "-",
+    location: b.location || ""
+  }));
+
+  // Группируем по "локации" (берём до первой запятой, чтобы было аккуратнее)
+  const byLoc = new Map();
+  bosses.forEach(b => {
+    const raw = (b.location || "").trim();
+    const key = raw ? raw.split(",")[0].trim() : "Без локации";
+    if (!byLoc.has(key)) byLoc.set(key, []);
+    byLoc.get(key).push(b);
+  });
+
+  const sections = Array.from(byLoc.entries())
+    .sort((a,b)=> a[0].localeCompare(b[0], "ru"))
+    .map(([title, list]) => ({ title, bosses: list }));
+
+  // DLC (Shadow of the Erdtree): отдельные секции в конце списка.
+  // dlcBosses: [{ id, name, region, location, image }]
+  const dlcByRegion = new Map();
+  (dlcBosses || []).forEach(b => {
+    const region = String(b.region || b.section || "Без региона").trim();
+    if (!dlcByRegion.has(region)) dlcByRegion.set(region, []);
+    dlcByRegion.get(region).push({
+      id: `dlc_${b.id || normalizeBossName(b.name).replace(/\s+/g, "_")}`,
+      name: b.name,
+      icon: b.image || "images/boss_placeholder.svg",
+      rank: "-",
+      location: b.location || region
+    });
+  });
+
+  const dlcSections = Array.from(dlcByRegion.entries())
+    .sort((a,b)=> a[0].localeCompare(b[0], "ru"))
+    .map(([title, list]) => ({ title: `DLC: ${title}`, bosses: list }));
+
+  return {
+    id: "elden",
+    title: "Elden Ring",
+    sections: [...sections, ...dlcSections]
+  };
+}
+
+// DLC-список живёт в data/elden_ring_dlc.json (удобно дополнять без правки кода)
 
 /* ================= RENDER ================= */
 
@@ -138,6 +271,30 @@ function renderGame(gameData) {
   // счётчики/прогресс/баннер из stats.html и они перестают отображаться.
   if (sectionsEl) sectionsEl.innerHTML = "";
 
+  // Панель поиска/фильтров для Elden Ring
+  if (gameData.id === "elden") {
+    const tools = document.createElement("div");
+    tools.className = "elden-tools";
+    tools.id = "elden-tools";
+
+    const search = document.createElement("input");
+    search.type = "search";
+    search.className = "elden-search";
+    search.placeholder = "Поиск по боссам (Elden Ring + DLC)…";
+    search.value = eldenQuery || "";
+    search.oninput = () => {
+      eldenQuery = search.value || "";
+      renderGame(gameData);
+    };
+
+    const hint = document.createElement("div");
+    hint.className = "elden-hint";
+    hint.textContent = "Совет: можно искать по части имени. Секции сворачиваются.";
+
+    tools.append(search, hint);
+    (sectionsEl || content).appendChild(tools);
+  }
+
   // Баннер текущей игры
   if (bannerImg) {
     bannerImg.src = `images/banners/${gameData.id}.jpg`;
@@ -145,17 +302,21 @@ function renderGame(gameData) {
   }
 
   gameData.sections.forEach(section => {
-    const sec = document.createElement("section");
+    const sec = document.createElement(gameData.id === "elden" ? "details" : "section");
     sec.className = "boss-section";
+    if (gameData.id === "elden") { sec.open = true; }
 
-    const h2 = document.createElement("h2");
+    const h2 = document.createElement(gameData.id === "elden" ? "summary" : "h2");
     h2.className = "section-title";
-    h2.textContent = section.title;
+    h2.textContent = section.title || section.name || "";
     sec.appendChild(h2);
 
     [...section.bosses]
       .sort((a, b) => RANK_ORDER[a.rank || "-"] - RANK_ORDER[b.rank || "-"])
-      .forEach(boss => {
+      .forEach((boss, idx) => {
+
+        const q = (gameData.id === "elden") ? (eldenQuery || "").trim().toLowerCase() : "";
+        if (q && !String(boss.name||"").toLowerCase().includes(q)) return;
 
         const state = progress[gameData.id][boss.id];
 
@@ -163,69 +324,73 @@ function renderGame(gameData) {
         row.className = "boss-row";
         if (state.killed) row.classList.add("killed");
 
-        /* ===== RANK ===== */
-        const rank = document.createElement("div");
-        rank.className = `boss-rank rank-${boss.rank || "-"}`;
-        rank.textContent = `[${boss.rank || "-"}]`;
-        rank.onclick = () => {
-          const i = RANK_CYCLE.indexOf(boss.rank || "-");
-          boss.rank = RANK_CYCLE[(i + 1) % RANK_CYCLE.length];
-          save();
-          renderGame(gameData);
-        };
-        row.appendChild(rank);
+        
+/* ===== CHESS BOSS CARD ===== */
+if ((idx % 2) === 1) row.classList.add("alt");
 
-        /* ICON */
-        if (boss.icon) {
-          const img = document.createElement("img");
-          img.src = boss.icon;
-          img.className = "boss-icon";
-          row.appendChild(img);
-        }
+// Header: имя + ранг
+const head = document.createElement("div");
+head.className = "boss-head";
 
-        /* NAME */
-        const name = document.createElement("div");
-        name.className = "boss-name";
-        name.textContent = boss.name;
-        row.appendChild(name);
+const nameBtn = document.createElement("button");
+nameBtn.className = "boss-name-btn";
+nameBtn.type = "button";
+nameBtn.textContent = boss.name;
+nameBtn.title = "Открыть связанные достижения";
+nameBtn.onclick = () => {
+  try { window.SoulAchievements?.openForBoss?.(gameData.id, boss.id, boss.name); } catch {}
+};
 
-        /* ACHIEVEMENTS BOUND TO THIS BOSS */
-        try {
-          const bound = window.SoulsofonAchievements?.getBoundForBoss?.(gameData.id, boss.id) || [];
-          if (bound.length){
-            const badgeWrap = document.createElement("div");
-            badgeWrap.className = "boss-ach";
-            bound.slice(0,3).forEach(a => {
-              const b = document.createElement("button");
-              b.type = "button";
-              b.className = "ach-chip";
-              b.textContent = a.icon ? `${a.icon} ${a.short}` : a.short;
-              b.title = a.name;
-              b.onclick = () => {
-                window.SoulsofonAchievements?.markDone?.(a.id);
-                // Перерисуем строку, чтобы чип пропал после выполнения
-                renderGame(gameData);
-              };
-              badgeWrap.appendChild(b);
-            });
-            row.appendChild(badgeWrap);
-          }
-        } catch {}
+const rank = document.createElement("div");
+rank.className = "boss-rank";
+rank.textContent = boss.rank || "-";
 
-        row.appendChild(statInput("Try", state, "tries", gameData));
-        row.appendChild(statInput("Death", state, "deaths", gameData));
+head.appendChild(nameBtn);
+head.appendChild(rank);
+row.appendChild(head);
 
-        /* KILL */
-        const kill = document.createElement("button");
-        kill.className = "kill-btn";
-        kill.textContent = "Убит";
-        kill.onclick = () => {
-          state.killed = !state.killed;
-          save();
-          renderGame(gameData);
-          // эффекты на убийство — через достижения/тосты (ниже)
-        };
-        row.appendChild(kill);
+// Image
+const imgWrap = document.createElement("div");
+imgWrap.className = "boss-imgWrap";
+const img = document.createElement("img");
+img.className = "boss-img";
+img.src = boss.icon;
+img.alt = boss.name;
+img.loading = "lazy";
+imgWrap.appendChild(img);
+row.appendChild(imgWrap);
+
+// Controls (TRY / DEATH)
+const controls = document.createElement("div");
+controls.className = "boss-controls";
+
+const tryBox = statInput("TRY", state, "tries", gameData);
+tryBox.classList.add("stat-box","try-box");
+
+const deathBox = statInput("DEATH", state, "deaths", gameData);
+deathBox.classList.add("stat-box","death-box");
+
+controls.appendChild(tryBox);
+controls.appendChild(deathBox);
+row.appendChild(controls);
+
+// Kill button
+const kill = document.createElement("button");
+kill.className = "boss-kill btn";
+kill.type = "button";
+kill.textContent = state.killed ? "УБИТ ✓" : "УБИТ";
+kill.onclick = () => {
+  if (!window.SoulAuth?.isAdmin?.()) return;
+  state.killed = !state.killed;
+  save();
+  row.classList.toggle("killed", state.killed);
+  kill.textContent = state.killed ? "УБИТ ✓" : "УБИТ";
+  // по запросу — оставляем YOU DIED эффект и на убийство
+  try { window.SoulUI?.youDiedEffect?.(); } catch {}
+  // achievements update + toast
+  try { window.SoulAchievements?.recompute?.(progress); } catch {}
+};
+row.appendChild(kill);
 
         sec.appendChild(row);
       });
@@ -233,7 +398,40 @@ function renderGame(gameData) {
     (sectionsEl || content).appendChild(sec);
   });
 
+  renderEldenMap(gameData);
+
   updateDeathCounters(gameData);
+}
+
+
+
+function renderEldenMap(gameData){
+  const sec = document.getElementById("elden-map-section");
+  const overlay = document.getElementById("elden-map-overlay");
+  if (!sec || !overlay) return;
+
+  if (!gameData || gameData.id !== "elden"){
+    sec.style.display = "none";
+    overlay.innerHTML = "";
+    return;
+  }
+
+  sec.style.display = "block";
+  overlay.innerHTML = "";
+
+  const bosses = [];
+  gameData.sections.forEach(s => (s.bosses || []).forEach(b => bosses.push(b)));
+
+  bosses.forEach(b => {
+    const xy = ELDEN_MAP_COORDS[normalizeBossName(b.name)];
+    if (!xy) return;
+    const dot = document.createElement("div");
+    dot.className = "map-dot";
+    dot.style.left = xy[0] + "%";
+    dot.style.top = xy[1] + "%";
+    dot.title = b.name;
+    overlay.appendChild(dot);
+  });
 }
 
 /* ================= STATS INPUT ================= */
@@ -245,6 +443,11 @@ function statInput(label, state, key, gameData) {
   const input = document.createElement("input");
   input.type = "number";
   input.value = state[key];
+  // Режим зрителя: редактирование запрещено
+  if (!window.SoulAuth?.isAdmin?.()) {
+    input.disabled = true;
+    input.classList.add("read-only");
+  }
   input.addEventListener("focus", () => { input.dataset.prev = String(input.value || 0); });
   input.onchange = () => {
     const prev = Number(input.dataset.prev || state[key] || 0);
@@ -285,7 +488,7 @@ function updateDeathCounters(gameData) {
   updateProgressBars(gameData);
 
   // Пробуем авто-анлоки достижений (и тосты) если скрипт подключён
-  try { window.SoulsofonAchievements?.checkAndNotify?.(); } catch {}
+  try { window.SoulAchievements?.checkAndNotify?.(); } catch {}
 }
 
 function updateProgressBars(gameData) {
@@ -319,7 +522,7 @@ function calcKillProgress(gameId) {
   const gamesToScan = gameId ? { [gameId]: progress[gameId] } : progress;
   Object.values(gamesToScan).forEach(game => {
     if (!game) return;
-    Object.values(game).forEach(boss => {
+    Object.values(game).forEach((boss, idx) => {
       total += 1;
       if (boss.killed) killed += 1;
     });
@@ -425,7 +628,7 @@ function calcGameDeaths(gameId) {
 function calcAllBossDeaths() {
   let sum = 0;
   Object.values(progress).forEach(game => {
-    Object.values(game).forEach(boss => {
+    Object.values(game).forEach((boss, idx) => {
       sum += Number(boss.deaths) || 0;
     });
   });

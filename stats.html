@@ -1,154 +1,93 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Soulsofon 2.0 — Статистика</title>
-  <link rel="stylesheet" href="stats.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="theme.css">
-</head>
+<meta charset="utf-8"/>
+<title>Soulsfon 2.0 — Статистика</title>
+<link href="stats.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&amp;family=Cormorant+Garamond:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="theme.css" rel="stylesheet"/>
+<script src="auth.js"></script></head>
 <body>
-<div class="embers" data-embers></div>
+<div class="embers" data-embers=""></div>
 <div id="fade-overlay"></div>
-
 <div class="topbar">
-  <div class="brand">
-    <div class="logo">SOULSOFON</div>
-    <div class="tag">Stats</div>
-  </div>
-  <div class="nav">
-    <a class="nav-link" href="index.html" data-transition="fade">Index</a>
-    <a class="nav-link" href="achievements.html" data-transition="fade">Achievements</a>
-    <div data-sound-toggle-mount></div>
-  </div>
+<div class="brand">
+<div class="logo">SOULSFON 2.0</div>
+<div class="tag">Статистика</div>
 </div>
-
-
+<div class="nav">
+<a class="nav-link" data-transition="fade" href="index.html">Главная</a>
+<a class="nav-link" data-transition="fade" href="achievements.html">Достижения</a>
+<div data-sound-toggle-mount=""></div>
+</div>
+</div>
 <div id="layout">
-
-  <!-- ПРАВАЯ КОЛОНКА -->
-  <aside id="game-list"></aside>
-
-  <!-- ОСНОВНОЙ КОНТЕНТ -->
-  <main id="content">
-
-    <!-- БАННЕР -->
-    <img id="banner-img" class="game-banner" src="" alt="">
-
-    <!-- СЧЁТЧИКИ СМЕРТЕЙ -->
-    <div class="stats-panel">
-      <div class="stat-box">
-        <div class="stat-label">Deaths (Game)</div>
-        <div class="death-controls" style="justify-content:flex-start; margin-top:8px;">
-          <button id="game-minus" aria-label="Minus">−</button>
-          <div id="game-deaths" class="stat-value" style="min-width:90px; text-align:center;">0</div>
-          <button id="game-plus" aria-label="Plus">+</button>
-        </div>
-        <div class="small" style="margin-top:6px;">*manual add is synced with Marathon</div>
-        <a class="mini-link" id="ach-quicklink" href="achievements.html" data-transition="fade">Achievements →</a>
-      </div>
-
-      <div class="stat-box">
-        <div class="stat-label">Deaths (Marathon)</div>
-        <div class="death-controls" style="justify-content:flex-start; margin-top:8px;">
-          <button id="marathon-minus" aria-label="Minus">−</button>
-          <div id="marathon-deaths" class="stat-value" style="min-width:90px; text-align:center;">0</div>
-          <button id="marathon-plus" aria-label="Plus">+</button>
-        </div>
-        <div class="small" style="margin-top:6px;">*includes all boss deaths + manual add</div>
-      </div>
-
-      <div class="stat-box">
-        <div class="stat-label">Completion</div>
-        <div id="completion-pct" class="stat-value">0%</div>
-        <div class="small" id="completion-detail" style="margin-top:6px;">0 / 0 bosses</div>
-      </div>
-    </div>
-
-    <!-- ПРОГРЕСС -->
-    <div class="progress-wrap">
-      <div class="progress-head">
-        <div>Current game</div>
-        <div id="game-progress-text" class="small">0%</div>
-      </div>
-      <div class="progress-rail">
-        <div id="game-progress" class="progress-fill"></div>
-      </div>
-    </div>
-
-    <div class="progress-wrap">
-      <div class="progress-head">
-        <div>Marathon</div>
-        <div id="marathon-progress-text" class="small">0%</div>
-      </div>
-      <div class="progress-rail">
-        <div id="marathon-progress" class="progress-fill"></div>
-      </div>
-    </div>
-
-    <!-- БОССЫ -->
-    <div id="sections"></div>
-
-  </main>
+<!-- ПРАВАЯ КОЛОНКА -->
+<aside id="game-list"></aside>
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<main id="content">
+<!-- БАННЕР -->
+<img alt="" class="game-banner" id="banner-img" src=""/>
+<!-- СЧЁТЧИКИ СМЕРТЕЙ -->
+<div class="stats-panel">
+<div class="stat-box">
+<div class="stat-label">Deaths (Game)</div>
+<div class="death-controls" style="justify-content:flex-start; margin-top:8px;">
+<button aria-label="Minus" id="game-minus">−</button>
+<div class="stat-value" id="game-deaths" style="min-width:90px; text-align:center;">0</div>
+<button aria-label="Plus" id="game-plus">+</button>
 </div>
-
+<div class="small" style="margin-top:6px;">*manual add is synced with Marathon</div>
+<a class="mini-link" data-transition="fade" href="achievements.html" id="ach-quicklink">Достижения</a>
+</div>
+<div class="stat-box">
+<div class="stat-label">Deaths (Marathon)</div>
+<div class="death-controls" style="justify-content:flex-start; margin-top:8px;">
+<button aria-label="Minus" id="marathon-minus">−</button>
+<div class="stat-value" id="marathon-deaths" style="min-width:90px; text-align:center;">0</div>
+<button aria-label="Plus" id="marathon-plus">+</button>
+</div>
+<div class="small" style="margin-top:6px;">*includes all boss deaths + manual add</div>
+</div>
+<div class="stat-box">
+<div class="stat-label">Completion</div>
+<div class="stat-value" id="completion-pct">0%</div>
+<div class="small" id="completion-detail" style="margin-top:6px;">0 / 0 bosses</div>
+</div>
+</div>
+<!-- ПРОГРЕСС -->
+<div class="progress-wrap">
+<div class="progress-head">
+<div>Current game</div>
+<div class="small" id="game-progress-text">0%</div>
+</div>
+<div class="progress-rail">
+<div class="progress-fill" id="game-progress"></div>
+</div>
+</div>
+<div class="progress-wrap">
+<div class="progress-head">
+<div>Marathon</div>
+<div class="small" id="marathon-progress-text">0%</div>
+</div>
+<div class="progress-rail">
+<div class="progress-fill" id="marathon-progress"></div>
+</div>
+</div>
+<!-- БОССЫ -->
+<div id="sections"></div>
+</main>
+</div><section class="elden-map-section" id="elden-map-section" style="display:none;"><h2>Карта боссов Elden Ring</h2><div class="elden-map-wrap"><img alt="Карта Elden Ring" class="elden-map-img" src="images/elden_map.png"/><div class="elden-map-overlay" id="elden-map-overlay"></div></div></section>
 <div id="you-died-overlay"></div>
-
 <!-- YOU DIED -->
-<div id="you-died" class="you-died hidden">YOU DIED</div>
-
+<div class="you-died hidden" id="you-died">YOU DIED</div>
 <!-- BACK -->
-<button id="back-btn" class="back-btn">BACK</button>
-
-
-<script defer src="ui.js"></script>
-<script defer src="achievements.js"></script>
+<button class="back-btn" id="back-btn">BACK</button>
+<script defer="" src="ui.js"></script>
+<script defer="" src="achievements.js"></script>
 <script src="app.js"></script>
-</body>
+<button class="admin-fab" id="adminBtn" type="button">Админ</button><script data-admin-init="1">(()=>{const b=document.getElementById('adminBtn');if(!b) return;const upd=()=>{if(window.SoulAuth?.isAdmin?.()){b.textContent='Выйти';}else{b.textContent='Админ';}};upd();b.onclick=()=>{if(window.SoulAuth?.isAdmin?.()) window.SoulAuth.logout(); else window.SoulAuth.login();};})();</script></body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

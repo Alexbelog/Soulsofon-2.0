@@ -1,4 +1,4 @@
-// Soulsofon UI: sounds, transitions, small helpers
+// Soulsfon 2.0 UI: sounds, transitions, small helpers
 (() => {
   const STORAGE_SOUND = "soulsofon_sound_enabled";
   const STORAGE_AMBIENT = "soulsofon_ambient_enabled";

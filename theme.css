@@ -1,6 +1,6 @@
 
 /* ================================
-   SOULSOFON — DARK SOULS-ish THEME
+   SOULSFON 2.0 — DARK SOULS-ish THEME
    (No copyrighted assets)
 ================================== */
 
@@ -296,3 +296,9 @@ body{
   70%{ opacity:1; transform:translate(-50%,-50%) scale(1.00); }
   100%{ opacity:0; transform:translate(-50%,-50%) scale(1.04); filter: blur(1px); }
 }
+
+
+/* ===== Админ-кнопка ===== */
+.admin-fab{position:fixed;top:14px;right:14px;z-index:80;padding:10px 12px;border-radius:12px;border:1px solid rgba(213,162,58,.35);background:rgba(0,0,0,.28);color:var(--ember);font-family:inherit;cursor:pointer;backdrop-filter: blur(8px);} 
+.admin-fab:hover{filter:brightness(1.08);}
+.admin-link.btn-sm{margin-left:auto;}

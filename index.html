@@ -1,50 +1,31 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>SOULSFON 2.0</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="theme.css">
-
-  <script defer src="ui.js"></script>
+<meta charset="utf-8"/>
+<title>Soulsfon 2.0 — Главная</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&amp;family=Cormorant+Garamond:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="theme.css" rel="stylesheet"/>
+<script src="auth.js"></script><script defer="" src="ui.js"></script>
 </head>
 <body class="index-page">
-  <div class="embers" data-embers></div>
-
-  <!-- OVERLAY ДЛЯ ЗАТЕМНЕНИЯ -->
-  <div id="fade-overlay"></div>
-
-  <div class="topbar" style="position:fixed;top:0;left:0;right:0;z-index:3;">
-  <div class="brand"><div class="logo">SOULSOFON</div><div class="tag">Marathon</div></div>
-  <div class="nav"><div data-sound-toggle-mount></div></div>
+<div class="embers" data-embers=""></div>
+<!-- OVERLAY ДЛЯ ЗАТЕМНЕНИЯ -->
+<div id="fade-overlay"></div>
+<div class="topbar" style="position:fixed;top:0;left:0;right:0;z-index:3;">
+<div class="brand"><div class="logo">SOULSFON 2.0</div><div class="tag">Marathon</div></div>
+<div class="nav"><div data-sound-toggle-mount=""></div></div>
 </div>
-
-  <div class="landing">
-
-    <h1 class="title">SOULSFON 2.0</h1>
-
-    <div class="poster-wrapper">
-      <img src="images/poster.jpg" alt="Soulsofon Marathon" class="poster">
-
-      <a href="stats.html" class="start-button btn" id="startBtn" data-transition="fade">
-        YOU DIED
-      </a>
-      <a href="achievements.html" class="btn" data-transition="fade" style="margin-top:12px;">
-        ACHIEVEMENTS
-      </a>
-    </div>
-
-  </div>
-
-</body>
+<div class="landing">
+<h1 class="title">Soulsfon 2.0</h1>
+<div class="poster-wrapper">
+<img alt="Soulsfon 2.0 Marathon" class="poster" src="images/hero.jpg"/>
+<a class="start-button btn" data-transition="fade" href="stats.html" id="startBtn">YOU DIED</a>
+<a class="btn" data-transition="fade" href="achievements.html" style="margin-top:12px;">ДОСТИЖЕНИЯ</a>
+</div>
+</div>
+<button class="admin-fab" id="adminBtn" type="button">Админ</button><script data-admin-init="1">(()=>{const b=document.getElementById('adminBtn');if(!b) return;const upd=()=>{if(window.SoulAuth?.isAdmin?.()){b.textContent='Выйти';}else{b.textContent='Админ';}};upd();b.onclick=()=>{if(window.SoulAuth?.isAdmin?.()) window.SoulAuth.logout(); else window.SoulAuth.login();};})();</script></body>
 </html>
-
-
-
-
-
-
-
