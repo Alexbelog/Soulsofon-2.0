@@ -310,8 +310,7 @@ body{
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle at 50% 45%, rgba(110,10,10,.30), rgba(0,0,0,.86)),
-    repeating-linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.03) 1px, rgba(0,0,0,0) 3px, rgba(0,0,0,0) 6px);
+    radial-gradient(circle at 50% 45%, rgba(110,10,10,.30), rgba(0,0,0,.86));
   opacity:0;
   pointer-events:none;
   z-index:9997;

@@ -448,8 +448,10 @@ kill.onclick = () => {
   save();
   row.classList.toggle("killed", state.killed);
   kill.textContent = state.killed ? "УБИТ ✓" : "УБИТ";
-  // по запросу — оставляем YOU DIED эффект и на убийство
-  try { window.SoulUI?.youDiedEffect?.(); } catch {}
+  // Эффект YOU DIED — только когда ставим "УБИТ ✓".
+  if (state.killed) {
+    try { window.SoulUI?.youDiedEffect?.(); } catch {}
+  }
   // achievements update + toast
   try { window.SoulAchievements?.recompute?.(progress); } catch {}
 };
@@ -471,9 +473,14 @@ function statInput(label, state, key, gameData) {
   const wrap = document.createElement("div");
   wrap.className = "stat-wrap";
 
+  const l = document.createElement("div");
+  l.className = "stat-label";
+  l.textContent = label;
+
   const input = document.createElement("input");
   input.type = "number";
   input.value = state[key];
+  input.className = "stat-input";
   // Режим зрителя: редактирование запрещено
   if (!window.SoulAuth?.isAdmin?.()) {
     input.disabled = true;
@@ -485,17 +492,10 @@ function statInput(label, state, key, gameData) {
     state[key] = Math.max(0, +input.value);
     save();
     updateDeathCounters(gameData);
-
-    if (key === "deaths" && Number(state[key]) > prev) {
-      try { window.SoulUI?.youDiedEffect?.(); } catch {}
-    }
   };
 
-  const l = document.createElement("div");
-  l.className = "stat-label";
-  l.textContent = label;
-
-  wrap.append(input, l);
+  // В карточке: сначала подпись, затем число (центрировано CSS-ом).
+  wrap.append(l, input);
   return wrap;
 }
 
@@ -592,10 +592,7 @@ function adjustManualDeaths(delta){
   }
   setGameExtra(gid, next);
   updateDeathCounters(currentGameData);
-  if (delta > 0) {
-    // визуальный и звуковой эффект смерти
-    try { window.SoulUI?.youDiedEffect?.(); } catch {}
-  }
+  // По запросу: изменение счётчиков смертей НЕ запускает эффект YOU DIED.
 }
 
 if (marathonPlus) marathonPlus.onclick = () => adjustManualDeaths(1);
@@ -608,9 +605,7 @@ if (gameMinus) gameMinus.onclick = () => adjustManualDeaths(-1);
 function animateCounter(el, value) {
   if (!el) return;
   el.textContent = value;
-  el.classList.remove("pulse");
-  void el.offsetWidth;
-  el.classList.add("pulse");
+  // По запросу: без "пульса"/эффектов при изменении счётчиков смертей.
 }
 
 /* ================= STORAGE ================= */
