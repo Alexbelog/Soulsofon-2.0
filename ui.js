@@ -1,6 +1,6 @@
 // Soulsfon 2.0 UI helpers: transitions, toasts, YOU DIED overlay (no sound)
 (() => {
-  function ensureOverlay() {
+  function ensureFadeOverlay() {
     let overlay = document.getElementById("fade-overlay");
     if (!overlay) {
       overlay = document.createElement("div");
@@ -10,16 +10,44 @@
     return overlay;
   }
 
+  function ensureYouDiedNodes() {
+    let ydOverlay = document.getElementById("you-died-overlay");
+    let ydText = document.getElementById("you-died");
+
+    if (!ydOverlay) {
+      ydOverlay = document.createElement("div");
+      ydOverlay.id = "you-died-overlay";
+      document.body.appendChild(ydOverlay);
+    }
+    if (!ydText) {
+      ydText = document.createElement("div");
+      ydText.id = "you-died";
+      ydText.className = "you-died hidden";
+      ydText.textContent = "YOU DIED";
+      document.body.appendChild(ydText);
+    }
+    return { ydOverlay, ydText };
+  }
+
   function youDiedEffect() {
-    const overlay = ensureOverlay();
-    overlay.classList.add("show");
-    overlay.innerHTML = `
-      <div class="you-died-wrap" aria-hidden="true">
-        <div class="you-died-text">YOU DIED</div>
-      </div>
-    `;
-    window.setTimeout(() => overlay.classList.remove("show"), 750);
-    window.setTimeout(() => { overlay.innerHTML = ""; }, 900);
+    const { ydOverlay, ydText } = ensureYouDiedNodes();
+    ydOverlay.classList.add("active");
+    ydText.classList.remove("hidden");
+    ydText.classList.add("you-died-show");
+
+    window.setTimeout(() => ydOverlay.classList.remove("active"), 850);
+    window.setTimeout(() => {
+      ydText.classList.add("hidden");
+      ydText.classList.remove("you-died-show");
+    }, 1750);
+  }
+
+  function navigateWithFade(url) {
+    const overlay = ensureFadeOverlay();
+    overlay.classList.add("active");
+    window.setTimeout(() => {
+      window.location.href = url;
+    }, 520);
   }
 
   function toast(title, subtitle = "", iconUrl = "") {
@@ -50,6 +78,30 @@
     return String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   }
 
+  // Page fade-in on load (including browser back/forward)
+  document.addEventListener("DOMContentLoaded", () => {
+    const overlay = ensureFadeOverlay();
+    // Start fully dark without anim, then fade out
+    overlay.style.transition = "none";
+    overlay.classList.add("active");
+    // force reflow
+    void overlay.offsetHeight;
+    overlay.style.transition = "opacity .52s ease";
+    requestAnimationFrame(() => overlay.classList.remove("active"));
+
+    // Intercept local navigations for consistent fade
+    document.addEventListener("click", (e) => {
+      const a = e.target?.closest?.('a[data-transition="fade"], a.nav-link[data-transition="fade"], a.btn[data-transition="fade"], a.mini-link[data-transition="fade"]');
+      if (!a) return;
+      const href = a.getAttribute("href");
+      if (!href) return;
+      // allow new tab / external
+      if (a.target === "_blank" || href.startsWith("http") || href.startsWith("mailto:")) return;
+      e.preventDefault();
+      navigateWithFade(href);
+    });
+  });
+
   // Hover/active polish (no sound)
   document.addEventListener("pointerover", (e) => {
     const el = e.target.closest?.(".btn, .boss-card, .game-item, .ach-card");
@@ -65,5 +117,5 @@
     window.setTimeout(() => btn.classList.remove("pressed"), 180);
   }, { passive: true });
 
-  window.SoulUI = { youDiedEffect, toast };
+  window.SoulUI = { youDiedEffect, toast, navigateWithFade };
 })();

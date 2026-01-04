@@ -42,7 +42,7 @@
       check:({kills}) => kills >= 229 },
     { id:"first_try",      img:"images/achievements/first_try.png",      name:"FIRST TRY", desc:"Победить любого босса с первой попытки.", kind:"auto",
       check:({hasFirstTry}) => !!hasFirstTry },
-    { id:"no_death_boss",  img:"images/achievements/no_death_boss.png",  name:"UNTOUCHED", desc:"Победить любого босса без смертей на нём (Deaths = 0).", kind:"auto",
+    { id:"no_death_boss",  img:"images/achievements/no_death_boss.png",  name:"UNTOUCHED", desc:"Победить любого босса без смертей на нём.", kind:"auto",
       check:({hasNoDeathBoss}) => !!hasNoDeathBoss },
     { id:"marathon_finish", img:"images/achievements/marathon_finish.png", name:"THE END", desc:"Дойти до финала марафона. Последняя искра погасла.", kind:"manual" },
 

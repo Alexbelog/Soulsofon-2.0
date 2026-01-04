@@ -20,8 +20,10 @@ body.index-page {
 
 /* ===== КОНТЕЙНЕР ===== */
 .landing {
-  width: min(1600px, 100vw);
+  width: min(1600px, 92vw);
   aspect-ratio: 16 / 9; /* 1600x900 */
+  /* Чуть уменьшаем "габариты" постера, чтобы сверху уверенно читался заголовок */
+  max-height: calc(100vh - 170px);
   text-align: center;
   position: relative;
 }
@@ -126,15 +128,16 @@ body.index-page {
 
 /* ===== КНОПКА YOU DEATH ===== */
 .start-button {
-  position: absolute;
-  bottom: 18px;
+  position: fixed;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 16px 46px;
-  font-size: clamp(18px, 2.2vw, 30px);
+  padding: 20px 78px;
+  font-size: clamp(20px, 2.4vw, 36px);
   letter-spacing: .22em;
   text-transform: uppercase;
   border-radius: 999px;
+  z-index: 4;
 }
 
 /* ===== HOVER ===== */
@@ -145,20 +148,7 @@ body.index-page {
   transform: translateX(-50%) translateY(1px);
 }
 
-/* ===== FADE OVERLAY ===== */
-#fade-overlay {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 999;
-  transition: opacity 0.8s ease;
-}
-
-#fade-overlay.active {
-  opacity: 1;
-}
+/* fade overlay styles are defined in theme.css */
 
 
 

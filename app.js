@@ -311,7 +311,16 @@ function renderGame(gameData) {
     hint.className = "elden-hint";
     hint.textContent = "Совет: можно искать по части имени. Секции сворачиваются.";
 
-    tools.append(search, hint);
+    // Кнопка карты — под поиском
+    const mapWrap = document.createElement("div");
+    mapWrap.className = "elden-mapwrap";
+    mapWrap.innerHTML = `
+      <a class="btn map-btn" href="https://mapgenie.io/elden-ring/maps/the-lands-between" target="_blank" rel="noopener">
+        Показать интерактивную карту Elden Ring
+      </a>
+    `;
+
+    tools.append(search, hint, mapWrap);
     (sectionsEl || content).appendChild(tools);
   }
 
@@ -450,22 +459,9 @@ row.appendChild(kill);
     (sectionsEl || content).appendChild(sec);
   });
 
-  renderEldenMap(gameData);
-
   updateDeathCounters(gameData);
 }
 
-
-
-function renderEldenMap(gameData){
-  const link = document.getElementById("elden-map-link");
-  if (!link) return;
-  if (!gameData || gameData.id !== "elden"){
-    link.style.display = "none";
-    return;
-  }
-  link.style.display = "block";
-}
 
 /* ================= STATS INPUT ================= */
 
@@ -646,8 +642,8 @@ function showYouDied() {
 /* ================= BACK ================= */
 
 backBtn.onclick = () => {
-  fadeOverlay.classList.add("active");
-  setTimeout(() => (location.href = "index.html"), 600);
+  try { window.SoulUI?.navigateWithFade?.("index.html"); }
+  catch { location.href = "index.html"; }
 };
 
 function calcGameDeaths(gameId) {

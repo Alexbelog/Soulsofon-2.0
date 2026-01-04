@@ -122,14 +122,15 @@ body{
 
 .game-banner{
   width:100%;
-  height: 190px;
-  object-fit: cover;
-  object-position: center 30%;
+  height: 160px;
+  object-fit: contain;
+  object-position: center;
   border-radius: 22px;
   border:1px solid rgba(255,255,255,.10);
   box-shadow: 0 22px 70px rgba(0,0,0,.6);
   margin-bottom: 16px;
   filter: contrast(1.08) brightness(.95);
+  background: rgba(0,0,0,.35);
 }
 
 /* ===== STATS PANEL ===== */
@@ -531,6 +532,17 @@ body{
   color: rgba(212,175,55,.7);
 }
 
+.elden-mapwrap{
+  margin-top: 10px;
+  display:flex;
+  justify-content:flex-start;
+}
+.elden-mapwrap .map-btn{
+  width: 100%;
+  max-width: 560px;
+  justify-content:center;
+}
+
 .boss-section[open] > .section-title::after{
   content: "▾";
   float: right;
@@ -551,18 +563,22 @@ body{
 /* ===== Boss cards (TCG-style, 2 columns desktop) ===== */
 .boss-grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
   gap:16px;
   margin-top: 12px;
 }
 
-@media (max-width: 960px){
+@media (max-width: 1200px){
+  .boss-grid{ grid-template-columns: repeat(2, minmax(280px, 1fr)); }
+}
+
+@media (max-width: 860px){
   .boss-grid{ grid-template-columns: 1fr; }
 }
 
 .boss-card{
   /* Trading-card-ish proportions: 88x63mm (ratio only, scaled for screen) */
-  max-width: 420px;
+  max-width: none;
   width: 100%;
   display:flex;
   flex-direction:column;
@@ -643,13 +659,15 @@ body{
   border:1px solid rgba(255,255,255,.10);
   overflow:hidden;
   background: rgba(0,0,0,.35);
-  aspect-ratio: 16 / 9;
+  /* Портретная рамка; показываем картинку ПОЛНОСТЬЮ */
+  aspect-ratio: 3 / 4;
   position: relative;
 }
 .boss-img{
   width:100%;
   height:100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   transform: scale(1.0);
   transition: transform .18s ease;
   will-change: transform;
