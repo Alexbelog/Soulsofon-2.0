@@ -168,6 +168,15 @@ async function loadGame(game) {
       console.warn("Elden API unavailable, fallback to local data", e);
       const res = await fetch(game.file);
       gameData = await res.json();
+      try {
+        if (window.SoulUI && typeof window.SoulUI.toast === "function") {
+          window.SoulUI.toast(
+            "Elden Ring: неполный список офлайн",
+            "Для полного списка боссов нужен интернет. Если открываешь через file:// — запусти сайт через локальный сервер (например: python -m http.server)."
+          );
+        }
+      } catch {}
+
     }
   } else {
     const res = await fetch(game.file);
@@ -214,27 +223,34 @@ async function loadEldenFromApi(){
   return buildEldenGameDataFromBosses(all);
 }
 
-function buildEldenGameDataFromBosses(apiBosses, dlcBosses = []){
-  const bosses = (apiBosses || []).map(b => ({
-    id: b.id,
-    name: b.name,
-    icon: b.image,
-    rank: "-",
-    location: b.location || ""
-  }));
+function buildEldenGameDataFromBosses(apiBosses, dlcBosses = []) {
+  // НAlso: API даёт "region" и "location". Для наших секций удобнее группировать по region,
+  // а location показывать внутри карточки босса.
+  const bosses = (apiBosses || [])
+    .filter(b => b && (b.id || b.name))
+    .map(b => ({
+      id: String(b.id || normalizeBossName(b.name)),
+      name: String(b.name || "").trim(),
+      icon: b.image || "images/boss_placeholder.svg",
+      rank: "-",
+      region: String(b.region || "Без региона").trim(),
+      location: String(b.location || "").trim()
+    }));
 
-  // Группируем по "локации" (берём до первой запятой, чтобы было аккуратнее)
-  const byLoc = new Map();
+  // Группировка по региону (Limgrave, Caelid, ...). Внутри — сортировка по имени.
+  const byRegion = new Map();
   bosses.forEach(b => {
-    const raw = (b.location || "").trim();
-    const key = raw ? raw.split(",")[0].trim() : "Без локации";
-    if (!byLoc.has(key)) byLoc.set(key, []);
-    byLoc.get(key).push(b);
+    const key = b.region || "Без региона";
+    if (!byRegion.has(key)) byRegion.set(key, []);
+    byRegion.get(key).push(b);
   });
 
-  const sections = Array.from(byLoc.entries())
-    .sort((a,b)=> a[0].localeCompare(b[0], "ru"))
-    .map(([title, list]) => ({ title, bosses: list }));
+  const sections = Array.from(byRegion.entries())
+    .sort((a, b) => a[0].localeCompare(b[0], "ru"))
+    .map(([title, list]) => ({
+      title,
+      bosses: list.sort((x, y) => x.name.localeCompare(y.name, "ru"))
+    }));
 
   // DLC (Shadow of the Erdtree): отдельные секции в конце списка.
   // dlcBosses: [{ id, name, region, location, image }]
@@ -244,16 +260,20 @@ function buildEldenGameDataFromBosses(apiBosses, dlcBosses = []){
     if (!dlcByRegion.has(region)) dlcByRegion.set(region, []);
     dlcByRegion.get(region).push({
       id: `dlc_${b.id || normalizeBossName(b.name).replace(/\s+/g, "_")}`,
-      name: b.name,
+      name: String(b.name || "").trim(),
       icon: b.image || "images/boss_placeholder.svg",
       rank: "-",
-      location: b.location || region
+      region,
+      location: String(b.location || region).trim()
     });
   });
 
   const dlcSections = Array.from(dlcByRegion.entries())
-    .sort((a,b)=> a[0].localeCompare(b[0], "ru"))
-    .map(([title, list]) => ({ title: `DLC: ${title}`, bosses: list }));
+    .sort((a, b) => a[0].localeCompare(b[0], "ru"))
+    .map(([title, list]) => ({
+      title: `DLC: ${title}`,
+      bosses: list.sort((x, y) => x.name.localeCompare(y.name, "ru"))
+    }));
 
   return {
     id: "elden",
@@ -311,6 +331,10 @@ function renderGame(gameData) {
     h2.textContent = section.title || section.name || "";
     sec.appendChild(h2);
 
+    const grid = document.createElement("div");
+    grid.className = "boss-grid";
+    sec.appendChild(grid);
+
     [...section.bosses]
       .sort((a, b) => RANK_ORDER[a.rank || "-"] - RANK_ORDER[b.rank || "-"])
       .forEach((boss, idx) => {
@@ -321,7 +345,7 @@ function renderGame(gameData) {
         const state = progress[gameData.id][boss.id];
 
         const row = document.createElement("div");
-        row.className = "boss-row";
+        row.className = "boss-card";
         if (state.killed) row.classList.add("killed");
 
         
@@ -392,7 +416,7 @@ kill.onclick = () => {
 };
 row.appendChild(kill);
 
-        sec.appendChild(row);
+        grid.appendChild(row);
       });
 
     (sectionsEl || content).appendChild(sec);
@@ -406,32 +430,13 @@ row.appendChild(kill);
 
 
 function renderEldenMap(gameData){
-  const sec = document.getElementById("elden-map-section");
-  const overlay = document.getElementById("elden-map-overlay");
-  if (!sec || !overlay) return;
-
+  const link = document.getElementById("elden-map-link");
+  if (!link) return;
   if (!gameData || gameData.id !== "elden"){
-    sec.style.display = "none";
-    overlay.innerHTML = "";
+    link.style.display = "none";
     return;
   }
-
-  sec.style.display = "block";
-  overlay.innerHTML = "";
-
-  const bosses = [];
-  gameData.sections.forEach(s => (s.bosses || []).forEach(b => bosses.push(b)));
-
-  bosses.forEach(b => {
-    const xy = ELDEN_MAP_COORDS[normalizeBossName(b.name)];
-    if (!xy) return;
-    const dot = document.createElement("div");
-    dot.className = "map-dot";
-    dot.style.left = xy[0] + "%";
-    dot.style.top = xy[1] + "%";
-    dot.title = b.name;
-    overlay.appendChild(dot);
-  });
+  link.style.display = "block";
 }
 
 /* ================= STATS INPUT ================= */

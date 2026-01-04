@@ -1,420 +1,229 @@
-// Soulsfon 2.0 Achievements (RU, Steam/Souls vibe)
-// Works on BOTH pages:
-// - achievements.html: renders the grid + manual buttons + boss bindings
-// - stats.html: provides auto-unlock checks + boss-bound quick chips
-
+// Soulsfon 2.0 Achievements
+// Names: EN (Steam/Souls vibe) | Descriptions: RU
 (() => {
-  const ACH_DONE_STORE = "soulsofon_ach_done";
-  const PROGRESS_STORE = "soulsofon_progress";
-  const GAME_EXTRA_STORE = "soulsofon_game_extra_deaths";
-  const BIND_STORE = "soulsofon_ach_bind";
+  const STORE_DONE = "soulsofon_ach_done";
+  const STORE_PROGRESS = "soulsofon_progress";
+  const STORE_EXTRA = "soulsofon_game_extra_deaths";
 
   const GAMES = [
-    { id: "ds1", title: "Dark Souls" },
-    { id: "ds2", title: "Dark Souls II" },
-    { id: "ds3", title: "Dark Souls III" },
-    { id: "bloodborne", title: "Bloodborne" },
-    { id: "sekiro", title: "Sekiro" },
-    { id: "elden", title: "Elden Ring" },
+    { id:"ds1", title:"Dark Souls", icon:"images/game_icons/ds1.png" },
+    { id:"ds2", title:"Dark Souls II", icon:"images/game_icons/ds2.png" },
+    { id:"ds3", title:"Dark Souls III", icon:"images/game_icons/ds3.png" },
+    { id:"bloodborne", title:"Bloodborne", icon:"images/game_icons/bloodborne.png" },
+    { id:"sekiro", title:"Sekiro", icon:"images/game_icons/sekiro.png" },
+    { id:"elden", title:"Elden Ring", icon:"images/game_icons/elden.png" },
   ];
 
-  // --- helpers: storage ---
-  function loadJSON(key, fallback){
-    try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
-    catch { return fallback; }
-  }
-  function saveJSON(key, value){
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-  function loadDone(){ return loadJSON(ACH_DONE_STORE, {}); }
-  function saveDone(done){ saveJSON(ACH_DONE_STORE, done); }
-
-  function loadProgress(){ return loadJSON(PROGRESS_STORE, {}); }
-  function loadExtra(){ return loadJSON(GAME_EXTRA_STORE, {}); }
-  function loadBinds(){ return loadJSON(BIND_STORE, {}); }
-  function saveBinds(b){ saveJSON(BIND_STORE, b); }
-
-  function sumExtra(extra){
-    return Object.values(extra || {}).reduce((s,v)=> s + (Number(v)||0), 0);
-  }
-
-  // --- progress totals ---
-  function getTotals(progress, extra){
-    let totalBossDeaths = 0;
-    let killed = 0;
-    let flawless = 0;
-    let rankS = 0;
-
-    const killedByGame = {};
-    const deathsByGameBoss = {};
-    const any = { oneGame100:false };
-
-    Object.entries(progress || {}).forEach(([gid, game]) => {
-      if (!game) return;
-      let gameBossCount = 0;
-      let gameKilled = 0;
-      let gameDeaths = 0;
-
-      Object.values(game).forEach(b => {
-        totalBossDeaths += Number(b.deaths || 0);
-        gameDeaths += Number(b.deaths || 0);
-        gameBossCount++;
-        if (b.killed) {
-          killed++;
-          gameKilled++;
-          if (Number(b.deaths || 0) === 0) flawless++;
-        }
-        if ((b.rank || "-") === "S") rankS++;
-      });
-
-      killedByGame[gid] = gameKilled;
-      deathsByGameBoss[gid] = gameDeaths;
-      if (gameBossCount && gameKilled === gameBossCount) any.oneGame100 = true;
-    });
-
-    const manualAll = sumExtra(extra);
-    const deaths = totalBossDeaths + manualAll;
-
-    const deathsByGame = {};
-    Object.values(GAMES).forEach(g => {
-      const boss = deathsByGameBoss[g.id] || 0;
-      const manual = Number(extra?.[g.id] || 0);
-      deathsByGame[g.id] = boss + manual;
-    });
-
-    return { deaths, killed, flawless, rankS, oneGame100:any.oneGame100, killedByGame, deathsByGame };
-  }
-
-  function isBossKilled(progress, gameId, bossId){
-    const b = progress?.[gameId]?.[bossId];
-    return !!b?.killed;
-  }
-  function bossDeaths(progress, gameId, bossId){
-    return Number(progress?.[gameId]?.[bossId]?.deaths || 0);
-  }
-
-  // --- Achievements list (RU, Souls/Steam tone) ---
-  // icon can be emoji or single rune-ish char; kept simple for compatibility.
   const ACH = [
-    // Marathon deaths
-    { id:"die_10",   icon:"☠", name:"ПЕПЕЛ НА САПОГАХ", desc:"Умереть 10 раз за марафон.",  kind:"auto", check:({deaths})=>deaths>=10 },
-    { id:"die_100",  icon:"☠", name:"ТЫ ПОГИБ x100",   desc:"Умереть 100 раз за марафон.", kind:"auto", check:({deaths})=>deaths>=100 },
-    { id:"die_300",  icon:"☠", name:"ПЕПЕЛЬНЫЙ",       desc:"Умереть 300 раз за марафон.", kind:"auto", check:({deaths})=>deaths>=300 },
-    { id:"die_666",  icon:"☠", name:"ПРОКЛЯТИЕ",       desc:"Умереть 666 раз. Даже не спрашивай.", kind:"auto", check:({deaths})=>deaths>=666 },
+    // --- Marathon ---
+    { id:"marathon_start",  img:"images/achievements/marathon_start.png",  name:"THE MARATHON", desc:"Начать марафон. Первый босс пал — пути назад нет.", kind:"auto",
+      check:({kills}) => kills >= 1 },
+    { id:"die_100",         img:"images/achievements/die_100.png",         name:"YOU DIED x100", desc:"Умереть 100 раз за весь марафон.", kind:"auto",
+      check:({deaths}) => deaths >= 100 },
+    { id:"die_300",         img:"images/achievements/die_300.png",         name:"ASHEN ONE", desc:"Умереть 300 раз за весь марафон.", kind:"auto",
+      check:({deaths}) => deaths >= 300 },
+    { id:"die_666",         img:"images/achievements/die_666.png",         name:"CURSED", desc:"Умереть 666 раз за весь марафон.", kind:"auto",
+      check:({deaths}) => deaths >= 666 },
+    { id:"die_1000",        img:"images/achievements/die_1000.png",        name:"ENDLESS", desc:"Умереть 1000 раз за весь марафон.", kind:"auto",
+      check:({deaths}) => deaths >= 1000 },
+    { id:"ten_bosses",      img:"images/achievements/ten_bosses.png",      name:"BOSS HUNTER", desc:"Убить 10 боссов в марафоне.", kind:"auto",
+      check:({kills}) => kills >= 10 },
+    { id:"marathon_finish", img:"images/achievements/marathon_finish.png", name:"THE END", desc:"Дойти до финала марафона. Последняя искра погасла.", kind:"manual" },
 
-    // Kills / ranks
-    { id:"first_boss", icon:"⚔", name:"ПЕРВАЯ КРОВЬ", desc:"Убить первого босса в марафоне.", kind:"auto", check:({killed})=>killed>=1 },
-    { id:"ten_bosses", icon:"⚔", name:"ОХОТНИК НА БОССОВ", desc:"Убить 10 боссов за марафон.", kind:"auto", check:({killed})=>killed>=10 },
-    { id:"fifty_bosses", icon:"⚔", name:"ПАЛАЧ", desc:"Убить 50 боссов за марафон.", kind:"auto", check:({killed})=>killed>=50 },
-    { id:"clean_sweep", icon:"🏆", name:"ЗАЧИСТКА", desc:"Закрыть 100% боссов в одной игре.", kind:"auto", check:({oneGame100})=>!!oneGame100 },
-    { id:"flawless_1", icon:"✦", name:"БЕЗ ЕДИНОЙ СМЕРТИ", desc:"Убить босса с 0 смертей на нём.", kind:"auto", check:({flawless})=>flawless>=1 },
-    { id:"flawless_10", icon:"✦", name:"НЕПРИКАСАЕМЫЙ", desc:"Убить 10 боссов без смертей на них.", kind:"auto", check:({flawless})=>flawless>=10 },
-    { id:"rank_s", icon:"S", name:"РАНГ «S»", desc:"Поставить хотя бы одному боссу ранг S.", kind:"auto", check:({rankS})=>rankS>=1 },
+    // --- Challenges (manual) ---
+    { id:"blind_faith",     img:"images/achievements/blind_faith.png",     name:"BLIND FAITH", desc:"Убить босса «вслепую» (без просмотра гайдов/инфы заранее).", kind:"manual" },
+    { id:"no_roll",         img:"images/achievements/no_roll.png",         name:"NO ROLL", desc:"Убить босса без перекатов (в рамках одной попытки).", kind:"manual" },
+    { id:"no_estus",        img:"images/achievements/no_estus.png",        name:"NO HEAL", desc:"Убить босса без лечения (эстус/фляги/хилы).", kind:"manual" },
+    { id:"challenge_no_summon", img:"images/achievements/challenge_no_summon.png", name:"NO SUMMON", desc:"Убить босса без призывов (NPC/духи/кооп).", kind:"manual" },
+    { id:"challenge_no_hit", img:"images/achievements/challenge_no_hit.png", name:"NO HIT", desc:"Убить босса без получения урона.", kind:"manual" },
+    { id:"challenge_rl1",   img:"images/achievements/challenge_rl1.png",   name:"LEVEL ONE", desc:"Победить босса на минимальном уровне (RL1/SL1/BL4 — по игре).", kind:"manual" },
 
-    // Manual - marathon flavor
-    { id:"no_roll", icon:"🜂", name:"НИ ШАГУ В СТОРОНУ", desc:"Победить босса без перекатов.", kind:"manual" },
-    { id:"blind_boss", icon:"👁", name:"СЛЕПАЯ ВЕРА", desc:"Убить босса «вслепую» (не зная мувсет).", kind:"manual" },
-    { id:"no_heal", icon:"🩸", name:"БЕЗ ИСЦЕЛЕНИЯ", desc:"Победить босса без лечения.", kind:"manual" },
-    { id:"parry_god", icon:"⟡", name:"БОГ ПАРИРОВАНИЯ", desc:"Завершить бой с боссом, парируя хотя бы 3 раза. (Отметь вручную)", kind:"manual" },
-    { id:"clutch", icon:"✠", name:"НА ОДНОМ ДЫХАНИИ", desc:"Убить босса на последнем хп. (Отметь вручную)", kind:"manual" },
+    // --- Dark Souls ---
+    { id:"ds1_bells",       img:"images/achievements/ds1_bells.png",       name:"RING THE BELLS", desc:"Dark Souls: пробудить зов колоколов (два колокола).", kind:"manual" },
+    { id:"ds1_solaire",     img:"images/achievements/ds1_solaire.png",     name:"PRAISE THE SUN", desc:"Dark Souls: ритуально воздать славу солнцу в честь победы.", kind:"manual" },
 
-    // Manual, bindable to a specific boss (shows on boss row as a chip)
-    { id:"no_roll_boss", icon:"🜂", name:"БЕЗ ПЕРЕКАТОВ (БОСС)", desc:"Убить конкретного босса без перекатов.", kind:"manual", bindable:true },
-    { id:"no_hit_boss", icon:"✶", name:"NO-HIT (БОСС)", desc:"Убить конкретного босса без получения урона.", kind:"manual", bindable:true },
-    { id:"fists_only", icon:"✦", name:"КУЛАКИ", desc:"Убить конкретного босса только кулаками/без оружия. (Если возможно)", kind:"manual", bindable:true },
+    { id:"ds2_curse",       img:"images/achievements/ds2_curse.png",       name:"BEARER OF THE CURSE", desc:"Dark Souls II: продолжить путь, несмотря на проклятие.", kind:"manual" },
+    { id:"ds2_adp",         img:"images/achievements/ds2_adp.png",         name:"ADP BELIEVER", desc:"Dark Souls II: победить сложного босса «без сейв-скама» и отговорок.", kind:"manual" },
 
-    // Game-unique (auto by boss kills)
-    { id:"ds1_bells", icon:"🔔", name:"КОЛОКОЛА ПРОБУЖДЕНИЯ", desc:"DS1: победить Гаргулий и Квиллаг.", kind:"auto", check:(_,p)=>isBossKilled(p,"ds1","bell_gargoyles") && isBossKilled(p,"ds1","chaos_witch_quelaag") },
-    { id:"ds1_lords", icon:"👑", name:"ЛОРДЫ ПЕПЛА", desc:"DS1: победить Нито, Сит, Четырёх Королей и Изалит.", kind:"auto", check:(_,p)=>["gravelord_nito","seath_the_scaleless","four_kings","bed_of_chaos"].every(id=>isBossKilled(p,"ds1",id)) },
-    { id:"ds1_legend", icon:"⚜", name:"ЛЕГЕНДА ЛОРАНА", desc:"DS1: победить Орнштейна и Смоуга.", kind:"auto", check:(_,p)=>isBossKilled(p,"ds1","ornstein_and_smough") },
+    { id:"ds3_cinder",      img:"images/achievements/ds3_cinder.png",      name:"LORD OF CINDER", desc:"Dark Souls III: одолеть повелителей пепла и довести дело до конца.", kind:"manual" },
+    { id:"ds3_dancer",      img:"images/achievements/ds3_dancer.png",      name:"DANCER DOWN", desc:"Dark Souls III: победить босса, который «ломает ритм».", kind:"manual" },
 
-    { id:"ds2_scholar", icon:"📜", name:"УЧЁНЫЙ СМЕРТИ", desc:"DS2: победить «Смотрителя и Защитника» и «Нашандру».", kind:"auto", check:(_,p)=>isBossKilled(p,"ds2","throne_watcher_and_defender") && isBossKilled(p,"ds2","nashandra") },
-    { id:"ds2_sinner", icon:"⛓", name:"ПЕРВОРОДНЫЙ ГРЕХ", desc:"DS2: победить Погибельного Грешника.", kind:"auto", check:(_,p)=>isBossKilled(p,"ds2","lost_sinner") },
+    // --- Bloodborne ---
+    { id:"bb_pale",         img:"images/achievements/bb_pale.png",         name:"PALEBLOOD HUNT", desc:"Bloodborne: начать охоту за бледной кровью.", kind:"manual" },
+    { id:"bb_visceral",     img:"images/achievements/bb_visceral.png",     name:"VISCERAL", desc:"Bloodborne: добить босса висцеральной атакой.", kind:"manual" },
 
-    { id:"ds3_cinders", icon:"🔥", name:"ПЕПЕЛ ПЕПЛА", desc:"DS3: победить Повелителей Пепла.", kind:"auto", check:(_,p)=>["abyss_watchers","aldrich_devourer_of_gods","yhorm_the_giant","lothric_younger_prince"].every(id=>isBossKilled(p,"ds3",id)) },
-    { id:"ds3_dancer", icon:"🩰", name:"ТАНЕЦ КЛИНКОВ", desc:"DS3: победить Танцовщицу Холодной Долины.", kind:"auto", check:(_,p)=>isBossKilled(p,"ds3","dancer_of_the_boreal_valley") },
+    // --- Sekiro ---
+    { id:"sek_shinobi",     img:"images/achievements/sek_shinobi.png",     name:"SHINOBI", desc:"Sekiro: пройти бой, полагаясь на стойкость и клинки.", kind:"manual" },
+    { id:"sek_parry",       img:"images/achievements/sek_parry.png",       name:"DEFLECT MASTER", desc:"Sekiro: победить босса, делая упор на отражения (дефлекты).", kind:"manual" },
 
-    { id:"bb_hunt", icon:"🩸", name:"НАЧАЛО ОХОТЫ", desc:"BB: победить Отца Гаскойна.", kind:"auto", check:(_,p)=>isBossKilled(p,"bloodborne","father_gascoigne") },
-    { id:"bb_oldblood", icon:"🜁", name:"СТАРАЯ КРОВЬ", desc:"BB: победить Викара Амелию.", kind:"auto", check:(_,p)=>isBossKilled(p,"bloodborne","vicar_amelia") },
+    // --- Elden Ring ---
+    { id:"er_tarnished",    img:"images/achievements/er_tarnished.png",    name:"TARNISHED", desc:"Elden Ring: стать Междуземцем и сделать первый шаг.", kind:"auto",
+      check:({gameKills}) => (gameKills.elden||0) >= 1 },
+    { id:"er_dragon",       img:"images/achievements/er_dragon.png",       name:"DRAGONSLAYER", desc:"Elden Ring: победить дракона.", kind:"manual" },
+    { id:"er_runebear",     img:"images/achievements/er_runebear.png",     name:"RUNE BEAR", desc:"Elden Ring: выжить и победить рунического медведя (без паники).", kind:"manual" },
+    { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
 
-    { id:"sekiro_gourd", icon:"🍂", name:"УЧЕНИК ВОЛКА", desc:"Sekiro: победить Гэнитиро.", kind:"auto", check:(_,p)=>isBossKilled(p,"sekiro","genichiro_ashina") },
-    { id:"sekiro_saint", icon:"⚔", name:"СВЯТОЙ МЕЧА", desc:"Sekiro: победить Иссина, Святого Меча.", kind:"auto", check:(_,p)=>isBossKilled(p,"sekiro","isshin_sword_saint") },
-
-    { id:"elden_margit", icon:"🜃", name:"ПЕРВЫЙ ЗНАК", desc:"Elden Ring: победить Маргита.", kind:"auto", check:(_,p)=>isBossKilled(p,"elden","margit_the_fell_omen") },
-    { id:"elden_malenia", icon:"🌸", name:"НЕЗНАЮЩАЯ ПОРАЖЕНИЙ", desc:"Elden Ring: победить Малению.", kind:"auto", check:(_,p)=>isBossKilled(p,"elden","malenia_blade_of_miquella") },
-
-    // Funny / challenge autos
-    { id:"deathless_ds1", icon:"✦", name:"ЧИСТЫЙ ПРОХОД", desc:"DS1: завершить игру с 0 смертей на боссах. (Очень условно)", kind:"auto",
-      check:(t)=> (t.deathsByGame?.ds1 || 0) === 0 && (t.killedByGame?.ds1 || 0) > 0 },
+    // --- DLC ---
+    { id:"dlc_shadow",      img:"images/achievements/dlc_shadow.png",      name:"SHADOW REALM", desc:"DLC: сделать первые шаги в Землях Тени.", kind:"auto",
+      check:({dlcKills}) => dlcKills >= 1 },
+    { id:"dlc_messmer",     img:"images/achievements/dlc_messmer.png",     name:"THE IMPALER", desc:"DLC: победить Мессмера.", kind:"manual" },
+    { id:"dlc_bayle",       img:"images/achievements/dlc_bayle.png",       name:"BAYLE", desc:"DLC: победить Бэйла Ужасающего.", kind:"manual" },
+    { id:"dlc_putrescent",  img:"images/achievements/dlc_putrescent.png",  name:"PUTRESCENCE", desc:"DLC: победить Putrescent Knight.", kind:"manual" },
   ];
 
-  // Short label for chips
-  const CHIP_SHORT = {
-    no_roll_boss: "без перекатов",
-    no_hit_boss: "no-hit",
-    fists_only: "кулаки",
-  };
+  function loadJSON(key, fallback){
+    try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; }
+  }
+  function saveJSON(key, value){ localStorage.setItem(key, JSON.stringify(value)); }
 
-  // --- unlocking / notify ---
-  function markDone(id, silent=false){
+  function loadDone(){ return loadJSON(STORE_DONE, {}); }
+  function saveDone(done){ saveJSON(STORE_DONE, done); }
+
+  function computeStats(){
+    const progress = loadJSON(STORE_PROGRESS, {});
+    const extra = loadJSON(STORE_EXTRA, {});
+    let deaths = 0;
+    let kills = 0;
+    const gameKills = {};
+    let dlcKills = 0;
+
+    for (const [gid, gdata] of Object.entries(progress || {})){
+      let gk = 0;
+      for (const [bid, st] of Object.entries(gdata || {})){
+        const d = Number(st?.deaths || 0);
+        deaths += d;
+        if (st?.killed) { kills += 1; gk += 1; }
+        // crude DLC detection for ER: boss ids prefixed "dlc_" in our datasets
+        if (gid === "elden" && String(bid).startsWith("dlc_") && st?.killed) dlcKills += 1;
+      }
+      gameKills[gid] = gk;
+    }
+    // manual +/- deaths are stored per-game in extra
+    for (const v of Object.values(extra || {})) deaths += Number(v || 0);
+
+    return { deaths, kills, gameKills, dlcKills };
+  }
+
+  function markDone(id){
     const done = loadDone();
     if (done[id]) return false;
-    done[id] = true;
+    done[id] = { at: Date.now() };
     saveDone(done);
-
-    const a = ACH.find(x=>x.id===id);
-    if (!silent && a){
-      window.SoulUI?.toastUnlock?.(a.name, a.desc, a.icon || "✦");
-    }
     return true;
   }
 
-  function checkAndNotify(){
+  function checkAuto(){
     const done = loadDone();
-    const progress = loadProgress();
-    const extra = loadExtra();
-    const totals = getTotals(progress, extra);
-
-    let changed = false;
-    ACH.forEach(a => {
-      if (a.kind !== "auto") return;
-      if (done[a.id]) return;
-      let ok = false;
-      try { ok = !!a.check(totals, progress, extra); } catch { ok = false; }
-      if (ok){
-        done[a.id] = true;
-        changed = true;
-        window.SoulUI?.toastUnlock?.(a.name, a.desc, a.icon || "✦");
-      }
-    });
-
-    if (changed) saveDone(done);
-
-    // update achievements summary if present
-    try {
-      const el = document.getElementById("ach-summary-value");
-      if (el) {
-        const done2 = loadDone();
-        const c = ACH.reduce((acc,a)=> acc + (done2[a.id] ? 1 : 0), 0);
-        el.textContent = `${c} / ${ACH.length}`;
-      }
-    } catch {}
-  }
-
-  // --- bindings ---
-  function setBind(achId, gameId, bossId){
-    const b = loadBinds();
-    b[achId] = { gameId, bossId };
-    saveBinds(b);
-  }
-  function clearBind(achId){
-    const b = loadBinds();
-    delete b[achId];
-    saveBinds(b);
-  }
-  function getBoundForBoss(gameId, bossId){
-    const b = loadBinds();
-    const done = loadDone();
-    return ACH
-      .filter(a => a.bindable)
-      .filter(a => {
-        const bb = b[a.id];
-        return bb && bb.gameId === gameId && bb.bossId === bossId && !done[a.id];
-      })
-      .map(a => ({
-        id: a.id,
-        icon: a.icon || "✦",
-        name: a.name,
-        short: CHIP_SHORT[a.id] || "achievement",
-      }));
-  }
-
-  // --- achievements page render ---
-  async function loadGameBosses(gameId){
-    // Try to fetch the canonical JSON from /data
-    // (We use file names from the project structure)
-    const map = {
-      ds1: "data/ds1.json",
-      ds2: "data/ds2.json",
-      ds3: "data/ds3.json",
-      bloodborne: "data/bloodborne.json",
-      sekiro: "data/sekiro.json",
-      elden: "data/elden_ring.json",
-    };
-    const file = map[gameId];
-    if (!file) return [];
-    const res = await fetch(file);
-    const json = await res.json();
-    const bosses = [];
-    (json.sections || []).forEach(sec => (sec.bosses || []).forEach(b => bosses.push({ id:b.id, name:b.name })));
-    return bosses;
-  }
-
-  function progressText(a, totals){
-    // simple hints for auto achievements
-    if (a.kind !== "auto") return "";
-    if (a.id.startsWith("die_")){
-      const need = Number(a.id.split("_")[1]);
-      return `${Math.min(totals.deaths, need)} / ${need}`;
-    }
-    if (a.id === "first_boss") return `${Math.min(totals.killed,1)} / 1`;
-    if (a.id === "ten_bosses") return `${Math.min(totals.killed,10)} / 10`;
-    if (a.id === "fifty_bosses") return `${Math.min(totals.killed,50)} / 50`;
-    return "Auto";
-  }
-
-  async function renderPage(){
-    const grid = document.getElementById("ach-grid");
-    if (!grid) return; // not on achievements page
-
-    checkAndNotify();
-
-    const progress = loadProgress();
-    const extra = loadExtra();
-    const totals = getTotals(progress, extra);
-
-    const done = loadDone();
-    const binds = loadBinds();
-
-    grid.innerHTML = "";
-
-    let completed = 0;
-
-    // Preload bosses per game lazily for bindings
-    const bossCache = {};
-    async function ensureBosses(gameId){
-      if (bossCache[gameId]) return bossCache[gameId];
-      bossCache[gameId] = await loadGameBosses(gameId);
-      return bossCache[gameId];
-    }
-
+    const ctx = computeStats();
     for (const a of ACH){
-      const autoOk = a.kind === "auto" ? !!a.check(totals, progress, extra) : false;
-      const isDone = !!done[a.id] || autoOk;
-
-      const card = document.createElement("div");
-      card.className = "ach-card" + (isDone ? " done" : "");
-
-      const icon = document.createElement("div");
-      icon.className = "ach-icon";
-      icon.textContent = a.icon || "✦";
-
-      const main = document.createElement("div");
-      main.className = "ach-main";
-
-      const top = document.createElement("div");
-      top.className = "ach-top";
-
-      const name = document.createElement("div");
-      name.className = "ach-name";
-      name.textContent = a.name;
-
-      const tag = document.createElement("div");
-      tag.className = "ach-tag";
-      tag.textContent = (a.kind === "auto") ? "AUTO" : (a.bindable ? "MANUAL • BOSS" : "MANUAL");
-
-      top.append(name, tag);
-
-      const desc = document.createElement("div");
-      desc.className = "ach-desc";
-      desc.textContent = a.desc;
-
-      const bar = document.createElement("div");
-      bar.className = "ach-bar";
-      bar.textContent = progressText(a, totals);
-
-      main.append(top, desc, bar);
-
-      const actions = document.createElement("div");
-      actions.className = "ach-actions";
-
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "ach-btn";
-      btn.textContent = isDone ? "Выполнено ✓" : "Выполнено";
-      btn.disabled = (a.kind === "auto") || (!window.SoulAuth?.isAdmin?.());
-      if (!window.SoulAuth?.isAdmin?.()) btn.title = "Только администратор может отмечать достижения";
-
-      if (a.kind === "manual"){
-        btn.onclick = () => {
-          if (done[a.id]) return;
-          markDone(a.id, false);
-          renderPage();
-        };
+      if (a.kind !== "auto" || typeof a.check !== "function") continue;
+      if (done[a.id]) continue;
+      if (a.check(ctx)){
+        if (markDone(a.id)){
+          try { window.SoulUI?.toast?.("Achievement unlocked", a.name, a.img); } catch {}
+        }
       }
+    }
+  }
 
-      actions.appendChild(btn);
+  function render(){
+    const host = document.getElementById("ach-list");
+    if (!host) return;
 
-      // Binding controls
-      if (a.bindable){
-        const bindWrap = document.createElement("div");
-        bindWrap.className = "ach-bind";
+    host.innerHTML = "";
+    const done = loadDone();
+    checkAuto(); // make sure UI is fresh
 
-        const gameSel = document.createElement("select");
-        gameSel.className = "ach-select";
-        gameSel.innerHTML = `<option value="">Выбрать игру…</option>` + GAMES.map(g => `<option value="${g.id}">${g.title}</option>`).join("");
+    const groups = [
+      { title: "Марафон", ids: ACH.filter(a => a.id.startsWith("marathon_") || a.id.startsWith("die_") || a.id === "ten_bosses").map(a=>a.id) },
+      { title: "Испытания", ids: ACH.filter(a => a.id.startsWith("blind_") || a.id.startsWith("no_") || a.id.startsWith("challenge_")).map(a=>a.id) },
+      { title: "Dark Souls", ids: ACH.filter(a => a.id.startsWith("ds1_") || a.id.startsWith("ds2_") || a.id.startsWith("ds3_")).map(a=>a.id) },
+      { title: "Bloodborne", ids: ACH.filter(a => a.id.startsWith("bb_")).map(a=>a.id) },
+      { title: "Sekiro", ids: ACH.filter(a => a.id.startsWith("sek_")).map(a=>a.id) },
+      { title: "Elden Ring", ids: ACH.filter(a => a.id.startsWith("er_")).map(a=>a.id) },
+      { title: "Shadow of the Erdtree", ids: ACH.filter(a => a.id.startsWith("dlc_")).map(a=>a.id) },
+    ];
 
-        const bossSel = document.createElement("select");
-        bossSel.className = "ach-select";
-        bossSel.innerHTML = `<option value="">Выбрать босса…</option>`;
+    const byId = Object.fromEntries(ACH.map(a => [a.id, a]));
+    for (const g of groups){
+      const sec = document.createElement("section");
+      sec.className = "ach-section";
+      const h = document.createElement("h2");
+      h.className = "ach-section-title";
+      h.textContent = g.title;
+      sec.appendChild(h);
 
-        const cur = binds[a.id];
-        if (cur?.gameId) gameSel.value = cur.gameId;
+      const list = document.createElement("div");
+      list.className = "ach-grid";
 
-        async function refreshBosses(){
-          const gid = gameSel.value;
-          if (!gid){
-            bossSel.innerHTML = `<option value="">Выбрать босса…</option>`;
-            return;
-          }
-          const bosses = await ensureBosses(gid);
-          bossSel.innerHTML = `<option value="">Выбрать босса…</option>` + bosses.map(b => `<option value="${b.id}">${b.name}</option>`).join("");
-          if (cur?.gameId === gid && cur?.bossId) bossSel.value = cur.bossId;
+      for (const id of g.ids){
+        const a = byId[id];
+        if (!a) continue;
+        const isDone = !!done[id];
+
+        const card = document.createElement("div");
+        card.className = "ach-card" + (isDone ? " done" : "");
+
+        const img = document.createElement("img");
+        img.className = "ach-icon";
+        img.alt = "";
+        img.src = a.img;
+
+        const main = document.createElement("div");
+        main.className = "ach-main";
+
+        const name = document.createElement("div");
+        name.className = "ach-name";
+        name.textContent = a.name;
+
+        const desc = document.createElement("div");
+        desc.className = "ach-desc";
+        desc.textContent = a.desc;
+
+        main.append(name, desc);
+
+        const actions = document.createElement("div");
+        actions.className = "ach-actions";
+
+        if (a.kind === "manual"){
+          const btn = document.createElement("button");
+          btn.className = "btn ach-btn";
+          btn.type = "button";
+          btn.textContent = isDone ? "Выполнено ✓" : "Выполнено";
+          if (!window.SoulAuth?.isAdmin?.()) btn.disabled = true;
+          btn.onclick = () => {
+            if (!window.SoulAuth?.isAdmin?.()) return;
+            if (markDone(a.id)){
+              try { window.SoulUI?.toast?.("Achievement unlocked", a.name, a.img); } catch {}
+              render();
+            }
+          };
+          actions.appendChild(btn);
+        } else {
+          const badge = document.createElement("div");
+          badge.className = "ach-badge";
+          badge.textContent = isDone ? "Открыто" : "Скрыто";
+          actions.appendChild(badge);
         }
 
-        gameSel.addEventListener("change", async () => {
-          bossSel.value = "";
-          await refreshBosses();
-          if (!gameSel.value){
-            clearBind(a.id);
-          }
-        });
-
-        bossSel.addEventListener("change", () => {
-          if (gameSel.value && bossSel.value){
-            setBind(a.id, gameSel.value, bossSel.value);
-            window.SoulUI?.playClick?.();
-          }
-        });
-
-        await refreshBosses();
-
-        bindWrap.append(gameSel, bossSel);
-        actions.appendChild(bindWrap);
+        card.append(img, main, actions);
+        list.appendChild(card);
       }
 
-      card.append(icon, main, actions);
-      grid.appendChild(card);
-
-      if (isDone) completed++;
+      sec.appendChild(list);
+      host.appendChild(sec);
     }
-
-    const summary = document.getElementById("ach-summary-value");
-    if (summary) summary.textContent = `${completed} / ${ACH.length}`;
   }
 
-  // --- Export API for stats page ---
-  window.Soulsfon 2.0Achievements = {
+  window.SoulAchievements = {
     list: () => ACH.slice(),
-    checkAndNotify,
+    checkAuto,
     markDone,
-    getBoundForBoss,
+    render,
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    // Auto check everywhere
-    checkAndNotify();
-    // Render only on achievements page
-    renderPage();
+    checkAuto();
+    render();
   });
 })();

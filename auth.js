@@ -3,7 +3,7 @@
    Change ADMIN_PASSWORD to your own. */
 (() => {
   const KEY = "soulsfon_admin";
-  const ADMIN_PASSWORD = "1337";
+  const ADMIN_PASSWORD = "CHANGE_ME";
 
   function isAdmin(){
     return localStorage.getItem(KEY) === "1";
