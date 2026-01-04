@@ -6,41 +6,116 @@
     {
       "title": "Основные боссы региона",
       "bosses": [
-        { "id": "margit", "name": "Маргит, Ужасное Знамение", "icon": "images/bosses/elden/limgrave/margit.png" },
-        { "id": "godrick", "name": "Годрик Сторукий", "icon": "images/bosses/elden/limgrave/godrick.png" }
+        {
+          "id": "margit",
+          "name": "Маргит, Ужасное Знамение",
+          "icon": "images/bosses/elden/limgrave/margit.png"
+        },
+        {
+          "id": "godrick",
+          "name": "Годрик Сторукий",
+          "icon": "images/bosses/elden/limgrave/godrick.png"
+        }
       ]
     },
-
     {
       "title": "Полевые боссы",
       "bosses": [
-        { "id": "tree_sentinel", "name": "Древесный страж", "icon": "images/bosses/elden/limgrave/tree_sentinel.png" },
-        { "id": "flying_dragon_agheel", "name": "Летучий дракон Агиль", "icon": "images/bosses/elden/limgrave/agheel.png" },
-        { "id": "night_cavalry_limgrave", "name": "Ночной всадник", "icon": "images/bosses/elden/limgrave/night_cavalry.png" },
-        { "id": "deathbird_limgrave", "name": "Птица смерти", "icon": "images/bosses/elden/limgrave/deathbird.png" },
-        { "id": "bell_bearing_hunter", "name": "Охотник за колокольными подношениями", "icon": "images/bosses/elden/limgrave/bell_bearing_hunter.png" }
+        {
+          "id": "tree_sentinel",
+          "name": "Древесный страж",
+          "icon": "images/bosses/elden/limgrave/tree_sentinel.png"
+        },
+        {
+          "id": "flying_dragon_agheel",
+          "name": "Летучий дракон Агиль",
+          "icon": "images/bosses/elden/limgrave/agheel.png"
+        },
+        {
+          "id": "night_cavalry_limgrave",
+          "name": "Ночной всадник",
+          "icon": "images/bosses/elden/limgrave/night_cavalry.png"
+        },
+        {
+          "id": "deathbird_limgrave",
+          "name": "Птица смерти",
+          "icon": "images/bosses/elden/limgrave/deathbird.png"
+        },
+        {
+          "id": "bell_bearing_hunter",
+          "name": "Охотник за колокольными подношениями",
+          "icon": "images/bosses/elden/limgrave/bell_bearing_hunter.png"
+        },
+        {
+          "id": "agheel",
+          "name": "Летучий дракон Агиль",
+          "icon": "images/bosses/elden/limgrave/agheel.png",
+          "rank": "B"
+        },
+        {
+          "id": "darriwil",
+          "name": "Рыцарь-ищейка Дарривил",
+          "icon": "images/bosses/elden/limgrave/darriwil.png",
+          "rank": "B"
+        },
+        {
+          "id": "leonine",
+          "name": "Львиный бастард",
+          "icon": "images/bosses/elden/limgrave/leonine.png",
+          "rank": "C"
+        },
+        {
+          "id": "erdtree_avatar_weeping",
+          "name": "Аватар Древа Эрд (Плачущий полуостров)",
+          "icon": "images/bosses/elden/limgrave/erdtree_avatar_weeping.png",
+          "rank": "B"
+        }
       ]
     },
-
     {
       "title": "Эвергаолы",
       "bosses": [
-        { "id": "bloodhound_knight_darwil", "name": "Рыцарь-ищейка Дарривил", "icon": "images/bosses/elden/limgrave/darwil.png" },
-        { "id": "crucible_knight_limgrave", "name": "Рыцарь Горнила", "icon": "images/bosses/elden/limgrave/crucible_knight.png" }
+        {
+          "id": "bloodhound_knight_darwil",
+          "name": "Рыцарь-ищейка Дарривил",
+          "icon": "images/bosses/elden/limgrave/darwil.png"
+        },
+        {
+          "id": "crucible_knight_limgrave",
+          "name": "Рыцарь Горнила",
+          "icon": "images/bosses/elden/limgrave/crucible_knight.png"
+        }
       ]
     },
-
     {
       "title": "Подземелья",
       "bosses": [
-        { "id": "grave_warden_duelist", "name": "Дуэлянт-хранитель могил", "icon": "images/bosses/elden/limgrave/grave_warden.png" },
-        { "id": "erdtree_burial_watchdog", "name": "Сторож захоронений Древа Эрд", "icon": "images/bosses/elden/limgrave/watchdog.png" },
-        { "id": "beastman_farum", "name": "Зверочеловек из Фарум-Азулы", "icon": "images/bosses/elden/limgrave/beastman.png" },
-        { "id": "black_knife_assassin", "name": "Убийца Чёрного Ножа", "icon": "images/bosses/elden/limgrave/black_knife.png" },
-        { "id": "patches", "name": "Лоскутик", "icon": "images/bosses/elden/limgrave/patches.png" }
+        {
+          "id": "grave_warden_duelist",
+          "name": "Дуэлянт-хранитель могил",
+          "icon": "images/bosses/elden/limgrave/grave_warden.png"
+        },
+        {
+          "id": "erdtree_burial_watchdog",
+          "name": "Сторож захоронений Древа Эрд",
+          "icon": "images/bosses/elden/limgrave/watchdog.png"
+        },
+        {
+          "id": "beastman_farum",
+          "name": "Зверочеловек из Фарум-Азулы",
+          "icon": "images/bosses/elden/limgrave/beastman.png"
+        },
+        {
+          "id": "black_knife_assassin",
+          "name": "Убийца Чёрного Ножа",
+          "icon": "images/bosses/elden/limgrave/black_knife.png"
+        },
+        {
+          "id": "patches",
+          "name": "Лоскутик",
+          "icon": "images/bosses/elden/limgrave/patches.png"
+        }
       ]
     }
   ]
 }
-
-

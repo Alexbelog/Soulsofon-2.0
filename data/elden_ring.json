@@ -7,19 +7,63 @@
       "title": "Лимгрейв",
       "bosses": [
         {
+          "id": "tree_sentinel",
+          "name": "Древний страж древа",
+          "icon": "images/bosses/elden/limgrave/tree_sentinel.png",
+          "rank": "B"
+        },
+        {
+          "id": "agheel",
+          "name": "Летучий дракон Агиль",
+          "icon": "images/bosses/elden/limgrave/agheel.png",
+          "rank": "B"
+        },
+        {
           "id": "margit",
-          "name": "Маргит, Ужасное Предзнаменование",
-          "icon": "images/bosses/elden/limgrave/margit.png"
+          "name": "Маргит, Ужасное Знамение",
+          "icon": "images/bosses/elden/limgrave/margit.png",
+          "rank": "A"
         },
         {
           "id": "godrick",
           "name": "Годрик Сторукий",
-          "icon": "images/bosses/elden/limgrave/godrick.png"
+          "icon": "images/bosses/elden/limgrave/godrick.png",
+          "rank": "A"
         },
         {
-          "id": "tree_sentinel",
-          "name": "Древесный Страж",
-          "icon": "images/bosses/elden/limgrave/tree_sentinel.png"
+          "id": "darriwil",
+          "name": "Рыцарь-ищейка Дарривил",
+          "icon": "images/bosses/elden/limgrave/darriwil.png",
+          "rank": "B"
+        },
+        {
+          "id": "leonine",
+          "name": "Львиный бастард",
+          "icon": "images/bosses/elden/limgrave/leonine.png",
+          "rank": "C"
+        }
+      ]
+    },
+    {
+      "title": "Лиурния озёр",
+      "bosses": [
+        {
+          "id": "red_wolf",
+          "name": "Красный волк Радагона",
+          "icon": "images/bosses/elden/liurnia/red_wolf.png",
+          "rank": "B"
+        },
+        {
+          "id": "rennala",
+          "name": "Реннала, Королева Полнолуния",
+          "icon": "images/bosses/elden/liurnia/rennala.png",
+          "rank": "A"
+        },
+        {
+          "id": "loretta_caria",
+          "name": "Королевский рыцарь Лоретта",
+          "icon": "images/bosses/elden/liurnia/loretta.png",
+          "rank": "B"
         }
       ]
     },
@@ -29,12 +73,20 @@
         {
           "id": "radahn",
           "name": "Радан, Бич Звёзд",
-          "icon": "images/bosses/elden/caelid/radahn.png"
+          "icon": "images/bosses/elden/caelid/radahn.png",
+          "rank": "S"
         },
         {
           "id": "decaying_ekzykes",
           "name": "Гниющий Экзикес",
-          "icon": "images/bosses/elden/caelid/ekzykes.png"
+          "icon": "images/bosses/elden/caelid/ekzykes.png",
+          "rank": "B"
+        },
+        {
+          "id": "oneil",
+          "name": "Командир О’Нил",
+          "icon": "images/bosses/elden/caelid/oneil.png",
+          "rank": "B"
         }
       ]
     },
@@ -43,8 +95,26 @@
       "bosses": [
         {
           "id": "draconic_tree_sentinel",
-          "name": "Драконий Древесный Страж",
-          "icon": "images/bosses/elden/altus/draconic_tree_sentinel.png"
+          "name": "Драконий страж древа",
+          "icon": "images/bosses/elden/altus/draconic_tree_sentinel.png",
+          "rank": "A"
+        },
+        {
+          "id": "elemer",
+          "name": "Элемер из Вереска",
+          "icon": "images/bosses/elden/altus/elemer.png",
+          "rank": "B"
+        }
+      ]
+    },
+    {
+      "title": "Гора Гельмир",
+      "bosses": [
+        {
+          "id": "rykard",
+          "name": "Рикард, Повелитель Богохульства",
+          "icon": "images/bosses/elden/gelmir/rykard.png",
+          "rank": "A"
         }
       ]
     },
@@ -52,14 +122,22 @@
       "title": "Лейнделл, Столица",
       "bosses": [
         {
-          "id": "godfrey",
-          "name": "Годфри, Первый Лорд Элдена",
-          "icon": "images/bosses/elden/leyndell/godfrey.png"
-        },
-        {
           "id": "morgott",
           "name": "Морготт, Король Знамений",
-          "icon": "images/bosses/elden/leyndell/morgott.png"
+          "icon": "images/bosses/elden/leyndell/morgott.png",
+          "rank": "S"
+        },
+        {
+          "id": "godfrey_shade",
+          "name": "Годфри, Первый Повелитель Элдена (Тень)",
+          "icon": "images/bosses/elden/leyndell/godfrey_shade.png",
+          "rank": "B"
+        },
+        {
+          "id": "mohg_omen",
+          "name": "Мог, Знамение",
+          "icon": "images/bosses/elden/leyndell/mohg_omen.png",
+          "rank": "B"
         }
       ]
     },
@@ -68,18 +146,9 @@
       "bosses": [
         {
           "id": "fire_giant",
-          "name": "Огненный Великан",
-          "icon": "images/bosses/elden/mountains/fire_giant.png"
-        }
-      ]
-    },
-    {
-      "title": "Халигтри Микеллы",
-      "bosses": [
-        {
-          "id": "malenia",
-          "name": "Маления, Клинок Микеллы",
-          "icon": "images/bosses/elden/haligtree/malenia.png"
+          "name": "Огненный великан",
+          "icon": "images/bosses/elden/mountaintops/fire_giant.png",
+          "rank": "A"
         }
       ]
     },
@@ -87,20 +156,81 @@
       "title": "Фарум-Азула",
       "bosses": [
         {
-          "id": "maliketh",
-          "name": "Маликет, Чёрный Клинок",
-          "icon": "images/bosses/elden/farum_azula/maliketh.png"
+          "id": "godskin_duo",
+          "name": "Дуэт Богошкуров",
+          "icon": "images/bosses/elden/farum/godskin_duo.png",
+          "rank": "A"
         },
         {
-          "id": "placidusax",
-          "name": "Пласидусакс, Повелитель Драконов",
-          "icon": "images/bosses/elden/farum_azula/placidusax.png"
+          "id": "maliketh",
+          "name": "Маликет, Чёрный клинок",
+          "icon": "images/bosses/elden/farum/maliketh.png",
+          "rank": "S"
+        }
+      ]
+    },
+    {
+      "title": "Халигтри Микеллы",
+      "bosses": [
+        {
+          "id": "loretta_haligtree",
+          "name": "Лоретта, рыцарь Халигтри",
+          "icon": "images/bosses/elden/haligtree/loretta_haligtree.png",
+          "rank": "B"
+        },
+        {
+          "id": "malenia",
+          "name": "Маления, Клинок Микеллы",
+          "icon": "images/bosses/elden/haligtree/malenia.png",
+          "rank": "S"
+        }
+      ]
+    },
+    {
+      "title": "Подземелья Междуземья",
+      "bosses": [
+        {
+          "id": "astel",
+          "name": "Астель, Рождённый Бездной",
+          "icon": "images/bosses/elden/underground/astel.png",
+          "rank": "A"
+        },
+        {
+          "id": "mohg_lord",
+          "name": "Мог, Повелитель Крови",
+          "icon": "images/bosses/elden/underground/mohg_lord.png",
+          "rank": "A"
+        },
+        {
+          "id": "regal_ancestor",
+          "name": "Царственный дух предка",
+          "icon": "images/bosses/elden/underground/regal_ancestor.png",
+          "rank": "B"
+        }
+      ]
+    },
+    {
+      "title": "Финал",
+      "bosses": [
+        {
+          "id": "godfrey",
+          "name": "Годфри, Первый Повелитель Элдена",
+          "icon": "images/bosses/elden/final/godfrey.png",
+          "rank": "S"
+        },
+        {
+          "id": "radagon",
+          "name": "Радагон Золотого Порядка",
+          "icon": "images/bosses/elden/final/radagon.png",
+          "rank": "S"
+        },
+        {
+          "id": "elden_beast",
+          "name": "Зверь Элдена",
+          "icon": "images/bosses/elden/final/elden_beast.png",
+          "rank": "S"
         }
       ]
     }
   ]
 }
-
-
-
-
