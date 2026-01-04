@@ -1,6 +1,6 @@
 
 /* ================================
-   SOULSFON 2.0 — DARK SOULS-ish THEME
+   SOULSFON 2026 — DARK SOULS-ish THEME
    (No copyrighted assets)
 ================================== */
 
@@ -395,4 +395,50 @@ body{
 @keyframes youDiedFlicker{
   0%,100%{ filter: drop-shadow(0 0 12px rgba(170,15,15,.18)); }
   50%{ filter: drop-shadow(0 0 18px rgba(255,110,110,.25)); }
+}
+
+
+/* Topbar font boost */
+.topbar .nav-link, .topbar .auth-btn{ font-size: 16px; }
+@media (min-width: 1200px){ .topbar .nav-link, .topbar .auth-btn{ font-size: 18px; } }
+.topbar .brand .logo{ font-size: 18px; }
+@media (min-width: 1200px){ .topbar .brand .logo{ font-size: 20px; } }
+
+
+/* DS3-like new game transition */
+#fade-overlay.ds3{
+  background: radial-gradient(120% 120% at 50% 40%, rgba(255,230,170,.06) 0%, rgba(0,0,0,.85) 55%, rgba(0,0,0,.96) 100%);
+}
+#fade-overlay.ds3::before{
+  content:"";
+  position:absolute; inset:0;
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, rgba(0,0,0,0) 3px);
+  opacity:0;
+}
+#fade-overlay.ds3::after{
+  content: attr(data-text);
+  position:absolute; left:50%; top:50%; transform: translate(-50%,-50%);
+  font-family:"Cinzel","Times New Roman",serif;
+  letter-spacing:.28em;
+  text-transform: uppercase;
+  color: rgba(193,161,93,.0);
+  text-shadow: 0 0 0 rgba(193,161,93,0);
+  font-size: clamp(18px, 2.2vw, 34px);
+  opacity:0;
+}
+#fade-overlay.active.ds3{ animation: ds3Fade 900ms ease-in forwards; }
+#fade-overlay.active.ds3::before{ animation: ds3Scan 900ms ease-in forwards; }
+#fade-overlay.active.ds3::after{ animation: ds3Text 900ms ease-in forwards; }
+@keyframes ds3Fade{
+  0%{ opacity:0; filter: blur(0px); }
+  12%{ opacity:1; }
+  22%{ opacity:1; }
+  100%{ opacity:1; }
+}
+@keyframes ds3Scan{ 0%{opacity:0;} 18%{opacity:.25;} 70%{opacity:.18;} 100%{opacity:.12;} }
+@keyframes ds3Text{
+  0%{opacity:0; color: rgba(193,161,93,0); text-shadow:0 0 0 rgba(193,161,93,0);}
+  22%{opacity:1; color: rgba(193,161,93,.92); text-shadow:0 0 22px rgba(193,161,93,.28);}
+  65%{opacity:1; color: rgba(193,161,93,.82);}
+  100%{opacity:0;}
 }

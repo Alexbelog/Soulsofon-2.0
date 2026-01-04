@@ -1,4 +1,4 @@
-// Soulsfon 2.0 Achievements
+// SOULSFON 2026 Achievements
 // Names: EN (Steam/Souls vibe) | Descriptions: RU
 (() => {
   const STORE_DONE = "soulsofon_ach_done";
@@ -148,6 +148,22 @@
     return true;
   }
 
+
+  function toggleManual(id){
+    const done = loadDone();
+    if (done[id]){ delete done[id]; saveDone(done); return false; }
+    done[id] = { at: Date.now() };
+    saveDone(done);
+    return true;
+  }
+
+  function setClip(id, url){
+    const done = loadDone();
+    done[id] = done[id] || { at: Date.now() };
+    done[id].clip = url;
+    saveDone(done);
+  }
+
   function checkAuto(){
     const done = loadDone();
     const ctx = computeStats();
@@ -162,13 +178,22 @@
     }
   }
 
+  function updateCount(){
+    const done = loadDone();
+    const total = ACH.length;
+    const completed = ACH.filter(a => !!done[a.id]).length;
+    const el = document.getElementById('ach-count');
+    if (el) el.textContent = `Выполнено ${completed} / ${total}`;
+  }
+
   function render(){
     const host = document.getElementById("ach-list");
     if (!host) return;
 
     host.innerHTML = "";
     const done = loadDone();
-    checkAuto(); // make sure UI is fresh
+    checkAuto();
+    updateCount(); // make sure UI is fresh
 
     const groups = [
       { title: "Марафон", ids: ACH.filter(a => a.id.startsWith("marathon_") || a.id.startsWith("die_") || a.id.startsWith("kills_") || a.id === "ten_bosses" || a.id === "first_try" || a.id === "no_death_boss").map(a=>a.id) },
@@ -229,12 +254,38 @@
           if (!window.SoulAuth?.isAdmin?.()) btn.disabled = true;
           btn.onclick = () => {
             if (!window.SoulAuth?.isAdmin?.()) return;
-            if (markDone(a.id)){
+            const nowDone = toggleManual(a.id);
+            if (nowDone){
               try { window.SoulUI?.toast?.("Achievement unlocked", a.name, a.img); } catch {}
-              render();
             }
+            render();
           };
           actions.appendChild(btn);
+          const clip = document.createElement('div');
+          clip.className = 'ach-clip';
+          const input = document.createElement('input');
+          input.type = 'url';
+          input.placeholder = 'Ссылка на Twitch-клип (доказательство)';
+          input.value = (done[a.id]?.clip) || '';
+          input.disabled = !window.SoulAuth?.isAdmin?.();
+          input.addEventListener('change', () => {
+            if (!window.SoulAuth?.isAdmin?.()) return;
+            setClip(a.id, input.value.trim());
+          });
+          const link = document.createElement('a');
+          link.className = 'btn mini-link';
+          link.textContent = 'Открыть';
+          link.target = '_blank';
+          link.rel = 'noopener';
+          const updateLink = () => {
+            const v = input.value.trim();
+            if (v){ link.href = v; link.style.display='inline-flex'; }
+            else { link.removeAttribute('href'); link.style.display='none'; }
+          };
+          updateLink();
+          input.addEventListener('input', updateLink);
+          clip.append(input, link);
+          actions.appendChild(clip);
         } else {
           const badge = document.createElement("div");
           badge.className = "ach-badge";
@@ -260,6 +311,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     checkAuto();
+    updateCount();
     render();
   });
 })();

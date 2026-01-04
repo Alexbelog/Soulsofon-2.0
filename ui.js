@@ -1,4 +1,4 @@
-// Soulsfon 2.0 UI helpers: transitions, toasts, YOU DIED overlay (no sound)
+// SOULSFON 2026 UI helpers: transitions, toasts, YOU DIED overlay (no sound)
 (() => {
   function ensureFadeOverlay() {
     let overlay = document.getElementById("fade-overlay");
@@ -44,12 +44,19 @@
     }, 1750);
   }
 
-  function navigateWithFade(url) {
+  function navigateWithFade(url, mode = 'fade') {
     const overlay = ensureFadeOverlay();
     overlay.classList.add("active");
+    if (mode === 'ds3') {
+      overlay.classList.add('ds3');
+      overlay.dataset.text = 'SOULSFON 2026';
+    } else {
+      overlay.classList.remove('ds3');
+      overlay.dataset.text = '';
+    }
     window.setTimeout(() => {
       window.location.href = url;
-    }, 520);
+    }, (mode === 'ds3') ? 900 : 520);
   }
 
   function toast(title, subtitle = "", iconUrl = "") {
@@ -86,6 +93,13 @@
     // Start fully dark without anim, then fade out
     overlay.style.transition = "none";
     overlay.classList.add("active");
+    if (mode === 'ds3') {
+      overlay.classList.add('ds3');
+      overlay.dataset.text = 'SOULSFON 2026';
+    } else {
+      overlay.classList.remove('ds3');
+      overlay.dataset.text = '';
+    }
     // force reflow
     void overlay.offsetHeight;
     overlay.style.transition = "opacity .52s ease";
@@ -100,7 +114,7 @@
       // allow new tab / external
       if (a.target === "_blank" || href.startsWith("http") || href.startsWith("mailto:")) return;
       e.preventDefault();
-      navigateWithFade(href);
+      navigateWithFade(href, (a.id === 'startBtn' && document.body.classList.contains('index-page')) ? 'ds3' : 'fade');
     });
   });
 

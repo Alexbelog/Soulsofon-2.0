@@ -1,4 +1,4 @@
-/* Soulsfon 2.0 Stats — Dark Souls-ish UI */
+/* SOULSFON 2026 Stats — Dark Souls-ish UI */
 
 body{
   margin:0;
@@ -243,19 +243,19 @@ body{
 }
 
 .boss-name{
-  font-size: 16px;
+  font-size: 13px;
   letter-spacing:.06em;
   white-space: nowrap;
   overflow:hidden;
   text-overflow: ellipsis;
 }
 .boss-rank{
-  font-size: 13px;
+  font-size: 28px;
   color: var(--ash);
   letter-spacing:.12em;
   cursor:pointer;
   user-select:none;
-  padding: 8px 10px;
+  padding: 6px 10px;
   border-radius: 14px;
   border:1px solid rgba(255,255,255,.10);
   background: rgba(0,0,0,.25);
@@ -562,9 +562,9 @@ body{
 
 /* ===== Boss cards (TCG-style, 2 columns desktop) ===== */
 .boss-grid{
-  --cardW: clamp(240px, 17.5vw, 310px);
+  --cardW: clamp(170px, 11.2vw, 230px);
   display:grid;
-  grid-template-columns: repeat(3, minmax(var(--cardW), 1fr));
+  grid-template-columns: repeat(5, minmax(var(--cardW), 1fr));
   justify-items: center;
   gap:16px;
   margin-top: 12px;
@@ -712,7 +712,7 @@ body{
   color: var(--ember);
   font-family: var(--font-head);
   font-size: 16px;
-  padding:8px 10px;
+  padding: 6px 10px;
 }
 
 .boss-kill{
@@ -748,3 +748,10 @@ body{
   letter-spacing:.08em;
 }
 .map-btn:hover{ transform: translateY(-1px); border-color: rgba(213,162,58,.55); }
+
+
+/* Responsive boss grid columns */
+@media (max-width: 1700px){ .boss-grid{ grid-template-columns: repeat(4, minmax(var(--cardW), 1fr)); } }
+@media (max-width: 1400px){ .boss-grid{ grid-template-columns: repeat(3, minmax(var(--cardW), 1fr)); } }
+@media (max-width: 1100px){ .boss-grid{ grid-template-columns: repeat(2, minmax(var(--cardW), 1fr)); } }
+@media (max-width: 700px){ .boss-grid{ grid-template-columns: 1fr; --cardW: min(92vw, 360px); } }
