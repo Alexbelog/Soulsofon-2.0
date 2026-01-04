@@ -434,8 +434,8 @@ body{
   font-weight:700;
   font-size:18px;
 }
-.boss-imgWrap{grid-area:img; position:relative; overflow:hidden; border-radius:16px; border:1px solid rgba(255,255,255,.10);}
-.boss-img{width:100%; height: 260px; object-fit:cover; display:block; filter: contrast(1.05) saturate(1.04);}
+.boss-imgWrap{ position:relative; overflow:hidden; border-radius:16px; border:1px solid rgba(255,255,255,.10); flex:1; min-height:0; aspect-ratio: 3 / 4; display:block; }
+.boss-img{width:100%; height:100%; object-fit:contain; object-position:center; display:block; filter: contrast(1.05) saturate(1.04);}
 .boss-controls{grid-area:controls; display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start;}
 .stat-wrap.stat-box{
   border:1px solid rgba(255,255,255,.10);
@@ -562,30 +562,31 @@ body{
 
 /* ===== Boss cards (TCG-style, 2 columns desktop) ===== */
 .boss-grid{
+  --cardW: clamp(240px, 17.5vw, 310px);
   display:grid;
-  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, minmax(var(--cardW), 1fr));
+  justify-items: center;
   gap:16px;
   margin-top: 12px;
 }
 
-@media (max-width: 1200px){
-  .boss-grid{ grid-template-columns: repeat(2, minmax(280px, 1fr)); }
+@media (max-width: 1180px){
+  .boss-grid{ grid-template-columns: repeat(2, minmax(var(--cardW), 1fr)); }
 }
-
-@media (max-width: 860px){
+@media (max-width: 760px){
   .boss-grid{ grid-template-columns: 1fr; }
+  .boss-grid{ --cardW: min(92vw, 360px); }
 }
-
 .boss-card{
-  /* Trading-card-ish proportions: 88x63mm (ratio only, scaled for screen) */
-  max-width: none;
-  width: 100%;
+  /* Trading-card proportions close to 63×88mm (portrait). */
+  width: var(--cardW);
+  max-width: var(--cardW);
+  height: calc(var(--cardW) * 1.397);
   display:flex;
   flex-direction:column;
   gap:10px;
   padding: 14px;
   border-radius: 18px;
-  border:1px solid rgba(255,255,255,.10);
   background:
     radial-gradient(520px 220px at 20% 0%, rgba(213,162,58,.10), transparent 60%),
     linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));

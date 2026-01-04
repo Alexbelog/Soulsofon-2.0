@@ -24,8 +24,10 @@
       ydText.id = "you-died";
       ydText.className = "you-died hidden";
       ydText.textContent = "YOU DIED";
+      ydText.setAttribute("data-text","YOU DIED");
       document.body.appendChild(ydText);
     }
+    try { ydText && ydText.setAttribute && ydText.setAttribute('data-text', ydText.textContent || 'YOU DIED'); } catch {}
     return { ydOverlay, ydText };
   }
 

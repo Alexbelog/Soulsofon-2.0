@@ -309,7 +309,9 @@ body{
 #you-died-overlay{
   position:fixed;
   inset:0;
-  background: radial-gradient(circle at 50% 45%, rgba(110,10,10,.28), rgba(0,0,0,.82));
+  background:
+    radial-gradient(circle at 50% 45%, rgba(110,10,10,.30), rgba(0,0,0,.86)),
+    repeating-linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.03) 1px, rgba(0,0,0,0) 3px, rgba(0,0,0,0) 6px);
   opacity:0;
   pointer-events:none;
   z-index:9997;
@@ -317,14 +319,67 @@ body{
 }
 #you-died-overlay.active{ opacity:1; }
 
+#you-died{
+  position:fixed;
+  left:50%;
+  top:48%;
+  transform: translate(-50%, -50%);
+  z-index:9998;
+  font-family:"Cinzel","Cormorant Garamond","Times New Roman",serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size: clamp(54px, 6.4vw, 104px);
+  color: rgba(170, 15, 15, .92);
+  text-shadow:
+    0 0 18px rgba(170,15,15,.22),
+    0 0 42px rgba(170,15,15,.18),
+    0 10px 28px rgba(0,0,0,.55);
+  filter: drop-shadow(0 0 12px rgba(170,15,15,.18));
+  pointer-events:none;
+  user-select:none;
+  white-space:nowrap;
+}
+
+#you-died::before,
+#you-died::after{
+  content: attr(data-text);
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  opacity:.55;
+}
+#you-died::before{
+  transform: translate(-2px, 0);
+  color: rgba(255,90,90,.60);
+  filter: blur(.6px);
+  mix-blend-mode: screen;
+}
+#you-died::after{
+  transform: translate(2px, 0);
+  color: rgba(120,0,0,.55);
+  filter: blur(.6px);
+  mix-blend-mode: multiply;
+}
+
 .you-died.you-died-show{
   animation: youDiedInOut 1.7s ease forwards;
 }
 @keyframes youDiedInOut{
   0%{ opacity:0; transform:translate(-50%,-50%) scale(.96); filter: blur(1px); }
-  12%{ opacity:1; transform:translate(-50%,-50%) scale(1.02); filter: blur(0); }
+  10%{ opacity:1; transform:translate(-50%,-50%) scale(1.03); filter: blur(0); }
+  14%{ transform:translate(calc(-50% - 2px), calc(-50% + 1px)) scale(1.03); }
+  18%{ transform:translate(calc(-50% + 2px), calc(-50% - 1px)) scale(1.02); }
+  22%{ transform:translate(calc(-50% - 1px), calc(-50% - 1px)) scale(1.02); }
+  26%{ transform:translate(calc(-50% + 1px), calc(-50% + 1px)) scale(1.01); }
+  32%{ transform:translate(-50%,-50%) scale(1.01); }
   70%{ opacity:1; transform:translate(-50%,-50%) scale(1.00); }
-  100%{ opacity:0; transform:translate(-50%,-50%) scale(1.04); filter: blur(1px); }
+  82%{ transform:translate(calc(-50% + 1px), calc(-50% + 1px)) scale(1.01); }
+  88%{ transform:translate(calc(-50% - 1px), calc(-50% - 1px)) scale(1.02); }
+  100%{ opacity:0; transform:translate(-50%,-50%) scale(1.05); filter: blur(1px); }
 }
 
 
@@ -332,3 +387,12 @@ body{
 .admin-fab{position:fixed;top:14px;right:14px;z-index:80;padding:10px 12px;border-radius:12px;border:1px solid rgba(213,162,58,.35);background:rgba(0,0,0,.28);color:var(--ember);font-family:inherit;cursor:pointer;backdrop-filter: blur(8px);} 
 .admin-fab:hover{filter:brightness(1.08);}
 .admin-link.btn-sm{margin-left:auto;}
+
+/* Extra souls-ish flicker */
+.you-died.you-died-show{
+  animation: youDiedInOut 1.7s ease forwards, youDiedFlicker .18s linear 0.08s 8;
+}
+@keyframes youDiedFlicker{
+  0%,100%{ filter: drop-shadow(0 0 12px rgba(170,15,15,.18)); }
+  50%{ filter: drop-shadow(0 0 18px rgba(255,110,110,.25)); }
+}
