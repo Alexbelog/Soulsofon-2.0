@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0c0c0c"/>
+      <stop offset="1" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="640" height="360" fill="url(#g)"/>
+  <g opacity="0.12">
+    <path d="M0 290 C120 260 200 320 320 295 C440 270 520 250 640 275 L640 360 L0 360 Z" fill="#000"/>
+  </g>
+  <g filter="url(#glow)">
+    <text x="50%" y="45%" text-anchor="middle" font-family="Cinzel, serif" font-size="34" fill="#c9a85b">SOULSFON</text>
+    <text x="50%" y="58%" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="22" fill="#8f7a45">Нет изображения босса</text>
+  </g>
+  <g opacity="0.08" fill="#c9a85b">
+    <circle cx="120" cy="110" r="2"/>
+    <circle cx="520" cy="90" r="2"/>
+    <circle cx="420" cy="210" r="2"/>
+    <circle cx="260" cy="250" r="2"/>
+  </g>
+</svg>
