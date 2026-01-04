@@ -1,0 +1,298 @@
+
+/* ================================
+   SOULSOFON — DARK SOULS-ish THEME
+   (No copyrighted assets)
+================================== */
+
+:root{
+  --bg0:#050505;
+  --bg1:#0b0b0b;
+  --bg2:#121212;
+  --ink:#e8e4db;
+  --muted:#b8b2a6;
+  --ash:#7e776c;
+  --line:rgba(255,255,255,.10);
+  --ember:#d5a23a;
+  --blood:#a10f0f;
+  --blood2:#5f0707;
+  --glow:rgba(213,162,58,.38);
+  --glow2:rgba(161,15,15,.35);
+  --radius:18px;
+  --shadow: 0 18px 55px rgba(0,0,0,.55);
+}
+
+*{ box-sizing:border-box; }
+
+html, body{
+  height:100%;
+}
+
+body{
+  margin:0;
+  color:var(--ink);
+  font-family: "Cinzel", "Cormorant Garamond", "Times New Roman", serif;
+  background:
+    radial-gradient(1200px 600px at 65% 20%, rgba(161,15,15,.16), transparent 60%),
+    radial-gradient(900px 520px at 20% 10%, rgba(213,162,58,.10), transparent 55%),
+    radial-gradient(600px 600px at 50% 65%, rgba(255,255,255,.03), transparent 70%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+  overflow-x:hidden;
+}
+
+/* ===== FONTS (loaded via <link>) ===== */
+.soul-subtitle{
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  letter-spacing:.04em;
+}
+
+/* ===== PAGE FADE OVERLAY ===== */
+#fade-overlay{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(1200px 800px at 50% 35%, rgba(0,0,0,.55), rgba(0,0,0,.86)),
+    linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.85));
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .52s ease;
+  z-index:9999;
+}
+#fade-overlay.ready{ opacity:0; }
+#fade-overlay.active{ opacity:1; }
+
+/* ===== SUBTLE EMBERS (CSS-only) ===== */
+.embers{
+  position:fixed;
+  inset:-20vh -10vw;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+  opacity:.45;
+  filter: blur(.2px);
+}
+.embers i{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background: radial-gradient(circle, var(--ember), transparent 65%);
+  box-shadow: 0 0 18px rgba(213,162,58,.55);
+  border-radius:999px;
+  animation: emberFloat linear infinite;
+}
+@keyframes emberFloat{
+  from{ transform: translateY(120vh) translateX(0) scale(.8); opacity:0; }
+  8%{ opacity:.9; }
+  90%{ opacity:.25; }
+  to{ transform: translateY(-30vh) translateX(80px) scale(1.4); opacity:0; }
+}
+
+/* ===== COMMON BUTTONS ===== */
+.btn, a.btn, button.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.6rem;
+  padding:14px 18px;
+  border-radius:999px;
+  color:var(--ink);
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.16);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  backdrop-filter: blur(6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
+  cursor:pointer;
+  user-select:none;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(213,162,58,.50);
+  box-shadow: 0 18px 40px rgba(0,0,0,.45), 0 0 18px var(--glow);
+}
+.btn:active{ transform: translateY(0px) scale(.99); }
+
+/* ===== TOGGLE PILL (sound) ===== */
+.toggle-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+  color:var(--muted);
+  cursor:pointer;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.toggle-pill:hover{
+  border-color: rgba(213,162,58,.45);
+  box-shadow: 0 0 18px rgba(213,162,58,.18);
+  transform: translateY(-1px);
+}
+.toggle-pill .dot{
+  width:10px;height:10px;border-radius:999px;
+  background: rgba(255,255,255,.20);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.14);
+}
+.toggle-pill .dot.on{
+  background: radial-gradient(circle, var(--ember), rgba(213,162,58,.2));
+  box-shadow: 0 0 14px rgba(213,162,58,.45);
+}
+.toggle-pill .sep{
+  width:1px;height:16px;background: rgba(255,255,255,.12);
+}
+
+/* ===== TOP NAV ===== */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 20px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.28);
+  backdrop-filter: blur(10px);
+}
+.brand{
+  display:flex;
+  align-items:baseline;
+  gap:.7rem;
+}
+.brand .logo{
+  letter-spacing:.18em;
+  font-size:18px;
+  color:var(--ember);
+  text-shadow: 0 0 18px rgba(213,162,58,.20);
+}
+.brand .tag{
+  color:var(--ash);
+  font-size:14px;
+}
+.nav{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.nav a.nav-link{
+  padding:10px 14px;
+  border-radius:999px;
+  color:var(--muted);
+  text-decoration:none;
+  border:1px solid transparent;
+  transition: border-color .18s ease, color .18s ease, background .18s ease, transform .18s ease;
+}
+.nav a.nav-link:hover{
+  color:var(--ink);
+  border-color: rgba(213,162,58,.28);
+  background: rgba(213,162,58,.08);
+  transform: translateY(-1px);
+}
+
+/* ===== CARDS ===== */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.10);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ===== SMALL UTIL ===== */
+.muted{ color:var(--muted); }
+.small{ font-size: 13px; color:var(--ash); }
+
+
+
+/* ===== Toast (Steam/Souls-style) ===== */
+#toast-host{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  pointer-events:none;
+}
+.toast{
+  width:min(420px, calc(100vw - 36px));
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:12px 14px;
+  border:1px solid rgba(214,186,122,.22);
+  background: linear-gradient(180deg, rgba(22,18,12,.92), rgba(10,8,6,.92));
+  border-radius:14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.55);
+  transform: translateY(12px);
+  opacity:0;
+  filter: blur(.3px);
+}
+.toast.show{ animation: toastIn .36s ease forwards; }
+.toast.hide{ animation: toastOut .34s ease forwards; }
+
+.toast-icon{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid rgba(214,186,122,.25);
+  background: radial-gradient(circle at 35% 30%, rgba(214,186,122,.22), rgba(0,0,0,0));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  color: rgba(214,186,122,.95);
+  text-shadow: 0 0 18px rgba(214,186,122,.25);
+  flex:0 0 auto;
+}
+.toast-tag{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color: rgba(214,186,122,.75);
+}
+.toast-title{
+  font-size:16px;
+  font-weight:700;
+  margin-top:2px;
+}
+.toast-desc{
+  margin-top:4px;
+  font-size:13px;
+  color: rgba(255,255,255,.72);
+  line-height:1.25;
+}
+
+@keyframes toastIn{
+  from{ transform: translateY(12px); opacity:0; }
+  to{ transform: translateY(0); opacity:1; }
+}
+@keyframes toastOut{
+  from{ transform: translateY(0); opacity:1; }
+  to{ transform: translateY(10px); opacity:0; }
+}
+
+/* ===== YOU DIED: overlay hit ===== */
+#you-died-overlay{
+  position:fixed;
+  inset:0;
+  background: radial-gradient(circle at 50% 45%, rgba(110,10,10,.28), rgba(0,0,0,.82));
+  opacity:0;
+  pointer-events:none;
+  z-index:9997;
+  transition: opacity .18s ease;
+}
+#you-died-overlay.active{ opacity:1; }
+
+.you-died.you-died-show{
+  animation: youDiedInOut 1.7s ease forwards;
+}
+@keyframes youDiedInOut{
+  0%{ opacity:0; transform:translate(-50%,-50%) scale(.96); filter: blur(1px); }
+  12%{ opacity:1; transform:translate(-50%,-50%) scale(1.02); filter: blur(0); }
+  70%{ opacity:1; transform:translate(-50%,-50%) scale(1.00); }
+  100%{ opacity:0; transform:translate(-50%,-50%) scale(1.04); filter: blur(1px); }
+}

@@ -1,395 +1,387 @@
-/* ===== BASE ===== */
 
-body {
-  margin: 0;
-  background: radial-gradient(circle at top, #111 0%, #000 60%);
-  color: #ddd;
-  font-family: "Times New Roman", serif;
+/* Soulsofon Stats — Dark Souls-ish UI */
+
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:"Cinzel","Cormorant Garamond","Times New Roman",serif;
 }
 
-#layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  min-height: 100vh;
+#layout{
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  min-height: calc(100vh - 60px);
 }
 
-/* ===== GAME LIST ===== */
-
-#game-list {
-  background: linear-gradient(#000000, #000);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  border-right: 1px solid #400;
+/* ===== LEFT GAME NAV ===== */
+#game-list{
+  position:sticky;
+  top:62px;
+  height: calc(100vh - 62px);
+  overflow:auto;
+  padding:16px 14px 18px;
+  border-right:1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.12));
+  backdrop-filter: blur(10px);
 }
 
-.game-btn {
-  height: 120px;              /* было меньше — из-за этого резало */
-  padding: 0;
-  overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: linear-gradient(#7a0000, #3a0000);
-  border: 1px solid #aa0000;
-  cursor: pointer;
+#game-list::-webkit-scrollbar{ width:10px; }
+#game-list::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.10);
+  border-radius: 999px;
+  border:2px solid rgba(0,0,0,.35);
 }
 
-.game-btn img {
-  max-width: 100%;
-  max-height: 100%;
-
-  width: auto;
-  height: auto;
-
-  object-fit: contain;        /* ❗ ГЛАВНОЕ */
-  filter: drop-shadow(0 0 8px black);
-  pointer-events: none;
-}
-
-.game-btn:hover {
-  background: #aa0000;
-}
-
-/* ===== CONTENT ===== */
-
-#content {
-  padding: 24px 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-
-/* ===== BANNER ===== */
-
-.game-banner {
-  width: 100%;
-  max-height: 280px;
-  object-fit: cover;
-  border: 1px solid #300;
+.game-btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 12px;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(300px 90px at 20% 0%, rgba(213,162,58,.12), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: 0 12px 32px rgba(0,0,0,.45);
+  cursor:pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, filter .18s ease;
   margin-bottom: 12px;
-  display: block;
+}
+.game-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(213,162,58,.38);
+  box-shadow: 0 18px 44px rgba(0,0,0,.55), 0 0 18px rgba(213,162,58,.12);
+}
+.game-btn.active{
+  border-color: rgba(213,162,58,.65);
+  box-shadow: 0 20px 55px rgba(0,0,0,.65), 0 0 30px rgba(213,162,58,.18);
+  filter: brightness(1.06);
+}
+.game-btn .thumb{
+  width:74px;
+  height:42px;
+  border-radius: 12px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.35);
+  flex: 0 0 auto;
+}
+.game-btn .thumb img{
+  width:100%; height:100%;
+  object-fit: cover;
+  filter: contrast(1.05) brightness(.95);
+}
+.game-btn .meta{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:2px;
+  min-width:0;
+}
+.game-btn .title{
+  font-size: 16px;
+  letter-spacing: .08em;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.game-btn .sub{
+  font-size: 12px;
+  color: var(--ash);
+  letter-spacing: .06em;
 }
 
-/* ===== DEATH COUNTERS (СТАБИЛЬНО ПОД БАННЕРОМ) ===== */
-
-#death-summary {
-  display: flex;
-  justify-content: center;
-  gap: 64px;
-  margin-bottom: 24px;
-
-  background: rgba(0,0,0,0.6);
-  border: 1px solid #400;
-  padding: 14px 24px;
-
-  position: relative;
-  z-index: 5; /* ВЫШЕ БАННЕРА */
+/* ===== BACK BUTTON ===== */
+.back-btn{
+  position: fixed;
+  left: 14px;
+  bottom: 14px;
+  z-index: 6;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.35);
+  color: var(--muted);
+  cursor:pointer;
+  backdrop-filter: blur(8px);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, color .18s ease;
+}
+.back-btn:hover{
+  transform: translateY(-1px);
+  color: var(--ink);
+  border-color: rgba(213,162,58,.35);
+  box-shadow: 0 0 18px rgba(213,162,58,.10);
 }
 
-.death-box {
-  text-align: center;
+/* ===== MAIN CONTENT ===== */
+#content{
+  padding: 18px 22px 32px;
+  position:relative;
+  z-index:1;
 }
 
-.death-label {
-  font-size: 14px;
-  color: #aaa;
+.game-banner{
+  width:100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 22px;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 22px 70px rgba(0,0,0,.6);
+  margin-bottom: 16px;
+  filter: contrast(1.08) brightness(.95);
 }
 
-.death-value {
-  font-size: 36px;
-  color: darkred;
-  text-shadow: 0 0 10px black;
-}
-
-.death-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.death-controls button {
-  width: 34px;
-  height: 34px;
-  background: linear-gradient(#500, #200);
-  border: 1px solid #700;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.death-controls button:hover {
-  background: #900;
-}
-
-/* ===== PROGRESS ===== */
-
-#progress-bar {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 28px;
-  font-size: 22px;
-  color: #b30000;
-}
-
-/* ===== SECTIONS ===== */
-
-.boss-section {
-  margin-bottom: 40px;
-}
-
-.boss-section h2 {
-  font-size: 28px;
-  border-bottom: 1px solid #400;
-  padding-bottom: 6px;
+/* ===== STATS PANEL ===== */
+.stats-panel{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:12px;
   margin-bottom: 16px;
 }
 
-/* ===== BOSS ROW (ИСПРАВЛЕННАЯ СЕТКА) ===== */
-
-.boss-row {
-  position: relative;
-  display: grid;
-
-  /* rank | icon | name | try | death | kill */
-  grid-template-columns: 60px 64px 1fr 120px 120px 90px;
-
-  align-items: center;
-  gap: 12px;
-  padding: 10px 6px;
-  border-bottom: 1px solid #1f0000;
+.stat-box{
+  padding: 14px 16px;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.10);
+  background: linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.05));
+  backdrop-filter: blur(8px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.45);
 }
-
-.boss-row.killed {
-  opacity: 0.45;
-  text-decoration: line-through;
-}
-
-.boss-row.killed::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #8b0000;
-}
-
-/* ===== RANK ===== */
-
-.boss-rank {
-  font-size: 48px;
-  text-align: center;
-  user-select: none;
-}
-
-.rank-S { color: darkred; }
-.rank-A { color: orange; }
-.rank-B { color: gold; }
-.rank-C { color: #3fa93f; }
-.rank-- { color: #777; }
-
-/* ===== ICON ===== */
-
-.boss-icon {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 6px black);
-  transition: transform 0.2s ease, filter 0.2s ease;
-  cursor: pointer;
-}
-
-.boss-icon:hover {
-  transform: scale(3);
-  filter: drop-shadow(0 0 10px #8b0000);
-  z-index: 10;
-}
-
-/* ===== NAME ===== */
-
-.boss-name {
-  font-size: 18px;
-  white-space: nowrap;
-}
-
-/* ===== STATS ===== */
-
-.stat-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.stat-wrap input {
-  width: 64px;
-  background: #000;
-  color: #fff;
-  border: 1px solid #400;
-  text-align: center;
-}
-
-.stat-label {
+.stat-label{
   font-size: 12px;
-  color: #888;
-  margin-top: 4px;
+  color: var(--ash);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.stat-value{
+  margin-top: 6px;
+  font-size: 28px;
+  letter-spacing: .06em;
+  color: var(--ember);
+  text-shadow: 0 0 14px rgba(213,162,58,.15);
 }
 
-/* ===== BUTTONS ===== */
+/* ===== PROGRESS BAR ===== */
+.progress-wrap{
+  margin: 10px 0 14px;
+}
+.progress-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.progress-rail{
+  height: 12px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.35);
+  overflow:hidden;
+  margin-top: 8px;
+}
+.progress-fill{
+  height:100%;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(161,15,15,.55), rgba(213,162,58,.85));
+  box-shadow: 0 0 24px rgba(213,162,58,.22);
+  transition: width .4s ease;
+}
 
-.kill-btn,
-.back-btn {
-  background: linear-gradient(#7a0000, #3a0000);
-  color: #fff;
-  border: 1px solid #aa0000;
-  padding: 8px 16px;
-  cursor: pointer;
+/* ===== BOSSES ===== */
+.boss-section{
+  margin-top: 18px;
+}
+
+.section-title{
+  margin: 18px 0 10px;
+  font-size: 18px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.section-title::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background: linear-gradient(90deg, rgba(213,162,58,.35), transparent);
+}
+
+.boss-row{
+  display:grid;
+  grid-template-columns: 72px 1fr 140px 160px;
+  gap:10px;
+  align-items:center;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(420px 120px at 15% 0%, rgba(213,162,58,.10), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  box-shadow: 0 12px 34px rgba(0,0,0,.48);
+  margin-bottom: 10px;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.boss-row:hover{
+  transform: translateY(-1px);
+  border-color: rgba(213,162,58,.30);
+  box-shadow: 0 18px 44px rgba(0,0,0,.55), 0 0 18px rgba(213,162,58,.10);
+}
+.boss-row.killed{
+  opacity:.85;
+  filter: grayscale(.25);
+}
+.boss-row.killed .boss-name{
+  text-decoration: line-through;
+  color: rgba(232,228,219,.75);
+}
+
+.boss-name{
   font-size: 16px;
-  letter-spacing: 2px;
+  letter-spacing:.06em;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.boss-rank{
+  font-size: 13px;
+  color: var(--ash);
+  letter-spacing:.12em;
+  cursor:pointer;
+  user-select:none;
+  padding: 8px 10px;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.25);
+  text-align:center;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.boss-rank:hover{
+  border-color: rgba(213,162,58,.35);
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px rgba(213,162,58,.12);
 }
 
-.kill-btn:hover,
-.back-btn:hover {
-  background: #aa0000;
+.rank-S{ color: #ffd58a; }
+.rank-A{ color: #ffbf6a; }
+.rank-B{ color: #e8e4db; }
+.rank-C{ color: #b8b2a6; }
+.rank--{ color: rgba(184,178,166,.75); }
+
+.boss-btns{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
 }
 
-/* ===== BACK ===== */
+.boss-btns button{
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.35);
+  color: var(--ink);
+  cursor:pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.boss-btns button:hover{
+  transform: translateY(-1px);
+  border-color: rgba(213,162,58,.35);
+  box-shadow: 0 0 16px rgba(213,162,58,.10);
+}
+.boss-btns button:active{ transform: translateY(0) scale(.99); }
 
-.back-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 1000;
+.death-controls{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:8px;
+}
+.death-num{
+  min-width: 42px;
+  text-align:center;
+  font-size: 18px;
+  color: var(--ember);
+  text-shadow: 0 0 12px rgba(213,162,58,.12);
+}
+.death-controls button{
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.35);
+  color: var(--ink);
+  cursor:pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.death-controls button:hover{
+  transform: translateY(-1px);
+  border-color: rgba(161,15,15,.45);
+  box-shadow: 0 0 16px rgba(161,15,15,.12);
 }
 
 /* ===== YOU DIED ===== */
+.you-died{
+  position:fixed;
+  left:50%;
+  top:48%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  letter-spacing: .20em;
+  color: rgba(161,15,15,.95);
+  text-shadow: 0 0 22px rgba(161,15,15,.35), 0 0 80px rgba(0,0,0,.8);
+  z-index: 9998;
+  pointer-events:none;
+}
+.you-died.hidden{ display:none; }
 
-.you-died {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  color: #b30000;
-  font-size: 96px;
-  letter-spacing: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3000;
+
+.pulse{ animation: pulse .28s ease; }
+@keyframes pulse{ from{transform:scale(1);} 50%{transform:scale(1.06);} to{transform:scale(1);} }
+
+/* small link inside stat boxes */
+.mini-link{
+  display:inline-block;
+  margin-top:10px;
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color: rgba(214,186,122,.85);
+  text-decoration:none;
+  border-bottom:1px solid rgba(214,186,122,.25);
+  transition: transform .18s ease, opacity .18s ease, border-color .18s ease;
+}
+.mini-link:hover{
+  transform: translateY(-1px);
+  border-color: rgba(214,186,122,.55);
 }
 
-.hidden {
-  display: none;
+/* boss-bound achievement chips */
+.boss-ach{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:flex-end;
 }
-
-/* ===== FADE ===== */
-
-.fade-overlay {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  z-index: 4000;
-  pointer-events: none;
+.ach-chip{
+  pointer-events:auto;
+  cursor:pointer;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(214,186,122,.25);
+  background: rgba(20,16,11,.55);
+  color: rgba(255,255,255,.78);
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition: transform .18s ease, border-color .18s ease, opacity .18s ease;
 }
-
-.fade-overlay.active {
-  opacity: 1;
-  pointer-events: all;
+.ach-chip:hover{
+  transform: translateY(-1px);
+  border-color: rgba(214,186,122,.55);
 }
-.death-value {
-  font-size: 36px;
-  color: darkred;
-  text-shadow: 0 0 10px black;
-  transition: transform 0.25s ease, text-shadow 0.25s ease;
-}
-
-@keyframes deathPulse {
-  0%   { transform: scale(1); }
-  30%  { transform: scale(1.45); }
-  60%  { transform: scale(0.95); }
-  100% { transform: scale(1); }
-}
-
-.death-value.pulse {
-  animation: deathPulse 0.4s ease-out;
-  text-shadow:
-    0 0 10px #8b0000,
-    0 0 18px #5a0000,
-    0 0 28px black;
-}
-
-/* ===== GAME LIST BANNERS (LEFT COLUMN) ===== */
-
-.banner-btn {
-  padding: 0;
-  border: 1px solid #aa0000;
-  background: linear-gradient(#7a0000, #3a0000);
-  height: 78px;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.game-banner-btn {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.85) contrast(1.1);
-  transition: all 0.25s ease;
-}
-
-.banner-btn:hover .game-banner-btn {
-  filter: brightness(1.05);
-  transform: scale(1.02);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

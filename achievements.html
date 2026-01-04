@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Soulsofon 2.0 — Achievements</title>
+  <link rel="stylesheet" href="achievements.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+  <script defer src="ui.js"></script>
+  <script defer src="achievements.js"></script>
+</head>
+<body>
+
+<div class="embers" data-embers></div>
+<div id="fade-overlay"></div>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="logo">SOULSOFON</div>
+    <div class="tag">Achievements</div>
+  </div>
+  <div class="nav">
+    <a class="nav-link" href="index.html" data-transition="fade">Index</a>
+    <a class="nav-link" href="stats.html" data-transition="fade">Stats</a>
+    <div data-sound-toggle-mount></div>
+  </div>
+</div>
+
+<main class="ach-wrap">
+  <header class="ach-head card">
+    <div>
+      <div class="ach-title">Steam-like achievements for the marathon</div>
+      <div class="muted soul-subtitle">Отмечай выполненное вручную — часть достижений считается автоматически.</div>
+    </div>
+    <div class="ach-summary">
+      <div class="muted small">Completed</div>
+      <div id="ach-summary-value" class="ach-summary-value">0 / 0</div>
+    </div>
+  </header>
+
+  <section id="ach-grid" class="ach-grid"></section>
+
+  <footer class="ach-foot muted small">
+    Подсказка: <span class="muted">ПКМ по кнопке Sound</span> — включить/выключить ambient отдельно.
+  </footer>
+</main>
+
+</body>
+</html>

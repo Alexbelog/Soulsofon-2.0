@@ -4,12 +4,23 @@
   <meta charset="UTF-8">
   <title>SOULSFON 2.0</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="transition.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+
+  <script defer src="ui.js"></script>
 </head>
 <body class="index-page">
+  <div class="embers" data-embers></div>
 
   <!-- OVERLAY ДЛЯ ЗАТЕМНЕНИЯ -->
   <div id="fade-overlay"></div>
+
+  <div class="topbar" style="position:fixed;top:0;left:0;right:0;z-index:3;">
+  <div class="brand"><div class="logo">SOULSOFON</div><div class="tag">Marathon</div></div>
+  <div class="nav"><div data-sound-toggle-mount></div></div>
+</div>
 
   <div class="landing">
 
@@ -18,8 +29,11 @@
     <div class="poster-wrapper">
       <img src="images/poster.jpg" alt="Soulsofon Marathon" class="poster">
 
-      <a href="stats.html" class="start-button" id="startBtn">
+      <a href="stats.html" class="start-button btn" id="startBtn" data-transition="fade">
         YOU DIED
+      </a>
+      <a href="achievements.html" class="btn" data-transition="fade" style="margin-top:12px;">
+        ACHIEVEMENTS
       </a>
     </div>
 
