@@ -17,15 +17,33 @@
 <div id="fade-overlay"></div>
 <div class="topbar" style="position:fixed;top:0;left:0;right:0;z-index:3;">
 <div class="brand"><div class="logo">SOULSFON 2.0</div><div class="tag">Marathon</div></div>
-<div class="nav"></div>
+<div class="topbar-right">
+  <div class="nav">
+    <a class="nav-link" data-transition="fade" href="index.html">Главная</a>
+    <a class="nav-link" data-transition="fade" href="stats.html">Статистика</a>
+    <a class="nav-link" data-transition="fade" href="achievements.html">Достижения</a>
+  </div>
+  <button class="nav-link auth-btn" id="authBtn" type="button">Авторизация</button>
+</div>
 </div>
 <div class="landing">
 <h1 class="title">Soulsfon 2.0</h1>
 <div class="poster-wrapper">
 <img alt="Soulsfon 2.0 Marathon" class="poster" src="images/hero.jpg"/>
 <a class="start-button btn" data-transition="fade" href="stats.html" id="startBtn">YOU DIED</a>
-<a class="btn" data-transition="fade" href="achievements.html" style="margin-top:12px;">ДОСТИЖЕНИЯ</a>
 </div>
 </div>
-<button class="admin-fab" id="adminBtn" type="button">Админ</button><script data-admin-init="1">(()=>{const b=document.getElementById('adminBtn');if(!b) return;const upd=()=>{if(window.SoulAuth?.isAdmin?.()){b.textContent='Выйти';}else{b.textContent='Админ';}};upd();b.onclick=()=>{if(window.SoulAuth?.isAdmin?.()) window.SoulAuth.logout(); else window.SoulAuth.login();};})();</script></body>
+<script>
+(() => {
+  const b = document.getElementById('authBtn');
+  if (!b) return;
+  const upd = () => { b.textContent = (window.SoulAuth?.isAdmin?.() ? 'Выйти' : 'Авторизация'); };
+  upd();
+  b.addEventListener('click', () => {
+    if (window.SoulAuth?.isAdmin?.()) window.SoulAuth.logout();
+    else window.SoulAuth.login();
+  });
+})();
+</script>
+</body>
 </html>

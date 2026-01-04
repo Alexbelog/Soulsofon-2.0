@@ -122,8 +122,9 @@ body{
 
 .game-banner{
   width:100%;
-  height: 200px;
+  height: 190px;
   object-fit: cover;
+  object-position: center 30%;
   border-radius: 22px;
   border:1px solid rgba(255,255,255,.10);
   box-shadow: 0 22px 70px rgba(0,0,0,.6);
@@ -550,7 +551,7 @@ body{
 /* ===== Boss cards (TCG-style, 2 columns desktop) ===== */
 .boss-grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
   gap:16px;
   margin-top: 12px;
 }
@@ -560,6 +561,9 @@ body{
 }
 
 .boss-card{
+  /* Trading-card-ish proportions: 88x63mm (ratio only, scaled for screen) */
+  max-width: 420px;
+  width: 100%;
   display:flex;
   flex-direction:column;
   gap:10px;
@@ -583,7 +587,7 @@ body{
 .boss-head{
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-start;
   gap:12px;
 }
 
@@ -597,7 +601,9 @@ body{
   color: var(--ember);
   font-family: var(--font-head);
   letter-spacing:.02em;
-  font-size: 18px;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: .10em;
   line-height:1.15;
   cursor:pointer;
   transition: transform .16s ease, border-color .16s ease, background .16s ease;
@@ -605,17 +611,32 @@ body{
 .boss-name-btn:hover{ transform: translateY(-1px); border-color: rgba(213,162,58,.35); background: rgba(0,0,0,.34); }
 
 .boss-rank{
-  min-width: 44px;
-  height: 44px;
+  min-width: 46px;
+  height: 46px;
   display:grid;
   place-items:center;
   border-radius: 14px;
-  border:1px solid rgba(213,162,58,.35);
-  color: var(--ember);
-  background: rgba(0,0,0,.30);
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.38);
   font-family: var(--font-head);
-  font-weight:700;
+  font-weight:800;
+  letter-spacing: .12em;
+  cursor: pointer;
+  user-select:none;
 }
+.boss-rank:disabled{ opacity:.55; cursor:not-allowed; }
+
+/* Tier colors + breathing */
+.tier-S{ color:#ff4b4b; border-color: rgba(255,75,75,.55); box-shadow: 0 0 20px rgba(255,75,75,.18); animation: tierBreathS 3.2s ease-in-out infinite; }
+.tier-A{ color:#ffd24a; border-color: rgba(255,210,74,.55); box-shadow: 0 0 18px rgba(255,210,74,.16); animation: tierBreathA 3.4s ease-in-out infinite; }
+.tier-B{ color:#5bbcff; border-color: rgba(91,188,255,.55); box-shadow: 0 0 18px rgba(91,188,255,.14); animation: tierBreathB 3.4s ease-in-out infinite; }
+.tier-C{ color:#53dd7a; border-color: rgba(83,221,122,.55); box-shadow: 0 0 18px rgba(83,221,122,.14); animation: tierBreathC 3.4s ease-in-out infinite; }
+.tier--{ color: rgba(255,255,255,.55); border-color: rgba(255,255,255,.16); box-shadow:none; }
+
+@keyframes tierBreathS{ 0%,100%{ filter: brightness(.95); box-shadow: 0 0 14px rgba(255,75,75,.14);} 50%{ filter: brightness(1.06); box-shadow: 0 0 28px rgba(255,75,75,.26);} }
+@keyframes tierBreathA{ 0%,100%{ filter: brightness(.95); box-shadow: 0 0 12px rgba(255,210,74,.12);} 50%{ filter: brightness(1.06); box-shadow: 0 0 26px rgba(255,210,74,.22);} }
+@keyframes tierBreathB{ 0%,100%{ filter: brightness(.95); box-shadow: 0 0 12px rgba(91,188,255,.12);} 50%{ filter: brightness(1.06); box-shadow: 0 0 26px rgba(91,188,255,.20);} }
+@keyframes tierBreathC{ 0%,100%{ filter: brightness(.95); box-shadow: 0 0 12px rgba(83,221,122,.12);} 50%{ filter: brightness(1.06); box-shadow: 0 0 26px rgba(83,221,122,.20);} }
 
 .boss-imgWrap{
   border-radius: 16px;
@@ -633,9 +654,7 @@ body{
   transition: transform .18s ease;
   will-change: transform;
 }
-.boss-imgWrap:hover .boss-img{
-  transform: scale(2.2);
-}
+/* no hover zoom (requested) */
 .boss-imgWrap::after{
   content:"";
   position:absolute;

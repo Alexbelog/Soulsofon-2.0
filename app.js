@@ -1,6 +1,6 @@
 const GAMES = [
   { id: "ds1", title: "Dark Souls I", file: "data/ds1.json" },
-  { id: "ds2", title: "Dark Souls II: Scholar of the First Sin", file: "data/ds2.json" },
+  { id: "ds2", title: "Dark Souls II", file: "data/ds2.json" },
   { id: "ds3", title: "Dark Souls III", file: "data/ds3.json" },
   { id: "bloodborne", title: "Bloodborne", file: "data/bloodborne.json" },
   { id: "sekiro", title: "Sekiro", file: "data/sekiro.json" },
@@ -352,7 +352,7 @@ function renderGame(gameData) {
 /* ===== CHESS BOSS CARD ===== */
 if ((idx % 2) === 1) row.classList.add("alt");
 
-// Header: имя + ранг
+// Header: ранг + имя
 const head = document.createElement("div");
 head.className = "boss-head";
 
@@ -365,12 +365,40 @@ nameBtn.onclick = () => {
   try { window.SoulAchievements?.openForBoss?.(gameData.id, boss.id, boss.name); } catch {}
 };
 
-const rank = document.createElement("div");
-rank.className = "boss-rank";
-rank.textContent = boss.rank || "-";
+const rankBtn = document.createElement("button");
+rankBtn.className = "boss-rank";
+rankBtn.type = "button";
 
+const RANKS = ["S","A","B","C","-"];
+const getRank = () => (state.rank || boss.rank || "-");
+const setRank = (r) => {
+  state.rank = r;
+  save();
+};
+const applyRankStyle = () => {
+  const r = getRank();
+  rankBtn.textContent = r;
+  rankBtn.classList.remove("tier-S","tier-A","tier-B","tier-C","tier--");
+  rankBtn.classList.add(`tier-${r}`);
+  rankBtn.disabled = !window.SoulAuth?.isAdmin?.();
+  rankBtn.title = window.SoulAuth?.isAdmin?.()
+    ? "Клик: сменить тир-ранг"
+    : "Тир-ранги может менять только администратор";
+};
+
+rankBtn.addEventListener("click", () => {
+  if (!window.SoulAuth?.isAdmin?.()) return;
+  const cur = getRank();
+  const idx = Math.max(0, RANKS.indexOf(cur));
+  const next = RANKS[(idx + 1) % RANKS.length];
+  setRank(next);
+  applyRankStyle();
+});
+
+applyRankStyle();
+
+head.appendChild(rankBtn);
 head.appendChild(nameBtn);
-head.appendChild(rank);
 row.appendChild(head);
 
 // Image

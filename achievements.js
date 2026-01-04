@@ -28,6 +28,22 @@
       check:({deaths}) => deaths >= 1000 },
     { id:"ten_bosses",      img:"images/achievements/ten_bosses.png",      name:"BOSS HUNTER", desc:"Убить 10 боссов в марафоне.", kind:"auto",
       check:({kills}) => kills >= 10 },
+    { id:"kills_25",        img:"images/achievements/kills_25.png",        name:"BOSS SLAYER", desc:"Убить 25 боссов за весь марафон.", kind:"auto",
+      check:({kills}) => kills >= 25 },
+    { id:"kills_50",        img:"images/achievements/kills_50.png",        name:"BOSS REAPER", desc:"Убить 50 боссов за весь марафон.", kind:"auto",
+      check:({kills}) => kills >= 50 },
+    { id:"kills_100",       img:"images/achievements/kills_100.png",       name:"HUNDREDFOLD", desc:"Убить 100 боссов за весь марафон.", kind:"auto",
+      check:({kills}) => kills >= 100 },
+    { id:"kills_150",       img:"images/achievements/kills_150.png",       name:"RECKONER", desc:"Убить 150 боссов за весь марафон.", kind:"auto",
+      check:({kills}) => kills >= 150 },
+    { id:"kills_200",       img:"images/achievements/kills_200.png",       name:"LEGEND", desc:"Убить 200 боссов за весь марафон.", kind:"auto",
+      check:({kills}) => kills >= 200 },
+    { id:"kills_all",       img:"images/achievements/kills_all.png",       name:"ABSOLUTE", desc:"Убить всех боссов марафона (полная зачистка).", kind:"auto",
+      check:({kills}) => kills >= 229 },
+    { id:"first_try",      img:"images/achievements/first_try.png",      name:"FIRST TRY", desc:"Победить любого босса с первой попытки.", kind:"auto",
+      check:({hasFirstTry}) => !!hasFirstTry },
+    { id:"no_death_boss",  img:"images/achievements/no_death_boss.png",  name:"UNTOUCHED", desc:"Победить любого босса без смертей на нём (Deaths = 0).", kind:"auto",
+      check:({hasNoDeathBoss}) => !!hasNoDeathBoss },
     { id:"marathon_finish", img:"images/achievements/marathon_finish.png", name:"THE END", desc:"Дойти до финала марафона. Последняя искра погасла.", kind:"manual" },
 
     // --- Challenges (manual) ---
@@ -41,20 +57,31 @@
     // --- Dark Souls ---
     { id:"ds1_bells",       img:"images/achievements/ds1_bells.png",       name:"RING THE BELLS", desc:"Dark Souls: пробудить зов колоколов (два колокола).", kind:"manual" },
     { id:"ds1_solaire",     img:"images/achievements/ds1_solaire.png",     name:"PRAISE THE SUN", desc:"Dark Souls: ритуально воздать славу солнцу в честь победы.", kind:"manual" },
-
+    { id:"ds1_all",         img:"images/achievements/ds1_all.png",         name:"LORDRAN CLEARED", desc:"Dark Souls: убить всех боссов игры.", kind:"auto",
+      check:({gameKills}) => (gameKills.ds1||0) >= 26 },
     { id:"ds2_curse",       img:"images/achievements/ds2_curse.png",       name:"BEARER OF THE CURSE", desc:"Dark Souls II: продолжить путь, несмотря на проклятие.", kind:"manual" },
     { id:"ds2_adp",         img:"images/achievements/ds2_adp.png",         name:"ADP BELIEVER", desc:"Dark Souls II: победить сложного босса «без сейв-скама» и отговорок.", kind:"manual" },
+    
+    { id:"ds2_all",         img:"images/achievements/ds2_all.png",         name:"DRANGLEIC CLEARED", desc:"Dark Souls II: убить всех боссов игры.", kind:"auto",
+      check:({gameKills}) => (gameKills.ds2||0) >= 41 },
 
     { id:"ds3_cinder",      img:"images/achievements/ds3_cinder.png",      name:"LORD OF CINDER", desc:"Dark Souls III: одолеть повелителей пепла и довести дело до конца.", kind:"manual" },
     { id:"ds3_dancer",      img:"images/achievements/ds3_dancer.png",      name:"DANCER DOWN", desc:"Dark Souls III: победить босса, который «ломает ритм».", kind:"manual" },
+    
+    { id:"ds3_all",         img:"images/achievements/ds3_all.png",         name:"LOTHRIC CLEARED", desc:"Dark Souls III: убить всех боссов игры.", kind:"auto",
+      check:({gameKills}) => (gameKills.ds3||0) >= 25 },
 
     // --- Bloodborne ---
     { id:"bb_pale",         img:"images/achievements/bb_pale.png",         name:"PALEBLOOD HUNT", desc:"Bloodborne: начать охоту за бледной кровью.", kind:"manual" },
     { id:"bb_visceral",     img:"images/achievements/bb_visceral.png",     name:"VISCERAL", desc:"Bloodborne: добить босса висцеральной атакой.", kind:"manual" },
+    { id:"bb_all",          img:"images/achievements/bb_all.png",          name:"THE HUNT ENDS", desc:"Bloodborne: убить всех боссов игры.", kind:"auto",
+      check:({gameKills}) => (gameKills.bloodborne||0) >= 22 },
 
     // --- Sekiro ---
     { id:"sek_shinobi",     img:"images/achievements/sek_shinobi.png",     name:"SHINOBI", desc:"Sekiro: пройти бой, полагаясь на стойкость и клинки.", kind:"manual" },
     { id:"sek_parry",       img:"images/achievements/sek_parry.png",       name:"DEFLECT MASTER", desc:"Sekiro: победить босса, делая упор на отражения (дефлекты).", kind:"manual" },
+    { id:"sek_all",         img:"images/achievements/sek_all.png",         name:"ASHINA CLEARED", desc:"Sekiro: убить всех боссов игры.", kind:"auto",
+      check:({gameKills}) => (gameKills.sekiro||0) >= 44 },
 
     // --- Elden Ring ---
     { id:"er_tarnished",    img:"images/achievements/er_tarnished.png",    name:"TARNISHED", desc:"Elden Ring: стать Междуземцем и сделать первый шаг.", kind:"auto",
@@ -63,12 +90,17 @@
     { id:"er_runebear",     img:"images/achievements/er_runebear.png",     name:"RUNE BEAR", desc:"Elden Ring: выжить и победить рунического медведя (без паники).", kind:"manual" },
     { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
 
+    { id:"er_all",          img:"images/achievements/er_all.png",          name:"THE LANDS BETWEEN", desc:"Elden Ring: убить всех боссов из списка на сайте (включая DLC). Считается по отметкам «УБИТ» в Elden Ring.", kind:"auto",
+      check:({gameKills}) => (gameKills.elden||0) >= 71 },
+
     // --- DLC ---
     { id:"dlc_shadow",      img:"images/achievements/dlc_shadow.png",      name:"SHADOW REALM", desc:"DLC: сделать первые шаги в Землях Тени.", kind:"auto",
       check:({dlcKills}) => dlcKills >= 1 },
     { id:"dlc_messmer",     img:"images/achievements/dlc_messmer.png",     name:"THE IMPALER", desc:"DLC: победить Мессмера.", kind:"manual" },
     { id:"dlc_bayle",       img:"images/achievements/dlc_bayle.png",       name:"BAYLE", desc:"DLC: победить Бэйла Ужасающего.", kind:"manual" },
     { id:"dlc_putrescent",  img:"images/achievements/dlc_putrescent.png",  name:"PUTRESCENCE", desc:"DLC: победить Putrescent Knight.", kind:"manual" },
+    { id:"dlc_all",         img:"images/achievements/dlc_all.png",         name:"SHADOW CLEARED", desc:"DLC: убить всех боссов Земель Тени из списка на сайте.", kind:"auto",
+      check:({dlcKills}) => dlcKills >= 42 },
   ];
 
   function loadJSON(key, fallback){
@@ -86,6 +118,8 @@
     let kills = 0;
     const gameKills = {};
     let dlcKills = 0;
+    let hasFirstTry = false;
+    let hasNoDeathBoss = false;
 
     for (const [gid, gdata] of Object.entries(progress || {})){
       let gk = 0;
@@ -93,6 +127,8 @@
         const d = Number(st?.deaths || 0);
         deaths += d;
         if (st?.killed) { kills += 1; gk += 1; }
+        if (st?.killed && Number(st?.tries || 0) <= 1) hasFirstTry = true;
+        if (st?.killed && Number(st?.deaths || 0) === 0) hasNoDeathBoss = true;
         // crude DLC detection for ER: boss ids prefixed "dlc_" in our datasets
         if (gid === "elden" && String(bid).startsWith("dlc_") && st?.killed) dlcKills += 1;
       }
@@ -101,7 +137,7 @@
     // manual +/- deaths are stored per-game in extra
     for (const v of Object.values(extra || {})) deaths += Number(v || 0);
 
-    return { deaths, kills, gameKills, dlcKills };
+    return { deaths, kills, gameKills, dlcKills, hasFirstTry, hasNoDeathBoss };
   }
 
   function markDone(id){
@@ -135,7 +171,7 @@
     checkAuto(); // make sure UI is fresh
 
     const groups = [
-      { title: "Марафон", ids: ACH.filter(a => a.id.startsWith("marathon_") || a.id.startsWith("die_") || a.id === "ten_bosses").map(a=>a.id) },
+      { title: "Марафон", ids: ACH.filter(a => a.id.startsWith("marathon_") || a.id.startsWith("die_") || a.id.startsWith("kills_") || a.id === "ten_bosses" || a.id === "first_try" || a.id === "no_death_boss").map(a=>a.id) },
       { title: "Испытания", ids: ACH.filter(a => a.id.startsWith("blind_") || a.id.startsWith("no_") || a.id.startsWith("challenge_")).map(a=>a.id) },
       { title: "Dark Souls", ids: ACH.filter(a => a.id.startsWith("ds1_") || a.id.startsWith("ds2_") || a.id.startsWith("ds3_")).map(a=>a.id) },
       { title: "Bloodborne", ids: ACH.filter(a => a.id.startsWith("bb_")).map(a=>a.id) },

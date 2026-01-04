@@ -157,6 +157,15 @@ body{
   background: rgba(0,0,0,.28);
   backdrop-filter: blur(10px);
 }
+
+.topbar-right{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+  flex-wrap:wrap;
+  max-width: 70vw;
+}
 .brand{
   display:flex;
   align-items:baseline;
@@ -176,6 +185,8 @@ body{
   display:flex;
   align-items:center;
   gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
 }
 .nav a.nav-link{
   padding:10px 14px;
@@ -185,12 +196,31 @@ body{
   border:1px solid transparent;
   transition: border-color .18s ease, color .18s ease, background .18s ease, transform .18s ease;
 }
+
+.auth-btn{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(213,162,58,.30);
+  background: rgba(0,0,0,.35);
+  color: var(--ember);
+  font-family: var(--font-head, "Cinzel", serif);
+  letter-spacing:.06em;
+  cursor:pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.auth-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(213,162,58,.55);
+  box-shadow: 0 0 18px rgba(213,162,58,.18);
+}
 .nav a.nav-link:hover{
   color:var(--ink);
   border-color: rgba(213,162,58,.28);
   background: rgba(213,162,58,.08);
   transform: translateY(-1px);
 }
+
+
 
 /* ===== CARDS ===== */
 .card{
