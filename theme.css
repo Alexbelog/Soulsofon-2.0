@@ -399,8 +399,8 @@ body{
 
 
 /* Topbar font boost */
-.topbar .nav-link, .topbar .auth-btn{ font-size: 16px; }
-@media (min-width: 1200px){ .topbar .nav-link, .topbar .auth-btn{ font-size: 18px; } }
+.topbar .nav-link, .topbar .auth-btn{ font-size: 18px; }
+@media (min-width: 1200px){ .topbar .nav-link, .topbar .auth-btn{ font-size: 20px; } }
 .topbar .brand .logo{ font-size: 18px; }
 @media (min-width: 1200px){ .topbar .brand .logo{ font-size: 20px; } }
 
@@ -442,3 +442,9 @@ body{
   65%{opacity:1; color: rgba(193,161,93,.82);}
   100%{opacity:0;}
 }
+
+
+/* Ensure Start button never shifts horizontally (override generic .btn transforms) */
+#index-page #startBtn,
+#startBtn{ left:50%; transform: translateX(-50%) !important; }
+#startBtn:hover, #startBtn:active, #startBtn:focus{ transform: translateX(-50%) !important; }

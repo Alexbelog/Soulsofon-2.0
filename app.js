@@ -389,6 +389,8 @@ const applyRankStyle = () => {
   rankBtn.textContent = r;
   rankBtn.classList.remove("tier-S","tier-A","tier-B","tier-C","tier--");
   rankBtn.classList.add(`tier-${r}`);
+  // Legendary frame for S-rank
+  row.classList.toggle("legendary", r === "S");
   rankBtn.disabled = !window.SoulAuth?.isAdmin?.();
   rankBtn.title = window.SoulAuth?.isAdmin?.()
     ? "Клик: сменить тир-ранг"

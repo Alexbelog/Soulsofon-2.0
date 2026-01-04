@@ -42,7 +42,7 @@
       check:({kills}) => kills >= 229 },
     { id:"first_try",      img:"images/achievements/first_try.png",      name:"FIRST TRY", desc:"Победить любого босса с первой попытки.", kind:"auto",
       check:({hasFirstTry}) => !!hasFirstTry },
-    { id:"no_death_boss",  img:"images/achievements/no_death_boss.png",  name:"UNTOUCHED", desc:"Победить любого босса без смертей на нём.", kind:"auto",
+    { id:"no_death_boss",  img:"images/achievements/no_death_boss.png",  name:"NO DEATH", desc:"Победить любого босса без смертей на нём.", kind:"auto",
       check:({hasNoDeathBoss}) => !!hasNoDeathBoss },
     { id:"marathon_finish", img:"images/achievements/marathon_finish.png", name:"THE END", desc:"Дойти до финала марафона. Последняя искра погасла.", kind:"manual" },
 
@@ -182,8 +182,8 @@
     const done = loadDone();
     const total = ACH.length;
     const completed = ACH.filter(a => !!done[a.id]).length;
-    const el = document.getElementById('ach-count');
-    if (el) el.textContent = `Выполнено ${completed} / ${total}`;
+    const el = document.getElementById("ach-summary-value") || document.getElementById("ach-count");
+    if (el) el.textContent = `${completed} / ${total}`;
   }
 
   function render(){
@@ -246,6 +246,7 @@
         const actions = document.createElement("div");
         actions.className = "ach-actions";
 
+        // Action area: manual toggle (if allowed) + clip proof (for any achievement)
         if (a.kind === "manual"){
           const btn = document.createElement("button");
           btn.className = "btn ach-btn";
@@ -254,44 +255,46 @@
           if (!window.SoulAuth?.isAdmin?.()) btn.disabled = true;
           btn.onclick = () => {
             if (!window.SoulAuth?.isAdmin?.()) return;
-            const nowDone = toggleManual(a.id);
+            const nowDone = toggleManual(a.id); // can toggle on/off
             if (nowDone){
               try { window.SoulUI?.toast?.("Achievement unlocked", a.name, a.img); } catch {}
             }
             render();
           };
           actions.appendChild(btn);
-          const clip = document.createElement('div');
-          clip.className = 'ach-clip';
-          const input = document.createElement('input');
-          input.type = 'url';
-          input.placeholder = 'Ссылка на Twitch-клип (доказательство)';
-          input.value = (done[a.id]?.clip) || '';
-          input.disabled = !window.SoulAuth?.isAdmin?.();
-          input.addEventListener('change', () => {
-            if (!window.SoulAuth?.isAdmin?.()) return;
-            setClip(a.id, input.value.trim());
-          });
-          const link = document.createElement('a');
-          link.className = 'btn mini-link';
-          link.textContent = 'Открыть';
-          link.target = '_blank';
-          link.rel = 'noopener';
-          const updateLink = () => {
-            const v = input.value.trim();
-            if (v){ link.href = v; link.style.display='inline-flex'; }
-            else { link.removeAttribute('href'); link.style.display='none'; }
-          };
-          updateLink();
-          input.addEventListener('input', updateLink);
-          clip.append(input, link);
-          actions.appendChild(clip);
         } else {
           const badge = document.createElement("div");
           badge.className = "ach-badge";
           badge.textContent = isDone ? "Открыто" : "Скрыто";
           actions.appendChild(badge);
         }
+
+        // Clip proof input (admin only). Works for both auto and manual achievements.
+        const clip = document.createElement('div');
+        clip.className = 'ach-clip';
+        const input = document.createElement('input');
+        input.type = 'url';
+        input.placeholder = 'Ссылка на Twitch-клип (доказательство)';
+        input.value = (done[a.id]?.clip) || '';
+        input.disabled = !window.SoulAuth?.isAdmin?.();
+        input.addEventListener('change', () => {
+          if (!window.SoulAuth?.isAdmin?.()) return;
+          setClip(a.id, input.value.trim());
+        });
+        const link = document.createElement('a');
+        link.className = 'btn mini-link';
+        link.textContent = 'Открыть';
+        link.target = '_blank';
+        link.rel = 'noopener';
+        const updateLink = () => {
+          const v = input.value.trim();
+          if (v){ link.href = v; link.style.display='inline-flex'; }
+          else { link.removeAttribute('href'); link.style.display='none'; }
+        };
+        updateLink();
+        input.addEventListener('input', updateLink);
+        clip.append(input, link);
+        actions.appendChild(clip);
 
         card.append(img, main, actions);
         list.appendChild(card);

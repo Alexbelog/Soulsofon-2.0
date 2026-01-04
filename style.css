@@ -20,11 +20,10 @@ body.index-page {
 
 /* ===== КОНТЕЙНЕР ===== */
 .landing {
-  width: min(1600px, 92vw);
-  aspect-ratio: 16 / 9; /* 1600x900 */
-  /* Чуть уменьшаем "габариты" постера, чтобы сверху уверенно читался заголовок */
-  max-height: calc(100vh - 170px);
-  text-align: center;
+  width: min(1280px, 92vw);
+  aspect-ratio: 16 / 9; /* 1280x720 */
+  max-height: calc(100vh - 160px);
+text-align: center;
   position: relative;
 }
 
@@ -83,7 +82,7 @@ body.index-page {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(0.9) contrast(1.05);
+  filter: brightness(1.0) contrast(1.06);
 }
 
 /* ===== ТУМАН ===== */
@@ -138,6 +137,7 @@ body.index-page {
   text-transform: uppercase;
   border-radius: 999px;
   z-index: 4;
+  animation: goldBreath 2.8s ease-in-out infinite;
 }
 
 /* ===== HOVER ===== */
@@ -161,12 +161,17 @@ body.index-page {
 /* Welcome text on hero */
 .welcome{
   position:absolute;
-  top: calc(70px + 24px);
+  top: calc(70px + 18px);
   left:50%;
   transform: translateX(-50%);
   color: var(--gold);
   letter-spacing: .22em;
-  font-size: clamp(14px, 1.5vw, 22px);
+  font-size: clamp(28px, 4.6vw, 72px);
+  text-transform: uppercase;
+  text-shadow: 0 0 16px rgba(193,161,93,.35);
+  animation: goldBreath 2.6s ease-in-out infinite;
+  z-index: 2;
+  pointer-events:none;
   text-transform: uppercase;
   text-shadow: 0 0 16px rgba(193,161,93,.35);
   animation: goldBreath 2.6s ease-in-out infinite;

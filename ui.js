@@ -93,13 +93,9 @@
     // Start fully dark without anim, then fade out
     overlay.style.transition = "none";
     overlay.classList.add("active");
-    if (mode === 'ds3') {
-      overlay.classList.add('ds3');
-      overlay.dataset.text = 'SOULSFON 2026';
-    } else {
-      overlay.classList.remove('ds3');
-      overlay.dataset.text = '';
-    }
+    // Ensure DS3 mode is only used for the Start button navigation.
+    overlay.classList.remove("ds3");
+    overlay.dataset.text = "";
     // force reflow
     void overlay.offsetHeight;
     overlay.style.transition = "opacity .52s ease";
