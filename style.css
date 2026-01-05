@@ -182,3 +182,17 @@ text-align: center;
 /* Ensure start button never loses translateX(-50%) */
 .start-button.btn{ left:50%; transform: translateX(-50%) !important; will-change: transform; }
 .start-button.btn:hover, .start-button.btn:active, .start-button.btn:focus{ transform: translateX(-50%) !important; }
+
+
+/* ================================
+   UI polish — global focus & taps
+================================== */
+
+button, a{
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible{
+  outline: 2px solid rgba(213,162,58,.55);
+  outline-offset: 2px;
+}
