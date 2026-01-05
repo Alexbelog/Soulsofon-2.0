@@ -9,133 +9,133 @@
         {
           "id": "last_giant",
           "name": "Последний гигант",
-          "icon": "images/bosses/ds2/last_giant.png",
+          "icon": "images/bosses/ds2/last_giant1.png",
           "image": "images/bosses/ds2/last_giant.png",
           "description": "Последний из пленных гигантов, которых Вендрик привёл в Дранглик как трофеи войны. В глубине лесной крепости он медленно гниёт, разъедаемый яростью и проклятием, но память о падении его народа ещё жива. Его тяжёлые удары — эхо расплаты, которую гиганты принесли королевству."
         },
         {
           "id": "dragonrider",
           "name": "Драконий всадник",
-          "icon": "images/bosses/ds2/dragonrider.png",
+          "icon": "images/bosses/ds2/dragonrider1.png",
           "image": "images/bosses/ds2/dragonrider.png",
           "description": "Старый рыцарь-страж, поставленный охранять проход к Хейдовой башне пламени. Его доспехи и копьё помнят времена, когда в этих землях ещё держался порядок, а не безумие. Он встречает путника холодной выучкой — как последний ритуал давно умершей службы."
         },
         {
           "id": "lost_sinner",
           "name": "Забытая грешница",
-          "icon": "images/bosses/ds2/lost_sinner.png",
+          "icon": "images/bosses/ds2/lost_sinner1.png",
           "image": "images/bosses/ds2/lost_sinner.png",
           "description": "Закованная в темницу узница Синнера — женщина, чьё преступление связано с запретным Пламенем и попыткой повторить грех Изалита. Её камера — не столько тюрьма, сколько алтарь покаяния, где свет и тьма меркнут одинаково. Она сражается молча, будто принимая неизбежность собственного приговора."
         },
         {
           "id": "scorpioness_najka",
           "name": "Скорпион Нажка",
-          "icon": "images/bosses/ds2/najka.png",
+          "icon": "images/bosses/ds2/najka1.png",
           "image": "images/bosses/ds2/najka.png",
           "description": "Чудовище, родившееся из искажённых экспериментов и древних проклятий Шейдед Вудс. В её теле смешались человеческое и звериное, а яд и когти служат печатью на запретных землях. Нажка охраняет путь к тем, кто слишком близко подошёл к тайнам, которые лучше не трогать."
         },
         {
           "id": "mage_and_stranger",
           "name": "Странствующий маг и прихожане",
-          "icon": "images/bosses/ds2/mage_and_stranger.png",
+          "icon": "images/bosses/ds2/mage_and_stranger1.png",
           "image": "images/bosses/ds2/mage_and_stranger.png",
           "description": "Незаметная трагедия Дранглика: харизматичный проповедник и толпа, что следует за ним не разумом, а нуждой. Их молитвы — не святость, а отчаяние, и потому превращаются в оружие. В этой схватке опаснее всего не магия, а слепая вера, которая не знает пощады."
         },
         {
           "id": "freya",
           "name": "Фрея, Возлюбленная Герцога",
-          "icon": "images/bosses/ds2/freya.png",
+          "icon": "images/bosses/ds2/freya1.png",
           "image": "images/bosses/ds2/freya.png",
           "description": "Огромная паучья матриархия, ставшая вместилищем древней души и притяжением для порченых существ. Она связана с наследием герцога Цитта и исследованиями кристаллов, где знание легко превращается в проклятие. В её логове даже свет кажется липким, а шорох — предвестием смерти."
         },
         {
           "id": "skeleton_lords",
           "name": "Повелители скелетов",
-          "icon": "images/bosses/ds2/skeleton_lords.png",
+          "icon": "images/bosses/ds2/skeleton_lords1.png",
           "image": "images/bosses/ds2/skeleton_lords.png",
           "description": "Три владыки, чья власть держится на костях и страхе, а не на жизни. Их падение не означает тишины — наоборот, они поднимают целые орды, словно доказывая, что смерть в Дранглике лишь форма существования. Бой с ними — схватка с самой привычкой мира разлагаться и вставать снова."
         },
         {
           "id": "covetous_demon",
           "name": "Алчный демон",
-          "icon": "images/bosses/ds2/covetous_demon.png",
+          "icon": "images/bosses/ds2/covetous_demon1.png",
           "image": "images/bosses/ds2/covetous_demon.png",
           "description": "Ненасытное существо, для которого любое движение — поиск еды, а любое тело — добыча. Его жирная туша и вялые повадки обманчивы: алчность делает его опасным и упорным. В нём отражается порок Дранглика — желание поглощать, пока не останется ничего."
         },
         {
           "id": "mytha",
           "name": "Мита, губительная королева",
-          "icon": "images/bosses/ds2/mytha.png",
+          "icon": "images/bosses/ds2/mytha1.png",
           "image": "images/bosses/ds2/mytha.png",
           "description": "Когда-то королева из мира ядов, она искала красоту и вечную молодость, но нашла лишь разложение. Её тело искажено токсинами, а её трон — в луже смертельного яда. Мита — напоминание, что в этих землях даже любовь к прекрасному оборачивается проклятием."
         },
         {
           "id": "old_iron_king",
           "name": "Старый Железный Король",
-          "icon": "images/bosses/ds2/old_iron_king.png",
+          "icon": "images/bosses/ds2/old_iron_king1.png",
           "image": "images/bosses/ds2/old_iron_king.png",
           "description": "Правитель, который возводил крепости из железа и гордыни, пока пламя не поглотило его вместе с королевством. Теперь он — древний исполин, поднявшийся из расплавленного ада собственных амбиций. Его ярость кипит так же, как лава под руинами Железной цитадели."
         },
         {
           "id": "the_rotten",
           "name": "Гниющий",
-          "icon": "images/bosses/ds2/the_rotten.png",
+          "icon": "images/bosses/ds2/the_rotten1.png",
           "image": "images/bosses/ds2/the_rotten.png",
           "description": "Сгусток плоти и боли, рожденный в чёрной глубине Шульвы и вынесенный к ямам Чёрной Расселины. Он словно собран из чужих страданий, сшитых проклятием и тьмой. В его облике нет личности — только распад, который стал силой."
         },
         {
           "id": "dragonriders",
           "name": "Два драконьих всадника",
-          "icon": "images/bosses/ds2/dragonriders.png",
+          "icon": "images/bosses/ds2/dragonriders1.png",
           "image": "images/bosses/ds2/dragonriders.png",
           "description": "Парные стражи, поставленные на службе в крепости Дранглика, где честь давно заменили приказ и привычка. Их синхронность — знак дисциплины, доведённой до механики. Против двоих особенно ясно понимаешь: в этих землях одиночество — роскошь."
         },
         {
           "id": "looking_glass_knight",
           "name": "Зеркальный рыцарь",
-          "icon": "images/bosses/ds2/looking_glass_knight.png",
+          "icon": "images/bosses/ds2/looking_glass_knight1.png",
           "image": "images/bosses/ds2/looking_glass_knight.png",
           "description": "Воин, чья броня отполирована до отражения, будто он сам — щит королевства и его образ. Говорят, его зеркало способно призывать чужих воителей, размывая границу между мирами. Он стоит на пороге замка как воплощение воинской гордости, которую не смогло разрушить даже проклятие."
         },
         {
           "id": "demon_of_song",
           "name": "Демон песни",
-          "icon": "images/bosses/ds2/demon_of_song.png",
+          "icon": "images/bosses/ds2/demon_of_song1.png",
           "image": "images/bosses/ds2/demon_of_song.png",
           "description": "Уродливый страж, скрывающийся за маской красоты: внутри мягкой оболочки — пасть и крик, способные разорвать сердце. Его существование похоже на насмешку над искусством и гармонией. В Дранглике даже песня может оказаться ловушкой, а сцена — бойней."
         },
         {
           "id": "velstadt",
           "name": "Вельстадт, королевский защитник",
-          "icon": "images/bosses/ds2/velstadt.png",
+          "icon": "images/bosses/ds2/velstadt1.png",
           "image": "images/bosses/ds2/velstadt.png",
           "description": "Молчаливый паладин, который остался рядом с Вендриком до самого конца. Его колокол и молот звучат как похоронный звон королевства, а его вера — не в богов, а в долг. Он охраняет склеп не потому, что надеется, а потому что иначе не умеет жить."
         },
         {
           "id": "guardian_dragon",
           "name": "Дракон-страж",
-          "icon": "images/bosses/ds2/guardian_dragon.png",
+          "icon": "images/bosses/ds2/guardian_dragon1.png",
           "image": "images/bosses/ds2/guardian_dragon.png",
           "description": "Древний защитник, оставленный хранить путь к драконьим тайнам в храме Аманы. Его тело — как осколок эпохи, когда драконы и их культ ещё внушали трепет. Он стоит на границе между легендой и реальностью, проверяя, достоин ли путник шагнуть дальше."
         },
         {
           "id": "giant_lord",
           "name": "Повелитель гигантов",
-          "icon": "images/bosses/ds2/giant_lord.png",
+          "icon": "images/bosses/ds2/giant_lord1.png",
           "image": "images/bosses/ds2/giant_lord.png",
           "description": "Вождь гигантов, чья память запечатлена в обугленных останках войны. Сражение с ним — не просто бой, а взгляд в прошлое, где Вендрик поднял меч против чужого народа. Он — напоминание, что проклятие питается не только тьмой, но и виной."
         },
         {
           "id": "throne_watcher_defender",
           "name": "Защитник трона и Смотритель трона",
-          "icon": "images/bosses/ds2/throne_duo.png",
+          "icon": "images/bosses/ds2/throne_duo1.png",
           "image": "images/bosses/ds2/throne_duo.png",
           "description": "Два рыцаря, поставленные сторожить вход к последним тайнам Дранглика. Их союз — символ верности престолу, даже когда престол давно пуст. Они сражаются как единое целое, будто пытаясь удержать мир от окончательного распада."
         },
         {
           "id": "nashandra",
           "name": "Нашандра",
-          "icon": "images/bosses/ds2/nashandra.png",
+          "icon": "images/bosses/ds2/nashandra1.png",
           "image": "images/bosses/ds2/nashandra.png",
           "description": "Королева Дранглика — и одновременно тень, пришедшая из Бездны, осколок древней тьмы. Она манит обещанием власти и спасения, но несёт лишь истощение и холод. Нашандра — финальная улыбка проклятия: красивая, пока не станет поздно."
         }
@@ -147,91 +147,91 @@
         {
           "id": "pursuer",
           "name": "Преследователь",
-          "icon": "images/bosses/ds2/pursuer.png",
+          "icon": "images/bosses/ds2/pursuer1.png",
           "image": "images/bosses/ds2/pursuer.png",
           "description": "Неутомимый охотник, который появляется там, где надежда уже дрогнула. Его происхождение туманно, но цель ясна: добивать тех, кто ещё способен сопротивляться. Он — воплощение самой идеи проклятия, которое не даёт уйти и не даёт остановиться."
         },
         {
           "id": "old_dragonslayer",
           "name": "Древний драконоборец",
-          "icon": "images/bosses/ds2/old_dragonslayer.png",
+          "icon": "images/bosses/ds2/old_dragonslayer1.png",
           "image": "images/bosses/ds2/old_dragonslayer.png",
           "description": "Знакомая тень прошлого: рыцарь, чья манера боя напоминает легендарных драконоборцев. В Хейдовой башне он выглядит как заблудшая реликвия, оставшаяся без эпохи и имени. Его присутствие задаёт вопрос: что в этих землях настоящее, а что — отражение памяти?"
         },
         {
           "id": "flexile_sentry",
           "name": "Гибкий часовой",
-          "icon": "images/bosses/ds2/flexile_sentry.png",
+          "icon": "images/bosses/ds2/flexile_sentry1.png",
           "image": "images/bosses/ds2/flexile_sentry.png",
           "description": "Страж из Лост-Бастилии, созданный для казней и охраны, где жизнь человека — мелочь. Его гибкость — не ловкость, а холодная функциональность, доведённая до ужаса. Он служит напоминанием: в этих стенах милосердия никогда не было."
         },
         {
           "id": "ruin_sentinels",
           "name": "Стражи руин",
-          "icon": "images/bosses/ds2/ruin_sentinels.png",
+          "icon": "images/bosses/ds2/ruin_sentinels1.png",
           "image": "images/bosses/ds2/ruin_sentinels.png",
           "description": "Три существа, в которых смешались броня, древние души и пустота. Они охраняют руины так, будто сами — часть разрушения, закреплённая проклятием. Их бой — хаос из ударов и магии, словно сам замок не хочет отпускать тебя живым."
         },
         {
           "id": "bell_gargoyles_ds2",
           "name": "Горгульи с башни",
-          "icon": "images/bosses/ds2/bell_gargoyles.png",
+          "icon": "images/bosses/ds2/bell_gargoyles1.png",
           "image": "images/bosses/ds2/bell_gargoyles.png",
           "description": "Каменные стражи, оживающие не ради славы, а ради испытания. Их множество превращает бой в нарастающую бурю — чем дольше стоишь, тем меньше места остаётся для дыхания. Они напоминают, что иногда самая страшная сила — это численность без жалости."
         },
         {
           "id": "executioner_chariot",
           "name": "Колесница палача",
-          "icon": "images/bosses/ds2/executioner_chariot.png",
+          "icon": "images/bosses/ds2/executioner_chariot1.png",
           "image": "images/bosses/ds2/executioner_chariot.png",
           "description": "Орудие казни, ставшее чудовищем: лошади-скелеты и бесконечный круг арены. Здесь смерть — спектакль, а зрители давно исчезли. Колесница — символ Дранглика: механизм, который продолжает работать даже после гибели смысла."
         },
         {
           "id": "royal_rat_authority",
           "name": "Командир крысиной гвардии",
-          "icon": "images/bosses/ds2/rat_authority.png",
+          "icon": "images/bosses/ds2/rat_authority1.png",
           "image": "images/bosses/ds2/rat_authority.png",
           "description": "Стадный король в миниатюре: зверь, вокруг которого собирается вся ярость и голод подземелий. Его власть держится на инстинкте и страхе, а не на разуме. Даже крысы в этих землях строят свои «королевства» на костях."
         },
         {
           "id": "royal_rat_vanguard",
           "name": "Боец крысиной гвардии",
-          "icon": "images/bosses/ds2/rat_vanguard.png",
+          "icon": "images/bosses/ds2/rat_vanguard1.png",
           "image": "images/bosses/ds2/rat_vanguard.png",
           "description": "Суровое испытание в логове крыс: не один герой, а схватка против условий, где яд и численность важнее мастерства. Здесь легко понять цену самоуверенности. Иногда враг — это не легенда, а грязная реальность под ногами."
         },
         {
           "id": "smelter_demon",
           "name": "Демон из Плавильни",
-          "icon": "images/bosses/ds2/smelter_demon.png",
+          "icon": "images/bosses/ds2/smelter_demon1.png",
           "image": "images/bosses/ds2/smelter_demon.png",
           "description": "Живое пламя в доспехах, рожденное в жаре Железной цитадели. С каждым мгновением бой становится горячее — буквально, когда жар разъедает всё вокруг. Он словно страж печи, где выковывали не металл, а страдания."
         },
         {
           "id": "ancient_dragon",
           "name": "Древний дракон",
-          "icon": "images/bosses/ds2/ancient_dragon.png",
+          "icon": "images/bosses/ds2/ancient_dragon1.png",
           "image": "images/bosses/ds2/ancient_dragon.png",
           "description": "Величественная фигура, которую многие принимают за настоящего древнего дракона — идеал, к которому стремился культ. Но истина здесь всегда скользкая: в Дранглике легенды легко подделать, если очень хочется верить. Его сила — испытание для тех, кто ищет «доказательство» мифа."
         },
         {
           "id": "alone_in_the_dark",
           "name": "Прячущийся во тьме",
-          "icon": "images/bosses/ds2/alone_in_the_dark.png",
+          "icon": "images/bosses/ds2/alone_in_the_dark1.png",
           "image": "images/bosses/ds2/alone_in_the_dark.png",
           "description": "Существо из Бездны, которое проявляется лишь тем, кто достаточно глубоко опустился в тьму. Оно не выглядит единым — скорее как разрыв реальности, принимающий форму боя. Победа над ним — редкий момент, когда ты не просто выживаешь, а отвоёвываешь свет."
         },
         {
           "id": "vendrick",
           "name": "Вендрик",
-          "icon": "images/bosses/ds2/vendrick.png",
+          "icon": "images/bosses/ds2/vendrick1.png",
           "image": "images/bosses/ds2/vendrick.png",
           "description": "Король, победивший гигантов и построивший Дранглик, но проигравший проклятию и собственной доверчивости. Лишённый разума, он бродит в склепе как тень самого себя, тяжёлая и безмолвная. Вендрик — трагедия власти: даже корона не защищает от пустоты."
         },
         {
           "id": "aldia",
           "name": "Алдия, учёный первородного греха",
-          "icon": "images/bosses/ds2/aldia.png",
+          "icon": "images/bosses/ds2/aldia1.png",
           "image": "images/bosses/ds2/aldia.png",
           "description": "Брат Вендрика, который пытался разгадать природу проклятия и обмануть цикл огня и тьмы. Его поиски привели к извращённому бессмертию — существованию между жизнью и смертью. Алдия говорит истинами, от которых не становится легче: иногда знание — худшее наказание."
         }
@@ -243,21 +243,21 @@
         {
           "id": "gank_squad",
           "name": "Варг, Церах и Разорительница гробниц",
-          "icon": "images/bosses/ds2/gank_squad.png",
+          "icon": "images/bosses/ds2/gank_squad1.png",
           "image": "images/bosses/ds2/gank_squad.png",
           "description": "Троица захватчиков, связанных с древними гробницами Шульвы и тёмной жаждой добычи. Они не герои и не легенды — просто те, кто пришёл забрать своё силой. Их бой — столкновение с грязной стороной приключений, где победа измеряется трофеями."
         },
         {
           "id": "elena",
           "name": "Скверная королева Элана",
-          "icon": "images/bosses/ds2/elena.png",
+          "icon": "images/bosses/ds2/elena1.png",
           "image": "images/bosses/ds2/elena.png",
           "description": "Королева, чья красота служит завесой для тёмной силы. Она управляет Бездной и способна призывать тех, кто уже стал частью проклятия. В её троне чувствуется влияние Нашандры и её природы: тьма умеет носить корону."
         },
         {
           "id": "sinh",
           "name": "Син, Дремлющий дракон",
-          "icon": "images/bosses/ds2/sinh.png",
+          "icon": "images/bosses/ds2/sinh1.png",
           "image": "images/bosses/ds2/sinh.png",
           "description": "Дракон, уснувший среди руин Шульвы, окружённый ядом и древними песнопениями. Его сон — не покой, а стража: пока он дремлет, тайны города остаются запечатанными. Разбудить Сина — значит потревожить историю, которая не хочет быть рассказанной."
         }
@@ -269,21 +269,21 @@
         {
           "id": "fume_knight",
           "name": "Дымный рыцарь",
-          "icon": "images/bosses/ds2/fume_knight.png",
+          "icon": "images/bosses/ds2/fume_knight1.png",
           "image": "images/bosses/ds2/fume_knight.png",
           "description": "Легендарный воин, чья сила закалена в пепле и предательстве. Он связан с Надалией и Железной цитаделью, где даже победа оставляет ожоги. Его клинки и стойка — урок: мастерство может быть страшнее любой магии."
         },
         {
           "id": "sir_alonne",
           "name": "Сэр Алонн",
-          "icon": "images/bosses/ds2/sir_alonne.png",
+          "icon": "images/bosses/ds2/sir_alonne.png1",
           "image": "images/bosses/ds2/sir_alonne.png",
           "description": "Рыцарь дальних земель, образец дисциплины и смертельной точности. Его имя окружено уважением, но в Дранглике даже честь превращается в испытание на выживание. Дуэль с Алонном — редкий бой без хаоса, чистая сталь и горькая тишина."
         },
         {
           "id": "blue_smelter",
           "name": "Старый Демон из Плавильни",
-          "icon": "images/bosses/ds2/blue_smelter.png",
+          "icon": "images/bosses/ds2/blue_smelter.png1",
           "image": "images/bosses/ds2/blue_smelter.png",
           "description": "Иной, холодный оттенок той же огненной ярости — демон, будто рождённый в синем пламени. Его присутствие подчёркивает, что в этих кузницах страдание не единично: его можно «перековать» снова и снова. Он — повторение кошмара на новом жаре."
         }
@@ -295,21 +295,21 @@
         {
           "id": "aava",
           "name": "Аава, питомец короля",
-          "icon": "images/bosses/ds2/aava.png",
+          "icon": "images/bosses/ds2/aava.png1",
           "image": "images/bosses/ds2/aava.png",
           "description": "Божественный зверь Слоновой Кости, невидимый, пока проклятие льда не будет снято. Аава защищает короля не из приказа, а из связи, которую не разрушило время. Её ярость — это верность, ставшая клинком против незваных гостей."
         },
         {
           "id": "burnt_ivory_king",
           "name": "Сгоревший Король Слоновой Кости",
-          "icon": "images/bosses/ds2/ivory_king.png",
+          "icon": "images/bosses/ds2/ivory_king.png1",
           "image": "images/bosses/ds2/ivory_king.png",
           "description": "Правитель, который сдерживал хаос Пылающего мира ценой собственной судьбы. Его сожжённая броня и шаги по снегу — следы войны, которую невозможно выиграть окончательно. Он поднимается как последний бастион: не ради победы, а ради удержания границы."
         },
         {
           "id": "lud_zallen",
           "name": "Луд, питомец короля и Заллен, питомец короля",
-          "icon": "images/bosses/ds2/lud_zallen.png",
+          "icon": "images/bosses/ds2/lud_zallen.png1",
           "image": "images/bosses/ds2/lud_zallen.png",
           "description": "Два стража замёрзших пустошей, оставленные защищать путь там, где сама природа враждебна. Их дуэт — испытание на выносливость и концентрацию, когда ошибка умножается на двоих. В их взглядах нет злобы — лишь долг и холод."
         }
