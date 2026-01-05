@@ -34,6 +34,69 @@ const ELDEN_MAP_COORDS = {
   "mohg lord of blood": [33, 26]
 };
 
+/* =========================
+   Boss Details Modal (1280x720)
+   ========================= */
+(function initBossDetailsModal(){
+  const ensure = () => {
+    const root = document.getElementById("boss-modal");
+    if (!root) return null;
+
+    const win = root.querySelector(".boss-modal__window");
+    const img = root.querySelector("#boss-modal-img");
+    const name = root.querySelector("#boss-modal-name");
+    const desc = root.querySelector("#boss-modal-desc");
+    const game = root.querySelector("#boss-modal-game");
+
+    const close = () => {
+      root.classList.add("hidden");
+      root.setAttribute("aria-hidden","true");
+      document.documentElement.classList.remove("modal-open");
+    };
+
+    const open = ({ boss, gameId, gameTitle }) => {
+      if (!boss) return;
+      // prefer large image if present
+      const src = boss.image || boss.art || boss.full || boss.icon || "";
+      if (img) {
+        img.src = src;
+        img.alt = boss.name || "Boss";
+      }
+      if (game) game.textContent = gameTitle ? String(gameTitle) : "";
+      if (name) name.textContent = boss.name || "";
+      if (desc) desc.textContent = boss.description || boss.desc || "Описание скоро появится.";
+      root.dataset.gameId = gameId || "";
+      root.dataset.gameTitle = gameTitle || "";
+
+      root.classList.remove("hidden");
+      root.setAttribute("aria-hidden","false");
+      document.documentElement.classList.add("modal-open");
+
+      // focus close button for accessibility
+      const closeBtn = root.querySelector(".boss-modal__close");
+      closeBtn?.focus?.();
+    };
+
+    // backdrop close
+    root.querySelector("[data-close]")?.addEventListener("click", close);
+    root.querySelector(".boss-modal__close")?.addEventListener("click", close);
+
+    // prevent clicks inside from closing
+    win?.addEventListener("click", (e) => e.stopPropagation());
+
+    // ESC to close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !root.classList.contains("hidden")) close();
+    });
+
+    return { open, close, root };
+  };
+
+  // Expose globally
+  window.SoulBossModal = ensure() || { open: () => {}, close: () => {} };
+})();
+
+
 function normalizeBossName(name){
   return String(name || "")
     .toLowerCase()
@@ -355,59 +418,14 @@ function renderGame(gameData) {
 
         const row = document.createElement("div");
         row.className = "boss-card";
+
+        // Open boss details (ignore clicks on interactive controls)
+        row.addEventListener("click", (e) => {
+          const t = e?.target;
+          if (t && t.closest && t.closest("button, input, select, textarea, a, .stat-box")) return;
+          try { window.SoulBossModal?.open?.({ boss, gameId: gameData.id, gameTitle: gameData.title }); } catch {}
+        });
         if (state.killed) row.classList.add("killed");
-        if (state.killed) row.classList.add("flipped");
-
-        // 3D flip structure
-        const inner = document.createElement("div");
-        inner.className = "boss-inner";
-
-        const front = document.createElement("div");
-        front.className = "boss-face boss-front";
-
-        const back = document.createElement("div");
-        back.className = "boss-face boss-back";
-
-        // Back side: полезная сводка (без TOTAL и без кнопки достижений)
-        const backName = document.createElement("div");
-        backName.className = "boss-back-name";
-        backName.textContent = boss.name;
-
-        const backRankRow = document.createElement("div");
-        backRankRow.className = "boss-back-row";
-        const backRankLab = document.createElement("div");
-        backRankLab.className = "boss-back-lab";
-        backRankLab.textContent = "RANK";
-        const backRankVal = document.createElement("div");
-        backRankVal.className = "boss-back-val rank-badge";
-        backRankRow.appendChild(backRankLab);
-        backRankRow.appendChild(backRankVal);
-
-        const backTryRow = document.createElement("div");
-        backTryRow.className = "boss-back-row";
-        const backTryLab = document.createElement("div");
-        backTryLab.className = "boss-back-lab";
-        backTryLab.textContent = "TRY";
-        const backTryVal = document.createElement("div");
-        backTryVal.className = "boss-back-val";
-        backTryRow.appendChild(backTryLab);
-        backTryRow.appendChild(backTryVal);
-
-        const backDeathRow = document.createElement("div");
-        backDeathRow.className = "boss-back-row";
-        const backDeathLab = document.createElement("div");
-        backDeathLab.className = "boss-back-lab";
-        backDeathLab.textContent = "DEATH";
-        const backDeathVal = document.createElement("div");
-        backDeathVal.className = "boss-back-val";
-        backDeathRow.appendChild(backDeathLab);
-        backDeathRow.appendChild(backDeathVal);
-
-        // Undo button (если отмечено ошибочно)
-        const undoBtn = document.createElement("button");
-        undoBtn.className = "boss-undo btn";
-        undoBtn.type = "button";
-        undoBtn.textContent = "ОТМЕНИТЬ (ошибка)";
 
         
 /* ===== CHESS BOSS CARD ===== */
@@ -421,8 +439,19 @@ const nameBtn = document.createElement("button");
 nameBtn.className = "boss-name-btn";
 nameBtn.type = "button";
 nameBtn.textContent = boss.name;
-nameBtn.title = "Открыть связанные достижения";
-nameBtn.onclick = () => {
+nameBtn.title = "Открыть описание босса";
+nameBtn.onclick = (e) => {
+  e?.stopPropagation?.();
+  try { window.SoulBossModal?.open?.({ boss, gameId: gameData.id, gameTitle: gameData.title }); } catch {}
+};
+
+const achBtn = document.createElement("button");
+achBtn.className = "boss-ach-btn";
+achBtn.type = "button";
+achBtn.textContent = "🏆";
+achBtn.title = "Открыть связанные достижения";
+achBtn.onclick = (e) => {
+  e?.stopPropagation?.();
   try { window.SoulAchievements?.openForBoss?.(gameData.id, boss.id, boss.name); } catch {}
 };
 
@@ -443,7 +472,6 @@ const applyRankStyle = () => {
   rankBtn.classList.add(`tier-${r}`);
   // Legendary frame for S-rank
   row.classList.toggle("legendary", r === "S");
-  row.__applyBackRank?.(r);
   rankBtn.disabled = !window.SoulAuth?.isAdmin?.();
   rankBtn.title = window.SoulAuth?.isAdmin?.()
     ? "Клик: сменить тир-ранг"
@@ -463,7 +491,8 @@ applyRankStyle();
 
 head.appendChild(rankBtn);
 head.appendChild(nameBtn);
-front.appendChild(head);
+head.appendChild(achBtn);
+row.appendChild(head);
 
 // Image
 const imgWrap = document.createElement("div");
@@ -474,7 +503,7 @@ img.src = boss.icon;
 img.alt = boss.name;
 img.loading = "lazy";
 imgWrap.appendChild(img);
-front.appendChild(imgWrap);
+row.appendChild(imgWrap);
 
 // Controls (TRY / DEATH)
 const controls = document.createElement("div");
@@ -486,13 +515,9 @@ tryBox.classList.add("stat-box","try-box");
 const deathBox = statInput("DEATH", state, "deaths", gameData);
 deathBox.classList.add("stat-box","death-box");
 
-// sync back-side numbers when inputs change
-tryBox.querySelector("input")?.addEventListener("change", () => row.__updateBackStats?.());
-deathBox.querySelector("input")?.addEventListener("change", () => row.__updateBackStats?.());
-
 controls.appendChild(tryBox);
 controls.appendChild(deathBox);
-front.appendChild(controls);
+row.appendChild(controls);
 
 // Kill button
 const kill = document.createElement("button");
@@ -504,7 +529,6 @@ kill.onclick = () => {
   state.killed = !state.killed;
   save();
   row.classList.toggle("killed", state.killed);
-  row.classList.toggle("flipped", state.killed);
   kill.textContent = state.killed ? "УБИТ ✓" : "УБИТ";
   // Эффект YOU DIED — только когда ставим "УБИТ ✓".
   if (state.killed) {
@@ -513,48 +537,7 @@ kill.onclick = () => {
   // achievements update + toast
   try { window.SoulAchievements?.recompute?.(progress); } catch {}
 };
-front.appendChild(kill);
-
-        // Fill back-side values
-        const updateBackStats = () => {
-          backTryVal.textContent = String(state.tries || 0);
-          backDeathVal.textContent = String(state.deaths || 0);
-        };
-        updateBackStats();
-
-        // Rank style should also paint the back badge
-        const applyBackRank = (r) => {
-          backRankVal.textContent = r;
-          backRankVal.classList.remove("tier-S","tier-A","tier-B","tier-C","tier--");
-          backRankVal.classList.add(`tier-${r}`);
-        };
-
-        // Undo behaviour
-        undoBtn.onclick = () => {
-          if (!window.SoulAuth?.isAdmin?.()) return;
-          state.killed = false;
-          save();
-          row.classList.remove("killed","flipped");
-          kill.textContent = "УБИТ";
-          try { window.SoulAchievements?.recompute?.(progress); } catch {}
-        };
-
-        // Back content layout
-        back.appendChild(backName);
-        back.appendChild(backRankRow);
-        back.appendChild(backTryRow);
-        back.appendChild(backDeathRow);
-        back.appendChild(undoBtn);
-
-        // Assemble flip card
-        inner.appendChild(front);
-        inner.appendChild(back);
-        row.appendChild(inner);
-
-        // Keep references for statInput updates
-        row.__updateBackStats = updateBackStats;
-        row.__applyBackRank = applyBackRank;
-        applyBackRank(getRank());
+row.appendChild(kill);
 
         grid.appendChild(row);
       });

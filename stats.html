@@ -82,6 +82,23 @@
 <div id="sections"></div>
 </main>
 </div>
+
+<!-- BOSS MODAL -->
+<div class="boss-modal hidden" id="boss-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="boss-modal__backdrop" data-close></div>
+  <div class="boss-modal__window" role="document">
+    <button class="boss-modal__close" type="button" aria-label="Закрыть">✕</button>
+    <div class="boss-modal__left">
+      <img id="boss-modal-img" alt="" src=""/>
+    </div>
+    <div class="boss-modal__right">
+      <div class="boss-modal__kicker" id="boss-modal-game"></div>
+      <h2 class="boss-modal__name" id="boss-modal-name"></h2>
+      <div class="boss-modal__desc" id="boss-modal-desc"></div>
+    </div>
+  </div>
+</div>
+
 <div id="you-died-overlay"></div>
 <!-- YOU DIED -->
 <div class="you-died hidden" id="you-died">YOU DIED</div>
