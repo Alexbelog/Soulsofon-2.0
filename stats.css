@@ -418,6 +418,9 @@ body{
   font-family:inherit;
   font-weight:600;
   letter-spacing:.06em;
+  /* меньше шрифт имени босса */
+  font-size:14px;
+  line-height:1.25;
   padding:10px 12px;
   border-radius:12px;
   cursor:pointer;
@@ -434,7 +437,8 @@ body{
   font-weight:700;
   font-size:18px;
 }
-.boss-imgWrap{ position:relative; overflow:hidden; border-radius:16px; border:1px solid rgba(255,255,255,.10); flex:1; min-height:0; aspect-ratio: 3 / 4; display:block; }
+/* делаем карточку выше, чтобы портрет босса выглядел крупнее */
+.boss-imgWrap{ position:relative; overflow:hidden; border-radius:16px; border:1px solid rgba(255,255,255,.10); flex:1; min-height:360px; aspect-ratio: 2 / 3; display:block; }
 .boss-img{width:100%; height:100%; object-fit:contain; object-position:center; display:block; filter: contrast(1.05) saturate(1.04);}
 .boss-controls{grid-area:controls; display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start;}
 .stat-wrap.stat-box{
@@ -471,7 +475,9 @@ body{
       "controls"
       "kill";
   }
-  .boss-img{height:240px;}
+  /* на мобилках тоже чуть крупнее портреты */
+  .boss-imgWrap{ min-height: 300px; }
+  .boss-img{ height: 100%; }
 }
 
 
