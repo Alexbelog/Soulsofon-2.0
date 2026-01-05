@@ -34,6 +34,69 @@ const ELDEN_MAP_COORDS = {
   "mohg lord of blood": [33, 26]
 };
 
+/* =========================
+   Boss Details Modal (1280x720)
+   ========================= */
+(function initBossDetailsModal(){
+  const ensure = () => {
+    const root = document.getElementById("boss-modal");
+    if (!root) return null;
+
+    const win = root.querySelector(".boss-modal__window");
+    const img = root.querySelector("#boss-modal-img");
+    const name = root.querySelector("#boss-modal-name");
+    const desc = root.querySelector("#boss-modal-desc");
+    const game = root.querySelector("#boss-modal-game");
+
+    const close = () => {
+      root.classList.add("hidden");
+      root.setAttribute("aria-hidden","true");
+      document.documentElement.classList.remove("modal-open");
+    };
+
+    const open = ({ boss, gameId, gameTitle }) => {
+      if (!boss) return;
+      // prefer large image if present
+      const src = boss.image || boss.art || boss.full || boss.icon || "";
+      if (img) {
+        img.src = src;
+        img.alt = boss.name || "Boss";
+      }
+      if (game) game.textContent = gameTitle ? String(gameTitle) : "";
+      if (name) name.textContent = boss.name || "";
+      if (desc) desc.textContent = boss.description || boss.desc || "Описание скоро появится.";
+      root.dataset.gameId = gameId || "";
+      root.dataset.gameTitle = gameTitle || "";
+
+      root.classList.remove("hidden");
+      root.setAttribute("aria-hidden","false");
+      document.documentElement.classList.add("modal-open");
+
+      // focus close button for accessibility
+      const closeBtn = root.querySelector(".boss-modal__close");
+      closeBtn?.focus?.();
+    };
+
+    // backdrop close
+    root.querySelector("[data-close]")?.addEventListener("click", close);
+    root.querySelector(".boss-modal__close")?.addEventListener("click", close);
+
+    // prevent clicks inside from closing
+    win?.addEventListener("click", (e) => e.stopPropagation());
+
+    // ESC to close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !root.classList.contains("hidden")) close();
+    });
+
+    return { open, close, root };
+  };
+
+  // Expose globally
+  window.SoulBossModal = ensure() || { open: () => {}, close: () => {} };
+})();
+
+
 function normalizeBossName(name){
   return String(name || "")
     .toLowerCase()
@@ -355,6 +418,13 @@ function renderGame(gameData) {
 
         const row = document.createElement("div");
         row.className = "boss-card";
+
+        // Open boss details (ignore clicks on interactive controls)
+        row.addEventListener("click", (e) => {
+          const t = e?.target;
+          if (t && t.closest && t.closest("button, input, select, textarea, a, .stat-box")) return;
+          try { window.SoulBossModal?.open?.({ boss, gameId: gameData.id, gameTitle: gameData.title }); } catch {}
+        });
         if (state.killed) row.classList.add("killed");
 
         
@@ -369,8 +439,19 @@ const nameBtn = document.createElement("button");
 nameBtn.className = "boss-name-btn";
 nameBtn.type = "button";
 nameBtn.textContent = boss.name;
-nameBtn.title = "Открыть связанные достижения";
-nameBtn.onclick = () => {
+nameBtn.title = "Открыть описание босса";
+nameBtn.onclick = (e) => {
+  e?.stopPropagation?.();
+  try { window.SoulBossModal?.open?.({ boss, gameId: gameData.id, gameTitle: gameData.title }); } catch {}
+};
+
+const achBtn = document.createElement("button");
+achBtn.className = "boss-ach-btn";
+achBtn.type = "button";
+achBtn.textContent = "🏆";
+achBtn.title = "Открыть связанные достижения";
+achBtn.onclick = (e) => {
+  e?.stopPropagation?.();
   try { window.SoulAchievements?.openForBoss?.(gameData.id, boss.id, boss.name); } catch {}
 };
 
@@ -410,6 +491,7 @@ applyRankStyle();
 
 head.appendChild(rankBtn);
 head.appendChild(nameBtn);
+head.appendChild(achBtn);
 row.appendChild(head);
 
 // Image

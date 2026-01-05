@@ -608,6 +608,7 @@ body{
   box-shadow: 0 14px 36px rgba(0,0,0,.55);
   position:relative;
   overflow:hidden;
+  cursor:pointer;
 }
 
 /* Неубитые боссы — слегка "неактивные" (серее). */
@@ -914,4 +915,115 @@ button:focus-visible{
 
 @media (prefers-reduced-motion: reduce){
   .boss-card, .boss-img, .boss-name-btn, .boss-kill{ transition:none !important; }
+}
+
+
+/* =========================
+   Boss Details Modal
+   ========================= */
+html.modal-open, html.modal-open body { overflow: hidden; }
+
+.boss-modal.hidden { display: none; }
+.boss-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+
+.boss-modal__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(4px);
+}
+
+.boss-modal__window{
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(18,18,22,.92);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 60px rgba(0,0,0,.55);
+}
+
+.boss-modal__close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.35);
+  color: rgba(255,255,255,.9);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.boss-modal__left{
+  position: relative;
+  background: rgba(0,0,0,.35);
+}
+
+.boss-modal__left img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.boss-modal__right{
+  padding: 26px 26px 22px 26px;
+  overflow: auto;
+}
+
+.boss-modal__kicker{
+  font-family: "Cinzel", serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity: .7;
+  margin-bottom: 10px;
+}
+
+.boss-modal__name{
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+  font-size: 34px;
+  line-height: 1.08;
+}
+
+.boss-modal__desc{
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  line-height: 1.35;
+  opacity: .92;
+}
+
+.boss-ach-btn{
+  margin-left: auto;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.25);
+  color: rgba(255,255,255,.9);
+  cursor: pointer;
+}
+
+@media (max-width: 860px){
+  .boss-modal__window{
+    grid-template-columns: 1fr;
+    height: min(720px, calc(100vh - 32px));
+  }
+  .boss-modal__left{ min-height: 260px; }
 }
