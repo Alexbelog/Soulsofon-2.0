@@ -23,19 +23,32 @@
 
 *{ box-sizing:border-box; }
 
+/*
+  Ensure the background is a single seamless canvas for very tall pages.
+  Using min-height (instead of height:100%) prevents visible "bands"/"seams"
+  when scrolling to the bottom.
+*/
 html, body{
-  height:100%;
+  min-height:100%;
+}
+
+/* Paint the global background on the root canvas so it never "cuts" */
+html{
+  background:
+    radial-gradient(1200px 600px at 65% 20%, rgba(161,15,15,.16), transparent 60%),
+    radial-gradient(900px 520px at 20% 10%, rgba(213,162,58,.10), transparent 55%),
+    radial-gradient(600px 600px at 50% 65%, rgba(255,255,255,.03), transparent 70%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+  background-repeat:no-repeat;
+  background-attachment: fixed;
 }
 
 body{
   margin:0;
   color:var(--ink);
   font-family: "Cinzel", "Cormorant Garamond", "Times New Roman", serif;
-  background:
-    radial-gradient(1200px 600px at 65% 20%, rgba(161,15,15,.16), transparent 60%),
-    radial-gradient(900px 520px at 20% 10%, rgba(213,162,58,.10), transparent 55%),
-    radial-gradient(600px 600px at 50% 65%, rgba(255,255,255,.03), transparent 70%),
-    linear-gradient(180deg, var(--bg1), var(--bg0));
+  /* Keep body transparent so the html background stays continuous */
+  background: transparent;
   overflow-x:hidden;
 }
 
