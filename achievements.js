@@ -78,7 +78,7 @@
       check:({gameKills}) => (gameKills.bloodborne||0) >= 22 },
 
     // --- Sekiro ---
-    { id:"sek_shinobi",     img:"images/achievements/sek_shinobi.png",     name:"SHINOBI", desc:"Sekiro: пройти бой, полагаясь на стойкость и клинки.", kind:"manual" },
+    { id:"sek_shinobi",     img:"images/achievements/sek_shinobi.png",     name:"SHINOBI", desc:"Sekiro: убить босса, полагаясь на стойкость и клинки.", kind:"manual" },
     { id:"sek_parry",       img:"images/achievements/sek_parry.png",       name:"DEFLECT MASTER", desc:"Sekiro: победить босса, делая упор на отражения (дефлекты).", kind:"manual" },
     { id:"sek_all",         img:"images/achievements/sek_all.png",         name:"ASHINA CLEARED", desc:"Sekiro: убить всех боссов игры.", kind:"auto",
       check:({gameKills}) => (gameKills.sekiro||0) >= 44 },
