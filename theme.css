@@ -32,24 +32,36 @@ html, body{
   min-height:100%;
 }
 
-/* Paint the global background on the root canvas so it never "cuts" */
-html{
+/*
+  Seamless background (no bands):
+  Some browsers can show horizontal "tiling" seams when using background-attachment: fixed
+  on the root canvas with multiple gradient layers.
+  We render the background on a fixed pseudo-element instead.
+*/
+html{ background: none; }
+
+body{
+  margin:0;
+  color:var(--ink);
+  font-family: "Cinzel", "Cormorant Garamond", "Times New Roman", serif;
+  background: transparent;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-10;
+  pointer-events:none;
   background:
     radial-gradient(1200px 600px at 65% 20%, rgba(161,15,15,.16), transparent 60%),
     radial-gradient(900px 520px at 20% 10%, rgba(213,162,58,.10), transparent 55%),
     radial-gradient(600px 600px at 50% 65%, rgba(255,255,255,.03), transparent 70%),
     linear-gradient(180deg, var(--bg1), var(--bg0));
   background-repeat:no-repeat;
-  background-attachment: fixed;
-}
-
-body{
-  margin:0;
-  color:var(--ink);
-  font-family: "Cinzel", "Cormorant Garamond", "Times New Roman", serif;
-  /* Keep body transparent so the html background stays continuous */
-  background: transparent;
-  overflow-x:hidden;
+  background-size: cover;
+  transform: translateZ(0);
 }
 
 /* ===== FONTS (loaded via <link>) ===== */
