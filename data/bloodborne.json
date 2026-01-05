@@ -6,44 +6,171 @@
     {
       "title": "Обязательные боссы",
       "bosses": [
-        { "id": "gaskoin", "name": "Отец Гаскойн", "icon": "images/bosses/bb/gaskoin.png" },
-        { "id": "ameliya", "name": "Викарий Амелия", "icon": "images/bosses/bb/ameliya.png" },
-        { "id": "shadows_yarnam", "name": "Тень Ярнама", "icon": "images/bosses/bb/shadows_yarnam.png" },
-        { "id": "rom_spider", "name": "Ром праздный паук", "icon": "images/bosses/bb/rom_spider.png" },
-        { "id": "ressurecter", "name": "Возродившийся", "icon": "images/bosses/bb/ressurecter.png" },
-        { "id": "mikolash", "name": "Миколаш, Хозяин кошмара", "icon": "images/bosses/bb/mikolash.png" },
-        { "id": "mergo", "name": "Кормилица Мерго", "icon": "images/bosses/bb/mergo.png" }
+        {
+          "id": "gaskoin",
+          "name": "Отец Гаскойн",
+          "icon": "images/bosses/bb/gaskoin.png",
+          "image": "images/bosses/bb/gaskoin.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ameliya",
+          "name": "Викарий Амелия",
+          "icon": "images/bosses/bb/ameliya.png",
+          "image": "images/bosses/bb/ameliya.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "shadows_yarnam",
+          "name": "Тень Ярнама",
+          "icon": "images/bosses/bb/shadows_yarnam.png",
+          "image": "images/bosses/bb/shadows_yarnam.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rom_spider",
+          "name": "Ром праздный паук",
+          "icon": "images/bosses/bb/rom_spider.png",
+          "image": "images/bosses/bb/rom_spider.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ressurecter",
+          "name": "Возродившийся",
+          "icon": "images/bosses/bb/ressurecter.png",
+          "image": "images/bosses/bb/ressurecter.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "mikolash",
+          "name": "Миколаш, Хозяин кошмара",
+          "icon": "images/bosses/bb/mikolash.png",
+          "image": "images/bosses/bb/mikolash.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "mergo",
+          "name": "Кормилица Мерго",
+          "icon": "images/bosses/bb/mergo.png",
+          "image": "images/bosses/bb/mergo.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "Опциональные боссы",
       "bosses": [
-        { "id": "church_monster", "name": "Церковное Чудовище", "icon": "images/bosses/bb/church_monster.png" },
-        { "id": "sky_deliver", "name": "Посланник Небес", "icon": "images/bosses/bb/sky_deliver.png" },
-        { "id": "ibraitas", "name": "Ибраитас, дочь Космоса", "icon": "images/bosses/bb/ibraitas.png" },
-        { "id": "monster_blood", "name": "Чудовище-кровоглот", "icon": "images/bosses/bb/monster_blood.png" },
-        { "id": "paarl", "name": "Черное чудовище Паарл", "icon": "images/bosses/bb/paarl.png" },
-        { "id": "hemvic_witch", "name": "Ведьма Хемвика", "icon": "images/bosses/bb/hemvic_witch.png" },
-        { "id": "logarius", "name": "Мученик Логариус", "icon": "images/bosses/bb/logarius.png" },
-        { "id": "amigdala", "name": "Амигдала", "icon": "images/bosses/bb/amigdala.png" },
-        { "id": "german", "name": "Герман, первый охотник", "icon": "images/bosses/bb/german.png" },
-        { "id": "blood_moon", "name": "Присутствие луны", "icon": "images/bosses/bb/blood_moon.png" }
+        {
+          "id": "church_monster",
+          "name": "Церковное Чудовище",
+          "icon": "images/bosses/bb/church_monster.png",
+          "image": "images/bosses/bb/church_monster.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "sky_deliver",
+          "name": "Посланник Небес",
+          "icon": "images/bosses/bb/sky_deliver.png",
+          "image": "images/bosses/bb/sky_deliver.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ibraitas",
+          "name": "Ибраитас, дочь Космоса",
+          "icon": "images/bosses/bb/ibraitas.png",
+          "image": "images/bosses/bb/ibraitas.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "monster_blood",
+          "name": "Чудовище-кровоглот",
+          "icon": "images/bosses/bb/monster_blood.png",
+          "image": "images/bosses/bb/monster_blood.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "paarl",
+          "name": "Черное чудовище Паарл",
+          "icon": "images/bosses/bb/paarl.png",
+          "image": "images/bosses/bb/paarl.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "hemvic_witch",
+          "name": "Ведьма Хемвика",
+          "icon": "images/bosses/bb/hemvic_witch.png",
+          "image": "images/bosses/bb/hemvic_witch.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "logarius",
+          "name": "Мученик Логариус",
+          "icon": "images/bosses/bb/logarius.png",
+          "image": "images/bosses/bb/logarius.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "amigdala",
+          "name": "Амигдала",
+          "icon": "images/bosses/bb/amigdala.png",
+          "image": "images/bosses/bb/amigdala.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "german",
+          "name": "Герман, первый охотник",
+          "icon": "images/bosses/bb/german.png",
+          "image": "images/bosses/bb/german.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "blood_moon",
+          "name": "Присутствие луны",
+          "icon": "images/bosses/bb/blood_moon.png",
+          "image": "images/bosses/bb/blood_moon.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "DLC — The Old Hunters",
       "bosses": [
-        { "id": "ludvig", "name": "Людвиг", "icon": "images/bosses/bb/ludvig.png" },
-        { "id": "lourens", "name": "Лоуренс, первый викарий", "icon": "images/bosses/bb/lourens.png" },
-        { "id": "live_louse", "name": "Живые неудачи", "icon": "images/bosses/bb/live_louse.png" },
-        { "id": "maria", "name": "Леди Мария", "icon": "images/bosses/bb/maria.png" },
-        { "id": "sirota", "name": "Сирота Кос", "icon": "images/bosses/bb/sirota.png" }
+        {
+          "id": "ludvig",
+          "name": "Людвиг",
+          "icon": "images/bosses/bb/ludvig.png",
+          "image": "images/bosses/bb/ludvig.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lourens",
+          "name": "Лоуренс, первый викарий",
+          "icon": "images/bosses/bb/lourens.png",
+          "image": "images/bosses/bb/lourens.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "live_louse",
+          "name": "Живые неудачи",
+          "icon": "images/bosses/bb/live_louse.png",
+          "image": "images/bosses/bb/live_louse.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "maria",
+          "name": "Леди Мария",
+          "icon": "images/bosses/bb/maria.png",
+          "image": "images/bosses/bb/maria.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "sirota",
+          "name": "Сирота Кос",
+          "icon": "images/bosses/bb/sirota.png",
+          "image": "images/bosses/bb/sirota.png",
+          "description": "Описание скоро появится."
+        }
       ]
     }
   ]
 }
-
-
-

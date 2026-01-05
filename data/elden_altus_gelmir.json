@@ -6,40 +6,106 @@
     {
       "title": "Основные боссы региона",
       "bosses": [
-        { "id": "draconic_tree_sentinel", "name": "Драконий древесный страж", "icon": "images/bosses/elden/altus/draconic_tree_sentinel.png" }
+        {
+          "id": "draconic_tree_sentinel",
+          "name": "Драконий древесный страж",
+          "icon": "images/bosses/elden/altus/draconic_tree_sentinel.png",
+          "image": "images/bosses/elden/altus/draconic_tree_sentinel.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "Полевые боссы",
       "bosses": [
-        { "id": "ancient_dragon_lansseax", "name": "Древний дракон Ланссекс", "icon": "images/bosses/elden/altus/lansseax.png" },
-        { "id": "wyrm_makar", "name": "Магмовый змей Макар", "icon": "images/bosses/elden/altus/makar.png" },
-        { "id": "fullgrown_fallingstar", "name": "Взрослый падающий звёздный зверь", "icon": "images/bosses/elden/altus/fallingstar.png" },
-        { "id": "deathbird_altus", "name": "Птица смерти", "icon": "images/bosses/elden/altus/deathbird.png" },
-        { "id": "night_cavalry_altus", "name": "Ночной всадник", "icon": "images/bosses/elden/altus/night_cavalry.png" },
-        { "id": "elemer_of_the_briar", "name": "Элемер из Терновника", "icon": "images/bosses/elden/altus/elemer.png" }
+        {
+          "id": "ancient_dragon_lansseax",
+          "name": "Древний дракон Ланссекс",
+          "icon": "images/bosses/elden/altus/lansseax.png",
+          "image": "images/bosses/elden/altus/lansseax.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "wyrm_makar",
+          "name": "Магмовый змей Макар",
+          "icon": "images/bosses/elden/altus/makar.png",
+          "image": "images/bosses/elden/altus/makar.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "fullgrown_fallingstar",
+          "name": "Взрослый падающий звёздный зверь",
+          "icon": "images/bosses/elden/altus/fallingstar.png",
+          "image": "images/bosses/elden/altus/fallingstar.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "deathbird_altus",
+          "name": "Птица смерти",
+          "icon": "images/bosses/elden/altus/deathbird.png",
+          "image": "images/bosses/elden/altus/deathbird.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "night_cavalry_altus",
+          "name": "Ночной всадник",
+          "icon": "images/bosses/elden/altus/night_cavalry.png",
+          "image": "images/bosses/elden/altus/night_cavalry.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "elemer_of_the_briar",
+          "name": "Элемер из Терновника",
+          "icon": "images/bosses/elden/altus/elemer.png",
+          "image": "images/bosses/elden/altus/elemer.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "Эвергаолы",
       "bosses": [
-        { "id": "crucible_knight_altus", "name": "Рыцарь Горнила", "icon": "images/bosses/elden/altus/crucible_knight.png" }
+        {
+          "id": "crucible_knight_altus",
+          "name": "Рыцарь Горнила",
+          "icon": "images/bosses/elden/altus/crucible_knight.png",
+          "image": "images/bosses/elden/altus/crucible_knight.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "Подземелья",
       "bosses": [
-        { "id": "perfumer_tricia", "name": "Парфюмер Триция и Лев-страж", "icon": "images/bosses/elden/altus/perfumer_tricia.png" },
-        { "id": "godskin_apostle_altus", "name": "Апостол кожи богов", "icon": "images/bosses/elden/altus/godskin_apostle.png" },
-        { "id": "cemetery_shade_altus", "name": "Тень кладбища", "icon": "images/bosses/elden/altus/cemetery_shade.png" },
-        { "id": "tree_spirit_altus", "name": "Гниющий древесный дух", "icon": "images/bosses/elden/altus/tree_spirit.png" }
+        {
+          "id": "perfumer_tricia",
+          "name": "Парфюмер Триция и Лев-страж",
+          "icon": "images/bosses/elden/altus/perfumer_tricia.png",
+          "image": "images/bosses/elden/altus/perfumer_tricia.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "godskin_apostle_altus",
+          "name": "Апостол кожи богов",
+          "icon": "images/bosses/elden/altus/godskin_apostle.png",
+          "image": "images/bosses/elden/altus/godskin_apostle.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "cemetery_shade_altus",
+          "name": "Тень кладбища",
+          "icon": "images/bosses/elden/altus/cemetery_shade.png",
+          "image": "images/bosses/elden/altus/cemetery_shade.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "tree_spirit_altus",
+          "name": "Гниющий древесный дух",
+          "icon": "images/bosses/elden/altus/tree_spirit.png",
+          "image": "images/bosses/elden/altus/tree_spirit.png",
+          "description": "Описание скоро появится."
+        }
       ]
     }
   ]
 }
-
-
-

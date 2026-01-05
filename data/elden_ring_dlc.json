@@ -2,211 +2,295 @@
   {
     "id": "blackgaol_knight",
     "name": "Рыцарь Чёрной темницы",
-    "region": "Равнина могильных цветов (Gravesite Plain)"
+    "region": "Равнина могильных цветов (Gravesite Plain)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "chief_bloodfiend",
     "name": "Вождь кровавых извергов",
-    "region": "Равнина могильных цветов (Gravesite Plain)"
+    "region": "Равнина могильных цветов (Gravesite Plain)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "demihuman_swordmaster_onze",
     "name": "Получеловек-мечник Онзе",
-    "region": "Равнина могильных цветов (Gravesite Plain)"
+    "region": "Равнина могильных цветов (Gravesite Plain)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "ancient_dragon_man",
     "name": "Древний человек-дракон",
-    "region": "Равнина могильных цветов (Gravesite Plain)"
+    "region": "Равнина могильных цветов (Gravesite Plain)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "furnace_golem_1",
     "name": "Печной голем",
-    "region": "Равнина могильных цветов (Gravesite Plain)"
+    "region": "Равнина могильных цветов (Gravesite Plain)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "ghostflame_dragon_gp",
     "name": "Дракон призрачного пламени",
-    "region": "Равнина могильных цветов (Gravesite Plain)"
+    "region": "Равнина могильных цветов (Gravesite Plain)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "divine_beast_dancing_lion",
     "name": "Священный зверь: Танцующий лев",
-    "region": "Белурат, Поселение башни (Belurat)"
+    "region": "Белурат, Поселение башни (Belurat)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "rellana_twin_moon_knight",
     "name": "Реллана, рыцарь Двух Лун",
-    "region": "Замок Энсис (Castle Ensis)"
+    "region": "Замок Энсис (Castle Ensis)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "red_bear",
     "name": "Красный медведь",
-    "region": "Руины Раух (Rauh Ruins)"
+    "region": "Руины Раух (Rauh Ruins)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "rugalea_great_red_bear",
     "name": "Ругалея, Великий красный медведь",
-    "region": "Руины Раух (Rauh Ruins)"
+    "region": "Руины Раух (Rauh Ruins)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "romina_saint_of_the_bud",
     "name": "Ромина, святая Бутона",
-    "region": "Древние руины Раух (Ancient Ruins of Rauh)"
+    "region": "Древние руины Раух (Ancient Ruins of Rauh)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "death_knight",
     "name": "Рыцарь смерти",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "black_knight_edredd",
     "name": "Чёрный рыцарь Эдредд",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "black_knight_garrew",
     "name": "Чёрный рыцарь Гаррев",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "dryleaf_dane",
     "name": "Дэйн, Сухой лист",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "curseblade_labirith",
     "name": "Клинок проклятия Лабирит",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "rakshasa",
     "name": "Ракшаса",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "jori_elder_inquisitor",
     "name": "Джори, старший инквизитор",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "count_ymir_mother_of_fingers",
     "name": "Граф Инир, Мать Пальцев",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "metyr_mother_of_fingers",
     "name": "Метир, Мать Пальцев",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "ralva_great_red_bear",
     "name": "Ралва, Великий красный медведь",
-    "region": "Скаду-Альтус (Scadu Altus)"
+    "region": "Скаду-Альтус (Scadu Altus)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "golden_hippopotamus",
     "name": "Золотой гиппопотам",
-    "region": "Твердыня Тени (Shadow Keep)"
+    "region": "Твердыня Тени (Shadow Keep)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "commander_gaius",
     "name": "Командир Гайюс",
-    "region": "Твердыня Тени (Shadow Keep)"
+    "region": "Твердыня Тени (Shadow Keep)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "messmer_the_impaler",
     "name": "Мессмер-пронзатель",
-    "region": "Твердыня Тени (Shadow Keep)"
+    "region": "Твердыня Тени (Shadow Keep)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "scadutree_avatar",
     "name": "Аватар Древа Скаду",
-    "region": "Твердыня Тени (Shadow Keep)"
+    "region": "Твердыня Тени (Shadow Keep)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "tree_sentinel_dlc",
     "name": "Страж Древа",
-    "region": "Скадувью (Scaduview)"
+    "region": "Скадувью (Scaduview)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "fallingstar_beast_dlc",
     "name": "Зверь падающей звезды",
-    "region": "Скадувью (Scaduview)"
+    "region": "Скадувью (Scaduview)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "midra_lord_of_frenzied_flame",
     "name": "Мидра, владыка Безумного Пламени",
-    "region": "Лес Бездны (Abyssal Woods)"
+    "region": "Лес Бездны (Abyssal Woods)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "dancer_of_ranah",
     "name": "Танцовщица Раны",
-    "region": "Лазурный берег (Cerulean Coast)"
+    "region": "Лазурный берег (Cerulean Coast)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "demihuman_queen_marigga",
     "name": "Королева получеловеков Маригга",
-    "region": "Лазурный берег (Cerulean Coast)"
+    "region": "Лазурный берег (Cerulean Coast)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "putrescent_knight",
     "name": "Гнилостный рыцарь",
-    "region": "Трещина каменного гроба (Stone Coffin Fissure)"
+    "region": "Трещина каменного гроба (Stone Coffin Fissure)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "death_rite_bird",
     "name": "Птица погребального обряда",
-    "region": "Скрытая могила Харо (Charo's Hidden Grave)"
+    "region": "Скрытая могила Харо (Charo's Hidden Grave)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "lamenter",
     "name": "Плакальщик",
-    "region": "Скрытая могила Харо (Charo's Hidden Grave)"
+    "region": "Скрытая могила Харо (Charo's Hidden Grave)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "tibia_mariner_dlc",
     "name": "Кормчий Тибии",
-    "region": "Скрытая могила Харо (Charo's Hidden Grave)"
+    "region": "Скрытая могила Харо (Charo's Hidden Grave)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "ancient_dragon_senessax",
     "name": "Древний дракон Сенессакс",
-    "region": "Зазубренный пик (Jagged Peak)"
+    "region": "Зазубренный пик (Jagged Peak)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "bayle_the_dread",
     "name": "Бейл Ужасный",
-    "region": "Зазубренный пик (Jagged Peak)"
+    "region": "Зазубренный пик (Jagged Peak)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "jagged_peak_drake_bottom",
     "name": "Дрейк Зазубренного пика (низ)",
-    "region": "Зазубренный пик (Jagged Peak)"
+    "region": "Зазубренный пик (Jagged Peak)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "jagged_peak_drake_top",
     "name": "Дрейк Зазубренного пика (верх)",
-    "region": "Зазубренный пик (Jagged Peak)"
+    "region": "Зазубренный пик (Jagged Peak)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "leda_and_allies",
     "name": "Леда и союзники",
-    "region": "Энир-Илим (Enir-Ilim)"
+    "region": "Энир-Илим (Enir-Ilim)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "promised_consort_radahn",
     "name": "Радан — обещанный консорт",
-    "region": "Энир-Илим (Enir-Ilim)"
+    "region": "Энир-Илим (Enir-Ilim)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "divine_beast_dancing_lion_rauh",
     "name": "Священный зверь: Танцующий лев (Руины Раух)",
-    "region": "Древние руины Раух (Ancient Ruins of Rauh)"
+    "region": "Древние руины Раух (Ancient Ruins of Rauh)",
+    "image": "",
+    "description": "Описание скоро появится."
   },
   {
     "id": "ghostflame_dragon_southern_shore",
     "name": "Дракон призрачного пламени (Южный берег)",
-    "region": "Южный берег (Southern Shore)"
+    "region": "Южный берег (Southern Shore)",
+    "image": "",
+    "description": "Описание скоро появится."
   }
 ]

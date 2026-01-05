@@ -8,17 +8,23 @@
         {
           "id": "er_ancestor_spirit",
           "name": "Дух предка",
-          "icon": "images/bosses/ancestor_spirit.png"
+          "icon": "images/bosses/ancestor_spirit.png",
+          "image": "images/bosses/ancestor_spirit.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "er_regal_ancestor_spirit",
           "name": "Царственный дух предка",
-          "icon": "images/bosses/regal_ancestor_spirit.png"
+          "icon": "images/bosses/regal_ancestor_spirit.png",
+          "image": "images/bosses/regal_ancestor_spirit.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "er_dragonkin_soldier_siofra",
           "name": "Драконий солдат (Сиофра)",
-          "icon": "images/bosses/dragonkin_soldier.png"
+          "icon": "images/bosses/dragonkin_soldier.png",
+          "image": "images/bosses/dragonkin_soldier.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -28,12 +34,16 @@
         {
           "id": "er_dragonkin_soldier_ainsel",
           "name": "Драконий солдат (Айнсел)",
-          "icon": "images/bosses/dragonkin_soldier.png"
+          "icon": "images/bosses/dragonkin_soldier.png",
+          "image": "images/bosses/dragonkin_soldier.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "er_astel_naturalborn",
           "name": "Астель, Рождённый Пустотой",
-          "icon": "images/bosses/astel_naturalborn.png"
+          "icon": "images/bosses/astel_naturalborn.png",
+          "image": "images/bosses/astel_naturalborn.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -43,12 +53,16 @@
         {
           "id": "er_mimic_tear",
           "name": "Слеза-подражатель",
-          "icon": "images/bosses/mimic_tear.png"
+          "icon": "images/bosses/mimic_tear.png",
+          "image": "images/bosses/mimic_tear.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "er_valiant_gargoyles",
           "name": "Доблестные горгульи",
-          "icon": "images/bosses/valiant_gargoyles.png"
+          "icon": "images/bosses/valiant_gargoyles.png",
+          "image": "images/bosses/valiant_gargoyles.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -58,7 +72,9 @@
         {
           "id": "er_dragonkin_soldier_nokstella",
           "name": "Драконий солдат Нокстеллы",
-          "icon": "images/bosses/dragonkin_soldier.png"
+          "icon": "images/bosses/dragonkin_soldier.png",
+          "image": "images/bosses/dragonkin_soldier.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -68,12 +84,16 @@
         {
           "id": "er_fia_champions",
           "name": "Чемпионы Фии",
-          "icon": "images/bosses/fia_champions.png"
+          "icon": "images/bosses/fia_champions.png",
+          "image": "images/bosses/fia_champions.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "er_lichdragon_fortissax",
           "name": "Личдракон Фортиссакс",
-          "icon": "images/bosses/fortissax.png"
+          "icon": "images/bosses/fortissax.png",
+          "image": "images/bosses/fortissax.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -83,12 +103,11 @@
         {
           "id": "er_mohg_lord_of_blood",
           "name": "Мог, Повелитель крови",
-          "icon": "images/bosses/mohg_lord_of_blood.png"
+          "icon": "images/bosses/mohg_lord_of_blood.png",
+          "image": "images/bosses/mohg_lord_of_blood.png",
+          "description": "Описание скоро появится."
         }
       ]
     }
   ]
 }
-
-
-

@@ -6,62 +6,320 @@
     {
       "title": "Основные боссы",
       "bosses": [
-        { "id": "gyoubu", "name": "Гёбу Масатака Онива", "icon": "images/bosses/sekiro/gyoubu.png" },
-        { "id": "lady_butterfly", "name": "Госпожа Бабочка", "icon": "images/bosses/sekiro/lady_butterfly.png" },
-        { "id": "genichiro", "name": "Гэнитиро Асина", "icon": "images/bosses/sekiro/genichiro.png" },
-        { "id": "folding_screen_monkeys", "name": "Обезьяны в ширме", "icon": "images/bosses/sekiro/monkeys.png" },
-        { "id": "guardian_ape", "name": "Обезьяна-страж", "icon": "images/bosses/sekiro/guardian_ape.png" },
-        { "id": "headless_ape", "name": "Безголовая обезьяна", "icon": "images/bosses/sekiro/headless_ape.png" },
-        { "id": "great_snake", "name": "Великий Змей", "icon": "images/bosses/sekiro/great_snake.png" },
-        { "id": "corrupted_monk", "name": "Падшая монахиня", "icon": "images/bosses/sekiro/corrupted_monk.png" },
-        { "id": "great_shinobi_owl", "name": "Великий синоби — Филин", "icon": "images/bosses/sekiro/owl.png" },
-        { "id": "true_monk", "name": "Истинная монахиня", "icon": "images/bosses/sekiro/true_monk.png" },
-        { "id": "great_karp", "name": "Великий Карп", "icon": "images/bosses/sekiro/great_karp.png" },
-        { "id": "old_drakons_tree", "name": "Старые драконы Древа", "icon": "images/bosses/sekiro/old_drakons_tree.png" },    
-        { "id": "divine_dragon", "name": "Божественный дракон", "icon": "images/bosses/sekiro/divine_dragon.png" },
-        { "id": "owl_father", "name": "Филин (Отец)", "icon": "images/bosses/sekiro/owl_father.png" },
-        { "id": "demon_hatred", "name": "Демон ненависти ", "icon": "images/bosses/sekiro/demon_hatred.png" },
-        { "id": "isshin_sword_saint", "name": "Иссин, мастер меча", "icon": "images/bosses/sekiro/isshin_ss.png" }
+        {
+          "id": "gyoubu",
+          "name": "Гёбу Масатака Онива",
+          "icon": "images/bosses/sekiro/gyoubu.png",
+          "image": "images/bosses/sekiro/gyoubu.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lady_butterfly",
+          "name": "Госпожа Бабочка",
+          "icon": "images/bosses/sekiro/lady_butterfly.png",
+          "image": "images/bosses/sekiro/lady_butterfly.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "genichiro",
+          "name": "Гэнитиро Асина",
+          "icon": "images/bosses/sekiro/genichiro.png",
+          "image": "images/bosses/sekiro/genichiro.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "folding_screen_monkeys",
+          "name": "Обезьяны в ширме",
+          "icon": "images/bosses/sekiro/monkeys.png",
+          "image": "images/bosses/sekiro/monkeys.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "guardian_ape",
+          "name": "Обезьяна-страж",
+          "icon": "images/bosses/sekiro/guardian_ape.png",
+          "image": "images/bosses/sekiro/guardian_ape.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "headless_ape",
+          "name": "Безголовая обезьяна",
+          "icon": "images/bosses/sekiro/headless_ape.png",
+          "image": "images/bosses/sekiro/headless_ape.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "great_snake",
+          "name": "Великий Змей",
+          "icon": "images/bosses/sekiro/great_snake.png",
+          "image": "images/bosses/sekiro/great_snake.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "corrupted_monk",
+          "name": "Падшая монахиня",
+          "icon": "images/bosses/sekiro/corrupted_monk.png",
+          "image": "images/bosses/sekiro/corrupted_monk.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "great_shinobi_owl",
+          "name": "Великий синоби — Филин",
+          "icon": "images/bosses/sekiro/owl.png",
+          "image": "images/bosses/sekiro/owl.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "true_monk",
+          "name": "Истинная монахиня",
+          "icon": "images/bosses/sekiro/true_monk.png",
+          "image": "images/bosses/sekiro/true_monk.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "great_karp",
+          "name": "Великий Карп",
+          "icon": "images/bosses/sekiro/great_karp.png",
+          "image": "images/bosses/sekiro/great_karp.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "old_drakons_tree",
+          "name": "Старые драконы Древа",
+          "icon": "images/bosses/sekiro/old_drakons_tree.png",
+          "image": "images/bosses/sekiro/old_drakons_tree.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "divine_dragon",
+          "name": "Божественный дракон",
+          "icon": "images/bosses/sekiro/divine_dragon.png",
+          "image": "images/bosses/sekiro/divine_dragon.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "owl_father",
+          "name": "Филин (Отец)",
+          "icon": "images/bosses/sekiro/owl_father.png",
+          "image": "images/bosses/sekiro/owl_father.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "demon_hatred",
+          "name": "Демон ненависти ",
+          "icon": "images/bosses/sekiro/demon_hatred.png",
+          "image": "images/bosses/sekiro/demon_hatred.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "isshin_sword_saint",
+          "name": "Иссин, мастер меча",
+          "icon": "images/bosses/sekiro/isshin_ss.png",
+          "image": "images/bosses/sekiro/isshin_ss.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "Мини-боссы",
       "bosses": [
-        { "id": "headless", "name": "Безголовый", "icon": "images/bosses/sekiro/headless.png" },
-        { "id": "giant_in_the_stocks", "name": "Великан в колодках", "icon": "images/bosses/sekiro/giant_in_the_stocks.png" },
-        { "id": "alina_rin", "name": "Водяная О'Рин", "icon": "images/bosses/sekiro/alina_rin.png" },
-        { "id": "armored_warrior", "name": "Воин в доспехах", "icon": "images/bosses/sekiro/armored_warrior.png" },
-        { "id": "shichimen", "name": "Воин Ситимэн", "icon": "images/bosses/sekiro/shichimen.png" },
-        { "id": "general_mazumoto", "name": "Военачальник Кураноскэ Мацумото", "icon": "images/bosses/sekiro/general_mazumoto.png" },
-        { "id": "lone_shadow", "name": "Мечник одинокой тени", "icon": "images/bosses/sekiro/lone_shadow.png" },
-        { "id": "seven_spears", "name": "Семеро копьеносцев Асина-Сикибу Тосикацу Ямаути", "icon": "images/bosses/sekiro/seven_spears.png" },
-        { "id": "rage_bull", "name": "Яростный Бык", "icon": "images/bosses/sekiro/rage_bull.png" },
-        { "id": "general_tenizen", "name": "Военачальник Тэндзен Ямаути", "icon": "images/bosses/sekiro/tenizen.png" },
-        { "id": "general_naomori", "name": "Военачальник Наомори Каварада", "icon": "images/bosses/sekiro/naomori.png" },
-        { "id": "leader_sidzu", "name": "Глава клана Оками Сидзу", "icon": "images/bosses/sekiro/leader_sidzu.png" },        
-        { "id": "hall_bull", "name": "Дворцовый Бык", "icon": "images/bosses/sekiro/hall_bull.png" },
-        { "id": "juzou", "name": "Дзюдзо-пьяница", "icon": "images/bosses/sekiro/juzou.png" },
-        { "id": "snake_eyes1", "name": "Змеиный глаз Сирафудзи", "icon": "images/bosses/sekiro/snake_eyes1.png" },
-        { "id": "lone_shadow_hand", "name": "Одинокая тень - Рука Бесчестья", "icon": "images/bosses/sekiro/lone_shadow_hand.png" },  
-        { "id": "seven_spears_oniva", "name": "Семеро копьеносцев Асина-Сюмэ Масадзи Онива", "icon": "images/bosses/sekiro/seven_spears_oniva.png" },
-        { "id": "elite_warrior1", "name": "Элитный боец Асина - Дзинсукэ Садзэ", "icon": "images/bosses/sekiro/elite_warrior1.png" },
-        { "id": "elite_warrior2", "name": "Элитный боец Асина - Удзинари Мидзуо", "icon": "images/bosses/sekiro/elite_warrior2.png" },
-        { "id": "snake_eyes2", "name": "Змеиный глаз Сирахаги", "icon": "images/bosses/sekiro/snake_eyes2.png" },
-        { "id": "general_yamautu", "name": "Командир Синэгори Ямаути", "icon": "images/bosses/sekiro/general_yamautu.png" },
-        { "id": "lone_shadow_masanaga", "name": "Копьеносец Одинокой тени Масанага", "icon": "images/bosses/sekiro/lone_shadow_masanaga.png" },  
-        { "id": "red_guard_sigekiti", "name": "Красный страж Сигэкити", "icon": "images/bosses/sekiro/red_guard_sigekiti.png" },
-        { "id": "centipede1", "name": "Многоножка-длиннорукий Жираф", "icon": "images/bosses/sekiro/centipede1.png" },
-        { "id": "centipede2", "name": "Многоножка-длиннорукий Сэнъун", "icon": "images/bosses/sekiro/centipede2.png" },
-        { "id": "shinobi_hunter", "name": "Охотник на синоби Энсин из храма Мисен", "icon": "images/bosses/sekiro/shinobi_hunter.png" },
-        { "id": "tokudziro", "name": "Токудзиро-обжора", "icon": "images/bosses/sekiro/tokudziro.png" },
-        { "id": "smoke_velmoja", "name": "Туманный вельможа", "icon": "images/bosses/sekiro/smoke_velmoja.png" }
+        {
+          "id": "headless",
+          "name": "Безголовый",
+          "icon": "images/bosses/sekiro/headless.png",
+          "image": "images/bosses/sekiro/headless.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "giant_in_the_stocks",
+          "name": "Великан в колодках",
+          "icon": "images/bosses/sekiro/giant_in_the_stocks.png",
+          "image": "images/bosses/sekiro/giant_in_the_stocks.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "alina_rin",
+          "name": "Водяная О'Рин",
+          "icon": "images/bosses/sekiro/alina_rin.png",
+          "image": "images/bosses/sekiro/alina_rin.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "armored_warrior",
+          "name": "Воин в доспехах",
+          "icon": "images/bosses/sekiro/armored_warrior.png",
+          "image": "images/bosses/sekiro/armored_warrior.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "shichimen",
+          "name": "Воин Ситимэн",
+          "icon": "images/bosses/sekiro/shichimen.png",
+          "image": "images/bosses/sekiro/shichimen.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "general_mazumoto",
+          "name": "Военачальник Кураноскэ Мацумото",
+          "icon": "images/bosses/sekiro/general_mazumoto.png",
+          "image": "images/bosses/sekiro/general_mazumoto.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lone_shadow",
+          "name": "Мечник одинокой тени",
+          "icon": "images/bosses/sekiro/lone_shadow.png",
+          "image": "images/bosses/sekiro/lone_shadow.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "seven_spears",
+          "name": "Семеро копьеносцев Асина-Сикибу Тосикацу Ямаути",
+          "icon": "images/bosses/sekiro/seven_spears.png",
+          "image": "images/bosses/sekiro/seven_spears.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rage_bull",
+          "name": "Яростный Бык",
+          "icon": "images/bosses/sekiro/rage_bull.png",
+          "image": "images/bosses/sekiro/rage_bull.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "general_tenizen",
+          "name": "Военачальник Тэндзен Ямаути",
+          "icon": "images/bosses/sekiro/tenizen.png",
+          "image": "images/bosses/sekiro/tenizen.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "general_naomori",
+          "name": "Военачальник Наомори Каварада",
+          "icon": "images/bosses/sekiro/naomori.png",
+          "image": "images/bosses/sekiro/naomori.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "leader_sidzu",
+          "name": "Глава клана Оками Сидзу",
+          "icon": "images/bosses/sekiro/leader_sidzu.png",
+          "image": "images/bosses/sekiro/leader_sidzu.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "hall_bull",
+          "name": "Дворцовый Бык",
+          "icon": "images/bosses/sekiro/hall_bull.png",
+          "image": "images/bosses/sekiro/hall_bull.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "juzou",
+          "name": "Дзюдзо-пьяница",
+          "icon": "images/bosses/sekiro/juzou.png",
+          "image": "images/bosses/sekiro/juzou.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "snake_eyes1",
+          "name": "Змеиный глаз Сирафудзи",
+          "icon": "images/bosses/sekiro/snake_eyes1.png",
+          "image": "images/bosses/sekiro/snake_eyes1.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lone_shadow_hand",
+          "name": "Одинокая тень - Рука Бесчестья",
+          "icon": "images/bosses/sekiro/lone_shadow_hand.png",
+          "image": "images/bosses/sekiro/lone_shadow_hand.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "seven_spears_oniva",
+          "name": "Семеро копьеносцев Асина-Сюмэ Масадзи Онива",
+          "icon": "images/bosses/sekiro/seven_spears_oniva.png",
+          "image": "images/bosses/sekiro/seven_spears_oniva.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "elite_warrior1",
+          "name": "Элитный боец Асина - Дзинсукэ Садзэ",
+          "icon": "images/bosses/sekiro/elite_warrior1.png",
+          "image": "images/bosses/sekiro/elite_warrior1.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "elite_warrior2",
+          "name": "Элитный боец Асина - Удзинари Мидзуо",
+          "icon": "images/bosses/sekiro/elite_warrior2.png",
+          "image": "images/bosses/sekiro/elite_warrior2.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "snake_eyes2",
+          "name": "Змеиный глаз Сирахаги",
+          "icon": "images/bosses/sekiro/snake_eyes2.png",
+          "image": "images/bosses/sekiro/snake_eyes2.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "general_yamautu",
+          "name": "Командир Синэгори Ямаути",
+          "icon": "images/bosses/sekiro/general_yamautu.png",
+          "image": "images/bosses/sekiro/general_yamautu.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lone_shadow_masanaga",
+          "name": "Копьеносец Одинокой тени Масанага",
+          "icon": "images/bosses/sekiro/lone_shadow_masanaga.png",
+          "image": "images/bosses/sekiro/lone_shadow_masanaga.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "red_guard_sigekiti",
+          "name": "Красный страж Сигэкити",
+          "icon": "images/bosses/sekiro/red_guard_sigekiti.png",
+          "image": "images/bosses/sekiro/red_guard_sigekiti.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "centipede1",
+          "name": "Многоножка-длиннорукий Жираф",
+          "icon": "images/bosses/sekiro/centipede1.png",
+          "image": "images/bosses/sekiro/centipede1.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "centipede2",
+          "name": "Многоножка-длиннорукий Сэнъун",
+          "icon": "images/bosses/sekiro/centipede2.png",
+          "image": "images/bosses/sekiro/centipede2.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "shinobi_hunter",
+          "name": "Охотник на синоби Энсин из храма Мисен",
+          "icon": "images/bosses/sekiro/shinobi_hunter.png",
+          "image": "images/bosses/sekiro/shinobi_hunter.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "tokudziro",
+          "name": "Токудзиро-обжора",
+          "icon": "images/bosses/sekiro/tokudziro.png",
+          "image": "images/bosses/sekiro/tokudziro.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "smoke_velmoja",
+          "name": "Туманный вельможа",
+          "icon": "images/bosses/sekiro/smoke_velmoja.png",
+          "image": "images/bosses/sekiro/smoke_velmoja.png",
+          "description": "Описание скоро появится."
+        }
       ]
     }
   ]
 }
-
-
-
-
-

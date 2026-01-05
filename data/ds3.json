@@ -6,56 +6,197 @@
     {
       "title": "Основные боссы",
       "bosses": [
-        { "id": "iudex_gundyr", "name": "Судия Гундир", "icon": "images/bosses/ds3/iudex_gundyr.png" },
-        { "id": "vordt", "name": "Вордт из Холодной долины", "icon": "images/bosses/ds3/vordt.png" },
-        { "id": "crystal_sage", "name": "Знаток кристальных чар", "icon": "images/bosses/ds3/crystal_sage.png" },
-        { "id": "deacons", "name": "Дьяконы глубин", "icon": "images/bosses/ds3/deacons.png" },
-        { "id": "abyss_watchers", "name": "Хранители Бездны", "icon": "images/bosses/ds3/abyss_watchers.png" },
-        { "id": "wolnir", "name": "Верховный повелитель Вольнир", "icon": "images/bosses/ds3/wolnir.png" },
-        { "id": "pontiff", "name": "Понтифик Саливан", "icon": "images/bosses/ds3/pontiff.png" },
-        { "id": "aldrich", "name": "Олдрик, Пожиратель богов", "icon": "images/bosses/ds3/aldrich.png" },
-        { "id": "yhorm", "name": "Гигант Йорм", "icon": "images/bosses/ds3/yhorm.png" },
-        { "id": "dancer", "name": "Танцовщица Холодной долины", "icon": "images/bosses/ds3/dancer.png" },
-        { "id": "dragonslayer_armor", "name": "Доспехи Драконоборца", "icon": "images/bosses/ds3/dragonslayer_armor.png" },
-        { "id": "lothric_lorian", "name": "Лотрик младший принц и Лориан старший принц", "icon": "images/bosses/ds3/lothric_lorian.png" },
-        { "id": "soul_of_cinder", "name": "Душа Пепла", "icon": "images/bosses/ds3/soul_of_cinder.png" }
+        {
+          "id": "iudex_gundyr",
+          "name": "Судия Гундир",
+          "icon": "images/bosses/ds3/iudex_gundyr.png",
+          "image": "images/bosses/ds3/iudex_gundyr.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "vordt",
+          "name": "Вордт из Холодной долины",
+          "icon": "images/bosses/ds3/vordt.png",
+          "image": "images/bosses/ds3/vordt.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "crystal_sage",
+          "name": "Знаток кристальных чар",
+          "icon": "images/bosses/ds3/crystal_sage.png",
+          "image": "images/bosses/ds3/crystal_sage.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "deacons",
+          "name": "Дьяконы глубин",
+          "icon": "images/bosses/ds3/deacons.png",
+          "image": "images/bosses/ds3/deacons.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "abyss_watchers",
+          "name": "Хранители Бездны",
+          "icon": "images/bosses/ds3/abyss_watchers.png",
+          "image": "images/bosses/ds3/abyss_watchers.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "wolnir",
+          "name": "Верховный повелитель Вольнир",
+          "icon": "images/bosses/ds3/wolnir.png",
+          "image": "images/bosses/ds3/wolnir.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "pontiff",
+          "name": "Понтифик Саливан",
+          "icon": "images/bosses/ds3/pontiff.png",
+          "image": "images/bosses/ds3/pontiff.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "aldrich",
+          "name": "Олдрик, Пожиратель богов",
+          "icon": "images/bosses/ds3/aldrich.png",
+          "image": "images/bosses/ds3/aldrich.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "yhorm",
+          "name": "Гигант Йорм",
+          "icon": "images/bosses/ds3/yhorm.png",
+          "image": "images/bosses/ds3/yhorm.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "dancer",
+          "name": "Танцовщица Холодной долины",
+          "icon": "images/bosses/ds3/dancer.png",
+          "image": "images/bosses/ds3/dancer.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "dragonslayer_armor",
+          "name": "Доспехи Драконоборца",
+          "icon": "images/bosses/ds3/dragonslayer_armor.png",
+          "image": "images/bosses/ds3/dragonslayer_armor.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lothric_lorian",
+          "name": "Лотрик младший принц и Лориан старший принц",
+          "icon": "images/bosses/ds3/lothric_lorian.png",
+          "image": "images/bosses/ds3/lothric_lorian.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "soul_of_cinder",
+          "name": "Душа Пепла",
+          "icon": "images/bosses/ds3/soul_of_cinder.png",
+          "image": "images/bosses/ds3/soul_of_cinder.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "Второстепенные боссы",
       "bosses": [
-        { "id": "curse_rotted_greatwood", "name": "Проклятое Великое древо", "icon": "images/bosses/ds3/greatwood.png" },
-        { "id": "old_demon_king", "name": "Старый Король Демонов", "icon": "images/bosses/ds3/old_demon_king.png" },
-        { "id": "oceiros", "name": "Оцейрос, Снедаемый король", "icon": "images/bosses/ds3/oceiros.png" },
-        { "id": "champion_gundyr", "name": "Чемпион Гундир", "icon": "images/bosses/ds3/champion_gundyr.png" },
-        { "id": "ancient_wyvern", "name": "Древняя виверна", "icon": "images/bosses/ds3/ancient_wyvern.png" },
-        { "id": "nameless_king", "name": "Безымянный король", "icon": "images/bosses/ds3/nameless_king.png" }
+        {
+          "id": "curse_rotted_greatwood",
+          "name": "Проклятое Великое древо",
+          "icon": "images/bosses/ds3/greatwood.png",
+          "image": "images/bosses/ds3/greatwood.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "old_demon_king",
+          "name": "Старый Король Демонов",
+          "icon": "images/bosses/ds3/old_demon_king.png",
+          "image": "images/bosses/ds3/old_demon_king.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "oceiros",
+          "name": "Оцейрос, Снедаемый король",
+          "icon": "images/bosses/ds3/oceiros.png",
+          "image": "images/bosses/ds3/oceiros.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "champion_gundyr",
+          "name": "Чемпион Гундир",
+          "icon": "images/bosses/ds3/champion_gundyr.png",
+          "image": "images/bosses/ds3/champion_gundyr.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ancient_wyvern",
+          "name": "Древняя виверна",
+          "icon": "images/bosses/ds3/ancient_wyvern.png",
+          "image": "images/bosses/ds3/ancient_wyvern.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "nameless_king",
+          "name": "Безымянный король",
+          "icon": "images/bosses/ds3/nameless_king.png",
+          "image": "images/bosses/ds3/nameless_king.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "DLC — Ashes of Ariandel",
       "bosses": [
-        { "id": "champion_gravetender", "name": "Хранитель могилы чемпиона и великий волк", "icon": "images/bosses/ds3/gravetender.png" },
-        { "id": "friede", "name": "Отец Арианлеот и Фриде", "icon": "images/bosses/ds3/friede.png" }
+        {
+          "id": "champion_gravetender",
+          "name": "Хранитель могилы чемпиона и великий волк",
+          "icon": "images/bosses/ds3/gravetender.png",
+          "image": "images/bosses/ds3/gravetender.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "friede",
+          "name": "Отец Арианлеот и Фриде",
+          "icon": "images/bosses/ds3/friede.png",
+          "image": "images/bosses/ds3/friede.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "DLC — The Ringed City",
       "bosses": [
-        { "id": "demon_prince", "name": "Демон-принц", "icon": "images/bosses/ds3/demon_prince.png" },
-        { "id": "midir", "name": "Мидир Пожиратель Тьмы", "icon": "images/bosses/ds3/midir.png" },
-        { "id": "halflight", "name": "Копьё церкви", "icon": "images/bosses/ds3/halflight.png" },
-        { "id": "gael", "name": "Рыцарь-раб Гаэль", "icon": "images/bosses/ds3/gael.png" }
+        {
+          "id": "demon_prince",
+          "name": "Демон-принц",
+          "icon": "images/bosses/ds3/demon_prince.png",
+          "image": "images/bosses/ds3/demon_prince.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "midir",
+          "name": "Мидир Пожиратель Тьмы",
+          "icon": "images/bosses/ds3/midir.png",
+          "image": "images/bosses/ds3/midir.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "halflight",
+          "name": "Копьё церкви",
+          "icon": "images/bosses/ds3/halflight.png",
+          "image": "images/bosses/ds3/halflight.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "gael",
+          "name": "Рыцарь-раб Гаэль",
+          "icon": "images/bosses/ds3/gael.png",
+          "image": "images/bosses/ds3/gael.png",
+          "description": "Описание скоро появится."
+        }
       ]
     }
   ]
 }
-
-
-
-
-
-

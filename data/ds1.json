@@ -6,49 +6,199 @@
     {
       "title": "Основные боссы",
       "bosses": [
-        { "id": "asylum_demon", "name": "Демон Прибежища", "icon": "images/bosses/ds1/asylum_demon.png" },
-        { "id": "bell_gargoyles", "name": "Гаргульи колокола", "icon": "images/bosses/ds1/bell_gargoyles.png" },
-        { "id": "chaos_witch_quelaag", "name": "Квилег Ведьма Хаоса", "icon": "images/bosses/ds1/quelaag.png" },
-        { "id": "pinwheel", "name": "Вихрь", "icon": "images/bosses/ds1/pinwheel.png" },
-        { "id": "sif_great_wolf", "name": "Сиф Великий Волк", "icon": "images/bosses/ds1/sif_great_wolf.png" },
-        { "id": "iron_golem", "name": "Железный голем", "icon": "images/bosses/ds1/iron_golem.png" },
-        { "id": "ornstein_smough", "name": "Орнштейн и Смоуг", "icon": "images/bosses/ds1/ornstein_smough.png" },
-        { "id": "seath", "name": "Нагой Сит", "icon": "images/bosses/ds1/seath.png" },
-        { "id": "four_kings", "name": "Четыре Короля", "icon": "images/bosses/ds1/four_kings.png" },
-        { "id": "bed_of_chaos", "name": "Ложе Хаоса", "icon": "images/bosses/ds1/bed_of_chaos.png" },
-        { "id": "nito", "name": "Нито Повелитель Могил", "icon": "images/bosses/ds1/nito.png" },
-        { "id": "gwyn", "name": "Гвин, Повелитель Пепла", "icon": "images/bosses/ds1/gwyn.png" }
+        {
+          "id": "asylum_demon",
+          "name": "Демон Прибежища",
+          "icon": "images/bosses/ds1/asylum_demon.png",
+          "image": "images/bosses/ds1/asylum_demon.png",
+          "description": "Тяжёлый демон, поставленный сторожить Северное Прибежище нежити. Его задача проста: ломать волю тех, кто ещё надеется выбраться, и напоминать — отсюда уходят лишь те, кто готов идти до конца. Даже его дубина кажется частью стены этого места, столь же древней и безжалостной."
+        },
+        {
+          "id": "bell_gargoyles",
+          "name": "Гаргульи колокола",
+          "icon": "images/bosses/ds1/bell_gargoyles.png",
+          "image": "images/bosses/ds1/bell_gargoyles.png",
+          "description": "Каменные стражи колокольни Ундеда. Когда-то они были безмолвными изваяниями, но проклятие и магия оживили их, чтобы удержать колокол пробуждения под охраной. Их полёт — не свобода, а служба долгу, который уже никто не помнит."
+        },
+        {
+          "id": "chaos_witch_quelaag",
+          "name": "Квилег Ведьма Хаоса",
+          "icon": "images/bosses/ds1/quelaag.png",
+          "image": "images/bosses/ds1/quelaag.png",
+          "description": "Дочь Ведьмы Изалита, принявшая облик паучьего демона. Она охотится на человечность, чтобы облегчить страдания своей сестры, погружённой в вечную муку. В её пламени живёт не только Хаос, но и отчаянная нежность."
+        },
+        {
+          "id": "pinwheel",
+          "name": "Вихрь",
+          "icon": "images/bosses/ds1/pinwheel.png",
+          "image": "images/bosses/ds1/pinwheel.png",
+          "description": "Нечестивая смесь масок и душ, связанная отчаянным ритуалом. Он искал силу смерти у Нито, надеясь удержать распадающуюся семью — но получил лишь изломанное бессмертие. Его магия — отражение того, как далеко может зайти страх утраты."
+        },
+        {
+          "id": "sif_great_wolf",
+          "name": "Сиф Великий Волк",
+          "icon": "images/bosses/ds1/sif_great_wolf.png",
+          "image": "images/bosses/ds1/sif_great_wolf.png",
+          "description": "Верный волк рыцаря Арториаса, оставшийся сторожить могилу хозяина. Он поднимает клинок не из ненависти, а из долга — чтобы не дать никому прикоснуться к тому, что поглотила Бездна. Его бой — трагедия верности, доведённой до конца."
+        },
+        {
+          "id": "iron_golem",
+          "name": "Железный голем",
+          "icon": "images/bosses/ds1/iron_golem.png",
+          "image": "images/bosses/ds1/iron_golem.png",
+          "description": "Железный страж Сенской крепости, созданный, чтобы отсекать путь к Анор Лондо. Он безмолвен, как механизм, но движется с пугающей целеустремлённостью. Для него ты лишь ещё один испытуемый на дороге богов."
+        },
+        {
+          "id": "ornstein_smough",
+          "name": "Орнштейн и Смоуг",
+          "icon": "images/bosses/ds1/ornstein_smough.png",
+          "image": "images/bosses/ds1/ornstein_smough.png",
+          "description": "Два столпа Анор Лондо: Драконоубийца Орнштейн и Палач Смоуг. Один — остаток рыцарской чести, другой — плоть жестокости при дворе богов. Вместе они защищают иллюзию сияния, за которой давно поселилась пустота."
+        },
+        {
+          "id": "seath",
+          "name": "Нагой Сит",
+          "icon": "images/bosses/ds1/seath.png",
+          "image": "images/bosses/ds1/seath.png",
+          "description": "Бледный дракон Сит, предавший свой род ради знаний и бессмертия. Он одержим кристаллами и экспериментами над жизнью, превращая учеников в чудовищ. Его холодная логика — другая сторона безумия: когда истина важнее всего остального."
+        },
+        {
+          "id": "four_kings",
+          "name": "Четыре Короля",
+          "icon": "images/bosses/ds1/four_kings.png",
+          "image": "images/bosses/ds1/four_kings.png",
+          "description": "Четыре короля Нью-Лондо, когда-то правители людей, получившие частицу души Гвина. Их жадность и влияние Тьмы утянули царство под воду и в Безну. Теперь они — тени власти, что продолжают хватать всё живое."
+        },
+        {
+          "id": "bed_of_chaos",
+          "name": "Ложе Хаоса",
+          "icon": "images/bosses/ds1/bed_of_chaos.png",
+          "image": "images/bosses/ds1/bed_of_chaos.png",
+          "description": "Ядро трагедии Изалита: попытка создать новое пламя обернулась рождением Хаоса. Это не столько босс, сколько катастрофа, принявшая форму. Внутри древа и пламени спрятана последняя искра старой воли — и она всё ещё опасна."
+        },
+        {
+          "id": "nito",
+          "name": "Нито Повелитель Могил",
+          "icon": "images/bosses/ds1/nito.png",
+          "image": "images/bosses/ds1/nito.png",
+          "description": "Первый из мертвых, владыка могил и несущий миазмы разложения. Его присутствие — холодная неизбежность конца, перед которым равны короли и нищие. Служители катакомб чтят его как закон мира: всё возвращается в прах."
+        },
+        {
+          "id": "gwyn",
+          "name": "Гвин, Повелитель Пепла",
+          "icon": "images/bosses/ds1/gwyn.png",
+          "image": "images/bosses/ds1/gwyn.png",
+          "description": "Гвин Повелитель Пепла, некогда бог молний и победитель драконов. Он пожертвовал собой, чтобы продлить век огня, и этим обрёк мир на бесконечный цикл угасания. Встреча с ним — не триумф, а печальная развязка эпохи."
+        }
       ]
     },
-
     {
       "title": "Второстепенные боссы",
       "bosses": [
-        { "id": "taurus_demon", "name": "Демон Телец", "icon": "images/bosses/ds1/taurus_demon.png" },
-        { "id": "capra_demon", "name": "Демон Капра", "icon": "images/bosses/ds1/capra_demon.png" },
-        { "id": "moonlight_butterfly", "name": "Лунная бабочка", "icon": "images/bosses/ds1/moonlight_butterfly.png" },
-        { "id": "gapin_dragon", "name": "Разверстый дракон", "icon": "images/bosses/ds1/gaping_dragon.png" },
-        { "id": "stray_demon", "name": "Бродячий демон", "icon": "images/bosses/ds1/stray_demon.png" },
-        { "id": "demon_firesage", "name": "Мудрый демон огня", "icon": "images/bosses/ds1/demon_firesage.png" },
-        { "id": "centipede_demon", "name": "Демон стоног", "icon": "images/bosses/ds1/centipede_demon.png" },
-        { "id": "ceaseless_discharge", "name": "Неутомимый воин", "icon": "images/bosses/ds1/ceaseless_discharge.png" },
-        { "id": "crossbreed_priscilla", "name": "Присцилла Полукровка", "icon": "images/bosses/ds1/priscilla.png" },
-        { "id": "gwyndolin", "name": "Гвиндолин Темное Солнце", "icon": "images/bosses/ds1/gwyndolin.png" }
+        {
+          "id": "taurus_demon",
+          "name": "Демон Телец",
+          "icon": "images/bosses/ds1/taurus_demon.png",
+          "image": "images/bosses/ds1/taurus_demon.png",
+          "description": "Демон из руин Изалита, забредший на стены Бурга нежити. Он охотится на путников, как на добычу, превращая узкие бастионы в бойню. Его ярость — отголосок Хаоса, что давно пожирает всё живое."
+        },
+        {
+          "id": "capra_demon",
+          "name": "Демон Капра",
+          "icon": "images/bosses/ds1/capra_demon.png",
+          "image": "images/bosses/ds1/capra_demon.png",
+          "description": "Один из демонов, вырвавшихся из погибающего Изалита. В тесных улочках Нижнего Бурга он превратил руины в клетку, где охотник и жертва меняются местами. Его рога и клинки — свидетельство грубой, животной силы Хаоса."
+        },
+        {
+          "id": "moonlight_butterfly",
+          "name": "Лунная бабочка",
+          "icon": "images/bosses/ds1/moonlight_butterfly.png",
+          "image": "images/bosses/ds1/moonlight_butterfly.png",
+          "description": "Диковинное создание, рождённое из магии и лунного света. Оно парит над развалинами, будто сон, но его чары смертельно реальны. Легенды говорят о следе Сита — дракона-колдуна, чьи эксперименты не знали меры."
+        },
+        {
+          "id": "gapin_dragon",
+          "name": "Разверстый дракон",
+          "icon": "images/bosses/ds1/gaping_dragon.png",
+          "image": "images/bosses/ds1/gaping_dragon.png",
+          "description": "Чудовище, раздутое до неестественных размеров, что гнездится в глубинах канализации. Его пасть — бездна, поглощающая всё на пути, словно сам голод города. В нём чувствуется порча Изалита и тень древних искушений."
+        },
+        {
+          "id": "stray_demon",
+          "name": "Бродячий демон",
+          "icon": "images/bosses/ds1/stray_demon.png",
+          "image": "images/bosses/ds1/stray_demon.png",
+          "description": "Заблудший демон, заточённый в глубинах Прибежища. Он пережил свой век и потерял предназначение, но ярость в нём не угасла. Кажется, само место не отпускает тех, кто однажды стал его частью."
+        },
+        {
+          "id": "demon_firesage",
+          "name": "Мудрый демон огня",
+          "icon": "images/bosses/ds1/demon_firesage.png",
+          "image": "images/bosses/ds1/demon_firesage.png",
+          "description": "Искажённый мудрец демонов, что пытается удержать остатки древнего огня. Его пламя тяжёлое и грязное, будто само знание Хаоса стало проклятием. В нём читается тень тех, кто когда-то пытался повторить величие Первого Пламени."
+        },
+        {
+          "id": "centipede_demon",
+          "name": "Демон стоног",
+          "icon": "images/bosses/ds1/centipede_demon.png",
+          "image": "images/bosses/ds1/centipede_demon.png",
+          "description": "Порождение лавы и Хаоса, растущее и перерождающееся в огненном море. Он охраняет проход, будто сама корка земли встала против живых. В его движениях — слепая воля Изалита, что не умеет останавливаться."
+        },
+        {
+          "id": "ceaseless_discharge",
+          "name": "Неутомимый воин",
+          "icon": "images/bosses/ds1/ceaseless_discharge.png",
+          "image": "images/bosses/ds1/ceaseless_discharge.png",
+          "description": "Израненный демон, чьё тело бесконечно изливает лаву — как кровь открытой раны. Он стоит над останками близкой ему сущности, цепляясь за память, которая сильнее боли. Его ярость — это горе, не нашедшее покоя."
+        },
+        {
+          "id": "crossbreed_priscilla",
+          "name": "Присцилла Полукровка",
+          "icon": "images/bosses/ds1/priscilla.png",
+          "image": "images/bosses/ds1/priscilla.png",
+          "description": "Полукровка, спрятанная в Нарисованном мире, где изгнанники находят убежище. Присцилла не ищет войны и просит уйти, сохранив хрупкий мир картины. Но если пролить кровь в её доме, тишина сменится снегом и клинком невидимости."
+        },
+        {
+          "id": "gwyndolin",
+          "name": "Гвиндолин Темное Солнце",
+          "icon": "images/bosses/ds1/gwyndolin.png",
+          "image": "images/bosses/ds1/gwyndolin.png",
+          "description": "Тёмное Солнце Анор Лондо, бог иллюзий и последних обрядов. Он поддерживает сияние города, когда настоящие боги давно ушли, удерживая верующих в сладкой лжи. Его магия — не только чары, но и отчаянная попытка сохранить порядок прошлого."
+        }
       ]
     },
-
     {
       "title": "DLC — Artorias of the Abyss",
       "bosses": [
-        { "id": "sanctuary_guardian", "name": "Страж Святилища", "icon": "images/bosses/ds1/sanctuary_guardian.png" },
-        { "id": "artorias", "name": "Арториас Путник Бездны", "icon": "images/bosses/ds1/artorias.png" },
-        { "id": "manus", "name": "Манус, Отец Бездны", "icon": "images/bosses/ds1/manus.png" },
-        { "id": "kalameet", "name": "Чёрный дракон Каламит", "icon": "images/bosses/ds1/kalameet.png" }
+        {
+          "id": "sanctuary_guardian",
+          "name": "Страж Святилища",
+          "icon": "images/bosses/ds1/sanctuary_guardian.png",
+          "image": "images/bosses/ds1/sanctuary_guardian.png",
+          "description": "Страж Святилища в Оолачиле — зверь, связанный с древней магией и природной яростью. Он охраняет путь к месту, где пробудилась Бездна. Его клыки и молнии словно предупреждают: дальше начинается история, где герои ломаются."
+        },
+        {
+          "id": "artorias",
+          "name": "Арториас Путник Бездны",
+          "icon": "images/bosses/ds1/artorias.png",
+          "image": "images/bosses/ds1/artorias.png",
+          "description": "Арториас Путник Бездны, легендарный рыцарь Гвина, вошедший во тьму ради спасения. Он пал, но не сдался: даже сломанный, он продолжает сражаться, словно пытаясь удержать Бездну одной лишь волей. Его трагедия — цена геройства без надежды."
+        },
+        {
+          "id": "manus",
+          "name": "Манус, Отец Бездны",
+          "icon": "images/bosses/ds1/manus.png",
+          "image": "images/bosses/ds1/manus.png",
+          "description": "Манус, Отец Бездны — первобытная ярость Тьмы, вырвавшаяся из человеческого отчаяния. Его пробуждение исказило Оолачиль и породило тьму, что расползлась по миру. В нём нет речи и разума — только боль, ставшая вселенной."
+        },
+        {
+          "id": "kalameet",
+          "name": "Чёрный дракон Каламит",
+          "icon": "images/bosses/ds1/kalameet.png",
+          "image": "images/bosses/ds1/kalameet.png",
+          "description": "Чёрный дракон Каламит — предвестник бедствий, чьё дыхание несёт гибель и страх. Даже охотники на драконов избегали его, считая проклятым. Схватка с ним — редкий миг, когда легенда о драконах снова становится реальностью."
+        }
       ]
     }
   ]
 }
-
-
-
-

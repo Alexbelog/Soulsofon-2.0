@@ -6,39 +6,106 @@
     {
       "title": "Основные боссы региона",
       "bosses": [
-        { "id": "starscourge_radahn", "name": "Бич звёзд Радан", "icon": "images/bosses/elden/caelid/radahn.png" }
+        {
+          "id": "starscourge_radahn",
+          "name": "Бич звёзд Радан",
+          "icon": "images/bosses/elden/caelid/radahn.png",
+          "image": "images/bosses/elden/caelid/radahn.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "Полевые боссы",
       "bosses": [
-        { "id": "decaying_ekzykes", "name": "Гниющий Экзикес", "icon": "images/bosses/elden/caelid/ekzykes.png" },
-        { "id": "black_blade_kindred_caelid", "name": "Родич Чёрного Клинка", "icon": "images/bosses/elden/caelid/black_blade_kindred.png" },
-        { "id": "night_cavalry_caelid", "name": "Ночной всадник", "icon": "images/bosses/elden/caelid/night_cavalry.png" },
-        { "id": "deathbird_caelid", "name": "Птица смерти", "icon": "images/bosses/elden/caelid/deathbird.png" },
-        { "id": "putrid_avatar", "name": "Гниющий аватар Древа Эрд", "icon": "images/bosses/elden/caelid/putrid_avatar.png" },
-        { "id": "bell_bearing_hunter_caelid", "name": "Охотник за колокольными подношениями", "icon": "images/bosses/elden/caelid/bell_bearing_hunter.png" }
+        {
+          "id": "decaying_ekzykes",
+          "name": "Гниющий Экзикес",
+          "icon": "images/bosses/elden/caelid/ekzykes.png",
+          "image": "images/bosses/elden/caelid/ekzykes.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "black_blade_kindred_caelid",
+          "name": "Родич Чёрного Клинка",
+          "icon": "images/bosses/elden/caelid/black_blade_kindred.png",
+          "image": "images/bosses/elden/caelid/black_blade_kindred.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "night_cavalry_caelid",
+          "name": "Ночной всадник",
+          "icon": "images/bosses/elden/caelid/night_cavalry.png",
+          "image": "images/bosses/elden/caelid/night_cavalry.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "deathbird_caelid",
+          "name": "Птица смерти",
+          "icon": "images/bosses/elden/caelid/deathbird.png",
+          "image": "images/bosses/elden/caelid/deathbird.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "putrid_avatar",
+          "name": "Гниющий аватар Древа Эрд",
+          "icon": "images/bosses/elden/caelid/putrid_avatar.png",
+          "image": "images/bosses/elden/caelid/putrid_avatar.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "bell_bearing_hunter_caelid",
+          "name": "Охотник за колокольными подношениями",
+          "icon": "images/bosses/elden/caelid/bell_bearing_hunter.png",
+          "image": "images/bosses/elden/caelid/bell_bearing_hunter.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "Эвергаолы",
       "bosses": [
-        { "id": "battlemage_hugues", "name": "Боевой маг Юг", "icon": "images/bosses/elden/caelid/hugues.png" }
+        {
+          "id": "battlemage_hugues",
+          "name": "Боевой маг Юг",
+          "icon": "images/bosses/elden/caelid/hugues.png",
+          "image": "images/bosses/elden/caelid/hugues.png",
+          "description": "Описание скоро появится."
+        }
       ]
     },
-
     {
       "title": "Подземелья",
       "bosses": [
-        { "id": "putrid_crystalian_trio", "name": "Гнилые кристаллианцы (трое)", "icon": "images/bosses/elden/caelid/crystalians.png" },
-        { "id": "beastman_faruma_caelid", "name": "Зверочеловек из Фарум-Азулы", "icon": "images/bosses/elden/caelid/beastman.png" },
-        { "id": "mad_pumpkin_head", "name": "Безумная тыквоголовая", "icon": "images/bosses/elden/caelid/pumpkin_head.png" },
-        { "id": "cemetery_shade", "name": "Тень кладбища", "icon": "images/bosses/elden/caelid/cemetery_shade.png" }
+        {
+          "id": "putrid_crystalian_trio",
+          "name": "Гнилые кристаллианцы (трое)",
+          "icon": "images/bosses/elden/caelid/crystalians.png",
+          "image": "images/bosses/elden/caelid/crystalians.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "beastman_faruma_caelid",
+          "name": "Зверочеловек из Фарум-Азулы",
+          "icon": "images/bosses/elden/caelid/beastman.png",
+          "image": "images/bosses/elden/caelid/beastman.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "mad_pumpkin_head",
+          "name": "Безумная тыквоголовая",
+          "icon": "images/bosses/elden/caelid/pumpkin_head.png",
+          "image": "images/bosses/elden/caelid/pumpkin_head.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "cemetery_shade",
+          "name": "Тень кладбища",
+          "icon": "images/bosses/elden/caelid/cemetery_shade.png",
+          "image": "images/bosses/elden/caelid/cemetery_shade.png",
+          "description": "Описание скоро появится."
+        }
       ]
     }
   ]
 }
-
-

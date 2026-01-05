@@ -9,12 +9,16 @@
         {
           "id": "margit",
           "name": "Маргит, Ужасное Знамение",
-          "icon": "images/bosses/elden/limgrave/margit.png"
+          "icon": "images/bosses/elden/limgrave/margit.png",
+          "image": "images/bosses/elden/limgrave/margit.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "godrick",
           "name": "Годрик Сторукий",
-          "icon": "images/bosses/elden/limgrave/godrick.png"
+          "icon": "images/bosses/elden/limgrave/godrick.png",
+          "image": "images/bosses/elden/limgrave/godrick.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -24,51 +28,69 @@
         {
           "id": "tree_sentinel",
           "name": "Древесный страж",
-          "icon": "images/bosses/elden/limgrave/tree_sentinel.png"
+          "icon": "images/bosses/elden/limgrave/tree_sentinel.png",
+          "image": "images/bosses/elden/limgrave/tree_sentinel.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "flying_dragon_agheel",
           "name": "Летучий дракон Агиль",
-          "icon": "images/bosses/elden/limgrave/agheel.png"
+          "icon": "images/bosses/elden/limgrave/agheel.png",
+          "image": "images/bosses/elden/limgrave/agheel.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "night_cavalry_limgrave",
           "name": "Ночной всадник",
-          "icon": "images/bosses/elden/limgrave/night_cavalry.png"
+          "icon": "images/bosses/elden/limgrave/night_cavalry.png",
+          "image": "images/bosses/elden/limgrave/night_cavalry.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "deathbird_limgrave",
           "name": "Птица смерти",
-          "icon": "images/bosses/elden/limgrave/deathbird.png"
+          "icon": "images/bosses/elden/limgrave/deathbird.png",
+          "image": "images/bosses/elden/limgrave/deathbird.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "bell_bearing_hunter",
           "name": "Охотник за колокольными подношениями",
-          "icon": "images/bosses/elden/limgrave/bell_bearing_hunter.png"
+          "icon": "images/bosses/elden/limgrave/bell_bearing_hunter.png",
+          "image": "images/bosses/elden/limgrave/bell_bearing_hunter.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "agheel",
           "name": "Летучий дракон Агиль",
           "icon": "images/bosses/elden/limgrave/agheel.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/limgrave/agheel.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "darriwil",
           "name": "Рыцарь-ищейка Дарривил",
           "icon": "images/bosses/elden/limgrave/darriwil.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/limgrave/darriwil.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "leonine",
           "name": "Львиный бастард",
           "icon": "images/bosses/elden/limgrave/leonine.png",
-          "rank": "C"
+          "rank": "C",
+          "image": "images/bosses/elden/limgrave/leonine.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "erdtree_avatar_weeping",
           "name": "Аватар Древа Эрд (Плачущий полуостров)",
           "icon": "images/bosses/elden/limgrave/erdtree_avatar_weeping.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/limgrave/erdtree_avatar_weeping.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -78,12 +100,16 @@
         {
           "id": "bloodhound_knight_darwil",
           "name": "Рыцарь-ищейка Дарривил",
-          "icon": "images/bosses/elden/limgrave/darwil.png"
+          "icon": "images/bosses/elden/limgrave/darwil.png",
+          "image": "images/bosses/elden/limgrave/darwil.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "crucible_knight_limgrave",
           "name": "Рыцарь Горнила",
-          "icon": "images/bosses/elden/limgrave/crucible_knight.png"
+          "icon": "images/bosses/elden/limgrave/crucible_knight.png",
+          "image": "images/bosses/elden/limgrave/crucible_knight.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -93,27 +119,37 @@
         {
           "id": "grave_warden_duelist",
           "name": "Дуэлянт-хранитель могил",
-          "icon": "images/bosses/elden/limgrave/grave_warden.png"
+          "icon": "images/bosses/elden/limgrave/grave_warden.png",
+          "image": "images/bosses/elden/limgrave/grave_warden.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "erdtree_burial_watchdog",
           "name": "Сторож захоронений Древа Эрд",
-          "icon": "images/bosses/elden/limgrave/watchdog.png"
+          "icon": "images/bosses/elden/limgrave/watchdog.png",
+          "image": "images/bosses/elden/limgrave/watchdog.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "beastman_farum",
           "name": "Зверочеловек из Фарум-Азулы",
-          "icon": "images/bosses/elden/limgrave/beastman.png"
+          "icon": "images/bosses/elden/limgrave/beastman.png",
+          "image": "images/bosses/elden/limgrave/beastman.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "black_knife_assassin",
           "name": "Убийца Чёрного Ножа",
-          "icon": "images/bosses/elden/limgrave/black_knife.png"
+          "icon": "images/bosses/elden/limgrave/black_knife.png",
+          "image": "images/bosses/elden/limgrave/black_knife.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "patches",
           "name": "Лоскутик",
-          "icon": "images/bosses/elden/limgrave/patches.png"
+          "icon": "images/bosses/elden/limgrave/patches.png",
+          "image": "images/bosses/elden/limgrave/patches.png",
+          "description": "Описание скоро появится."
         }
       ]
     }

@@ -10,37 +10,49 @@
           "id": "tree_sentinel",
           "name": "Древний страж древа",
           "icon": "images/bosses/elden/limgrave/tree_sentinel.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/limgrave/tree_sentinel.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "agheel",
           "name": "Летучий дракон Агиль",
           "icon": "images/bosses/elden/limgrave/agheel.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/limgrave/agheel.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "margit",
           "name": "Маргит, Ужасное Знамение",
           "icon": "images/bosses/elden/limgrave/margit.png",
-          "rank": "A"
+          "rank": "A",
+          "image": "images/bosses/elden/limgrave/margit.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "godrick",
           "name": "Годрик Сторукий",
           "icon": "images/bosses/elden/limgrave/godrick.png",
-          "rank": "A"
+          "rank": "A",
+          "image": "images/bosses/elden/limgrave/godrick.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "darriwil",
           "name": "Рыцарь-ищейка Дарривил",
           "icon": "images/bosses/elden/limgrave/darriwil.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/limgrave/darriwil.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "leonine",
           "name": "Львиный бастард",
           "icon": "images/bosses/elden/limgrave/leonine.png",
-          "rank": "C"
+          "rank": "C",
+          "image": "images/bosses/elden/limgrave/leonine.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -51,19 +63,25 @@
           "id": "red_wolf",
           "name": "Красный волк Радагона",
           "icon": "images/bosses/elden/liurnia/red_wolf.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/liurnia/red_wolf.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "rennala",
           "name": "Реннала, Королева Полнолуния",
           "icon": "images/bosses/elden/liurnia/rennala.png",
-          "rank": "A"
+          "rank": "A",
+          "image": "images/bosses/elden/liurnia/rennala.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "loretta_caria",
           "name": "Королевский рыцарь Лоретта",
           "icon": "images/bosses/elden/liurnia/loretta.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/liurnia/loretta.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -74,19 +92,25 @@
           "id": "radahn",
           "name": "Радан, Бич Звёзд",
           "icon": "images/bosses/elden/caelid/radahn.png",
-          "rank": "S"
+          "rank": "S",
+          "image": "images/bosses/elden/caelid/radahn.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "decaying_ekzykes",
           "name": "Гниющий Экзикес",
           "icon": "images/bosses/elden/caelid/ekzykes.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/caelid/ekzykes.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "oneil",
           "name": "Командир О’Нил",
           "icon": "images/bosses/elden/caelid/oneil.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/caelid/oneil.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -97,13 +121,17 @@
           "id": "draconic_tree_sentinel",
           "name": "Драконий страж древа",
           "icon": "images/bosses/elden/altus/draconic_tree_sentinel.png",
-          "rank": "A"
+          "rank": "A",
+          "image": "images/bosses/elden/altus/draconic_tree_sentinel.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "elemer",
           "name": "Элемер из Вереска",
           "icon": "images/bosses/elden/altus/elemer.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/altus/elemer.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -114,7 +142,9 @@
           "id": "rykard",
           "name": "Рикард, Повелитель Богохульства",
           "icon": "images/bosses/elden/gelmir/rykard.png",
-          "rank": "A"
+          "rank": "A",
+          "image": "images/bosses/elden/gelmir/rykard.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -125,19 +155,25 @@
           "id": "morgott",
           "name": "Морготт, Король Знамений",
           "icon": "images/bosses/elden/leyndell/morgott.png",
-          "rank": "S"
+          "rank": "S",
+          "image": "images/bosses/elden/leyndell/morgott.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "godfrey_shade",
           "name": "Годфри, Первый Повелитель Элдена (Тень)",
           "icon": "images/bosses/elden/leyndell/godfrey_shade.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/leyndell/godfrey_shade.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "mohg_omen",
           "name": "Мог, Знамение",
           "icon": "images/bosses/elden/leyndell/mohg_omen.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/leyndell/mohg_omen.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -148,7 +184,9 @@
           "id": "fire_giant",
           "name": "Огненный великан",
           "icon": "images/bosses/elden/mountaintops/fire_giant.png",
-          "rank": "A"
+          "rank": "A",
+          "image": "images/bosses/elden/mountaintops/fire_giant.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -159,13 +197,17 @@
           "id": "godskin_duo",
           "name": "Дуэт Богошкуров",
           "icon": "images/bosses/elden/farum/godskin_duo.png",
-          "rank": "A"
+          "rank": "A",
+          "image": "images/bosses/elden/farum/godskin_duo.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "maliketh",
           "name": "Маликет, Чёрный клинок",
           "icon": "images/bosses/elden/farum/maliketh.png",
-          "rank": "S"
+          "rank": "S",
+          "image": "images/bosses/elden/farum/maliketh.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -176,13 +218,17 @@
           "id": "loretta_haligtree",
           "name": "Лоретта, рыцарь Халигтри",
           "icon": "images/bosses/elden/haligtree/loretta_haligtree.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/haligtree/loretta_haligtree.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "malenia",
           "name": "Маления, Клинок Микеллы",
           "icon": "images/bosses/elden/haligtree/malenia.png",
-          "rank": "S"
+          "rank": "S",
+          "image": "images/bosses/elden/haligtree/malenia.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -193,19 +239,25 @@
           "id": "astel",
           "name": "Астель, Рождённый Бездной",
           "icon": "images/bosses/elden/underground/astel.png",
-          "rank": "A"
+          "rank": "A",
+          "image": "images/bosses/elden/underground/astel.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "mohg_lord",
           "name": "Мог, Повелитель Крови",
           "icon": "images/bosses/elden/underground/mohg_lord.png",
-          "rank": "A"
+          "rank": "A",
+          "image": "images/bosses/elden/underground/mohg_lord.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "regal_ancestor",
           "name": "Царственный дух предка",
           "icon": "images/bosses/elden/underground/regal_ancestor.png",
-          "rank": "B"
+          "rank": "B",
+          "image": "images/bosses/elden/underground/regal_ancestor.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -216,19 +268,25 @@
           "id": "godfrey",
           "name": "Годфри, Первый Повелитель Элдена",
           "icon": "images/bosses/elden/final/godfrey.png",
-          "rank": "S"
+          "rank": "S",
+          "image": "images/bosses/elden/final/godfrey.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "radagon",
           "name": "Радагон Золотого Порядка",
           "icon": "images/bosses/elden/final/radagon.png",
-          "rank": "S"
+          "rank": "S",
+          "image": "images/bosses/elden/final/radagon.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "elden_beast",
           "name": "Зверь Элдена",
           "icon": "images/bosses/elden/final/elden_beast.png",
-          "rank": "S"
+          "rank": "S",
+          "image": "images/bosses/elden/final/elden_beast.png",
+          "description": "Описание скоро появится."
         }
       ]
     }

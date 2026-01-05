@@ -9,7 +9,9 @@
         {
           "id": "putrid_avatar_snowfield",
           "name": "Гниющий аватар Древа Эрд",
-          "icon": "images/bosses/elden/consecrated/putrid_avatar.png"
+          "icon": "images/bosses/elden/consecrated/putrid_avatar.png",
+          "image": "images/bosses/elden/consecrated/putrid_avatar.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -19,17 +21,23 @@
         {
           "id": "death_rite_bird_snowfield",
           "name": "Птица обряда смерти",
-          "icon": "images/bosses/elden/consecrated/death_rite_bird.png"
+          "icon": "images/bosses/elden/consecrated/death_rite_bird.png",
+          "image": "images/bosses/elden/consecrated/death_rite_bird.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "night_cavalry_snowfield",
           "name": "Ночная кавалерия",
-          "icon": "images/bosses/elden/consecrated/night_cavalry.png"
+          "icon": "images/bosses/elden/consecrated/night_cavalry.png",
+          "image": "images/bosses/elden/consecrated/night_cavalry.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "great_wyrm_theodorix",
           "name": "Великий змей Теодорикс",
-          "icon": "images/bosses/elden/consecrated/theodorix.png"
+          "icon": "images/bosses/elden/consecrated/theodorix.png",
+          "image": "images/bosses/elden/consecrated/theodorix.png",
+          "description": "Описание скоро появится."
         }
       ]
     },
@@ -39,23 +47,25 @@
         {
           "id": "misbegotten_warrior_snowfield",
           "name": "Воин-полукровка",
-          "icon": "images/bosses/elden/consecrated/misbegotten_warrior.png"
+          "icon": "images/bosses/elden/consecrated/misbegotten_warrior.png",
+          "image": "images/bosses/elden/consecrated/misbegotten_warrior.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "perfumer_tricia",
           "name": "Парфюмер Триция",
-          "icon": "images/bosses/elden/consecrated/perfumer_tricia.png"
+          "icon": "images/bosses/elden/consecrated/perfumer_tricia.png",
+          "image": "images/bosses/elden/consecrated/perfumer_tricia.png",
+          "description": "Описание скоро появится."
         },
         {
           "id": "crystalian_trio",
           "name": "Кристалийцы (трое)",
-          "icon": "images/bosses/elden/consecrated/crystalian_trio.png"
+          "icon": "images/bosses/elden/consecrated/crystalian_trio.png",
+          "image": "images/bosses/elden/consecrated/crystalian_trio.png",
+          "description": "Описание скоро появится."
         }
       ]
     }
   ]
 }
-
-
-
-
