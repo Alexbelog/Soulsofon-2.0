@@ -205,3 +205,36 @@ button, a{
 
 /* Soulsofon patch: unbeaten bosses */
 .boss-card.unbeaten { filter: grayscale(1); opacity: 0.55; }
+
+
+/* Cloud sync UI */
+.cloud-status{
+  font-size: 12px;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+.cloud-menu{
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 160px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9999;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.45);
+}
+.cloud-menu .cloud-menu-btn{
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+.cloud-btn{
+  padding: 10px 14px;
+  border-radius: 14px;
+}

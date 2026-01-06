@@ -43,7 +43,7 @@ async function cloudPutProgress(payload){
         "Content-Type":"application/json",
         "Authorization":"Bearer " + token
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload ?? buildCloudPayload())
     });
     return r.ok;
   } catch {
@@ -51,58 +51,22 @@ async function cloudPutProgress(payload){
   }
 }
 
-let _cloudPushTimer = null;
-function scheduleCloudPush(){
-  if (!window.SoulAuth?.isAdmin?.()) return;
-  if (!getCloudEndpoint()) return;
-  if (!(localStorage.getItem(CLOUD_TOKEN_KEY) || "")) return;
-  clearTimeout(_cloudPushTimer);
-  _cloudPushTimer = setTimeout(async () => {
-    try {
-      const ok = await cloudPutProgress(progress);
-      cloudDebug("push", ok ? "ok" : "fail");
-    } catch {}
+function buildCloudPayload(){
+  // progress (boss states) + extra deaths counter
+  const extraDeaths = (typeof loadGameExtra === "function") ? loadGameExtra() : (JSON.parse(localStorage.getItem("soulsofon_game_extra_deaths") || "{}"));
+  return { v: 1, progress, extraDeaths };
+}
+
+function parseCloudPayload(data){
+  // Backward compatible: if old payload was just the progress object
+  if (data && typeof data === "object" && data.progress) return data;
+  return { v: 0, progress: (data || {}), extraDeaths: null };
+}
+
+
   }, 1500);
 }
 
-function mountCloudPanel(){
-  try {
-    if (!window.SoulAuth?.isAdmin?.()) return;
-    if (document.getElementById("cloud-panel")) return;
-
-    const wrap = document.createElement("div");
-    wrap.id = "cloud-panel";
-    wrap.style.position = "fixed";
-    wrap.style.left = "16px";
-    wrap.style.bottom = "16px";
-    wrap.style.zIndex = "9999";
-    wrap.style.display = "flex";
-    wrap.style.gap = "8px";
-
-    const mkBtn = (txt, onClick) => {
-      const b = document.createElement("button");
-      b.className = "btn";
-      b.type = "button";
-      b.textContent = txt;
-      b.onclick = onClick;
-      return b;
-    };
-
-    wrap.appendChild(mkBtn("Cloud Token", () => {
-      const cur = localStorage.getItem(CLOUD_TOKEN_KEY) || "";
-      const t = prompt("Вставь Cloud token (ADMIN_TOKEN), который ты задал в Worker secrets:", cur);
-      if (t === null) return;
-      localStorage.setItem(CLOUD_TOKEN_KEY, String(t).trim());
-      alert("Токен сохранён на этом устройстве.");
-    }));
-
-    wrap.appendChild(mkBtn("Cloud Pull", async () => {
-      const pub = await cloudGetProgress();
-      if (!pub) return alert("Не удалось загрузить прогресс из Cloud.");
-      progress = pub;
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-      
-  try{ scheduleCloudPush(); }catch{}
 alert("Прогресс загружен из Cloud и сохранён локально.");
       try { render(); updateStats(); } catch {}
     }));
@@ -297,7 +261,7 @@ let currentGame = null;
 let currentGameData = null;
 let eldenQuery = "";
 
-init().then(() => { try{ mountPublishButton(); }catch{} try{ mountCloudPanel(); }catch{} });
+init().then(() => { try{  }catch{} try{ mountCloudPanel(); }catch{} });
 
 /* ================= INIT ================= */
 
@@ -308,7 +272,8 @@ async function init() {
   // - Admin: can Pull/Push from the panel
   const cloud = await cloudGetProgress();
   if (cloud && !(window.SoulAuth?.isAdmin?.())){
-    progress = cloud;
+    const payload = parseCloudPayload(cloud);
+    progress = payload.progress || {};
     try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }catch{}
     window.__SOUL_PUBLIC_PROGRESS = cloud;
     cloudDebug("viewer loaded cloud progress");
@@ -964,34 +929,106 @@ function calcAllBossDeaths() {
 
 
 
-function mountPublishButton(){
-  try{
-    if (!window.SoulAuth?.isAdmin?.()) return;
-    if (document.getElementById("publish-progress-btn")) return;
-    const b = document.createElement("button");
-    b.id = "publish-progress-btn";
-    b.className = "btn";
-    b.textContent = "Экспорт public_progress.json";
-    b.style.position = "fixed";
-    b.style.right = "16px";
-    b.style.bottom = "16px";
-    b.style.zIndex = "9999";
-    b.onclick = () => {
-      try{
-        const data = (window.SoulProgress?.get?.() || window.__SOUL_PROGRESS__ || {}).value || window.__SOUL_PUBLIC_PROGRESS || window.__SOUL_LOCAL_PROGRESS || null;
-        const fallback = (typeof progress !== "undefined") ? progress : (JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"));
-        const payload = data || fallback;
-        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.download = "public_progress.json";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
-      } catch {}
     };
     document.body.appendChild(b);
+  } catch {}
+}
+
+
+
+
+function setCloudStatus(text){
+  const el = document.getElementById("cloud-status");
+  if (el) el.textContent = text;
+}
+
+function mountCloudSyncUI(){
+  try{
+    if (!window.SoulAuth?.isAdmin?.()) return;
+    if (document.getElementById("cloud-sync")) return;
+
+    const host = document.querySelector(".topbar-right") || document.body;
+
+    const wrap = document.createElement("div");
+    wrap.id = "cloud-sync";
+    wrap.style.display = "inline-flex";
+    wrap.style.alignItems = "center";
+    wrap.style.gap = "10px";
+
+    const status = document.createElement("span");
+    status.id = "cloud-status";
+    status.className = "cloud-status";
+    status.textContent = "Cloud: —";
+
+    const btn = document.createElement("button");
+    btn.className = "btn cloud-btn";
+    btn.type = "button";
+    btn.textContent = "Синхронизация";
+
+    const menu = document.createElement("div");
+    menu.className = "cloud-menu";
+    menu.style.display = "none";
+
+    const mk = (label, onClick) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "btn cloud-menu-btn";
+      b.textContent = label;
+      b.onclick = async () => {
+        try{ await onClick(); } finally { menu.style.display = "none"; }
+      };
+      return b;
+    };
+
+    const tokenKey = "soulsfon_progress_cloud_token";
+
+    menu.appendChild(mk("Cloud Token", async () => {
+      const cur = localStorage.getItem(tokenKey) || "";
+      const t = prompt("Вставь ADMIN_TOKEN из Cloudflare Worker (секрет):", cur);
+      if (t === null) return;
+      localStorage.setItem(tokenKey, String(t).trim());
+      setCloudStatus("Cloud: token saved");
+    }));
+
+    menu.appendChild(mk("Cloud Pull", async () => {
+      setCloudStatus("Cloud: pulling…");
+      const raw = await cloudGetProgress();
+      if (!raw) { setCloudStatus("Cloud: pull failed"); return; }
+      const payload = parseCloudPayload(raw);
+      progress = payload.progress || {};
+      try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }catch{}
+      if (payload.extraDeaths) {
+        try{ localStorage.setItem("soulsofon_game_extra_deaths", JSON.stringify(payload.extraDeaths)); }catch{}
+      }
+      try{ render(); updateStats(); }catch{}
+      setCloudStatus("Cloud: pulled");
+    }));
+
+    menu.appendChild(mk("Cloud Push", async () => {
+      const token = (localStorage.getItem(tokenKey) || "").trim();
+      if (!token) {
+        const t = prompt("Сначала вставь ADMIN_TOKEN (Cloud Token):", "");
+        if (!t) { setCloudStatus("Cloud: no token"); return; }
+        localStorage.setItem(tokenKey, String(t).trim());
+      }
+      setCloudStatus("Cloud: pushing…");
+      const ok = await cloudPutProgress(buildCloudPayload());
+      setCloudStatus(ok ? "Cloud: pushed" : "Cloud: push failed");
+    }));
+
+    btn.onclick = () => {
+      menu.style.display = (menu.style.display === "none") ? "block" : "none";
+    };
+
+    // click outside closes menu
+    document.addEventListener("click", (e) => {
+      if (!wrap.contains(e.target)) menu.style.display = "none";
+    });
+
+    wrap.append(status, btn);
+    wrap.style.position = "relative";
+    wrap.appendChild(menu);
+    host.appendChild(wrap);
   } catch {}
 }
 

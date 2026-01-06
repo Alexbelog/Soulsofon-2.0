@@ -24,6 +24,12 @@
     } catch { return null; }
   }
 
+  function parseCloudPayload(data){
+    if (data && typeof data === "object" && data.progress) return data;
+    return { v: 0, progress: (data || {}), extraDeaths: null };
+  }
+
+
   const PUBLIC_PROGRESS_URL = "public_progress.json";
   async function loadPublicProgress(){
     try{
@@ -514,7 +520,12 @@
     // Sync from Cloud for viewers so achievements match shared progress
     if (!(window.SoulAuth?.isAdmin?.())){
       const cloud = await cloudGetProgress();
-      if (cloud){ window.__SOUL_PUBLIC_PROGRESS = cloud; _achHasCloud = true; }
+      if (cloud){
+        const payload = parseCloudPayload(cloud);
+        window.__SOUL_PUBLIC_PROGRESS = payload.progress || {};
+        if (payload.extraDeaths) window.__SOUL_PUBLIC_EXTRA = payload.extraDeaths;
+        _achHasCloud = true;
+      }
     }
 
 
