@@ -254,3 +254,12 @@ button, a{
   align-items: center;
   justify-content: center;
 }
+
+
+/* Cloud menu opens upward when sync button is in bottom-left */
+#cloud-sync .cloud-menu{
+  left: 0;
+  right: auto;
+  bottom: calc(100% + 8px);
+  top: auto;
+}

@@ -623,6 +623,7 @@ kill.onclick = () => {
   state.killed = !state.killed;
   save();
   row.classList.toggle("killed", state.killed);
+  row.classList.toggle("locked", !state.killed);
   kill.textContent = state.killed ? "УБИТ ✓" : "УБИТ";
   // Эффект YOU DIED — только когда ставим "УБИТ ✓".
   if (state.killed) {
@@ -1013,4 +1014,3 @@ function mountCloudSyncUI(){
     }catch{}
   } catch {}
 }
-
