@@ -1017,3 +1017,131 @@ function mountCloudSyncUI(){
     }catch{}
   } catch {}
 }
+
+
+function mountCloudSyncUI(){
+  try{
+    if (document.getElementById("cloud-sync-btn")) return;
+
+    const tokenKey = "soulsfon_progress_cloud_token";
+
+    const btn = document.createElement("button");
+    btn.id = "cloud-sync-btn";
+    btn.type = "button";
+    btn.className = "back-btn";
+    btn.textContent = "СИНХРОНИЗАЦИЯ";
+    btn.style.zIndex = "9999";
+    btn.style.cursor = "pointer";
+
+    const status = document.createElement("span");
+    status.id = "cloud-status";
+    status.className = "cloud-status-inline";
+    status.style.position = "fixed";
+    status.style.left = "14px";
+    status.style.bottom = "58px";
+    status.style.zIndex = "9999";
+    status.textContent = (window.__CLOUD_LAST_STATUS || "Cloud: —");
+
+    const overlay = document.createElement("div");
+    overlay.id = "cloud-modal-overlay";
+    overlay.style.display = "none";
+
+    const modal = document.createElement("div");
+    modal.id = "cloud-modal";
+
+    const title = document.createElement("div");
+    title.className = "cloud-modal-title";
+    title.textContent = "Синхронизация";
+
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "btn cloud-close";
+    close.textContent = "×";
+
+    const desc = document.createElement("div");
+    desc.className = "cloud-modal-desc";
+    desc.textContent = "Доступно только для админа. Зрители видят прогресс автоматически.";
+
+    const row = document.createElement("div");
+    row.className = "cloud-modal-actions";
+
+    const mk = (label, fn) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "btn";
+      b.textContent = label;
+      b.onclick = fn;
+      return b;
+    };
+
+    const needAdmin = () => {
+      if (window.SoulAuth?.isAdmin?.()) return true;
+      setCloudStatus("Cloud: admin only");
+      return false;
+    };
+
+    const askToken = () => {
+      const cur = (localStorage.getItem(tokenKey) || "").trim();
+      const t = prompt("Вставь ADMIN_TOKEN из Cloudflare Worker (секрет):", cur);
+      if (t === null) return null;
+      localStorage.setItem(tokenKey, String(t).trim());
+      return String(t).trim();
+    };
+
+    const btnToken = mk("Cloud Token", () => {
+      if (!needAdmin()) return;
+      const t = askToken();
+      if (t) setCloudStatus("Cloud: token saved");
+    });
+
+    const btnPush = mk("Cloud Push — отправить всё", async () => {
+      if (!needAdmin()) return;
+      let token = (localStorage.getItem(tokenKey) || "").trim();
+      if (!token) token = askToken() || "";
+      if (!token) return;
+      setCloudStatus("Cloud: pushing…");
+      const ok = await cloudPutProgress(buildCloudPayload());
+      setCloudStatus(ok ? "Cloud: pushed" : "Cloud: push failed");
+    });
+
+    const btnPull = mk("Cloud Pull — подтянуть всё", async () => {
+      if (!needAdmin()) return;
+      setCloudStatus("Cloud: pulling…");
+      const raw = await cloudGetProgress();
+      if (!raw) { setCloudStatus("Cloud: pull failed"); return; }
+      const payload = parseCloudPayload(raw);
+      progress = payload.progress || {};
+      try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }catch{}
+      if (payload.extraDeaths) {
+        try{ localStorage.setItem("soulsofon_game_extra_deaths", JSON.stringify(payload.extraDeaths)); }catch{}
+      }
+      try{ render(); updateStats(); }catch{}
+      setCloudStatus("Cloud: pulled");
+    });
+
+    row.append(btnToken, btnPush, btnPull);
+
+    const header = document.createElement("div");
+    header.className = "cloud-modal-header";
+    header.append(title, close);
+
+    modal.append(header, desc, row);
+    overlay.append(modal);
+
+    const open = () => { overlay.style.display = "flex"; };
+    const hide = () => { overlay.style.display = "none"; };
+
+    btn.onclick = open;
+    close.onclick = hide;
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) hide(); });
+
+    document.body.appendChild(status);
+    document.body.appendChild(btn);
+    document.body.appendChild(overlay);
+
+    try{
+      if (!window.__CLOUD_LAST_STATUS && getCloudEndpoint()) setCloudStatus("Cloud: ready");
+    }catch{}
+  } catch {}
+}
+

@@ -1055,3 +1055,59 @@ html.modal-open, html.modal-open body { overflow: hidden; }
   backdrop-filter: blur(8px);
   color: var(--muted);
 }
+
+
+/* Cloud sync modal */
+#cloud-modal-overlay{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  z-index: 10000;
+}
+#cloud-modal{
+  width: min(520px, calc(100vw - 32px));
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.78);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.55);
+}
+.cloud-modal-header{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.cloud-modal-title{
+  font-size: 18px;
+  font-weight: 700;
+}
+.cloud-close{
+  width: 44px;
+  height: 38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 12px;
+}
+.cloud-modal-desc{
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 14px;
+}
+.cloud-modal-actions{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cloud-modal-actions .btn{
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 14px;
+}
