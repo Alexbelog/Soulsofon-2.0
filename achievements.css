@@ -325,3 +325,6 @@
 @media (prefers-reduced-motion: reduce){
   .ach-card{ transition:none !important; }
 }
+
+/* disabled achievements in boss cards */
+.achievement, .trophy, .achievement-icon { display:none !important; }

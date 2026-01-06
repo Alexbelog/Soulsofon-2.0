@@ -1,3 +1,5 @@
+function canEdit(){ return window.auth && auth.isAuthed && auth.isAuthed(); }
+
 const GAMES = [
   { id: "ds1", title: "Dark Souls I", file: "data/ds1.json" },
   { id: "ds2", title: "Dark Souls II", file: "data/ds2.json" },
