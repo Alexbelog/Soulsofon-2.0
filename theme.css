@@ -277,7 +277,7 @@ body::before{
   display:flex;
   gap:12px;
   align-items:center;
-  padding:12px 14px;
+  padding:10px 12px;
   border:1px solid rgba(214,186,122,.22);
   background: linear-gradient(180deg, rgba(22,18,12,.92), rgba(10,8,6,.92));
   border-radius:14px;
@@ -290,8 +290,8 @@ body::before{
 .toast.hide{ animation: toastOut .34s ease forwards; }
 
 \.toast-icon{
-  width:34px;
-  height:34px;
+  width:64px;
+  height:64px;
   border-radius:12px;
   border:1px solid rgba(214,186,122,.25);
   background: radial-gradient(circle at 35% 30%, rgba(214,186,122,.22), rgba(0,0,0,0));
@@ -515,8 +515,8 @@ body::before{
 
 /* Toast image icon */
 img.toast-icon{
-  width:34px;
-  height:34px;
+  width:64px;
+  height:64px;
   border-radius:12px;
   border:1px solid rgba(214,186,122,.25);
   object-fit:cover;
