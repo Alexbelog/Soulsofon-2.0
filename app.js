@@ -815,10 +815,13 @@ function showYouDied() {
 
 /* ================= BACK ================= */
 
-backBtn.onclick = () => {
-  try { window.SoulUI?.navigateWithFade?.("index.html"); }
-  catch { location.href = "index.html"; }
-};
+if (backBtn) {
+  backBtn.onclick = () => {
+    try { window.SoulUI?.navigateWithFade?.("index.html"); }
+    catch { location.href = "index.html"; }
+  };
+}
+
 
 function calcGameDeaths(gameId) {
   let sum = 0;

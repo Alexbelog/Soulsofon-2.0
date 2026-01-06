@@ -154,6 +154,7 @@
 }
 
 .ach-actions{
+  flex-wrap: wrap;
   display:flex;
   flex-direction:row;
   gap:10px;
@@ -273,7 +274,8 @@
   font-size: 15px;
   line-height:1.25;
 }
-.ach-actions{ flex: 0 0 auto; display:flex; align-items:center; gap:10px; }
+.ach-actions{
+  flex-wrap: wrap; flex: 0 0 auto; display:flex; align-items:center; gap:10px; }
 .ach-badge{
   font-family: var(--font-head);
   font-size: 12px;
@@ -297,7 +299,8 @@
 @media (max-width: 560px){
   .ach-card{ align-items:flex-start; }
   .ach-icon{ width:64px; height:64px; border-radius:14px; }
-  .ach-actions{ align-self:center; }
+  .ach-actions{
+  flex-wrap: wrap; align-self:center; }
 }
 
 
@@ -357,4 +360,13 @@
 }
 .ach-card.locked .ach-badge{
   opacity: 0.8;
+}
+
+
+/* Put clip strictly under the action buttons */
+.ach-actions .ach-clip{
+  flex: 0 0 100%;
+  width: 100%;
+  margin-top: 8px;
+  justify-content: flex-end;
 }

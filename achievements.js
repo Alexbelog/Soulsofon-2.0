@@ -497,7 +497,7 @@
         updateLink();
         input.addEventListener('input', updateLink);
         clip.append(input, link);
-        card.appendChild(clip);
+        actions.appendChild(clip);
 
         card.append(img, main, actions);
         list.appendChild(card);
