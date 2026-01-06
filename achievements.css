@@ -328,3 +328,30 @@
 
 /* disabled achievements in boss cards */
 .achievement, .trophy, .achievement-icon { display:none !important; }
+
+
+/* done time (shown on click) */
+.ach-done-time{
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
+  font-size: 13px;
+  line-height: 1.35;
+  opacity: 0.95;
+}
+.btn.mini-date{
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+
+/* Unlocked vs locked achievements */
+.ach-card.locked{
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+.ach-card.locked .ach-badge{
+  opacity: 0.8;
+}

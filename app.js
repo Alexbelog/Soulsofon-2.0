@@ -1,3 +1,18 @@
+
+// Public progress sync (static hosting friendly)
+// - Admin edits local progress (localStorage)
+// - Viewers load progress from /public_progress.json (read-only)
+const PUBLIC_PROGRESS_URL = "public_progress.json";
+async function loadPublicProgress(){
+  try{
+    const r = await fetch(PUBLIC_PROGRESS_URL, { cache: "no-store" });
+    if (!r.ok) return null;
+    return await r.json();
+  } catch {
+    return null;
+  }
+}
+
 function canEdit(){ return window.auth && auth.isAuthed && auth.isAuthed(); }
 
 const GAMES = [
@@ -168,11 +183,21 @@ let currentGame = null;
 let currentGameData = null;
 let eldenQuery = "";
 
-init();
+init().then(() => { try{ mountPublishButton(); }catch{} });
 
 /* ================= INIT ================= */
 
 async function init() {
+  // Viewer sync: load public progress (shared across devices) from server file
+  if (!(window.SoulAuth?.isAdmin?.())){
+    const pub = await loadPublicProgress();
+    if (pub){
+      window.__SOUL_PUBLIC_PROGRESS = pub;
+      progress = pub; // override local device progress for viewing
+    }
+  }
+
+
   renderGameButtons();
   const firstBtn = document.querySelector(".game-btn");
   if (firstBtn) firstBtn.classList.add("active");
@@ -807,4 +832,38 @@ function calcAllBossDeaths() {
 
 
 
+
+
+
+
+function mountPublishButton(){
+  try{
+    if (!window.SoulAuth?.isAdmin?.()) return;
+    if (document.getElementById("publish-progress-btn")) return;
+    const b = document.createElement("button");
+    b.id = "publish-progress-btn";
+    b.className = "btn";
+    b.textContent = "Экспорт public_progress.json";
+    b.style.position = "fixed";
+    b.style.right = "16px";
+    b.style.bottom = "16px";
+    b.style.zIndex = "9999";
+    b.onclick = () => {
+      try{
+        const data = (window.SoulProgress?.get?.() || window.__SOUL_PROGRESS__ || {}).value || window.__SOUL_PUBLIC_PROGRESS || window.__SOUL_LOCAL_PROGRESS || null;
+        const fallback = (typeof progress !== "undefined") ? progress : (JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"));
+        const payload = data || fallback;
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "public_progress.json";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+      } catch {}
+    };
+    document.body.appendChild(b);
+  } catch {}
+}
 
