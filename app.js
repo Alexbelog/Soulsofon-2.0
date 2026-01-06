@@ -53,7 +53,7 @@ async function cloudPutProgress(payload){
 
 function buildCloudPayload(){
   // progress (boss states) + extra deaths counter
-  const extraDeaths = (typeof loadGameExtra === "function") ? loadGameExtra() : (JSON.parse(localStorage.getItem("soulsofon_game_extra_deaths") || "{}"));
+  const extraDeaths = (typeof loadGameExtra === "function") ? loadGameExtra() : JSON.parse(localStorage.getItem("soulsofon_game_extra_deaths") || "{}");
   return { v: 1, progress, extraDeaths };
 }
 
@@ -61,23 +61,6 @@ function parseCloudPayload(data){
   // Backward compatible: if old payload was just the progress object
   if (data && typeof data === "object" && data.progress) return data;
   return { v: 0, progress: (data || {}), extraDeaths: null };
-}
-
-
-  }, 1500);
-}
-
-alert("Прогресс загружен из Cloud и сохранён локально.");
-      try { render(); updateStats(); } catch {}
-    }));
-
-    wrap.appendChild(mkBtn("Cloud Push", async () => {
-      const ok = await cloudPutProgress(progress);
-      alert(ok ? "Прогресс отправлен в Cloud." : "Не удалось отправить в Cloud (проверь токен/URL).");
-    }));
-
-    document.body.appendChild(wrap);
-  } catch {}
 }
 
 const PUBLIC_PROGRESS_URL = "public_progress.json";
@@ -929,10 +912,6 @@ function calcAllBossDeaths() {
 
 
 
-    };
-    document.body.appendChild(b);
-  } catch {}
-}
 
 
 
