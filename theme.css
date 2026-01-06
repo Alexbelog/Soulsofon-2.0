@@ -472,3 +472,19 @@ body::before{
 #index-page #startBtn,
 #startBtn{ left:50%; transform: translateX(-50%) !important; }
 #startBtn:hover, #startBtn:active, #startBtn:focus{ transform: translateX(-50%) !important; }
+
+
+/* Watermark */
+.watermark{
+  position: fixed;
+  right: 14px;
+  bottom: 12px;
+  z-index: 9999;
+  opacity: 0.28;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: normal;
+}

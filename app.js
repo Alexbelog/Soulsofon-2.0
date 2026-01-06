@@ -260,6 +260,7 @@ async function init() {
     try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }catch{}
     window.__SOUL_PUBLIC_PROGRESS = cloud;
     cloudDebug("viewer loaded cloud progress");
+    window.__CLOUD_LAST_STATUS = "Cloud: loaded";
     var _viewerHasCloud = true;
   }
 
@@ -548,15 +549,6 @@ nameBtn.onclick = (e) => {
   try { window.SoulBossModal?.open?.({ boss, gameId: gameData.id, gameTitle: gameData.title }); } catch {}
 };
 
-const achBtn = document.createElement("button");
-achBtn.className = "boss-ach-btn";
-achBtn.type = "button";
-achBtn.textContent = "🏆";
-achBtn.title = "Открыть связанные достижения";
-achBtn.onclick = (e) => {
-  e?.stopPropagation?.();
-  try { window.SoulAchievements?.openForBoss?.(gameData.id, boss.id, boss.name); } catch {}
-};
 
 const rankBtn = document.createElement("button");
 rankBtn.className = "boss-rank";
@@ -594,7 +586,7 @@ applyRankStyle();
 
 head.appendChild(rankBtn);
 head.appendChild(nameBtn);
-head.appendChild(achBtn);
+
 row.appendChild(head);
 
 // Image
@@ -918,7 +910,9 @@ function calcAllBossDeaths() {
 
 function setCloudStatus(text){
   const el = document.getElementById("cloud-status");
-  if (el) el.textContent = text;
+  if (!el) return;
+  const t = new Date().toLocaleTimeString("ru-RU", { hour:"2-digit", minute:"2-digit" });
+  el.textContent = text + " · " + t;
 }
 
 function mountCloudSyncUI(){
@@ -937,7 +931,7 @@ function mountCloudSyncUI(){
     const status = document.createElement("span");
     status.id = "cloud-status";
     status.className = "cloud-status";
-    status.textContent = "Cloud: —";
+    status.textContent = (window.__CLOUD_LAST_STATUS || "Cloud: —");
 
     const btn = document.createElement("button");
     btn.className = "btn cloud-btn";
@@ -1008,6 +1002,9 @@ function mountCloudSyncUI(){
     wrap.style.position = "relative";
     wrap.appendChild(menu);
     host.appendChild(wrap);
+    try{
+      if (!window.__CLOUD_LAST_STATUS && getCloudEndpoint()) setCloudStatus("Cloud: ready");
+    }catch{}
   } catch {}
 }
 
