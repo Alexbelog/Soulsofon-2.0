@@ -302,6 +302,7 @@ init().then(() => { try{ mountPublishButton(); }catch{} try{ mountCloudPanel(); 
 /* ================= INIT ================= */
 
 async function init() {
+  var _viewerHasCloud = false;
   // Sync from Cloud (shared progress for all viewers)
   // - Viewers: always prefer Cloud if available
   // - Admin: can Pull/Push from the panel
@@ -311,11 +312,12 @@ async function init() {
     try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }catch{}
     window.__SOUL_PUBLIC_PROGRESS = cloud;
     cloudDebug("viewer loaded cloud progress");
+    var _viewerHasCloud = true;
   }
 
 
   // Viewer sync: load public progress (shared across devices) from server file
-  if (!(window.SoulAuth?.isAdmin?.())){
+  if (!_viewerHasCloud && !(window.SoulAuth?.isAdmin?.())){
     const pub = await loadPublicProgress();
     if (pub){
       window.__SOUL_PUBLIC_PROGRESS = pub;

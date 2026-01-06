@@ -510,15 +510,16 @@
   };
 
   document.addEventListener("DOMContentLoaded", async () => {
+    let _achHasCloud = false;
     // Sync from Cloud for viewers so achievements match shared progress
     if (!(window.SoulAuth?.isAdmin?.())){
       const cloud = await cloudGetProgress();
-      if (cloud) window.__SOUL_PUBLIC_PROGRESS = cloud;
+      if (cloud){ window.__SOUL_PUBLIC_PROGRESS = cloud; _achHasCloud = true; }
     }
 
 
     // Viewer sync: load public progress (shared across devices) from server file
-    if (!(window.SoulAuth?.isAdmin?.())){
+    if (!_achHasCloud && !(window.SoulAuth?.isAdmin?.())){
       const pub = await loadPublicProgress();
       if (pub) window.__SOUL_PUBLIC_PROGRESS = pub;
     }
