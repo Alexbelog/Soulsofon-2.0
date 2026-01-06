@@ -54,13 +54,13 @@ async function cloudPutProgress(payload){
 function buildCloudPayload(){
   // progress (boss states) + extra deaths counter
   const extraDeaths = (typeof loadGameExtra === "function") ? loadGameExtra() : JSON.parse(localStorage.getItem("soulsofon_game_extra_deaths") || "{}");
-  return { v: 1, progress, extraDeaths };
+  return { v: 1, progress, extraDeaths, achDone: (JSON.parse(localStorage.getItem("soulsofon_ach_done") || "{}")) };
 }
 
 function parseCloudPayload(data){
   // Backward compatible: if old payload was just the progress object
   if (data && typeof data === "object" && data.progress) return data;
-  return { v: 0, progress: (data || {}), extraDeaths: null };
+  return { v: 0, progress: (data || {}), extraDeaths: null, achDone: null };
 }
 
 const PUBLIC_PROGRESS_URL = "public_progress.json";
@@ -202,6 +202,20 @@ const marathonPlus = document.getElementById("marathon-plus");
 const marathonMinus = document.getElementById("marathon-minus");
 const gamePlus = document.getElementById("game-plus");
 const gameMinus = document.getElementById("game-minus");
+
+function updateDeathButtons(){
+  const isAdmin = !!window.SoulAuth?.isAdmin?.();
+  const btns = [marathonPlus, marathonMinus, gamePlus, gameMinus].filter(Boolean);
+  for (const b of btns){
+    b.disabled = !isAdmin;
+    b.style.pointerEvents = isAdmin ? "auto" : "none";
+    b.style.opacity = isAdmin ? "" : "0.45";
+    b.title = isAdmin ? "" : "Только админ";
+  }
+}
+updateDeathButtons();
+const _deathBtnTimer = setInterval(updateDeathButtons, 500);
+setTimeout(() => clearInterval(_deathBtnTimer), 30000);
 
 let progress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 // Ручные смерти (падения, моб-ганки и т.п.) — теперь по играм.
@@ -759,6 +773,7 @@ function calcKillStats(gameId) {
 
 function adjustManualDeaths(delta){
   if (!currentGameData) return;
+  if (!window.SoulAuth?.isAdmin?.()) return;
   const gid = currentGameData.id;
   const cur = getGameExtra(gid);
   let next = cur + delta;
@@ -983,6 +998,9 @@ function mountCloudSyncUI(){
       if (payload.extraDeaths) {
         try{ localStorage.setItem("soulsofon_game_extra_deaths", JSON.stringify(payload.extraDeaths)); }catch{}
       }
+      if (payload.achDone) {
+        try{ localStorage.setItem("soulsofon_ach_done", JSON.stringify(payload.achDone)); }catch{}
+      }
       try{ render(); updateStats(); }catch{}
       setCloudStatus("Cloud: pulled");
     }));
@@ -1114,6 +1132,9 @@ function mountCloudSyncUI(){
       try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }catch{}
       if (payload.extraDeaths) {
         try{ localStorage.setItem("soulsofon_game_extra_deaths", JSON.stringify(payload.extraDeaths)); }catch{}
+      }
+      if (payload.achDone) {
+        try{ localStorage.setItem("soulsofon_ach_done", JSON.stringify(payload.achDone)); }catch{}
       }
       try{ render(); updateStats(); }catch{}
       setCloudStatus("Cloud: pulled");

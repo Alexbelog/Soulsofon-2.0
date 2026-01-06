@@ -24,9 +24,44 @@
     } catch { return null; }
   }
 
+  async function cloudPutProgress(payload){
+    const endpoint = getCloudEndpoint();
+    if (!endpoint) return false;
+    const token = (localStorage.getItem(CLOUD_TOKEN_KEY) || "").trim();
+    if (!token) return false;
+    try{
+      const r = await fetch(endpoint, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify(payload)
+      });
+      return r.ok;
+    }catch{ return false; }
+  }
+
+  function buildCloudPayloadFromLocal(){
+    const progress = loadJSON(STORE_PROGRESS, {});
+    const extraDeaths = loadJSON(STORE_EXTRA, null);
+    const achDone = loadJSON(STORE_DONE, {});
+    return { v: 1, progress, extraDeaths, achDone };
+  }
+
+  let _clipPushTimer = null;
+  function scheduleClipCloudPush(){
+    if (_clipPushTimer) clearTimeout(_clipPushTimer);
+    _clipPushTimer = setTimeout(async () => {
+      if (!window.SoulAuth?.isAdmin?.()) return;
+      await cloudPutProgress(buildCloudPayloadFromLocal());
+    }, 1200);
+  }
+
+
   function parseCloudPayload(data){
     if (data && typeof data === "object" && data.progress) return data;
-    return { v: 0, progress: (data || {}), extraDeaths: null };
+    return { v: 0, progress: (data || {}), extraDeaths: null, achDone: null };
   }
 
 
@@ -231,6 +266,8 @@
   function loadJSON(key, fallback){
     try {
       if (key === STORE_PROGRESS && window.__SOUL_PUBLIC_PROGRESS && !(window.SoulAuth?.isAdmin?.())) return window.__SOUL_PUBLIC_PROGRESS;
+      if (key === STORE_EXTRA && window.__SOUL_PUBLIC_EXTRA && !(window.SoulAuth?.isAdmin?.())) return window.__SOUL_PUBLIC_EXTRA;
+      if (key === STORE_DONE && window.__SOUL_PUBLIC_DONE && !(window.SoulAuth?.isAdmin?.())) return window.__SOUL_PUBLIC_DONE;
       return JSON.parse(localStorage.getItem(key)) ?? fallback;
     } catch { return fallback; }
   }
@@ -345,6 +382,7 @@
     done[id] = done[id] || { at: Date.now() };
     done[id].clip = url;
     saveDone(done);
+    try{ scheduleClipCloudPush(); }catch{}
   }
 
   function checkAuto(){
@@ -355,7 +393,7 @@
       if (done[a.id]) continue;
       if (a.check(ctx)){
         if (markDone(a.id)){
-          try { window.SoulUI?.toast?.("Achievement unlocked", a.name, a.img); } catch {}
+          try { window.SoulUI?.toast?.(a.name, a.desc || "", a.img); } catch {}
         }
       }
     }
@@ -438,7 +476,7 @@
             if (!window.SoulAuth?.isAdmin?.()) return;
             const nowDone = toggleManual(a.id); // can toggle on/off
             if (nowDone){
-              try { window.SoulUI?.toast?.("Achievement unlocked", a.name, a.img); } catch {}
+              try { window.SoulUI?.toast?.(a.name, a.desc || "", a.img); } catch {}
             }
             render();
           };
@@ -524,6 +562,7 @@
         const payload = parseCloudPayload(cloud);
         window.__SOUL_PUBLIC_PROGRESS = payload.progress || {};
         if (payload.extraDeaths) window.__SOUL_PUBLIC_EXTRA = payload.extraDeaths;
+        if (payload.achDone) window.__SOUL_PUBLIC_DONE = payload.achDone;
         _achHasCloud = true;
       }
     }

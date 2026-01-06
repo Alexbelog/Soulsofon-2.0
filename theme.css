@@ -276,7 +276,7 @@ body::before{
   width:min(420px, calc(100vw - 36px));
   display:flex;
   gap:12px;
-  align-items:flex-start;
+  align-items:center;
   padding:12px 14px;
   border:1px solid rgba(214,186,122,.22);
   background: linear-gradient(180deg, rgba(22,18,12,.92), rgba(10,8,6,.92));
@@ -289,16 +289,16 @@ body::before{
 .toast.show{ animation: toastIn .36s ease forwards; }
 .toast.hide{ animation: toastOut .34s ease forwards; }
 
-.toast-icon{
-  width:44px;
-  height:44px;
+\.toast-icon{
+  width:34px;
+  height:34px;
   border-radius:12px;
   border:1px solid rgba(214,186,122,.25);
   background: radial-gradient(circle at 35% 30%, rgba(214,186,122,.22), rgba(0,0,0,0));
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:22px;
+  font-size:18px;
   color: rgba(214,186,122,.95);
   text-shadow: 0 0 18px rgba(214,186,122,.25);
   flex:0 0 auto;
@@ -487,4 +487,38 @@ body::before{
   pointer-events: none;
   user-select: none;
   mix-blend-mode: normal;
+}
+
+
+/* Toast icon image sizing */
+.toast-icon{
+  overflow:hidden;
+}
+.toast-icon img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+}
+.toast{
+  align-items:center;
+}
+.toast-body .toast-title{
+  line-height:1.1;
+}
+.toast-body .toast-sub{
+  opacity:.85;
+  margin-top:2px;
+}
+
+
+/* Toast image icon */
+img.toast-icon{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  border:1px solid rgba(214,186,122,.25);
+  object-fit:cover;
+  display:block;
 }

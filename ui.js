@@ -69,7 +69,7 @@
     const t = document.createElement("div");
     t.className = "toast";
     t.innerHTML = `
-      ${iconUrl ? `<img class="toast-ic" alt="" src="${iconUrl}">` : `<div class="toast-ic rune">✦</div>`}
+      ${iconUrl ? `<img class="toast-icon" alt="" src="${iconUrl}">` : `<div class="toast-icon rune">✦</div>`}
       <div class="toast-body">
         <div class="toast-title">${escapeHtml(title)}</div>
         ${subtitle ? `<div class="toast-sub">${escapeHtml(subtitle)}</div>` : ``}
