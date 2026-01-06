@@ -917,14 +917,21 @@ function setCloudStatus(text){
 
 function mountCloudSyncUI(){
   try{
-    if (!window.SoulAuth?.isAdmin?.()) return;
     if (document.getElementById("cloud-sync")) return;
 
     const host = document.querySelector(".topbar-right") || document.body;
 
     const wrap = document.createElement("div");
     wrap.id = "cloud-sync";
-    wrap.style.display = "inline-flex";
+    // show only for admin, but mount once so it appears right after login
+    const updateVis = () => {
+      const isAdmin = !!window.SoulAuth?.isAdmin?.();
+      wrap.style.display = isAdmin ? "inline-flex" : "none";
+    };
+    updateVis();
+    const _visTimer = setInterval(updateVis, 500);
+    setTimeout(() => clearInterval(_visTimer), 30000);
+
     wrap.style.alignItems = "center";
     wrap.style.gap = "10px";
 
