@@ -271,7 +271,9 @@ async function init() {
     const payload = parseCloudPayload(cloud);
     progress = payload.progress || {};
     try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }catch{}
-    window.__SOUL_PUBLIC_PROGRESS = cloud;
+    if (payload.extraDeaths){ try{ localStorage.setItem("soulsofon_game_extra_deaths", JSON.stringify(payload.extraDeaths)); }catch{} try{ gameExtraDeaths = payload.extraDeaths; }catch{} }
+    if (payload.achDone){ try{ localStorage.setItem("soulsofon_ach_done", JSON.stringify(payload.achDone)); }catch{} }
+    window.__SOUL_PUBLIC_PROGRESS = progress;
     cloudDebug("viewer loaded cloud progress");
     window.__CLOUD_LAST_STATUS = "Cloud: loaded";
     var _viewerHasCloud = true;
@@ -1001,7 +1003,10 @@ function mountCloudSyncUI(){
       if (payload.achDone) {
         try{ localStorage.setItem("soulsofon_ach_done", JSON.stringify(payload.achDone)); }catch{}
       }
-      try{ render(); updateStats(); }catch{}
+      try{ render(); }catch{}
+      try{ if (payload.extraDeaths) gameExtraDeaths = payload.extraDeaths; }catch{}
+      try{ updateDeathCounters(currentGameData); }catch{}
+      try{ window.SoulAchievements?.checkAndNotify?.(); }catch{}
       setCloudStatus("Cloud: pulled");
     }));
 
@@ -1136,7 +1141,10 @@ function mountCloudSyncUI(){
       if (payload.achDone) {
         try{ localStorage.setItem("soulsofon_ach_done", JSON.stringify(payload.achDone)); }catch{}
       }
-      try{ render(); updateStats(); }catch{}
+      try{ render(); }catch{}
+      try{ if (payload.extraDeaths) gameExtraDeaths = payload.extraDeaths; }catch{}
+      try{ updateDeathCounters(currentGameData); }catch{}
+      try{ window.SoulAchievements?.checkAndNotify?.(); }catch{}
       setCloudStatus("Cloud: pulled");
     });
 
