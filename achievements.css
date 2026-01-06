@@ -155,10 +155,13 @@
 
 .ach-actions{
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   gap:10px;
-  align-items:flex-end;
+  align-items:center;
+  justify-content:flex-end;
 }
+.ach-actions > *{ flex: 0 0 auto; }
+
 .ach-btn{
   padding:10px 12px;
   min-width:140px;

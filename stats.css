@@ -244,7 +244,7 @@ body{
 }
 
 .boss-name{
-  font-size: 13px;
+  font-size:12px;
   letter-spacing:.06em;
   white-space: nowrap;
   overflow:hidden;
@@ -411,6 +411,10 @@ body{
 }
 .boss-head{grid-area:head; display:flex; align-items:center; justify-content:space-between; gap:12px;}
 .boss-name-btn{
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   flex:1;
   text-align:left;
   background:transparent;
@@ -420,7 +424,7 @@ body{
   font-weight:600;
   letter-spacing:.06em;
   /* меньше шрифт имени босса */
-  font-size:13px;
+  font-size:12px;
   line-height:1.25;
   padding:10px 12px;
   border-radius:12px;
@@ -687,6 +691,10 @@ body{
 }
 
 .boss-name-btn{
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   flex:1;
   text-align:left;
   padding:8px 10px;
@@ -1026,4 +1034,24 @@ html.modal-open, html.modal-open body { overflow: hidden; }
     height: min(720px, calc(100vh - 32px));
   }
   .boss-modal__left{ min-height: 260px; }
+}
+
+
+/* Not killed boss cards (inactive look) */
+.boss-card.locked{
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+
+/* Cloud status next to sync button */
+.cloud-status-inline{
+  font-size: 12px;
+  opacity: 0.75;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(8px);
+  color: var(--muted);
 }

@@ -244,8 +244,7 @@ let currentGame = null;
 let currentGameData = null;
 let eldenQuery = "";
 
-init().then(() => { try{  }catch{} try{ mountCloudPanel(); }catch{} });
-
+init().then(() => { try{ mountCloudSyncUI(); }catch{} });
 /* ================= INIT ================= */
 
 async function init() {
@@ -521,7 +520,7 @@ function renderGame(gameData) {
         const state = progress[gameData.id][boss.id];
 
         const row = document.createElement("div");
-        row.className = "boss-card";
+        row.className = "boss-card" + (state?.killed ? "" : " locked");
 
         // Open boss details (ignore clicks on interactive controls)
         row.addEventListener("click", (e) => {
@@ -919,7 +918,7 @@ function mountCloudSyncUI(){
   try{
     if (document.getElementById("cloud-sync")) return;
 
-    const host = document.querySelector(".topbar-right") || document.body;
+    const host = document.body;
 
     const wrap = document.createElement("div");
     wrap.id = "cloud-sync";
@@ -937,11 +936,11 @@ function mountCloudSyncUI(){
 
     const status = document.createElement("span");
     status.id = "cloud-status";
-    status.className = "cloud-status";
+    status.className = "cloud-status-inline";
     status.textContent = (window.__CLOUD_LAST_STATUS || "Cloud: —");
 
     const btn = document.createElement("button");
-    btn.className = "btn cloud-btn";
+    btn.className = "back-btn";
     btn.type = "button";
     btn.textContent = "Синхронизация";
 

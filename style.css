@@ -238,3 +238,19 @@ button, a{
   padding: 10px 14px;
   border-radius: 14px;
 }
+
+
+/* Cloud sync in topbar */
+.cloud-status-pill{
+  font-size: 12px;
+  opacity: 0.75;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  white-space: nowrap;
+}
+.cloud-sync-link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

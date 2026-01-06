@@ -469,7 +469,7 @@
           timeBox.textContent = txt;
           timeBox.style.display = (timeBox.style.display === "none") ? "block" : "none";
         };
-        actions.appendChild(timeBtn);
+        actions.insertBefore(timeBtn, actions.firstChild);
         card.appendChild(timeBox);
 
         // Clip proof input (admin only). Works for both auto and manual achievements.
