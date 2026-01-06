@@ -2,6 +2,120 @@
 // Public progress sync (static hosting friendly)
 // - Admin edits local progress (localStorage)
 // - Viewers load progress from /public_progress.json (read-only)
+
+// Cloud sync (Cloudflare Worker + KV)
+// Reads are public. Writes require a Bearer token you set locally as admin.
+const CLOUD_TOKEN_KEY = "soulsfon_progress_cloud_token";
+
+function getCloudApiBase(){
+  return (window.SOUL_CLOUD && window.SOUL_CLOUD.apiBase) ? String(window.SOUL_CLOUD.apiBase).trim() : "";
+}
+function getCloudEndpoint(){
+  const base = getCloudApiBase();
+  if (!base || base.includes("REPLACE_WITH")) return "";
+  return base.replace(/\/$/,"") + "/api/progress";
+}
+function cloudDebug(...args){
+  if (window.SOUL_CLOUD && window.SOUL_CLOUD.debug) console.log("[cloud]", ...args);
+}
+
+async function cloudGetProgress(){
+  const url = getCloudEndpoint();
+  if (!url) return null;
+  try {
+    const r = await fetch(url, { method:"GET", cache:"no-store" });
+    if (!r.ok) return null;
+    return await r.json();
+  } catch {
+    return null;
+  }
+}
+
+async function cloudPutProgress(payload){
+  const url = getCloudEndpoint();
+  if (!url) return false;
+  const token = localStorage.getItem(CLOUD_TOKEN_KEY) || "";
+  if (!token) return false;
+  try {
+    const r = await fetch(url, {
+      method:"PUT",
+      headers: {
+        "Content-Type":"application/json",
+        "Authorization":"Bearer " + token
+      },
+      body: JSON.stringify(payload)
+    });
+    return r.ok;
+  } catch {
+    return false;
+  }
+}
+
+let _cloudPushTimer = null;
+function scheduleCloudPush(){
+  if (!window.SoulAuth?.isAdmin?.()) return;
+  if (!getCloudEndpoint()) return;
+  if (!(localStorage.getItem(CLOUD_TOKEN_KEY) || "")) return;
+  clearTimeout(_cloudPushTimer);
+  _cloudPushTimer = setTimeout(async () => {
+    try {
+      const ok = await cloudPutProgress(progress);
+      cloudDebug("push", ok ? "ok" : "fail");
+    } catch {}
+  }, 1500);
+}
+
+function mountCloudPanel(){
+  try {
+    if (!window.SoulAuth?.isAdmin?.()) return;
+    if (document.getElementById("cloud-panel")) return;
+
+    const wrap = document.createElement("div");
+    wrap.id = "cloud-panel";
+    wrap.style.position = "fixed";
+    wrap.style.left = "16px";
+    wrap.style.bottom = "16px";
+    wrap.style.zIndex = "9999";
+    wrap.style.display = "flex";
+    wrap.style.gap = "8px";
+
+    const mkBtn = (txt, onClick) => {
+      const b = document.createElement("button");
+      b.className = "btn";
+      b.type = "button";
+      b.textContent = txt;
+      b.onclick = onClick;
+      return b;
+    };
+
+    wrap.appendChild(mkBtn("Cloud Token", () => {
+      const cur = localStorage.getItem(CLOUD_TOKEN_KEY) || "";
+      const t = prompt("Вставь Cloud token (ADMIN_TOKEN), который ты задал в Worker secrets:", cur);
+      if (t === null) return;
+      localStorage.setItem(CLOUD_TOKEN_KEY, String(t).trim());
+      alert("Токен сохранён на этом устройстве.");
+    }));
+
+    wrap.appendChild(mkBtn("Cloud Pull", async () => {
+      const pub = await cloudGetProgress();
+      if (!pub) return alert("Не удалось загрузить прогресс из Cloud.");
+      progress = pub;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      
+  try{ scheduleCloudPush(); }catch{}
+alert("Прогресс загружен из Cloud и сохранён локально.");
+      try { render(); updateStats(); } catch {}
+    }));
+
+    wrap.appendChild(mkBtn("Cloud Push", async () => {
+      const ok = await cloudPutProgress(progress);
+      alert(ok ? "Прогресс отправлен в Cloud." : "Не удалось отправить в Cloud (проверь токен/URL).");
+    }));
+
+    document.body.appendChild(wrap);
+  } catch {}
+}
+
 const PUBLIC_PROGRESS_URL = "public_progress.json";
 async function loadPublicProgress(){
   try{
@@ -183,11 +297,23 @@ let currentGame = null;
 let currentGameData = null;
 let eldenQuery = "";
 
-init().then(() => { try{ mountPublishButton(); }catch{} });
+init().then(() => { try{ mountPublishButton(); }catch{} try{ mountCloudPanel(); }catch{} });
 
 /* ================= INIT ================= */
 
 async function init() {
+  // Sync from Cloud (shared progress for all viewers)
+  // - Viewers: always prefer Cloud if available
+  // - Admin: can Pull/Push from the panel
+  const cloud = await cloudGetProgress();
+  if (cloud && !(window.SoulAuth?.isAdmin?.())){
+    progress = cloud;
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }catch{}
+    window.__SOUL_PUBLIC_PROGRESS = cloud;
+    cloudDebug("viewer loaded cloud progress");
+  }
+
+
   // Viewer sync: load public progress (shared across devices) from server file
   if (!(window.SoulAuth?.isAdmin?.())){
     const pub = await loadPublicProgress();

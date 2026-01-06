@@ -2,8 +2,27 @@
 // Names: EN (Steam/Souls vibe) | Descriptions: RU
 (() => {
   const STORE_DONE = "soulsofon_ach_done";
-  const STORE_PROGRESS = "soulsofon_progress";
+  const STORE_PROGRESS = "soulsfon_progress";
   const STORE_EXTRA = "soulsofon_game_extra_deaths";
+
+  const CLOUD_TOKEN_KEY = "soulsfon_progress_cloud_token";
+  function getCloudApiBase(){
+    return (window.SOUL_CLOUD && window.SOUL_CLOUD.apiBase) ? String(window.SOUL_CLOUD.apiBase).trim() : "";
+  }
+  function getCloudEndpoint(){
+    const base = getCloudApiBase();
+    if (!base || base.includes("REPLACE_WITH")) return "";
+    return base.replace(/\/$/,"") + "/api/progress";
+  }
+  async function cloudGetProgress(){
+    const url = getCloudEndpoint();
+    if (!url) return null;
+    try {
+      const r = await fetch(url, { method:"GET", cache:"no-store" });
+      if (!r.ok) return null;
+      return await r.json();
+    } catch { return null; }
+  }
 
   const PUBLIC_PROGRESS_URL = "public_progress.json";
   async function loadPublicProgress(){
@@ -491,6 +510,13 @@
   };
 
   document.addEventListener("DOMContentLoaded", async () => {
+    // Sync from Cloud for viewers so achievements match shared progress
+    if (!(window.SoulAuth?.isAdmin?.())){
+      const cloud = await cloudGetProgress();
+      if (cloud) window.__SOUL_PUBLIC_PROGRESS = cloud;
+    }
+
+
     // Viewer sync: load public progress (shared across devices) from server file
     if (!(window.SoulAuth?.isAdmin?.())){
       const pub = await loadPublicProgress();
