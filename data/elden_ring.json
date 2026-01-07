@@ -98,13 +98,6 @@
           "description": "Описание скоро появится."
         },
         {
-          "id": "darriwil",
-          "name": "Рыцарь-ищейка Дарривил",
-          "icon": "images/bosses/elden/limgrave/darriwil.png",
-          "image": "images/bosses/elden/limgrave/darriwil.png",
-          "description": "Описание скоро появится."
-        },
-        {
           "id": "leonine",
           "name": "Бастард Леонин",
           "icon": "images/bosses/elden/limgrave/leonine.png",
