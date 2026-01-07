@@ -161,14 +161,9 @@
     { id:"no_death_boss",  img:"images/achievements/no_death_boss.png",  name:"NO DEATH", desc:"Победить любого босса без смертей на нём.", kind:"auto",
       check:({hasNoDeathBoss}) => !!hasNoDeathBoss },
     
-    { id:"marathon_day_one", img:"images/achievements/marathon_start.png", name:"DAY ONE",
-      desc:"Марафон: провести первый полноценный стрим/сессию Soulsfon 2026. Отметь вручную.", kind:"manual" },
+    { id:"marathon_day_one", img:"images/achievements/marathon_start.png", name:"DAY ONE", desc:"Провести первый полноценный стрим/сессию Soulsfon 2026.", kind:"manual" },
 
-    { id:"marathon_hot_streak", img:"images/achievements/first_try.png", name:"HOT STREAK",
-      desc:"Марафон: победить 3 боссов подряд без смертей между ними (серия). Отметь вручную.", kind:"manual" },
-
-    { id:"marathon_redemption", img:"images/achievements/die_300.png", name:"REDEMPTION",
-      desc:"Марафон: вернуться к боссу, который когда-то забрал 30+ попыток, и победить его. Отметь вручную.", kind:"manual" },
+    { id:"marathon_redemption", img:"images/achievements/die_300.png", name:"REDEMPTION", desc:"Вернуться к боссу, который когда-то забрал 30+ попыток, и победить его.", kind:"manual" },
 
 { id:"marathon_finish", img:"images/achievements/marathon_finish.png", name:"THE END", desc:"Дойти до финала марафона. Последняя искра погасла.", kind:"manual" },
 
@@ -179,19 +174,19 @@
     { id:"challenge_no_summon", img:"images/achievements/challenge_no_summon.png", name:"NO SUMMON", desc:"Не использовать призывы (NPC/духи/кооп) в течении всего марафона.", kind:"manual" },
     
     { id:"challenge_no_summons_run", img:"images/achievements/no_summons.png", name:"LONE WOLF",
-      desc:"Испытания: пройти весь марафон без призывов (NPC/игроки). Отмечай вручную — честность обязательна.", kind:"manual" },
+      desc:"Пройти весь марафон без призывов (NPC/игроки)", kind:"manual" },
 
     { id:"challenge_no_shield_run", img:"images/achievements/no_shields.png", name:"NO SHIELD OATH",
-      desc:"Испытания: отказаться от щитов на всём марафоне. Парирования и перекаты — всё, что есть.", kind:"manual" },
+      desc:"Отказаться от щитов на всём марафоне. Парирования и перекаты — всё, что есть.", kind:"manual" },
 
     { id:"challenge_no_heal_boss", img:"images/achievements/no_estus.png", name:"DRY FIGHT",
-      desc:"Испытания: победить любого босса без лечения во время боя (фляги/травы/леч. предметы).", kind:"manual" },
+      desc:"Победить 10 боссов без лечения во время боя (фляги/травы).", kind:"manual" },
 
     { id:"challenge_no_magic_boss", img:"images/achievements/challenge_rl1.png", name:"STEEL ONLY",
-      desc:"Испытания: победить любого босса без магии/чудес/инкантаций и без баффов оружия.", kind:"manual" },
+      desc:"Победить 10 боссов без магии/чудес/инкантаций и без баффов оружия.", kind:"manual" },
 
     { id:"challenge_naked_boss", img:"images/achievements/challenge_no_hit.png", name:"BARELY ARMORED",
-      desc:"Испытания: победить любого босса в минимальной броне («голый» сет) — только храбрость.", kind:"manual" },
+      desc:"Победить любого босса в минимальной броне («голый» сет) — только храбрость.", kind:"manual" },
 
     { id:"challenge_stream_proof", img:"images/achievements/challenge_no_hit.png", name:"RECEIPTS",
       desc:"Испытания: прикрепить Twitch-клип к 5 выполненным испытаниям. Доказательства > слова.", kind:"auto",
@@ -208,7 +203,7 @@
     { id:"challenge_rl1",   img:"images/achievements/challenge_rl1.png",   name:"LEVEL ONE", desc:"Победить босса на минимальном уровне (RL1/SL1/BL4 — по игре).", kind:"manual" },
 
     { id:"challenge_the_wall", img:"images/achievements/challenge_no_hit.png", name:"THE WALL",
-      desc:"Застрять на одном боссе: 20+ смертей на единственной схватке. Стена проверяет веру.", kind:"auto",
+      desc:"Застрять на одном боссе: 40+ смертей на единственной схватке. Стена проверяет веру.", kind:"auto",
       check:({maxDeathsOnBoss}) => maxDeathsOnBoss >= 20 },
 
     { id:"challenge_flawless_ten", img:"images/achievements/no_death_boss.png", name:"FLAWLESS TEN",
@@ -216,17 +211,20 @@
       check:({noDeathBossCount}) => noDeathBossCount >= 10 },
 
     { id:"challenge_firsttry_ten", img:"images/achievements/one_shot.png", name:"ONE-SHOT ARTIST",
-      desc:"Победить 10 боссов с первой попытки за весь марафон.", kind:"auto",
+      desc:"Победить 20 боссов с первой попытки за весь марафон. No Death?", kind:"auto",
       check:(ctx) => {
         const v = ctx.gameFirstTryKills || {};
         let total = 0;
         for (const k in v) total += (v[k] || 0);
-        return total >= 10;
+        return total >= 20;
       }},
 
 
     // --- Dark Souls ---
-
+    
+    { id:"ds1_bells",       img:"images/achievements/ds1_bells.png",       name:"RING THE BELLS", desc:"Dark Souls: пробудить зов колоколов (два колокола).", kind:"manual" },
+    { id:"ds1_solaire",     img:"images/achievements/ds1_solaire.png",     name:"PRAISE THE SUN", desc:"Dark Souls: ритуально воздать славу солнцу в честь победы.", kind:"manual" },
+    
     { id:"ds1_kills_10",   img:"images/achievements/ds1_bells.png",   name:"EMBERED PILGRIM", desc:"Dark Souls: победить 10 боссов.", kind:"auto",
       check:({gameKills}) => (gameKills.ds1||0) >= 10 },
     { id:"ds1_kills_20",   img:"images/achievements/ds1_solaire.png", name:"LORDSOUL HUNTER", desc:"Dark Souls: победить 20 боссов.", kind:"auto",
@@ -240,23 +238,18 @@
       check:({gameDeaths}) => (gameDeaths.ds1||0) >= 50 },
     { id:"ds1_iron_patience",img:"images/achievements/kills_25.png",    name:"IRON PATIENCE", desc:"Dark Souls: потратить 30 попыток на одного босса.", kind:"auto",
       check:({gameMaxTries}) => (gameMaxTries.ds1||0) >= 30 },
-    { id:"ds1_bells",       img:"images/achievements/ds1_bells.png",       name:"RING THE BELLS", desc:"Dark Souls: пробудить зов колоколов (два колокола).", kind:"manual" },
-    { id:"ds1_solaire",     img:"images/achievements/ds1_solaire.png",     name:"PRAISE THE SUN", desc:"Dark Souls: ритуально воздать славу солнцу в честь победы.", kind:"manual" },
     
-    
-    { id:"ds1_ring_the_bells", img:"images/achievements/ds1_bells.png", name:"BELL RINGER",
-      desc:"Dark Souls: прозвонить оба Колокола Пробуждения. Отметь вручную.", kind:"manual" },
 
     { id:"ds1_lordvessel", img:"images/achievements/ds1_bells.png", name:"LORDVESSEL BEARER",
-      desc:"Dark Souls: получить Сосуд Лорда и открыть путь к великим душам. Отметь вручную.", kind:"manual" },
+      desc:"Dark Souls: получить Великую Чашу и открыть путь к великим душам.", kind:"manual" },
 
 { id:"ds1_one_and_done", img:"images/achievements/first_try.png", name:"ONE AND DONE",
       desc:"Dark Souls: победить 3 боссов с первой попытки.", kind:"auto",
       check:(ctx) => (ctx.gameFirstTryKills?.ds1 || 0) >= 3 },
 
     { id:"ds1_smooth_sailing", img:"images/achievements/ds1_bells.png", name:"SMOOTH SAILING",
-      desc:"Dark Souls: победить 15 боссов, и при этом ни один не потребовал больше 10 попыток.", kind:"auto",
-      check:(ctx) => (ctx.gameKills?.ds1 || 0) >= 15 && (ctx.gameMaxTries?.ds1 || 0) <= 10 },
+      desc:"Dark Souls: победить 10 боссов, и при этом ни один не потребовал больше 10 попыток.", kind:"auto",
+      check:(ctx) => (ctx.gameKills?.ds1 || 0) >= 10 && (ctx.gameMaxTries?.ds1 || 0) <= 10 },
 
 { id:"ds1_all",         img:"images/achievements/ds1_all.png",         name:"LORDRAN CLEARED", desc:"Dark Souls: убить всех боссов игры.", kind:"auto",
       check:({gameKills}) => (gameKills.ds1||0) >= 26 },
@@ -275,19 +268,19 @@
       check:({gameFirstTryKills}) => (gameFirstTryKills.ds2||0) >= 3 },
     { id:"ds2_broken_road", img:"images/achievements/die_300.png",   name:"BROKEN ROAD", desc:"Dark Souls II: умереть 75 раз.", kind:"auto",
       check:({gameDeaths}) => (gameDeaths.ds2||0) >= 75 },
-    { id:"ds2_stubborn",    img:"images/achievements/kills_50.png",  name:"STUBBORN HEART", desc:"Dark Souls II: потратить 50 попыток на одного босса.", kind:"auto",
+    { id:"ds2_stubborn",    img:"images/achievements/kills_50.png",  name:"STUBBORN HEART", desc:"Dark Souls II: потратить 30 попыток на одного босса.", kind:"auto",
       check:({gameMaxTries}) => (gameMaxTries.ds2||0) >= 50 },
         
     
     
     { id:"ds2_primal_bonfires", img:"images/achievements/ds2_curse.png", name:"PRIMAL FLAME",
-      desc:"Dark Souls II: зажечь все первородные костры (после великих душ). Отметь вручную.", kind:"manual" },
+      desc:"Dark Souls II: зажечь все первородные костры (после великих душ).", kind:"manual" },
 
     { id:"ds2_king_ring", img:"images/achievements/ds2_curse.png", name:"KING'S MARK",
-      desc:"Dark Souls II: получить Кольцо короля. Отметь вручную.", kind:"manual" },
+      desc:"Dark Souls II: получить Королевское кольцо.", kind:"manual" },
 
 { id:"ds2_steady_steps", img:"images/achievements/ds2_curse.png", name:"STEADY STEPS",
-      desc:"Dark Souls II: победить 20 боссов, удерживая смерти по игре на уровне 40 или ниже.", kind:"auto",
+      desc:"Dark Souls II: победить 20 боссов, удерживая смерти по игре на уровне 80 или ниже.", kind:"auto",
       check:(ctx) => (ctx.gameKills?.ds2 || 0) >= 20 && (ctx.gameDeaths?.ds2 || 0) <= 40 },
 
     { id:"ds2_first_try_pair", img:"images/achievements/first_try.png", name:"FIRST-TRY PAIR",
@@ -314,27 +307,25 @@
       check:({gameMaxTries}) => (gameMaxTries.ds3||0) >= 40 },
         
     
-    
-    { id:"ds3_lords_of_cinder", img:"images/achievements/ds3_cinder.png", name:"CINDER HUNTER",
-      desc:"Dark Souls III: вернуть на троны всех Повелителей Пепла. Отметь вручную.", kind:"manual" },
 
-    { id:"ds3_link_the_fire", img:"images/achievements/ds3_cinder.png", name:"LINK THE FIRE",
-      desc:"Dark Souls III: завершить игру и зажечь Первое Пламя (или любой финал — отметь тот, что сделал).", kind:"manual" },
 
 { id:"ds3_clean_five", img:"images/achievements/no_death_boss.png", name:"CLEAN FIVE",
       desc:"Dark Souls III: победить 5 боссов без смертей на них.", kind:"auto",
       check:(ctx) => (ctx.gameNoDeathKills?.ds3 || 0) >= 5 },
 
     { id:"ds3_under_control", img:"images/achievements/ds3_cinder.png", name:"UNDER CONTROL",
-      desc:"Dark Souls III: победить 20 боссов, и ни один не потребовал больше 15 попыток.", kind:"auto",
-      check:(ctx) => (ctx.gameKills?.ds3 || 0) >= 20 && (ctx.gameMaxTries?.ds3 || 0) <= 15 },
+      desc:"Dark Souls III: победить 5 боссов, и ни один не потребовал больше 10 попыток.", kind:"auto",
+      check:(ctx) => (ctx.gameKills?.ds3 || 0) >= 5 && (ctx.gameMaxTries?.ds3 || 0) <= 10 },
+
+    { id:"ds3_link_the_fire", img:"images/achievements/ds3_cinder.png", name:"LINK THE FIRE",
+      desc:"Dark Souls III: завершить игру и зажечь Первое Пламя (или любой другой финал).", kind:"manual" },
 
 { id:"ds3_all",         img:"images/achievements/ds3_all.png",         name:"LOTHRIC CLEARED", desc:"Dark Souls III: убить всех боссов игры.", kind:"auto",
       check:({gameKills}) => (gameKills.ds3||0) >= 25 },
 
     // --- Bloodborne ---
 
-    { id:"bb_max_insight",  img:"images/achievements/bb_pale.png", name:"EYES WIDE OPEN", desc:"Bloodborne: получить максимальное озарение (99 единиц).", kind:"manual" },
+    { id:"bb_pale",         img:"images/achievements/bb_pale.png",         name:"PALEBLOOD HUNT", desc:"Bloodborne: начать охоту за бледной кровью.", kind:"manual" },
 
     { id:"bb_kills_10",   img:"images/achievements/bb_visceral.png", name:"BLOOD-DRUNK", desc:"Bloodborne: победить 10 боссов.", kind:"auto",
       check:({gameKills}) => (gameKills.bloodborne||0) >= 10 },
@@ -349,29 +340,31 @@
       check:({gameDeaths}) => (gameDeaths.bloodborne||0) >= 60 },
     { id:"bb_beast_patience",img:"images/achievements/kills_50.png",    name:"BEAST PATIENCE", desc:"Bloodborne: потратить 40 попыток на одного босса.", kind:"auto",
       check:({gameMaxTries}) => (gameMaxTries.bloodborne||0) >= 40 },
-    { id:"bb_pale",         img:"images/achievements/bb_pale.png",         name:"PALEBLOOD HUNT", desc:"Bloodborne: начать охоту за бледной кровью.", kind:"manual" },
+    
+    { id:"bb_max_insight",  img:"images/achievements/bb_pale.png", name:"EYES WIDE OPEN", desc:"Bloodborne: получить максимальное озарение (99 единиц).", kind:"manual" },
     { id:"bb_visceral",     img:"images/achievements/bb_visceral.png",     name:"VISCERAL", desc:"Bloodborne: добить босса висцеральной атакой.", kind:"manual" },
     
     
     { id:"bb_transcend", img:"images/achievements/bb_insight_99.png", name:"TRANSCENDENCE",
-      desc:"Bloodborne: дойти до одного из финалов (любой). Отметь вручную.", kind:"manual" },
+      desc:"Bloodborne: дойти до одного из финалов (любой).", kind:"manual" },
 
     { id:"bb_hunter's_dream", img:"images/achievements/bb_visceral.png", name:"DREAMWALKER",
-      desc:"Bloodborne: открыть все ключевые зоны сна Охотника (мастерская/надгробия). Отметь вручную.", kind:"manual" },
+      desc:"Bloodborne: открыть все ключевые зоны сна Охотника (мастерская/надгробия).", kind:"manual" },
 
 { id:"bb_firsttry_trio", img:"images/achievements/first_try.png", name:"FIRST-TRY TRIO",
       desc:"Bloodborne: победить 3 боссов с первой попытки.", kind:"auto",
       check:(ctx) => (ctx.gameFirstTryKills?.bb || 0) >= 3 },
 
     { id:"bb_night_clean", img:"images/achievements/bb_visceral.png", name:"NIGHT CLEANER",
-      desc:"Bloodborne: победить 12 боссов и умереть по игре не больше 25 раз.", kind:"auto",
-      check:(ctx) => (ctx.gameKills?.bb || 0) >= 12 && (ctx.gameDeaths?.bb || 0) <= 25 },
+      desc:"Bloodborne: победить 10 боссов и умереть по игре не больше 80 раз.", kind:"auto",
+      check:(ctx) => (ctx.gameKills?.bb || 0) >= 10 && (ctx.gameDeaths?.bb || 0) <= 80 },
 
 { id:"bb_all",          img:"images/achievements/bb_all.png",          name:"THE HUNT ENDS", desc:"Bloodborne: убить всех боссов игры.", kind:"auto",
       check:({gameKills}) => (gameKills.bloodborne||0) >= 22 },
 
     // --- Sekiro ---
 
+    { id:"sek_shinobi",     img:"images/achievements/sek_shinobi.png",     name:"SHINOBI", desc:"Sekiro: убить босса, полагаясь на стойкость и клинки.", kind:"manual" },
     { id:"sek_kills_10",  img:"images/achievements/sek_shinobi.png", name:"SHINOBI IN TRAINING", desc:"Sekiro: победить 10 боссов.", kind:"auto",
       check:({gameKills}) => (gameKills.sekiro||0) >= 10 },
     { id:"sek_kills_25",  img:"images/achievements/sek_shinobi.png", name:"IRON RESOLVE", desc:"Sekiro: победить 25 боссов.", kind:"auto",
@@ -385,20 +378,20 @@
       check:({gameFirstTryKills}) => (gameFirstTryKills.sekiro||0) >= 5 },
     { id:"sek_fallen",      img:"images/achievements/die_666.png",      name:"FALLEN SHINOBI", desc:"Sekiro: умереть 80 раз.", kind:"auto",
       check:({gameDeaths}) => (gameDeaths.sekiro||0) >= 80 },
-    { id:"sek_tenacity",    img:"images/achievements/kills_100.png",    name:"TENACITY OF STEEL", desc:"Sekiro: потратить 60 попыток на одного босса.", kind:"auto",
-      check:({gameMaxTries}) => (gameMaxTries.sekiro||0) >= 60 },
-    { id:"sek_shinobi",     img:"images/achievements/sek_shinobi.png",     name:"SHINOBI", desc:"Sekiro: убить босса, полагаясь на стойкость и клинки.", kind:"manual" },
+    { id:"sek_tenacity",    img:"images/achievements/kills_100.png",    name:"TENACITY OF STEEL", desc:"Sekiro: потратить 40 попыток на одного босса.", kind:"auto",
+      check:({gameMaxTries}) => (gameMaxTries.sekiro||0) >= 40 },
+
         
     
     { id:"sek_mortal_blade", img:"images/achievements/sek_shinobi.png", name:"MORTAL BLADE",
-      desc:"Sekiro: получить Смертельный Клинок. Отметь вручную.", kind:"manual" },
+      desc:"Sekiro: получить Клинок бессмертных.", kind:"manual" },
 
     { id:"sek_ending", img:"images/achievements/sek_shinobi.png", name:"SHINOBI'S FATE",
-      desc:"Sekiro: получить любой финал. Отметь вручную.", kind:"manual" },
+      desc:"Sekiro: получить любой финал.", kind:"manual" },
 
 { id:"sek_calm_blade", img:"images/achievements/sek_shinobi.png", name:"CALM BLADE",
-      desc:"Sekiro: победить 15 боссов и удержать смерти по игре на уровне 30 или ниже.", kind:"auto",
-      check:(ctx) => (ctx.gameKills?.sek || 0) >= 15 && (ctx.gameDeaths?.sek || 0) <= 30 },
+      desc:"Sekiro: победить 15 боссов и удержать смерти по игре на уровне 80 или ниже.", kind:"auto",
+      check:(ctx) => (ctx.gameKills?.sek || 0) >= 15 && (ctx.gameDeaths?.sek || 0) <= 80 },
 
     { id:"sek_firsttry_duo", img:"images/achievements/first_try.png", name:"FIRST-TRY DUO",
       desc:"Sekiro: победить 2 боссов с первой попытки.", kind:"auto",
