@@ -191,7 +191,7 @@
       desc:"Испытания: победить любого босса без магии/чудес/инкантаций и без баффов оружия.", kind:"manual" },
 
     { id:"challenge_naked_boss", img:"images/achievements/challenge_no_hit.png", name:"BARELY ARMORED",
-      desc:"Испытания: победить любого босса в минимальной броне ("голый" сет) — только храбрость.", kind:"manual" },
+      desc:"Испытания: победить любого босса в минимальной броне («голый» сет) — только храбрость.", kind:"manual" },
 
     { id:"challenge_stream_proof", img:"images/achievements/challenge_no_hit.png", name:"RECEIPTS",
       desc:"Испытания: прикрепить Twitch-клип к 5 выполненным испытаниям. Доказательства > слова.", kind:"auto",
