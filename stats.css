@@ -122,7 +122,7 @@ body{
 
 .game-banner{
   width:100%;
-  height: clamp(205px, 15vw, 285px);
+  height: clamp(180px, 14vw, 260px);
   /* Заполняем рамку баннера без пустых полос */
   object-fit: cover;
   object-position: center;
