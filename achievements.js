@@ -93,7 +93,7 @@
     { id:"marathon_three_realms", img:"images/achievements/marathon_start.png", name:"TRIPLE REALM",
       desc:"Победить минимум по 5 боссов в трёх разных играх марафона.", kind:"auto",
       check:(ctx) => {
-        const games = ["ds1","ds2","ds3","bb","sek","er"];
+        const games = ["ds1","ds2","ds3","bb","sek","elden"];
         let n = 0;
         for (const g of games){ if ((ctx.gameKills?.[g] || 0) >= 5) n++; }
         return n >= 3;
@@ -102,7 +102,7 @@
     { id:"marathon_consistent", img:"images/achievements/marathon_finish.png", name:"CONSISTENT RUNNER",
       desc:"Победить минимум по 10 боссов в четырёх разных играх марафона.", kind:"auto",
       check:(ctx) => {
-        const games = ["ds1","ds2","ds3","bb","sek","er"];
+        const games = ["ds1","ds2","ds3","bb","sek","elden"];
         let n = 0;
         for (const g of games){ if ((ctx.gameKills?.[g] || 0) >= 10) n++; }
         return n >= 4;
@@ -440,11 +440,44 @@
 
 { id:"er_clean_ten", img:"images/achievements/no_death_boss.png", name:"CLEAN TEN",
       desc:"Elden Ring: победить 10 боссов без смертей на них.", kind:"auto",
-      check:(ctx) => (ctx.gameNoDeathKills?.er || 0) >= 10 },
+      check:(ctx) => (ctx.gameNoDeathKills?.elden || 0) >= 10 },
 
     { id:"er_no_big_wall", img:"images/achievements/er_tarnished.png", name:"NO BIG WALL",
       desc:"Elden Ring: победить 30 боссов, и при этом ни один не потребовал больше 20 попыток.", kind:"auto",
-      check:(ctx) => (ctx.gameKills?.er || 0) >= 30 && (ctx.gameMaxTries?.er || 0) <= 20 },
+      check:(ctx) => (ctx.gameKills?.elden || 0) >= 30 && (ctx.gameMaxTries?.elden || 0) <= 20 },
+
+    { id:"er_radahn_down", img:"images/achievements/er_tarnished.png", name:"STARSCOURGE TOPPLED",
+      desc:"Elden Ring: победить Радана, Бича Звёзд.", kind:"auto",
+      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["radahn", "starscourge_radahn"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
+    { id:"er_malenia_felled", img:"images/achievements/er_tarnished.png", name:"BLADE OF MIQUELLA",
+      desc:"Elden Ring: победить Малению, Клинок Микеллы.", kind:"auto",
+      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["malenia_blade_of_miquella", "malenia"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
+    { id:"er_lord_of_blood", img:"images/achievements/er_tarnished.png", name:"LORD OF BLOOD",
+      desc:"Elden Ring: победить Мога, Повелителя Крови.", kind:"auto",
+      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["er_mohg_lord_of_blood", "mohg_lord", "mohg_lord_of_blood"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
+    { id:"er_black_blade", img:"images/achievements/er_tarnished.png", name:"BLACK BLADE FALLEN",
+      desc:"Elden Ring: победить Маликета, Чёрный клинок.", kind:"auto",
+      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["maliketh", "er_beast_clergyman"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
+    { id:"er_sote_all", img:"images/achievements/er_all.png", name:"SHADOW OF THE ERDTREE",
+      desc:"Elden Ring: победить всех боссов DLC Shadow of the Erdtree (считается по отметкам «УБИТ» в DLC).", kind:"auto",
+      check:(ctx) => (ctx.gameDlcKills?.elden || 0) >= 42 },
+    { id:"er_sote_messmer", img:"images/achievements/er_tarnished.png", name:"THE IMPALER FALLS",
+      desc:"Shadow of the Erdtree: победить Мессмера-Насаживателя.", kind:"auto",
+      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_messmer_the_impaler"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
+    { id:"er_sote_bayle", img:"images/achievements/er_tarnished.png", name:"DREAD DRAGON DOWN",
+      desc:"Shadow of the Erdtree: победить Бейла Ужасного.", kind:"auto",
+      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_bayle_the_dread"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
+    { id:"er_sote_midra", img:"images/achievements/er_tarnished.png", name:"FRENZY EXTINGUISHED",
+      desc:"Shadow of the Erdtree: победить Мидру, Владыку Яростного Пламени.", kind:"auto",
+      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_midra_lord_of_frenzied_flame"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
+    { id:"er_sote_mother", img:"images/achievements/er_tarnished.png", name:"MOTHER OF FINGERS",
+      desc:"Shadow of the Erdtree: победить Метир, Матерь Пальцев.", kind:"auto",
+      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_metyr_mother_of_fingers", "dlc_count_ymir_mother_of_fingers"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
+    { id:"er_sote_final", img:"images/achievements/er_tarnished.png", name:"PROMISED NO MORE",
+      desc:"Shadow of the Erdtree: победить Обещанного Консорта Радана.", kind:"auto",
+      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_promised_consort_radahn"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
+    { id:"er_sote_vow", img:"images/achievements/no_summons.png", name:"SILENT VOW",
+      desc:"Shadow of the Erdtree: победить любого босса DLC без призывов. Отметь вручную.", kind:"manual" },
 
 { id:"er_all",          img:"images/achievements/er_all.png",          name:"THE LANDS BETWEEN", desc:"Elden Ring: убить всех боссов базовой игры из списка. Считается по отметкам «УБИТ» в Elden Ring.", kind:"auto",
       check:({gameKills}) => (gameKills.elden||0) >= 71 },                      ];
@@ -483,6 +516,7 @@
     const gameNoDeathKills = {};
     const gameFirstTryKills = {};
     const gameMaxTries = {};
+    const gameDlcKills = {};
 
     let hasFirstTry = false;
     let hasNoDeathBoss = false;
@@ -497,6 +531,7 @@
       let gNoDeath = 0;
       let gFirstTry = 0;
       let gMaxT = 0;
+      let gDlc = 0;
 
       for (const [bid, st] of Object.entries(gdata || {})){
         const d = Number(st?.deaths || 0);
@@ -513,7 +548,7 @@
 
         if (st?.killed){
           kills += 1;
-          if (!isEldenDlc) { gk += 1; }
+          if (!isEldenDlc) { gk += 1; } else { gDlc += 1; }
 
           if (t <= 1){
             hasFirstTry = true;
@@ -533,6 +568,7 @@
       gameNoDeathKills[gid] = gNoDeath;
       gameFirstTryKills[gid] = gFirstTry;
       gameMaxTries[gid] = gMaxT;
+      gameDlcKills[gid] = gDlc;
     }
 
     // manual +/- deaths are stored per-game in extra
@@ -540,7 +576,7 @@
 
     return {
       deaths, kills,
-      gameKills, gameDeaths, gameNoDeathKills, gameFirstTryKills, gameMaxTries,
+      gameKills, gameDeaths, gameNoDeathKills, gameFirstTryKills, gameMaxTries, gameDlcKills,
       hasFirstTry, hasNoDeathBoss,
       maxTries, maxDeathsOnBoss, noDeathBossCount
     };

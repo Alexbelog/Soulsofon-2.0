@@ -341,29 +341,11 @@ async function loadGame(game) {
   currentGame = game;
   let gameData = null;
 
-  // Elden Ring: стараемся подтянуть ПОЛНЫЙ список боссов из публичного API.
-  // Если нет интернета/заблокировано — используем локальный JSON как запасной вариант.
-  if (game.id === "elden") {
-    try {
-      gameData = await loadEldenFromApi();
-    } catch (e) {
-      console.warn("Elden API unavailable, fallback to local data", e);
-      const res = await fetch(game.file);
-      gameData = await res.json();
-      try {
-        if (window.SoulUI && typeof window.SoulUI.toast === "function") {
-          window.SoulUI.toast(
-            "Elden Ring: неполный список офлайн",
-            "Для полного списка боссов нужен интернет. Если открываешь через file:// — запусти сайт через локальный сервер (например: python -m http.server)."
-          );
-        }
-      } catch {}
+  // Elden Ring: используем ЛОКАЛЬНЫЙ JSON из /data (русские локации/боссы).
+  // Без публичного API — чтобы в статистике не появлялись английские названия и всё работало офлайн.
+  const res = await fetch(game.file);
+  gameData = await res.json();
 
-    }
-  } else {
-    const res = await fetch(game.file);
-    gameData = await res.json();
-  }
   currentGameData = gameData;
   ensureProgress(gameData);
   renderGame(gameData);
