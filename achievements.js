@@ -87,11 +87,11 @@
     // --- Marathon ---
 
     { id:"marathon_start", img:"images/achievements/marathon_start.png", name:"THE MARATHON",
-      desc:"Начать марафон. Первый босс пал — пути назад нет.", kind:"auto",
+      desc:"Начать марафон. Первый босс пал — пути назад нет.", kind:"manual",
       check:({kills}) => kills >= 1 },
 
     { id:"marathon_three_realms", img:"images/achievements/marathon_start.png", name:"TRIPLE REALM",
-      desc:"Победить минимум по 5 боссов в трёх разных играх марафона.", kind:"auto",
+      desc:"Победить минимум по 5 боссов в трёх разных играх марафона.", kind:"manual",
       check:(ctx) => {
         const games = ["ds1","ds2","ds3","bb","sek","elden"];
         let n = 0;
@@ -100,7 +100,7 @@
       }},
 
     { id:"marathon_consistent", img:"images/achievements/marathon_finish.png", name:"CONSISTENT RUNNER",
-      desc:"Победить минимум по 10 боссов в четырёх разных играх марафона.", kind:"auto",
+      desc:"Победить минимум по 10 боссов в четырёх разных играх марафона.", kind:"manual",
       check:(ctx) => {
         const games = ["ds1","ds2","ds3","bb","sek","elden"];
         let n = 0;
@@ -109,11 +109,11 @@
       }},
 
     { id:"marathon_comeback", img:"images/achievements/die_300.png", name:"COMEBACK KID",
-      desc:"Умереть 50+ раз за марафон и всё равно добить 60+ боссов. Это и есть сила воли.", kind:"auto",
+      desc:"Умереть 50+ раз за марафон и всё равно добить 60+ боссов. Это и есть сила воли.", kind:"manual",
       check:({deaths, kills}) => deaths >= 50 && kills >= 60 },
 
     { id:"marathon_clip_archivist", img:"images/achievements/first_try.png", name:"CLIP ARCHIVIST",
-      desc:"Прикрепить Twitch-клип к 10 достижениям. Пусть останутся доказательства эпохи Soulsfon 2026.", kind:"auto",
+      desc:"Прикрепить Twitch-клип к 10 достижениям. Пусть останутся доказательства эпохи Soulsfon 2026.", kind:"manual",
       check:() => {
         const done = loadDone();
         let c = 0;
