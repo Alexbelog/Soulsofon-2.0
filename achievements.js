@@ -90,7 +90,7 @@
       desc:"Начать марафон. Первый босс пал — пути назад нет.", kind:"manual",
       check:({kills}) => kills >= 1 },
 
-    { id:"marathon_three_realms", img:"images/achievements/triple_realme.png", name:"TRIPLE REALM",
+    { id:"marathon_three_realms", img:"images/achievements/tr.png", name:"TRIPLE REALM",
       desc:"Победить минимум по 5 боссов в трёх разных играх марафона.", kind:"manual",
       check:(ctx) => {
         const games = ["ds1","ds2","ds3","bb","sek","elden"];
