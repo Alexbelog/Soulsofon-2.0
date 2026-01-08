@@ -181,17 +181,6 @@
     { id:"challenge_naked_boss", img:"images/achievements/challenge_no_hit.png", name:"BARELY ARMORED",
       desc:"Победить любого босса в минимальной броне («голый» сет) — только храбрость.", kind:"manual" },
 
-    { id:"challenge_stream_proof", img:"images/achievements/challenge_no_hit.png", name:"RECEIPTS",
-      desc:"Испытания: прикрепить Twitch-клип к 5 выполненным испытаниям. Доказательства > слова.", kind:"manual",
-      check:() => {
-        const done = loadDone();
-        let c = 0;
-        for (const k in done){
-          if (k.startsWith("challenge_") && done[k]?.done && done[k]?.clip) c++;
-        }
-        return c >= 5;
-      }},
-
     { id:"challenge_rl1",   img:"images/achievements/challenge_rl1.png",   name:"LEVEL ONE", desc:"Победить босса на минимальном уровне (RL1/SL1/BL4 — по игре).", kind:"manual" },
 
     { id:"challenge_the_wall", img:"images/achievements/challenge_no_hit.png", name:"THE WALL",
