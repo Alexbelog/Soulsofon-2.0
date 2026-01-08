@@ -90,7 +90,7 @@
       desc:"Начать марафон. Первый босс пал — пути назад нет.", kind:"manual",
       check:({kills}) => kills >= 1 },
 
-    { id:"marathon_three_realms", img:"images/achievements/marathon_start.png", name:"TRIPLE REALM",
+    { id:"marathon_three_realms", img:"images/achievements/triple_realme.png", name:"TRIPLE REALM",
       desc:"Победить минимум по 5 боссов в трёх разных играх марафона.", kind:"manual",
       check:(ctx) => {
         const games = ["ds1","ds2","ds3","bb","sek","elden"];
@@ -99,7 +99,7 @@
         return n >= 3;
       }},
 
-    { id:"marathon_consistent", img:"images/achievements/marathon_finish.png", name:"CONSISTENT RUNNER",
+    { id:"marathon_consistent", img:"images/achievements/consistent_runner.png", name:"CONSISTENT RUNNER",
       desc:"Победить минимум по 10 боссов в четырёх разных играх марафона.", kind:"manual",
       check:(ctx) => {
         const games = ["ds1","ds2","ds3","bb","sek","elden"];
@@ -108,7 +108,7 @@
         return n >= 4;
       }},
 
-    { id:"marathon_clip_archivist", img:"images/achievements/first_try.png", name:"CLIP ARCHIVIST",
+    { id:"marathon_clip_archivist", img:"images/achievements/clip_archivist.png", name:"CLIP ARCHIVIST",
       desc:"Прикрепить Twitch-клип к 10 достижениям. Пусть останутся доказательства эпохи Soulsfon 2026.", kind:"manual",
       check:() => {
         const done = loadDone();
@@ -118,17 +118,17 @@
       }},
 
 
-    { id:"marathon_tries_10",  img:"images/achievements/ten_bosses.png",  name:"TEN TRIES LATER", desc:"Потратить 10 попыток на одного босса.", kind:"manual",
+    { id:"marathon_tries_10",  img:"images/achievements/10try.png",  name:"TEN TRIES LATER", desc:"Потратить 10 попыток на одного босса.", kind:"manual",
       check:({maxTries}) => maxTries >= 10 },
-    { id:"marathon_tries_30",  img:"images/achievements/kills_25.png",    name:"THIRTY TRIES OF WILL", desc:"Потратить 30 попыток на одного босса.", kind:"manual",
+    { id:"marathon_tries_30",  img:"images/achievements/30try.png",    name:"THIRTY TRIES OF WILL", desc:"Потратить 30 попыток на одного босса.", kind:"manual",
       check:({maxTries}) => maxTries >= 30 },
-    { id:"marathon_tries_60",  img:"images/achievements/kills_50.png",    name:"SIXTY TIMES BROKEN", desc:"Потратить 60 попыток на одного босса.", kind:"manual",
+    { id:"marathon_tries_60",  img:"images/achievements/60try.png",    name:"SIXTY TIMES BROKEN", desc:"Потратить 60 попыток на одного босса.", kind:"manual",
       check:({maxTries}) => maxTries >= 60 },
-    { id:"marathon_tries_100", img:"images/achievements/die_100.png",     name:"HUNDREDFOLD SUFFERING", desc:"Потратить 100 попыток на одного босса.", kind:"manual",
+    { id:"marathon_tries_100", img:"images/achievements/100try.png",     name:"HUNDREDFOLD SUFFERING", desc:"Потратить 100 попыток на одного босса.", kind:"manual",
       check:({maxTries}) => maxTries >= 100 },
-    { id:"marathon_no_death_5",img:"images/achievements/no_death_boss.png", name:"MARATHON NO DEATH", desc:"Победить 5 боссов без смертей на них.", kind:"manual",
+    { id:"marathon_no_death_5",img:"images/achievements/nodeath_marathon.png", name:"MARATHON NO DEATH", desc:"Победить 5 боссов без смертей на них.", kind:"manual",
       check:({noDeathBossCount}) => noDeathBossCount >= 5 },
-    { id:"marathon_blind_5",   img:"images/achievements/blind_faith.png", name:"BLIND EXECUTIONER", desc:"Убить 5 боссов «вслепую».", kind:"manual" },
+    { id:"marathon_blind_5",   img:"images/achievements/blind_executioner.png", name:"BLIND EXECUTIONER", desc:"Убить 5 боссов «вслепую».", kind:"manual" },
     
     { id:"die_100",         img:"images/achievements/die_100.png",         name:"YOU DIED x100", desc:"Умереть 100 раз за весь марафон.", kind:"manual",
       check:({deaths}) => deaths >= 100 },
@@ -157,9 +157,9 @@
     { id:"no_death_boss",  img:"images/achievements/no_death_boss.png",  name:"NO DEATH", desc:"Победить любого босса без смертей на нём.", kind:"manual",
       check:({hasNoDeathBoss}) => !!hasNoDeathBoss },
     
-    { id:"marathon_day_one", img:"images/achievements/marathon_start.png", name:"DAY ONE", desc:"Провести первый полноценный стрим/сессию Soulsfon 2026.", kind:"manual" },
+    { id:"marathon_day_one", img:"images/achievements/day_one.png", name:"DAY ONE", desc:"Провести первый полноценный стрим/сессию Soulsfon 2026.", kind:"manual" },
 
-    { id:"marathon_redemption", img:"images/achievements/die_300.png", name:"REDEMPTION", desc:"Вернуться к боссу, который когда-то забрал 30+ попыток, и победить его.", kind:"manual" },
+    { id:"marathon_redemption", img:"images/achievements/redemption.png", name:"REDEMPTION", desc:"Вернуться к боссу, который когда-то забрал 30+ попыток, и победить его.", kind:"manual" },
 
 { id:"marathon_finish", img:"images/achievements/marathon_finish.png", name:"THE END", desc:"Дойти до финала марафона. Последняя искра погасла.", kind:"manual" },
 
@@ -169,16 +169,16 @@
     { id:"no_estus",        img:"images/achievements/no_estus.png",        name:"NO HEAL", desc:"Убить босса без лечения (эстус/фляги/хилы).", kind:"manual" },
     { id:"challenge_no_summon", img:"images/achievements/challenge_no_summon.png", name:"NO SUMMON", desc:"Не использовать призывы (NPC/духи/кооп) в течении всего марафона.", kind:"manual" },
     
-    { id:"challenge_no_summons_run", img:"images/achievements/no_summons.png", name:"LONE WOLF",
+    { id:"challenge_no_summons_run", img:"images/achievements/lone_wolf.png", name:"LONE WOLF",
       desc:"Пройти весь марафон без призывов (NPC/игроки)", kind:"manual" },
 
-    { id:"challenge_no_shield_run", img:"images/achievements/no_shields.png", name:"NO SHIELD OATH",
+    { id:"challenge_no_shield_run", img:"images/achievements/no_shield.png", name:"NO SHIELD OATH",
       desc:"Отказаться от щитов на всём марафоне. Парирования и перекаты — всё, что есть.", kind:"manual" },
 
-    { id:"challenge_no_magic_boss", img:"images/achievements/challenge_rl1.png", name:"STEEL ONLY",
+    { id:"challenge_no_magic_boss", img:"images/achievements/steal_only.png", name:"STEEL ONLY",
       desc:"Победить 50 боссов без магии/чудес/инкантаций и без баффов оружия.", kind:"manual" },
 
-    { id:"challenge_naked_boss", img:"images/achievements/challenge_no_hit.png", name:"BARELY ARMORED",
+    { id:"challenge_naked_boss", img:"images/achievements/no_armored.png", name:"BARELY ARMORED",
       desc:"Победить любого босса в минимальной броне («голый» сет) — только храбрость.", kind:"manual" },
 
     { id:"challenge_rl1",   img:"images/achievements/challenge_rl1.png",   name:"LEVEL ONE", desc:"Победить босса на минимальном уровне (RL1/SL1/BL4 — по игре).", kind:"manual" },
@@ -187,7 +187,7 @@
       desc:"Застрять на одном боссе: 50+ смертей на единственной схватке. Стена проверяет веру.", kind:"manual",
       check:({maxDeathsOnBoss}) => maxDeathsOnBoss >= 40 },
 
-    { id:"challenge_flawless_ten", img:"images/achievements/no_death_boss.png", name:"FLAWLESS TEN",
+    { id:"challenge_flawless_ten", img:"images/achievements/flawless.png", name:"FLAWLESS TEN",
       desc:"Победить 10 боссов без смертей на них. Не серия — коллекция чистых дуэлей.", kind:"manual",
       check:({noDeathBossCount}) => noDeathBossCount >= 10 },
 
@@ -206,25 +206,23 @@
     { id:"ds1_bells",       img:"images/achievements/ds1_bells.png",       name:"RING THE BELLS", desc:"Dark Souls: пробудить зов колоколов (два колокола).", kind:"manual" },
     { id:"ds1_solaire",     img:"images/achievements/ds1_solaire.png",     name:"PRAISE THE SUN", desc:"Dark Souls: ритуально воздать славу солнцу в честь победы.", kind:"manual" },
     
-    { id:"ds1_kills_10",   img:"images/achievements/ds1_bells.png",   name:"EMBERED PILGRIM", desc:"Dark Souls: победить 10 боссов.", kind:"manual",
+    { id:"ds1_kills_10",   img:"images/achievements/piligrim_10.png",   name:"EMBERED PILGRIM", desc:"Dark Souls: победить 10 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.ds1||0) >= 10 },
-    { id:"ds1_kills_20",   img:"images/achievements/ds1_solaire.png", name:"LORDSOUL HUNTER", desc:"Dark Souls: победить 20 боссов.", kind:"manual",
+    { id:"ds1_kills_20",   img:"images/achievements/piligrim_20.png", name:"LORDSOUL HUNTER", desc:"Dark Souls: победить 20 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.ds1||0) >= 20 },
 
-    { id:"ds1_clean_hands", img:"images/achievements/ds1_solaire.png", name:"CLEAN HANDS", desc:"Dark Souls: победить 5 боссов без смертей на них.", kind:"manual",
+    { id:"ds1_clean_hands", img:"images/achievements/clean_hands.png", name:"CLEAN HANDS", desc:"Dark Souls: победить 5 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.ds1||0) >= 5 },
-    { id:"ds1_first_light", img:"images/achievements/ds1_bells.png",   name:"FIRST LIGHT", desc:"Dark Souls: победить 3 боссов с первой попытки.", kind:"manual",
+    { id:"ds1_first_light", img:"images/achievements/first_light.png",   name:"FIRST LIGHT", desc:"Dark Souls: победить 3 боссов с первой попытки.", kind:"manual",
       check:({gameFirstTryKills}) => (gameFirstTryKills.ds1||0) >= 3 },
-    { id:"ds1_hollowed",    img:"images/achievements/die_100.png",      name:"HOLLOWED BUT STANDING", desc:"Dark Souls: умереть 50 раз.", kind:"manual",
+    { id:"ds1_hollowed",    img:"images/achievements/ds1_dead50.png",      name:"HOLLOWED BUT STANDING", desc:"Dark Souls: умереть 50 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.ds1||0) >= 50 },
-    { id:"ds1_iron_patience",img:"images/achievements/kills_25.png",    name:"IRON PATIENCE", desc:"Dark Souls: потратить 30 попыток на одного босса.", kind:"manual",
-      check:({gameMaxTries}) => (gameMaxTries.ds1||0) >= 30 },
     
 
-    { id:"ds1_lordvessel", img:"images/achievements/ds1_bells.png", name:"LORDVESSEL BEARER",
+    { id:"ds1_lordvessel", img:"images/achievements/ds1_bearer.png", name:"LORDVESSEL BEARER",
       desc:"Dark Souls: получить Великую Чашу и открыть путь к великим душам.", kind:"manual" },
 
-    { id:"ds1_smooth_sailing", img:"images/achievements/ds1_bells.png", name:"SMOOTH SAILING",
+    { id:"ds1_smooth_sailing", img:"images/achievements/ds1_smooth.png", name:"SMOOTH SAILING",
       desc:"Dark Souls: победить 10 боссов, и при этом ни один не потребовал больше 10 попыток.", kind:"manual",
       check:(ctx) => (ctx.gameKills?.ds1 || 0) >= 10 && (ctx.gameMaxTries?.ds1 || 0) <= 10 },
 
