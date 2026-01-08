@@ -183,7 +183,7 @@
 
     { id:"challenge_rl1",   img:"images/achievements/challenge_rl1.png",   name:"LEVEL ONE", desc:"Победить босса на минимальном уровне (RL1/SL1/BL4 — по игре).", kind:"manual" },
 
-    { id:"challenge_the_wall", img:"images/achievements/challenge_no_hit.png", name:"THE WALL",
+    { id:"challenge_the_wall", img:"images/achievements/the_wall.png", name:"THE WALL",
       desc:"Застрять на одном боссе: 50+ смертей на единственной схватке. Стена проверяет веру.", kind:"manual",
       check:({maxDeathsOnBoss}) => maxDeathsOnBoss >= 40 },
 
