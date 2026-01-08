@@ -224,10 +224,6 @@
     { id:"ds1_lordvessel", img:"images/achievements/ds1_bells.png", name:"LORDVESSEL BEARER",
       desc:"Dark Souls: получить Великую Чашу и открыть путь к великим душам.", kind:"manual" },
 
-{ id:"ds1_one_and_done", img:"images/achievements/first_try.png", name:"ONE AND DONE",
-      desc:"Dark Souls: победить 3 боссов с первой попытки.", kind:"manual",
-      check:(ctx) => (ctx.gameFirstTryKills?.ds1 || 0) >= 3 },
-
     { id:"ds1_smooth_sailing", img:"images/achievements/ds1_bells.png", name:"SMOOTH SAILING",
       desc:"Dark Souls: победить 10 боссов, и при этом ни один не потребовал больше 10 попыток.", kind:"manual",
       check:(ctx) => (ctx.gameKills?.ds1 || 0) >= 10 && (ctx.gameMaxTries?.ds1 || 0) <= 10 },
