@@ -108,10 +108,6 @@
         return n >= 4;
       }},
 
-    { id:"marathon_comeback", img:"images/achievements/die_300.png", name:"COMEBACK KID",
-      desc:"Умереть 50+ раз за марафон и всё равно добить 60+ боссов. Это и есть сила воли.", kind:"manual",
-      check:({deaths, kills}) => deaths >= 50 && kills >= 60 },
-
     { id:"marathon_clip_archivist", img:"images/achievements/first_try.png", name:"CLIP ARCHIVIST",
       desc:"Прикрепить Twitch-клип к 10 достижениям. Пусть останутся доказательства эпохи Soulsfon 2026.", kind:"manual",
       check:() => {
@@ -179,11 +175,8 @@
     { id:"challenge_no_shield_run", img:"images/achievements/no_shields.png", name:"NO SHIELD OATH",
       desc:"Отказаться от щитов на всём марафоне. Парирования и перекаты — всё, что есть.", kind:"manual" },
 
-    { id:"challenge_no_heal_boss", img:"images/achievements/no_estus.png", name:"DRY FIGHT",
-      desc:"Победить 10 боссов без лечения во время боя (фляги/травы).", kind:"manual" },
-
     { id:"challenge_no_magic_boss", img:"images/achievements/challenge_rl1.png", name:"STEEL ONLY",
-      desc:"Победить 10 боссов без магии/чудес/инкантаций и без баффов оружия.", kind:"manual" },
+      desc:"Победить 50 боссов без магии/чудес/инкантаций и без баффов оружия.", kind:"manual" },
 
     { id:"challenge_naked_boss", img:"images/achievements/challenge_no_hit.png", name:"BARELY ARMORED",
       desc:"Победить любого босса в минимальной броне («голый» сет) — только храбрость.", kind:"manual" },
@@ -199,19 +192,18 @@
         return c >= 5;
       }},
 
-{ id:"challenge_no_hit", img:"images/achievements/challenge_no_hit.png", name:"NO HIT", desc:"Убить босса без получения урона.", kind:"manual" },
     { id:"challenge_rl1",   img:"images/achievements/challenge_rl1.png",   name:"LEVEL ONE", desc:"Победить босса на минимальном уровне (RL1/SL1/BL4 — по игре).", kind:"manual" },
 
     { id:"challenge_the_wall", img:"images/achievements/challenge_no_hit.png", name:"THE WALL",
-      desc:"Застрять на одном боссе: 40+ смертей на единственной схватке. Стена проверяет веру.", kind:"manual",
-      check:({maxDeathsOnBoss}) => maxDeathsOnBoss >= 20 },
+      desc:"Застрять на одном боссе: 50+ смертей на единственной схватке. Стена проверяет веру.", kind:"manual",
+      check:({maxDeathsOnBoss}) => maxDeathsOnBoss >= 40 },
 
     { id:"challenge_flawless_ten", img:"images/achievements/no_death_boss.png", name:"FLAWLESS TEN",
       desc:"Победить 10 боссов без смертей на них. Не серия — коллекция чистых дуэлей.", kind:"manual",
       check:({noDeathBossCount}) => noDeathBossCount >= 10 },
 
     { id:"challenge_firsttry_ten", img:"images/achievements/one_shot.png", name:"ONE-SHOT ARTIST",
-      desc:"Победить 20 боссов с первой попытки за весь марафон. No Death?", kind:"manual",
+      desc:"Победить 30 боссов с первой попытки за весь марафон (без Elden Ring). No Death?", kind:"manual",
       check:(ctx) => {
         const v = ctx.gameFirstTryKills || {};
         let total = 0;
@@ -351,10 +343,6 @@
     { id:"bb_hunter's_dream", img:"images/achievements/bb_visceral.png", name:"DREAMWALKER",
       desc:"Bloodborne: открыть все ключевые зоны сна Охотника (мастерская/надгробия).", kind:"manual" },
 
-{ id:"bb_firsttry_trio", img:"images/achievements/first_try.png", name:"FIRST-TRY TRIO",
-      desc:"Bloodborne: победить 3 боссов с первой попытки.", kind:"manual",
-      check:(ctx) => (ctx.gameFirstTryKills?.bb || 0) >= 3 },
-
     { id:"bb_night_clean", img:"images/achievements/bb_visceral.png", name:"NIGHT CLEANER",
       desc:"Bloodborne: победить 10 боссов и умереть по игре не больше 80 раз.", kind:"manual",
       check:(ctx) => (ctx.gameKills?.bb || 0) >= 10 && (ctx.gameDeaths?.bb || 0) <= 80 },
@@ -393,15 +381,13 @@
       desc:"Sekiro: победить 15 боссов и удержать смерти по игре на уровне 80 или ниже.", kind:"manual",
       check:(ctx) => (ctx.gameKills?.sek || 0) >= 15 && (ctx.gameDeaths?.sek || 0) <= 80 },
 
-    { id:"sek_firsttry_duo", img:"images/achievements/first_try.png", name:"FIRST-TRY DUO",
-      desc:"Sekiro: победить 2 боссов с первой попытки.", kind:"manual",
-      check:(ctx) => (ctx.gameFirstTryKills?.sek || 0) >= 2 },
-
 { id:"sek_all",         img:"images/achievements/sek_all.png",         name:"ASHINA CLEARED", desc:"Sekiro: убить всех боссов игры.", kind:"manual",
       check:({gameKills}) => (gameKills.sekiro||0) >= 44 },
 
     // --- Elden Ring ---
 
+    { id:"er_tarnished",    img:"images/achievements/er_tarnished.png",    name:"TARNISHED", desc:"Elden Ring: стать Междуземцем и сделать первый шаг.", kind:"manual",
+      check:({gameKills}) => (gameKills.elden||0) >= 1 },
     { id:"er_kills_20",   img:"images/achievements/er_tarnished.png", name:"GRACE-GUIDED", desc:"Elden Ring: победить 20 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 20 },
     { id:"er_kills_40",   img:"images/achievements/er_dragon.png",    name:"RUNEBOUND", desc:"Elden Ring: победить 40 боссов.", kind:"manual",
@@ -417,8 +403,6 @@
       check:({gameDeaths}) => (gameDeaths.elden||0) >= 100 },
     { id:"er_endless_tries",img:"images/achievements/kills_all.png",    name:"ENDLESS TRIES", desc:"Elden Ring: потратить 80 попыток на одного босса.", kind:"manual",
       check:({gameMaxTries}) => (gameMaxTries.elden||0) >= 80 },
-    { id:"er_tarnished",    img:"images/achievements/er_tarnished.png",    name:"TARNISHED", desc:"Elden Ring: стать Междуземцем и сделать первый шаг.", kind:"manual",
-      check:({gameKills}) => (gameKills.elden||0) >= 1 },
     { id:"er_dragon",       img:"images/achievements/er_dragon.png",       name:"DRAGONSLAYER", desc:"Elden Ring: победить дракона.", kind:"manual" },
     { id:"er_runebear",     img:"images/achievements/er_runebear.png",     name:"RUNE BEAR", desc:"Elden Ring: выжить и победить рунического медведя (без паники).", kind:"manual" },
     { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
