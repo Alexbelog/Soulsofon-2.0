@@ -277,7 +277,7 @@
 
     { id:"ds3_cinder",      img:"images/achievements/ds3_cinder.png",      name:"LORD OF CINDER", desc:"Dark Souls III: одолеть повелителей пепла и довести дело до конца.", kind:"manual" },
 
-    { id:"ds3_link_the_fire", img:"images/achievements/ds3_cinder.png", name:"LINK THE FIRE",
+    { id:"ds3_link_the_fire", img:"images/achievements/link_fire.png", name:"LINK THE FIRE",
       desc:"Dark Souls III: завершить игру и зажечь Первое Пламя (или любой другой финал).", kind:"manual" },
 
 { id:"ds3_all",         img:"images/achievements/ds3_all.png",         name:"LOTHRIC CLEARED", desc:"Dark Souls III: убить всех боссов игры.", kind:"manual",
