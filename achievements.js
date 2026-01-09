@@ -286,20 +286,19 @@
     // --- Bloodborne ---
 
     { id:"bb_pale",         img:"images/achievements/bb_pale.png",         name:"PALEBLOOD HUNT", desc:"Bloodborne: начать охоту за бледной кровью.", kind:"manual" },
-
-    { id:"bb_kills_10",   img:"images/achievements/bb_visceral.png", name:"BLOOD-DRUNK", desc:"Bloodborne: победить 10 боссов.", kind:"manual",
-      check:({gameKills}) => (gameKills.bloodborne||0) >= 10 },
+    { id:"bb_workshop",         img:"images/achievements/bb_pale.png",         name:"WHISPER TO THE WORKSHOP", desc:"Bloodborne: впервые улучшить оружие и сразу после сделать жест “поклон/уважение” у верстака.", kind:"manual" },
+    { id:"bb_gentleman",         img:"images/achievements/bb_pale.png",         name:"A GENTLEMAN OF YHARNAM", desc:"Bloodborne: перед боссом сделать жест “поклон”, а после его убийства жест “уважение”", kind:"manual" },
+    
     { id:"bb_kills_15",   img:"images/achievements/bb_all.png",      name:"NIGHTMARE WARDEN", desc:"Bloodborne: победить 15 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.bloodborne||0) >= 15 },
 
     { id:"bb_clean_hands",  img:"images/achievements/bb_all.png",      name:"CLEANSE THE NIGHT", desc:"Bloodborne: победить 5 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.bloodborne||0) >= 5 },
-    { id:"bb_first_blood",  img:"images/achievements/bb_visceral.png", name:"FIRST BLOOD", desc:"Bloodborne: победить 2 боссов с первой попытки.", kind:"manual",
-      check:({gameFirstTryKills}) => (gameFirstTryKills.bloodborne||0) >= 2 },
+
     { id:"bb_nightmare_fed",img:"images/achievements/die_300.png",      name:"NIGHTMARE-FED", desc:"Bloodborne: умереть 60 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.bloodborne||0) >= 60 },
-    { id:"bb_beast_patience",img:"images/achievements/kills_50.png",    name:"BEAST PATIENCE", desc:"Bloodborne: потратить 40 попыток на одного босса.", kind:"manual",
-      check:({gameMaxTries}) => (gameMaxTries.bloodborne||0) >= 40 },
+    { id:"bb_beast_patience",img:"images/achievements/kills_50.png",    name:"BEAST PATIENCE", desc:"Bloodborne: потратить 30 попыток на одного босса.", kind:"manual",
+      check:({gameMaxTries}) => (gameMaxTries.bloodborne||0) >= 30 },
     
     { id:"bb_max_insight",  img:"images/achievements/bb_pale.png", name:"EYES WIDE OPEN", desc:"Bloodborne: получить максимальное озарение (99 единиц).", kind:"manual" },
     { id:"bb_visceral",     img:"images/achievements/bb_visceral.png",     name:"VISCERAL", desc:"Bloodborne: добить босса висцеральной атакой.", kind:"manual" },
@@ -308,12 +307,11 @@
     { id:"bb_transcend", img:"images/achievements/bb_insight_99.png", name:"TRANSCENDENCE",
       desc:"Bloodborne: дойти до одного из финалов (любой).", kind:"manual" },
 
-    { id:"bb_hunter's_dream", img:"images/achievements/bb_visceral.png", name:"DREAMWALKER",
-      desc:"Bloodborne: открыть все ключевые зоны сна Охотника (мастерская/надгробия).", kind:"manual" },
+    { id:"bb_chalice", img:"images/achievements/bb_visceral.png", name:"PSALMS OF THE CHALICE",
+      desc:"Bloodborne: открыть доступ ко всем Чашам", kind:"manual" },
 
-    { id:"bb_night_clean", img:"images/achievements/bb_visceral.png", name:"NIGHT CLEANER",
-      desc:"Bloodborne: победить 10 боссов и умереть по игре не больше 80 раз.", kind:"manual",
-      check:(ctx) => (ctx.gameKills?.bb || 0) >= 10 && (ctx.gameDeaths?.bb || 0) <= 80 },
+    { id:"bb_hunter's_dream", img:"images/achievements/bb_visceral.png", name:"DREAMWALKER",
+      desc:"Bloodborne: открыть все ключевые зоны сна Охотника (надгробия).", kind:"manual" },
 
 { id:"bb_all",          img:"images/achievements/bb_all.png",          name:"THE HUNT ENDS", desc:"Bloodborne: убить всех боссов игры.", kind:"manual",
       check:({gameKills}) => (gameKills.bloodborne||0) >= 22 },
@@ -321,8 +319,8 @@
     // --- Sekiro ---
 
     { id:"sek_shinobi",     img:"images/achievements/sek_shinobi.png",     name:"SHINOBI", desc:"Sekiro: убить босса, полагаясь на стойкость и клинки.", kind:"manual" },
-    { id:"sek_kills_10",  img:"images/achievements/sek_shinobi.png", name:"SHINOBI IN TRAINING", desc:"Sekiro: победить 10 боссов.", kind:"manual",
-      check:({gameKills}) => (gameKills.sekiro||0) >= 10 },
+    { id:"sek_shinobi2",     img:"images/achievements/sek_shinobi.png",     name:"A SHINOBI'S STILLNESS", desc:"Sekiro: простоять 60 секунд в скрытности (в кустах/тени), не двигаясь и не открывая меню.", kind:"manual" },
+    { id:"sek_shinobi3",     img:"images/achievements/sek_shinobi.png",     name:"HEEL ON THE SPEAR", desc:"Sekiro: выполнить 5 микири в одном бою и победить", kind:"manual" },
     { id:"sek_kills_25",  img:"images/achievements/sek_shinobi.png", name:"IRON RESOLVE", desc:"Sekiro: победить 25 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.sekiro||0) >= 25 },
     { id:"sek_kills_35",  img:"images/achievements/sek_all.png",     name:"EDGE OF DEATH", desc:"Sekiro: победить 35 боссов.", kind:"manual",
@@ -330,24 +328,19 @@
 
     { id:"sek_clean_hands", img:"images/achievements/sek_all.png",      name:"BLADE UNSULLIED", desc:"Sekiro: победить 8 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.sekiro||0) >= 8 },
-    { id:"sek_first_cut",   img:"images/achievements/sek_shinobi.png",  name:"FIRST CUT", desc:"Sekiro: победить 5 боссов с первой попытки.", kind:"manual",
-      check:({gameFirstTryKills}) => (gameFirstTryKills.sekiro||0) >= 5 },
-    { id:"sek_fallen",      img:"images/achievements/die_666.png",      name:"FALLEN SHINOBI", desc:"Sekiro: умереть 80 раз.", kind:"manual",
-      check:({gameDeaths}) => (gameDeaths.sekiro||0) >= 80 },
-    { id:"sek_tenacity",    img:"images/achievements/kills_100.png",    name:"TENACITY OF STEEL", desc:"Sekiro: потратить 40 попыток на одного босса.", kind:"manual",
-      check:({gameMaxTries}) => (gameMaxTries.sekiro||0) >= 40 },
-
-        
+    { id:"sek_fallen",      img:"images/achievements/die_666.png",      name:"FALLEN SHINOBI", desc:"Sekiro: умереть 100 раз.", kind:"manual",
+      check:({gameDeaths}) => (gameDeaths.sekiro||0) >= 100 },
+    { id:"sek_tenacity",    img:"images/achievements/kills_100.png",    name:"TENACITY OF STEEL", desc:"Sekiro: потратить 30 попыток на одного босса.", kind:"manual",
+      check:({gameMaxTries}) => (gameMaxTries.sekiro||0) >= 30 },        
     
     { id:"sek_mortal_blade", img:"images/achievements/sek_shinobi.png", name:"MORTAL BLADE",
       desc:"Sekiro: получить Клинок бессмертных.", kind:"manual" },
 
+    { id:"sek_ending", img:"images/achievements/sek_shinobi.png", name:"ONE ARM, ONE BLADE",
+      desc:"Sekiro: пройти игру до финальных титров, ни разу не используя боевые инструменты протеза.", kind:"manual" },
+    
     { id:"sek_ending", img:"images/achievements/sek_shinobi.png", name:"SHINOBI'S FATE",
       desc:"Sekiro: получить любой финал.", kind:"manual" },
-
-{ id:"sek_calm_blade", img:"images/achievements/sek_shinobi.png", name:"CALM BLADE",
-      desc:"Sekiro: победить 15 боссов и удержать смерти по игре на уровне 80 или ниже.", kind:"manual",
-      check:(ctx) => (ctx.gameKills?.sek || 0) >= 15 && (ctx.gameDeaths?.sek || 0) <= 80 },
 
 { id:"sek_all",         img:"images/achievements/sek_all.png",         name:"ASHINA CLEARED", desc:"Sekiro: убить всех боссов игры.", kind:"manual",
       check:({gameKills}) => (gameKills.sekiro||0) >= 44 },
@@ -356,26 +349,34 @@
 
     { id:"er_tarnished",    img:"images/achievements/er_tarnished.png",    name:"TARNISHED", desc:"Elden Ring: стать Междуземцем и сделать первый шаг.", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 1 },
-    { id:"er_kills_20",   img:"images/achievements/er_tarnished.png", name:"GRACE-GUIDED", desc:"Elden Ring: победить 20 боссов.", kind:"manual",
-      check:({gameKills}) => (gameKills.elden||0) >= 20 },
-    { id:"er_kills_40",   img:"images/achievements/er_dragon.png",    name:"RUNEBOUND", desc:"Elden Ring: победить 40 боссов.", kind:"manual",
-      check:({gameKills}) => (gameKills.elden||0) >= 40 },
-    { id:"er_kills_60",   img:"images/achievements/er_all.png",       name:"ELDEN VETERAN", desc:"Elden Ring: победить 60 боссов.", kind:"manual",
+    { id:"er_grace",      img:"images/achievements/er_malenia.png",      name:"GUIDED BY GRACE", desc:"Elden Ring: активировать 30 мест благодати.", kind:"manual" },
+    { id:"er_map",      img:"images/achievements/er_malenia.png",      name:"MAPMAKER'S OATH", desc:"Elden Ring: собрать фрагменты карты для 5 регионов.", kind:"manual" },
+    { id:"er_read",      img:"images/achievements/er_malenia.png",      name:"READ THE STONE", desc:"Elden Ring: найти 10 лор-описаний (предметы/записки) и прочитать их подряд у благодати.", kind:"manual" },
+ { id:"er_vow",      img:"images/achievements/er_malenia.png",      name:"VOW UNBROKEN", desc:"Elden Ring: вступить в любой ковенант и не менять его до финала.", kind:"manual" },      
+    { id:"er_kills_40",   img:"images/achievements/er_dragon.png",    name:"RUNEBOUND", desc:"Elden Ring: победить 60 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 60 },
+    { id:"er_kills_60",   img:"images/achievements/er_all.png",       name:"ELDEN VETERAN", desc:"Elden Ring: победить 120 боссов.", kind:"manual",
+      check:({gameKills}) => (gameKills.elden||0) >= 120 },
 
-    { id:"er_clean_hands",  img:"images/achievements/er_all.png",       name:"CLEANSE THE GRACE", desc:"Elden Ring: победить 10 боссов без смертей на них.", kind:"manual",
+    { id:"er_clean_hands",  img:"images/achievements/er_all.png",       name:"CLEANSE THE GRACE", desc:"Elden Ring: победить 20 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.elden||0) >= 10 },
-    { id:"er_first_grace",  img:"images/achievements/er_tarnished.png", name:"FIRST GRACE", desc:"Elden Ring: победить 3 боссов с первой попытки.", kind:"manual",
-      check:({gameFirstTryKills}) => (gameFirstTryKills.elden||0) >= 3 },
-    { id:"er_rune_hungry",  img:"images/achievements/die_1000.png",     name:"RUNE-HUNGRY", desc:"Elden Ring: умереть 100 раз.", kind:"manual",
-      check:({gameDeaths}) => (gameDeaths.elden||0) >= 100 },
+       
+    { id:"er_no_big_wall", img:"images/achievements/er_tarnished.png", name:"NO BIG WALL",
+      desc:"Elden Ring: победить 30 боссов, и при этом ни один не потребовал больше 20 попыток.", kind:"manual",
+      check:(ctx) => (ctx.gameKills?.elden || 0) >= 30 && (ctx.gameMaxTries?.elden || 0) <= 20 },
+    
+    { id:"er_rune_hungry",  img:"images/achievements/die_1000.png",     name:"RUNE-HUNGRY", desc:"Elden Ring: умереть 300 раз.", kind:"manual",
+      check:({gameDeaths}) => (gameDeaths.elden||0) >= 300 },
     { id:"er_endless_tries",img:"images/achievements/kills_all.png",    name:"ENDLESS TRIES", desc:"Elden Ring: потратить 80 попыток на одного босса.", kind:"manual",
       check:({gameMaxTries}) => (gameMaxTries.elden||0) >= 80 },
-    { id:"er_dragon",       img:"images/achievements/er_dragon.png",       name:"DRAGONSLAYER", desc:"Elden Ring: победить дракона.", kind:"manual" },
-    { id:"er_runebear",     img:"images/achievements/er_runebear.png",     name:"RUNE BEAR", desc:"Elden Ring: выжить и победить рунического медведя (без паники).", kind:"manual" },
-    { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
 
-    
+    { id:"er_radahn_down", img:"images/achievements/er_tarnished.png", name:"STARSCOURGE TOPPLED",
+      desc:"Elden Ring: победить Радана, Бича Звёзд.", kind:"auto",
+    { id:"er_lord_of_blood", img:"images/achievements/er_tarnished.png", name:"LORD OF BLOOD",
+      desc:"Elden Ring: победить Мога, Повелителя Крови.", kind:"manual",   
+    { id:"er_black_blade", img:"images/achievements/er_tarnished.png", name:"BLACK BLADE FALLEN",
+      desc:"Elden Ring: победить Маликета, Чёрный клинок.", kind:"manual",
+    { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
     
     { id:"er_two_great_runes", img:"images/achievements/er_tarnished.png", name:"GREAT RUNES",
       desc:"Elden Ring: собрать две Великие Руны и получить доступ в столицу. Отметь вручную.", kind:"manual" },
@@ -383,48 +384,7 @@
     { id:"er_become_lord", img:"images/achievements/er_tarnished.png", name:"ELDEN LORD",
       desc:"Elden Ring: завершить игру любым финалом. Отметь вручную.", kind:"manual" },
 
-{ id:"er_clean_ten", img:"images/achievements/no_death_boss.png", name:"CLEAN TEN",
-      desc:"Elden Ring: победить 10 боссов без смертей на них.", kind:"manual",
-      check:(ctx) => (ctx.gameNoDeathKills?.elden || 0) >= 10 },
-
-    { id:"er_no_big_wall", img:"images/achievements/er_tarnished.png", name:"NO BIG WALL",
-      desc:"Elden Ring: победить 30 боссов, и при этом ни один не потребовал больше 20 попыток.", kind:"manual",
-      check:(ctx) => (ctx.gameKills?.elden || 0) >= 30 && (ctx.gameMaxTries?.elden || 0) <= 20 },
-
-    { id:"er_radahn_down", img:"images/achievements/er_tarnished.png", name:"STARSCOURGE TOPPLED",
-      desc:"Elden Ring: победить Радана, Бича Звёзд.", kind:"auto",
-      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["radahn", "starscourge_radahn"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
-    { id:"er_malenia_felled", img:"images/achievements/er_tarnished.png", name:"BLADE OF MIQUELLA",
-      desc:"Elden Ring: победить Малению, Клинок Микеллы.", kind:"manual",
-      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["malenia_blade_of_miquella", "malenia"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
-    { id:"er_lord_of_blood", img:"images/achievements/er_tarnished.png", name:"LORD OF BLOOD",
-      desc:"Elden Ring: победить Мога, Повелителя Крови.", kind:"manual",
-      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["er_mohg_lord_of_blood", "mohg_lord", "mohg_lord_of_blood"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
-    { id:"er_black_blade", img:"images/achievements/er_tarnished.png", name:"BLACK BLADE FALLEN",
-      desc:"Elden Ring: победить Маликета, Чёрный клинок.", kind:"manual",
-      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["maliketh", "er_beast_clergyman"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
-    { id:"er_sote_all", img:"images/achievements/er_all.png", name:"SHADOW OF THE ERDTREE",
-      desc:"Elden Ring: победить всех боссов DLC Shadow of the Erdtree (считается по отметкам «УБИТ» в DLC).", kind:"auto",
-      check:(ctx) => (ctx.gameDlcKills?.elden || 0) >= 42 },
-    { id:"er_sote_messmer", img:"images/achievements/er_tarnished.png", name:"THE IMPALER FALLS",
-      desc:"Shadow of the Erdtree: победить Мессмера-Насаживателя.", kind:"manual",
-      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_messmer_the_impaler"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
-    { id:"er_sote_bayle", img:"images/achievements/er_tarnished.png", name:"DREAD DRAGON DOWN",
-      desc:"Shadow of the Erdtree: победить Бейла Ужасного.", kind:"manual",
-      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_bayle_the_dread"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
-    { id:"er_sote_midra", img:"images/achievements/er_tarnished.png", name:"FRENZY EXTINGUISHED",
-      desc:"Shadow of the Erdtree: победить Мидру, Владыку Яростного Пламени.", kind:"manual",
-      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_midra_lord_of_frenzied_flame"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
-    { id:"er_sote_mother", img:"images/achievements/er_tarnished.png", name:"MOTHER OF FINGERS",
-      desc:"Shadow of the Erdtree: победить Метир, Матерь Пальцев.", kind:"manual",
-      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_metyr_mother_of_fingers", "dlc_count_ymir_mother_of_fingers"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
-    { id:"er_sote_final", img:"images/achievements/er_tarnished.png", name:"PROMISED NO MORE",
-      desc:"Shadow of the Erdtree: победить Обещанного Консорта Радана.", kind:"manual",
-      check:() => (function(){const p=loadJSON(STORE_PROGRESS,{});const g=(p && (p['elden']||p.elden))||{};const ids=["dlc_promised_consort_radahn"];for (const id of ids){ const st=g && g[id]; if (st && st.killed) return true; }return false;})() },
-    { id:"er_sote_vow", img:"images/achievements/no_summons.png", name:"SILENT VOW",
-      desc:"Shadow of the Erdtree: победить любого босса DLC без призывов. Отметь вручную.", kind:"manual" },
-
-{ id:"er_all",          img:"images/achievements/er_all.png",          name:"THE LANDS BETWEEN", desc:"Elden Ring: убить всех боссов базовой игры из списка. Считается по отметкам «УБИТ» в Elden Ring.", kind:"manual",
+{ id:"er_all",          img:"images/achievements/er_all.png",          name:"THE LANDS BETWEEN", desc:"Elden Ring: убить всех боссов базовой игры и DLC Shadow of the Erdtree", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 71 },                      ];
 
   function loadJSON(key, fallback){
