@@ -228,25 +228,25 @@
 
 { id:"ds1_all",         img:"images/achievements/ds1_all.png",         name:"LORDRAN CLEARED", desc:"Dark Souls: убить всех боссов игры.", kind:"manual",
       check:({gameKills}) => (gameKills.ds1||0) >= 26 },
-    { id:"ds2_curse",       img:"images/achievements/ds2_curse.png",       name:"BEARER OF THE CURSE", desc:"Dark Souls II: продолжить путь, несмотря на проклятие.", kind:"manual" },
-
-    { id:"ds2_kills_10",   img:"images/achievements/ds2_curse.png", name:"DRANGLEIC WAYFARER", desc:"Dark Souls II: победить 10 боссов.", kind:"manual",
-      check:({gameKills}) => (gameKills.ds2||0) >= 10 },
-    { id:"ds2_kills_25",   img:"images/achievements/ds2_all.png",   name:"CROWN SEEKER", desc:"Dark Souls II: победить 25 боссов.", kind:"manual",
-      check:({gameKills}) => (gameKills.ds2||0) >= 25 },
-    { id:"ds2_kills_35",   img:"images/achievements/ds2_all.png",   name:"GIANT'S BANE", desc:"Dark Souls II: победить 35 боссов.", kind:"manual",
-      check:({gameKills}) => (gameKills.ds2||0) >= 35 },
-
-    { id:"ds2_clean_hands", img:"images/achievements/ds2_all.png",   name:"NO EXCUSES", desc:"Dark Souls II: победить 5 боссов без смертей на них.", kind:"manual",
-      check:({gameNoDeathKills}) => (gameNoDeathKills.ds2||0) >= 5 },
-    { id:"ds2_first_breath",img:"images/achievements/ds2_curse.png", name:"FIRST BREATH", desc:"Dark Souls II: победить 3 боссов с первой попытки.", kind:"manual",
-      check:({gameFirstTryKills}) => (gameFirstTryKills.ds2||0) >= 3 },
-    { id:"ds2_broken_road", img:"images/achievements/die_300.png",   name:"BROKEN ROAD", desc:"Dark Souls II: умереть 75 раз.", kind:"manual",
-      check:({gameDeaths}) => (gameDeaths.ds2||0) >= 75 },
-    { id:"ds2_stubborn",    img:"images/achievements/kills_50.png",  name:"STUBBORN HEART", desc:"Dark Souls II: потратить 30 попыток на одного босса.", kind:"manual",
-      check:({gameMaxTries}) => (gameMaxTries.ds2||0) >= 50 },
-        
     
+    { id:"ds2_curse",       img:"images/achievements/ds2_curse.png",       name:"BEARER OF THE CURSE", desc:"Dark Souls II: продолжить путь, несмотря на проклятие.", kind:"manual" },
+    { id:"ds2_quiet_flame",       img:"images/achievements/quiet_flame.png",       name:"IN QUIET FLAME", desc:"Dark Souls II: провести 1 минуту у костра без действий.", kind:"manual" },
+    { id:"ds2_rip",       img:"images/achievements/rip.png",       name:"REST IN PEACE", desc:"Dark Souls II: совершить жест (поклон/уважение) перед боссом и победить его", kind:"manual" },
+
+    { id:"ds2_clean_hands", img:"images/achievements/ds2_all.png",   name:"NO EXCUSES", desc:"Dark Souls II: победить 10 боссов без смертей на них.", kind:"manual",
+      check:({gameNoDeathKills}) => (gameNoDeathKills.ds2||0) >= 10 },
+    
+    { id:"ds2_kills_25",   img:"images/achievements/ds2_all.png",   name:"CROWN SEEKER", desc:"Dark Souls II: победить 30 боссов.", kind:"manual",
+      check:({gameKills}) => (gameKills.ds2||0) >= 25 },
+
+
+    { id:"ds2_broken_road", img:"images/achievements/die_300.png",   name:"BROKEN ROAD", desc:"Dark Souls II: умереть 100 раз.", kind:"manual",
+      check:({gameDeaths}) => (gameDeaths.ds2||0) >= 100 },
+    { id:"ds2_stubborn",    img:"images/achievements/kills_30.png",  name:"STUBBORN HEART", desc:"Dark Souls II: потратить 30 попыток на одного босса.", kind:"manual",
+      check:({gameMaxTries}) => (gameMaxTries.ds2||0) >= 30 },
+        
+    { id:"ds2_champion", img:"images/achievements/ds2_curse.png", name:"CHAMPION",
+      desc:"Dark Souls II: достичь ранга 3 (или максимального) в одном из ковенантов.", kind:"manual" },    
     
     { id:"ds2_primal_bonfires", img:"images/achievements/ds2_curse.png", name:"PRIMAL FLAME",
       desc:"Dark Souls II: зажечь все первородные костры (после великих душ).", kind:"manual" },
@@ -254,43 +254,28 @@
     { id:"ds2_king_ring", img:"images/achievements/ds2_curse.png", name:"KING'S MARK",
       desc:"Dark Souls II: получить Королевское кольцо.", kind:"manual" },
 
-{ id:"ds2_steady_steps", img:"images/achievements/ds2_curse.png", name:"STEADY STEPS",
-      desc:"Dark Souls II: победить 20 боссов, удерживая смерти по игре на уровне 80 или ниже.", kind:"manual",
-      check:(ctx) => (ctx.gameKills?.ds2 || 0) >= 20 && (ctx.gameDeaths?.ds2 || 0) <= 40 },
-
-    { id:"ds2_first_try_pair", img:"images/achievements/first_try.png", name:"FIRST-TRY PAIR",
-      desc:"Dark Souls II: победить 2 боссов с первой попытки.", kind:"manual",
-      check:(ctx) => (ctx.gameFirstTryKills?.ds2 || 0) >= 2 },
-
 { id:"ds2_all",         img:"images/achievements/ds2_all.png",         name:"DRANGLEIC CLEARED", desc:"Dark Souls II: убить всех боссов игры.", kind:"manual",
       check:({gameKills}) => (gameKills.ds2||0) >= 41 },
 
-    { id:"ds3_cinder",      img:"images/achievements/ds3_cinder.png",      name:"LORD OF CINDER", desc:"Dark Souls III: одолеть повелителей пепла и довести дело до конца.", kind:"manual" },
+    { id:"ds3_blind",      img:"images/achievements/ds3_cinder.png",      name:"BLIND JUDGEMENT", desc:"Dark Souls III: убить Гундира вслепую", kind:"manual" },
 
-    { id:"ds3_kills_10",   img:"images/achievements/ds3_cinder.png", name:"ASHEN PATH", desc:"Dark Souls III: победить 10 боссов.", kind:"manual",
-      check:({gameKills}) => (gameKills.ds3||0) >= 10 },
     { id:"ds3_kills_20",   img:"images/achievements/ds3_all.png",    name:"UNKINDLED CHAMPION", desc:"Dark Souls III: победить 20 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.ds3||0) >= 20 },
 
     { id:"ds3_clean_hands", img:"images/achievements/ds3_all.png",    name:"NEVER FALTER", desc:"Dark Souls III: победить 5 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.ds3||0) >= 5 },
-    { id:"ds3_first_ember", img:"images/achievements/ds3_cinder.png", name:"FIRST EMBER", desc:"Dark Souls III: победить 3 боссов с первой попытки.", kind:"manual",
-      check:({gameFirstTryKills}) => (gameFirstTryKills.ds3||0) >= 3 },
-    { id:"ds3_ashen_deaths",img:"images/achievements/die_100.png",    name:"ASHEN MISERY", desc:"Dark Souls III: умереть 50 раз.", kind:"manual",
-      check:({gameDeaths}) => (gameDeaths.ds3||0) >= 50 },
-    { id:"ds3_unbroken",    img:"images/achievements/kills_50.png",   name:"UNBROKEN ASH", desc:"Dark Souls III: потратить 40 попыток на одного босса.", kind:"manual",
-      check:({gameMaxTries}) => (gameMaxTries.ds3||0) >= 40 },
-        
-    
-
-
-{ id:"ds3_clean_five", img:"images/achievements/no_death_boss.png", name:"CLEAN FIVE",
-      desc:"Dark Souls III: победить 5 боссов без смертей на них.", kind:"manual",
-      check:(ctx) => (ctx.gameNoDeathKills?.ds3 || 0) >= 5 },
-
     { id:"ds3_under_control", img:"images/achievements/ds3_cinder.png", name:"UNDER CONTROL",
-      desc:"Dark Souls III: победить 5 боссов, и ни один не потребовал больше 10 попыток.", kind:"manual",
+      desc:"Dark Souls III: победить 10 боссов, и ни один не потребовал больше 10 попыток.", kind:"manual",
       check:(ctx) => (ctx.gameKills?.ds3 || 0) >= 5 && (ctx.gameMaxTries?.ds3 || 0) <= 10 },
+    { id:"ds3_ashen_deaths",img:"images/achievements/die_100.png",    name:"ASHEN MISERY", desc:"Dark Souls III: умереть 100 раз.", kind:"manual",
+      check:({gameDeaths}) => (gameDeaths.ds3||0) >= 100 },
+    { id:"ds3_unbroken",    img:"images/achievements/kills_50.png",   name:"UNBROKEN ASH", desc:"Dark Souls III: потратить 30 попыток на одного босса.", kind:"manual",
+      check:({gameMaxTries}) => (gameMaxTries.ds3||0) >= 30 },
+        
+    { id:"ds3_champion", img:"images/achievements/ds2_curse.png", name:"ASHEN CLAN",
+      desc:"Dark Souls II: достичь ранга 3 (или максимального) в одном из ковенантов.", kind:"manual" },    
+
+    { id:"ds3_cinder",      img:"images/achievements/ds3_cinder.png",      name:"LORD OF CINDER", desc:"Dark Souls III: одолеть повелителей пепла и довести дело до конца.", kind:"manual" },
 
     { id:"ds3_link_the_fire", img:"images/achievements/ds3_cinder.png", name:"LINK THE FIRE",
       desc:"Dark Souls III: завершить игру и зажечь Первое Пламя (или любой другой финал).", kind:"manual" },
