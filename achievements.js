@@ -369,13 +369,19 @@
       check:({gameDeaths}) => (gameDeaths.elden||0) >= 300 },
     { id:"er_endless_tries",img:"images/achievements/kills_all.png",    name:"ENDLESS TRIES", desc:"Elden Ring: потратить 80 попыток на одного босса.", kind:"manual",
       check:({gameMaxTries}) => (gameMaxTries.elden||0) >= 80 },
-
     { id:"er_radahn_down", img:"images/achievements/er_tarnished.png", name:"STARSCOURGE TOPPLED",
       desc:"Elden Ring: победить Радана, Бича Звёзд.", kind:"auto",
+      check:() => {
+        const p = loadJSON(STORE_PROGRESS, {});
+        const g = (p && (p["elden"] || p.elden)) || {};
+        return !!(g?.radahn?.killed || g?.starscourge_radahn?.killed);
+      }},
+
     { id:"er_lord_of_blood", img:"images/achievements/er_tarnished.png", name:"LORD OF BLOOD",
-      desc:"Elden Ring: победить Мога, Повелителя Крови.", kind:"manual",   
+      desc:"Elden Ring: победить Мога, Повелителя Крови.", kind:"manual" },
+
     { id:"er_black_blade", img:"images/achievements/er_tarnished.png", name:"BLACK BLADE FALLEN",
-      desc:"Elden Ring: победить Маликета, Чёрный клинок.", kind:"manual",
+      desc:"Elden Ring: победить Маликета, Чёрный клинок.", kind:"manual" },
     { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
     
     { id:"er_two_great_runes", img:"images/achievements/er_tarnished.png", name:"GREAT RUNES",
