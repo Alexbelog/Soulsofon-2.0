@@ -273,7 +273,7 @@
       check:({gameMaxTries}) => (gameMaxTries.ds3||0) >= 30 },
         
     { id:"ds3_champion", img:"images/achievements/ds2_curse.png", name:"ASHEN CLAN",
-      desc:"Dark Souls II: достичь ранга 3 (или максимального) в одном из ковенантов.", kind:"manual" },    
+      desc:"Dark Souls III: достичь ранга 3 (или максимального) в одном из ковенантов.", kind:"manual" },    
 
     { id:"ds3_cinder",      img:"images/achievements/ds3_cinder.png",      name:"LORD OF CINDER", desc:"Dark Souls III: одолеть повелителей пепла и довести дело до конца.", kind:"manual" },
 
