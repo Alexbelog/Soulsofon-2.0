@@ -168,9 +168,6 @@
     { id:"no_roll",         img:"images/achievements/no_roll.png",         name:"NO ROLL", desc:"Убить босса без перекатов.", kind:"manual" },
     { id:"no_estus",        img:"images/achievements/no_estus.png",        name:"NO HEAL", desc:"Убить босса без лечения (эстус/фляги/хилы).", kind:"manual" },
     { id:"challenge_no_summon", img:"images/achievements/challenge_no_summon.png", name:"NO SUMMON", desc:"Не использовать призывы (NPC/духи/кооп) в течении всего марафона.", kind:"manual" },
-    
-    { id:"challenge_no_summons_run", img:"images/achievements/lone_wolf.png", name:"LONE WOLF",
-      desc:"Пройти весь марафон без призывов (NPC/игроки)", kind:"manual" },
 
     { id:"challenge_no_shield_run", img:"images/achievements/no_shield.png", name:"NO SHIELD OATH",
       desc:"Отказаться от щитов на всём марафоне. Парирования и перекаты — всё, что есть.", kind:"manual" },
