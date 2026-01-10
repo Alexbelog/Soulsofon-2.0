@@ -229,6 +229,9 @@
     { id:"ds2_curse",       img:"images/achievements/ds2_curse.png",       name:"BEARER OF THE CURSE", desc:"Dark Souls II: продолжить путь, несмотря на проклятие.", kind:"manual" },
     { id:"ds2_quiet_flame",       img:"images/achievements/quiet_flame.png",       name:"IN QUIET FLAME", desc:"Dark Souls II: провести 1 минуту у костра без действий.", kind:"manual" },
     { id:"ds2_rip",       img:"images/achievements/rip.png",       name:"REST IN PEACE", desc:"Dark Souls II: совершить жест (поклон/уважение) перед боссом и победить его", kind:"manual" },
+    { id:"ds2_ballista",       img:"images/achievements/ballista.png",       name:"BALLISTA'S VERDICT", desc:"Dark Souls II: убить Последователя с помощью баллисты", kind:"manual" },
+    { id:"ds2_unhorsed",       img:"images/achievements/unhorsed.png",       name:"UNHORSED", desc:"Dark Souls II: убить Драконьего всадника путем падения с арены", kind:"manual" },
+    { id:"ds2_twin_thrones",       img:"images/achievements/twin_thrones.png",       name:"TWIN THRONES, ONE STROKE", desc:"Dark Souls II: убить защитника и смотрителя трона одним ударом", kind:"manual" },
 
     { id:"ds2_clean_hands", img:"images/achievements/excuses.png",   name:"NO EXCUSES", desc:"Dark Souls II: победить 10 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.ds2||0) >= 10 },
@@ -333,6 +336,9 @@
     { id:"sek_mortal_blade", img:"images/achievements/sek_shinobi.png", name:"MORTAL BLADE",
       desc:"Sekiro: получить Клинок бессмертных.", kind:"manual" },
 
+    { id:"sek_severed_silence", img:"images/achievements/sek_silence.png", name:"SEVERED SILENCE",
+      desc:"Sekiro: убить всех Безголовых на одном прохождении (5 штук)", kind:"manual" },
+    
     { id:"sek_arm_blade", img:"images/achievements/sek_shinobi.png", name:"ONE ARM, ONE BLADE",
       desc:"Sekiro: пройти игру до финальных титров, ни разу не используя боевые инструменты протеза.", kind:"manual" },
     
