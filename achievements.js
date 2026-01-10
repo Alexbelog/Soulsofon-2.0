@@ -304,7 +304,7 @@
     { id:"bb_visceral",     img:"images/achievements/bb_visceral.png",     name:"VISCERAL", desc:"Bloodborne: добить босса висцеральной атакой.", kind:"manual" },
     
     
-    { id:"bb_transcend", img:"images/achievements/bb_insight_99.png", name:"TRANSCENDENCE",
+    { id:"bb_transcend", img:"images/achievements/bb_transcend.png", name:"TRANSCENDENCE",
       desc:"Bloodborne: дойти до одного из финалов (любой).", kind:"manual" },
 
     { id:"bb_chalice", img:"images/achievements/bb_visceral.png", name:"PSALMS OF THE CHALICE",
