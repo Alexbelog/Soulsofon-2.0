@@ -336,7 +336,7 @@
     { id:"sek_mortal_blade", img:"images/achievements/sek_shinobi.png", name:"MORTAL BLADE",
       desc:"Sekiro: получить Клинок бессмертных.", kind:"manual" },
 
-    { id:"sek_ending", img:"images/achievements/sek_shinobi.png", name:"ONE ARM, ONE BLADE",
+    { id:"sek_arm_blade", img:"images/achievements/sek_shinobi.png", name:"ONE ARM, ONE BLADE",
       desc:"Sekiro: пройти игру до финальных титров, ни разу не используя боевые инструменты протеза.", kind:"manual" },
     
     { id:"sek_ending", img:"images/achievements/sek_shinobi.png", name:"SHINOBI'S FATE",
