@@ -1111,3 +1111,24 @@ html.modal-open, html.modal-open body { overflow: hidden; }
   padding: 12px 14px;
   border-radius: 14px;
 }
+
+
+/* ================================
+   OBS stability (no UI shimmer)
+   ================================ */
+html, body{
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.legendary,
+.tier-S, .tier-A, .tier-B, .tier-C{
+  animation: none !important;
+}
+
+/* Reduce subtle flicker from full-screen blur layers in captures */
+#cloud-modal-overlay{
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+

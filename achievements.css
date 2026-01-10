@@ -370,3 +370,17 @@
   margin-top: 8px;
   justify-content: flex-end;
 }
+
+
+/* ================================
+   OBS stability (no UI shimmer)
+   ================================ */
+html, body{
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.ach-item.done{
+  animation: none !important;
+}
+
