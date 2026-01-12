@@ -691,14 +691,24 @@ function animateCounter(el, value) {
 
 function ensureProgress(gameData) {
   if (!progress[gameData.id]) progress[gameData.id] = {};
+
+  // Build a set of valid boss IDs from the current JSON (prevents inflated totals from old/duplicate data)
+  const valid = new Set();
   gameData.sections.forEach(s =>
-    s.bosses.forEach(b => {
+    (s.bosses || []).forEach(b => {
+      valid.add(b.id);
       if (!progress[gameData.id][b.id]) {
         progress[gameData.id][b.id] = { tries: 0, deaths: 0, killed: false };
       }
       if (!b.rank) b.rank = "-";
     })
   );
+
+  // Prune stale boss entries that are not present in the current data file
+  Object.keys(progress[gameData.id]).forEach(id => {
+    if (!valid.has(id)) delete progress[gameData.id][id];
+  });
+
   save();
 }
 
