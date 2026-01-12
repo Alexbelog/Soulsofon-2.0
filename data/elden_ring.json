@@ -4,230 +4,394 @@
   "banner": "images/banners/elden-ring.jpg",
   "sections": [
     {
-      "title": "Замогилье + Плачущий полуостров",
+      "title": "Боссы с воспоминаниями",
       "bosses": [
         {
-          "id": "margit",
-          "name": "Маргит, Ужасное Знамение",
-          "icon": "images/bosses/elden/limgrave/margit.png",
-          "image": "images/bosses/elden/limgrave/margit.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "godrick",
+          "id": "godrik_storukiy",
           "name": "Годрик Сторукий",
-          "icon": "images/bosses/elden/limgrave/godrick.png",
-          "image": "images/bosses/elden/limgrave/godrick.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "tree_sentinel",
-          "name": "Страж Древа",
-          "icon": "images/bosses/elden/limgrave/tree_sentinel.png",
-          "image": "images/bosses/elden/limgrave/tree_sentinel.png",
+          "id": "koroleva_rennala_polnolunnaya",
+          "name": "Королева Реннала Полнолунная",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "flying_dragon_agheel",
-          "name": "Эгхил, крылатый дракон",
-          "icon": "images/bosses/elden/limgrave/agheel.png",
-          "image": "images/bosses/elden/limgrave/agheel.png",
+          "id": "radan_bich_zvyozd",
+          "name": "Радан Бич Звёзд",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "night_cavalry_limgrave1",
-          "name": "Ночной всадник из Замогилья",
-          "icon": "images/bosses/elden/limgrave/night_cavalry1.png",
-          "image": "images/bosses/elden/limgrave/night_cavalry1.png",
+          "id": "morgott_korol_znameniy",
+          "name": "Морготт, король знамений",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "night_cavalry_limgrave2",
-          "name": "Ночной всадник из Плачущего полуострова",
-          "icon": "images/bosses/elden/limgrave/night_cavalry2.png",
-          "image": "images/bosses/elden/limgrave/night_cavalry2.png",
+          "id": "rikard_bogohulnyy_vladyka",
+          "name": "Рикард, богохульный владыка",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "deathbird_limgrave1",
-          "name": "Птица смерти из Замогилья",
-          "icon": "images/bosses/elden/limgrave/deathbird1.png",
-          "image": "images/bosses/elden/limgrave/deathbird1.png",
+          "id": "mog_povelitel_krovi",
+          "name": "Мог Повелитель Крови",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "deathbird_limgrave2",
-          "name": "Птица смерти из Плачущего полуострова",
-          "icon": "images/bosses/elden/limgrave/deathbird2.png",
-          "image": "images/bosses/elden/limgrave/deathbird2.png",
+          "id": "maleniya_klinok_mikelly",
+          "name": "Маления, Клинок Микеллы",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "try_tree_erd",
-          "name": "Воплощение Древа Эрд",
-          "icon": "images/bosses/elden/limgrave/try_tree_erd.png",
-          "image": "images/bosses/elden/limgrave/try_tree_erd.png",
+          "id": "duh_velichavogo_predka",
+          "name": "Дух величавого предка",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "elder_hero_zamora",
-          "name": "Древний герой Замора",
-          "icon": "images/bosses/elden/limgrave/elder_hero_zamora.png",
-          "image": "images/bosses/elden/limgrave/elder_hero_zamora.png",
+          "id": "astel_rozhdyonnyy_bezdnoy",
+          "name": "Астель, Рождённый Бездной",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "shadow_kladbishe",
-          "name": "Тень кладбища",
-          "icon": "images/bosses/elden/limgrave/shadow_kladbishe.png",
-          "image": "images/bosses/elden/limgrave/shadow_kladbishe.png",
+          "id": "drakon_lich_fortisaks",
+          "name": "Дракон-лич Фортисакс",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "miranda_death",
-          "name": "Миранда Смертоцвет",
-          "icon": "images/bosses/elden/limgrave/miranda_death.png",
-          "image": "images/bosses/elden/limgrave/miranda_death.png",
+          "id": "ognennyy_velikan",
+          "name": "Огненный великан",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "bell_bearing_hunter",
-          "name": "Охотник за колокольными сферами",
-          "icon": "images/bosses/elden/limgrave/bell_bearing_hunter.png",
-          "image": "images/bosses/elden/limgrave/bell_bearing_hunter.png",
+          "id": "vladyka_drakonov_plasidusaks",
+          "name": "Владыка драконов Пласидусакс",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "leonine",
-          "name": "Бастард Леонин",
-          "icon": "images/bosses/elden/limgrave/leonine.png",
-          "image": "images/bosses/elden/limgrave/leonine.png",
+          "id": "maliket_chyornyy_klinok",
+          "name": "Маликет Чёрный Клинок",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "bloodhound_knight_darwil",
-          "name": "Рыцарь-ищейка Дарривил",
-          "icon": "images/bosses/elden/limgrave/darwil.png",
-          "image": "images/bosses/elden/limgrave/darwil.png",
+          "id": "godfri_pervyy_povelitel_eldena",
+          "name": "Годфри, первый повелитель Элдена",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "crucible_knight_limgrave",
-          "name": "Рыцарь Горнила",
-          "icon": "images/bosses/elden/limgrave/crucible_knight.png",
-          "image": "images/bosses/elden/limgrave/crucible_knight.png",
+          "id": "zver_eldena",
+          "name": "Зверь Элдена",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "grave_warden_duelist",
-          "name": "Дуэлянт, хранитель могил",
-          "icon": "images/bosses/elden/limgrave/grave_warden.png",
-          "image": "images/bosses/elden/limgrave/grave_warden.png",
+          "id": "svyaschennyy_tantsuyuschiy_lev_sote",
+          "name": "Священный танцующий лев (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "cheshuchatu_bastard",
-          "name": "Чешуйчатый бастард",
-          "icon": "images/bosses/elden/limgrave/cheshuchatu_bastard.png",
-          "image": "images/bosses/elden/limgrave/cheshuchatu_bastard.png",
+          "id": "rellana_rytsar_dvoynoy_luny_sote",
+          "name": "Реллана, Рыцарь Двойной Луны (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "rune_bear",
-          "name": "Медведь рун",
-          "icon": "images/bosses/elden/limgrave/rune_bear.png",
-          "image": "images/bosses/elden/limgrave/rune_bear.png",
+          "id": "messmer_kolosazhatel_sote",
+          "name": "Мессмер Колосажатель (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "erdtree_burial_watchdog1",
-          "name": "Цербер кладбища Древа Эрд из Замогилья",
-          "icon": "images/bosses/elden/limgrave/watchdog1.png",
-          "image": "images/bosses/elden/limgrave/watchdog1.png",
+          "id": "komanduyuschiy_gay_sote",
+          "name": "Командующий Гай (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "erdtree_burial_watchdog2",
-          "name": "Цербер кладбища Древа Эрд из Плачущего полуострова",
-          "icon": "images/bosses/elden/limgrave/watchdog2.png",
-          "image": "images/bosses/elden/limgrave/watchdog2.png",
+          "id": "voploschenie_dreva_upadka_sote",
+          "name": "Воплощение Древа Упадка (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "lodochnik_tibia",
-          "name": "Лодочник Тибия",
-          "icon": "images/bosses/elden/limgrave/lodochnik_tibia.png",
-          "image": "images/bosses/elden/limgrave/lodochnik_tibia.png",
+          "id": "gniyuschiy_rytsar_sote",
+          "name": "Гниющий рыцарь (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "beastman_farum",
-          "name": "Зверочеловек из Фарум-Азулы",
-          "icon": "images/bosses/elden/limgrave/beastman.png",
-          "image": "images/bosses/elden/limgrave/beastman.png",
+          "id": "midra_vladyka_yarostnogo_plameni_sote",
+          "name": "Мидра, Владыка Яростного Пламени (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "soldat_godric",
-          "name": "Cолдат Годрика",
-          "icon": "images/bosses/elden/limgrave/soldat_godric.png",
-          "image": "images/bosses/elden/limgrave/soldat_godric.png",
+          "id": "mater_paltsev_metir_sote",
+          "name": "Матерь Пальцев Метир (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "guard_golem",
-          "name": "Страж-голем",
-          "icon": "images/bosses/elden/limgrave/guard_golem.png",
-          "image": "images/bosses/elden/limgrave/guard_golem.png",
+          "id": "romina_svyataya_tsvetochnyh_butonov_sote",
+          "name": "Ромина, Святая Цветочных Бутонов (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "king_people",
-          "name": "Предводитель полулюдей",
-          "icon": "images/bosses/elden/limgrave/king_people.png",
-          "image": "images/bosses/elden/limgrave/king_people.png",
+          "id": "buduschiy_konsort_radan_sote",
+          "name": "Будущий консорт Радан (SotE)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
-        },
+        }
+      ]
+    },
+    {
+      "title": "Замогилье",
+      "bosses": [
         {
-          "id": "otprisk",
+          "id": "priraschennyy_otprysk",
           "name": "Приращенный отпрыск",
-          "icon": "images/bosses/elden/limgrave/otprisk.png",
-          "image": "images/bosses/elden/limgrave/otprisk.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "ghost_tree",
-          "name": "Изъязвленный древесный дух",
-          "icon": "images/bosses/elden/limgrave/ghost_tree.png",
-          "image": "images/bosses/elden/limgrave/ghost_tree.png",
+          "id": "margit_uzhasnoe_znamenie",
+          "name": "Маргит, Ужасное Знамение",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "troll_stone",
+          "id": "strazh_dreva",
+          "name": "Страж Древа",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "nochnoy_vsadnik",
+          "name": "Ночной всадник",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "eghil_krylatyy_drakon",
+          "name": "Эгхил, крылатый дракон",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "zverochelovek_iz_farum_azuly",
+          "name": "Зверочеловек из Фарум-Азулы",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "predvoditel_polulyudey",
+          "name": "Предводитель полулюдей",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "tserber_kladbischa_dreva_erd",
+          "name": "Цербер кладбища Древа Эрд",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lodochnik_tibiya",
+          "name": "Лодочник Тибия",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "strazh_golem",
+          "name": "Страж-голем",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rytsar_ischeyka_darrivil",
+          "name": "Рыцарь-ищейка Дарривил",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ohotnik_za_kolokolnymi_sferami",
+          "name": "Охотник за колокольными сферами",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ptitsa_smerti",
+          "name": "Птица смерти",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "izyazvlyonnyy_drevesnyy_duh",
+          "name": "Изъязвлённый древесный дух",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ubiytsa_iz_chyornyh_nozhey",
+          "name": "Убийца из Чёрных ножей",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "duelyant_hranitel_mogil",
+          "name": "Дуэлянт, хранитель могил",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rytsar_gornila",
+          "name": "Рыцарь Горнила",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "troll_kamnekop",
           "name": "Тролль-камнекоп",
-          "icon": "images/bosses/elden/limgrave/troll_stone.png",
-          "image": "images/bosses/elden/limgrave/troll_stone.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "pump_head",
+          "id": "tykvogolovyy_bezumets",
           "name": "Тыквоголовый безумец",
-          "icon": "images/bosses/elden/limgrave/pump_head.png",
-          "image": "images/bosses/elden/limgrave/pump_head.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        }
+      ]
+    },
+    {
+      "title": "Плачущий полуостров",
+      "bosses": [
+        {
+          "id": "bastard_leonin",
+          "name": "Бастард Леонин",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "black_knife_assassin",
-          "name": "Убийца из Черных ножей",
-          "icon": "images/bosses/elden/limgrave/black_knife.png",
-          "image": "images/bosses/elden/limgrave/black_knife.png",
+          "id": "cheshuychatyy_bastard",
+          "name": "Чешуйчатый бастард",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "patches",
-          "name": "Лоскутик",
-          "icon": "images/bosses/elden/limgrave/patches.png",
-          "image": "images/bosses/elden/limgrave/patches.png",
+          "id": "medved_run",
+          "name": "Медведь рун",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "nochnoy_vsadnik",
+          "name": "Ночной всадник",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "tserber_kladbischa_dreva_erd",
+          "name": "Цербер кладбища Древа Эрд",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ptitsa_smerti",
+          "name": "Птица смерти",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "voploschenie_dreva_erd",
+          "name": "Воплощение Древа Эрд",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "drevniy_geroy_zamora",
+          "name": "Древний герой Замора",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ten_kladbischa",
+          "name": "Тень кладбища",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "miranda_smertotsvet",
+          "name": "Миранда Смертоцвет",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         }
       ]
@@ -236,180 +400,169 @@
       "title": "Озёрная Лиурния",
       "bosses": [
         {
-          "id": "er_red_wolf_radagon",
+          "id": "loretta_korolevskiy_rytsar",
+          "name": "Лоретта, королевский рыцарь",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "alyy_volk_radagona",
           "name": "Алый волк Радагона",
-          "icon": "images/bosses/elden/liurnia/red_wolf.png",
-          "rank": "B",
-          "image": "images/bosses/elden/liurnia/red_wolf.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_rennala",
-          "name": "Королева Реннала Полнолунная",
-          "icon": "images/bosses/elden/liurnia/rennala.png",
-          "rank": "A",
-          "image": "images/bosses/elden/liurnia/rennala.png",
+          "id": "magmovyy_zmey_makar",
+          "name": "Магмовый змей Макар",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_glintstone_dragon_smarag",
+          "id": "smarag_drakon_blestyaschih_kamney",
           "name": "Смараг, дракон блестящих камней",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_glintstone_dragon_adula",
+          "id": "adula_drakon_blestyaschih_kamney",
           "name": "Адула, дракон блестящих камней",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_tree_sentinel_liurnia",
-          "name": "Воплощение Древа Эрд из Озёрной Лиурнии",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_bell_bearing_hunter_church_vows",
-          "name": "Охотник за колокольными сферами из Озёрной Лиурнии",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_deathbird_liurnia",
-          "name": "Птица смерти из Озёрной Лиурнии",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_night_cavalry_liurnia_north",
-          "name": "Ночной всадник из Озёрной Лиурнии",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_loretta",
-          "name": "Лоретта, королевский рыцарь",
-          "icon": "images/bosses/elden/liurnia/loretta.png",
-          "rank": "B",
-          "image": "images/bosses/elden/liurnia/loretta.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_magma_wyrm_makar",
-          "name": "Магмовый змей Макар",
-          "icon": "images/bosses/elden/liurnia/makar.png",
-          "rank": "B",
-          "image": "images/bosses/elden/liurnia/makar.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_cleanrot_knight",
-          "name": "Рыцарь чистой гнили",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_cemetery_shade",
-          "name": "Тень кладбища",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_crystalian",
-          "name": "Кристалиец из Озёрной Лиурнии",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_royal_revenant",
-          "name": "Королевский призрак",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_black_knife_assassin_liurnia",
-          "name": "Убийца из Чёрных ножей Озёрной Лиурнии",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_erdtree_avatar_liurnia",
-          "name": "Цербер кладбища Древа Эрд из Озёрной Лиурнии",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_erdtree_onix_lord",
-          "name": "Ониксовый повелитель",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_erdtree_boat_tibia",
-          "name": "Лодочник Тибия из Озёрной Лиурнии",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_erdtree_kill_znamenie",
-          "name": "Убийца знамений",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_erdtree_spirit_ulitka",
-          "name": "Улитка-призывательница духов",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_erdtree_knight_search",
+          "id": "rytsar_ischeyka",
           "name": "Рыцарь-ищейка",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_erdtree_bolls",
+          "id": "korolevskiy_prizrak",
+          "name": "Королевский призрак",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "bols_karianskiy_rytsar",
           "name": "Болс, карианский рыцарь",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_erdtree_alekto",
-          "name": "Алекто, Главарь Чёрного ножа",
+          "id": "alekto_glavar_chyornyh_nozhey",
+          "name": "Алекто, главарь Чёрных ножей",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_erdtree_adan",
+          "id": "adan_vor_ognya",
           "name": "Адан, вор огня",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_royal_dead_bird",
+          "id": "nochnoy_vsadnik",
+          "name": "Ночной всадник",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "tserber_kladbischa_dreva_erd",
+          "name": "Цербер кладбища Древа Эрд",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lodochnik_tibiya",
+          "name": "Лодочник Тибия",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ohotnik_za_kolokolnymi_sferami",
+          "name": "Охотник за колокольными сферами",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ptitsa_smerti",
+          "name": "Птица смерти",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "voploschenie_dreva_erd",
+          "name": "Воплощение Древа Эрд",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ubiytsa_iz_chyornyh_nozhey",
+          "name": "Убийца из Чёрных ножей",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ten_kladbischa",
+          "name": "Тень кладбища",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "pogrebalnaya_ptitsa",
           "name": "Погребальная птица",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "kristaliets",
+          "name": "Кристалиец",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "oniksovyy_povelitel",
+          "name": "Ониксовый повелитель",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rytsar_chistoy_gnili",
+          "name": "Рыцарь чистой гнили",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ulitka_prizyvatelnitsa_duhov",
+          "name": "Улитка-призывательница духов",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ubiytsa_znameniy",
+          "name": "Убийца знамений",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
@@ -417,856 +570,886 @@
       ]
     },
     {
-      "title": "Elden Ring — Кэлид",
+      "title": "Звёздные пустоши",
       "bosses": [
         {
-          "id": "starscourge_radahn",
-          "name": "Бич звёзд Радан",
-          "icon": "images/bosses/elden/caelid/radahn.png",
-          "image": "images/bosses/elden/caelid/radahn.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "decaying_ekzykes",
+          "id": "gniyuschiy_ekzikes",
           "name": "Гниющий Экзикес",
-          "icon": "images/bosses/elden/caelid/ekzykes.png",
-          "image": "images/bosses/elden/caelid/ekzykes.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "black_blade_kindred_caelid",
-          "name": "Родич Чёрного Клинка",
-          "icon": "images/bosses/elden/caelid/black_blade_kindred.png",
-          "image": "images/bosses/elden/caelid/black_blade_kindred.png",
+          "id": "greil_krylatyy_drakon",
+          "name": "Греил, крылатый дракон",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "night_cavalry_caelid",
+          "id": "greyoll_velikaya_drakonitsa",
+          "name": "Грейолл, Великая драконица",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "komandir_o_nil",
+          "name": "Командир О'Нил",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "zver_padayuschey_zvezdy",
+          "name": "Зверь Падающей звезды",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "gnilostnyy_drevesnyy_duh",
+          "name": "Гнилостный древесный дух",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "mechnitsa_noks",
+          "name": "Мечница-нокс",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "monah_noks",
+          "name": "Монах-нокс",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "yarostnyy_duelyant",
+          "name": "Яростный дуэлянт",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "gugo_boevoy_mag",
+          "name": "Гуго, боевой маг",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "nochnoy_vsadnik",
           "name": "Ночной всадник",
-          "icon": "images/bosses/elden/caelid/night_cavalry.png",
-          "image": "images/bosses/elden/caelid/night_cavalry.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "deathbird_caelid",
-          "name": "Птица смерти",
-          "icon": "images/bosses/elden/caelid/deathbird.png",
-          "image": "images/bosses/elden/caelid/deathbird.png",
+          "id": "tserber_kladbischa_dreva_erd",
+          "name": "Цербер кладбища Древа Эрд",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "putrid_avatar",
-          "name": "Гниющий аватар Древа Эрд",
-          "icon": "images/bosses/elden/caelid/putrid_avatar.png",
-          "image": "images/bosses/elden/caelid/putrid_avatar.png",
+          "id": "ohotnik_za_kolokolnymi_sferami",
+          "name": "Охотник за колокольными сферами",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "bell_bearing_hunter_caelid",
-          "name": "Охотник за колокольными подношениями",
-          "icon": "images/bosses/elden/caelid/bell_bearing_hunter.png",
-          "image": "images/bosses/elden/caelid/bell_bearing_hunter.png",
+          "id": "kristaliets",
+          "name": "Кристалиец",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "battlemage_hugues",
-          "name": "Боевой маг Юг",
-          "icon": "images/bosses/elden/caelid/hugues.png",
-          "image": "images/bosses/elden/caelid/hugues.png",
+          "id": "ten_kladbischa",
+          "name": "Тень кладбища",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "putrid_crystalian_trio",
-          "name": "Гнилые кристаллианцы (трое)",
-          "icon": "images/bosses/elden/caelid/crystalians.png",
-          "image": "images/bosses/elden/caelid/crystalians.png",
+          "id": "pogrebalnaya_ptitsa",
+          "name": "Погребальная птица",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "beastman_faruma_caelid",
+          "id": "zverochelovek_iz_farum_azuly",
           "name": "Зверочеловек из Фарум-Азулы",
-          "icon": "images/bosses/elden/caelid/beastman.png",
-          "image": "images/bosses/elden/caelid/beastman.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "mad_pumpkin_head",
-          "name": "Безумная тыквоголовая",
-          "icon": "images/bosses/elden/caelid/pumpkin_head.png",
-          "image": "images/bosses/elden/caelid/pumpkin_head.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "cemetery_shade",
-          "name": "Тень кладбища",
-          "icon": "images/bosses/elden/caelid/cemetery_shade.png",
-          "image": "images/bosses/elden/caelid/cemetery_shade.png",
-          "description": "Описание скоро появится."
-        }
-      ]
-    },
-    {
-      "title": "Elden Ring — Плато Альтус и Гельмир",
-      "bosses": [
-        {
-          "id": "draconic_tree_sentinel",
-          "name": "Драконий древесный страж",
-          "icon": "images/bosses/elden/altus/draconic_tree_sentinel.png",
-          "image": "images/bosses/elden/altus/draconic_tree_sentinel.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "ancient_dragon_lansseax",
-          "name": "Древний дракон Ланссекс",
-          "icon": "images/bosses/elden/altus/lansseax.png",
-          "image": "images/bosses/elden/altus/lansseax.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "wyrm_makar",
-          "name": "Магмовый змей Макар",
-          "icon": "images/bosses/elden/altus/makar.png",
-          "image": "images/bosses/elden/altus/makar.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "fullgrown_fallingstar",
-          "name": "Взрослый падающий звёздный зверь",
-          "icon": "images/bosses/elden/altus/fallingstar.png",
-          "image": "images/bosses/elden/altus/fallingstar.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "deathbird_altus",
-          "name": "Птица смерти",
-          "icon": "images/bosses/elden/altus/deathbird.png",
-          "image": "images/bosses/elden/altus/deathbird.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "night_cavalry_altus",
-          "name": "Ночной всадник",
-          "icon": "images/bosses/elden/altus/night_cavalry.png",
-          "image": "images/bosses/elden/altus/night_cavalry.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "elemer_of_the_briar",
-          "name": "Элемер из Терновника",
-          "icon": "images/bosses/elden/altus/elemer.png",
-          "image": "images/bosses/elden/altus/elemer.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "crucible_knight_altus",
+          "id": "rytsar_gornila",
           "name": "Рыцарь Горнила",
-          "icon": "images/bosses/elden/altus/crucible_knight.png",
-          "image": "images/bosses/elden/altus/crucible_knight.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "perfumer_tricia",
-          "name": "Парфюмер Триция и Лев-страж",
-          "icon": "images/bosses/elden/altus/perfumer_tricia.png",
-          "image": "images/bosses/elden/altus/perfumer_tricia.png",
+          "id": "tykvogolovyy_bezumets",
+          "name": "Тыквоголовый безумец",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "godskin_apostle_altus",
-          "name": "Апостол кожи богов",
-          "icon": "images/bosses/elden/altus/godskin_apostle.png",
-          "image": "images/bosses/elden/altus/godskin_apostle.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "cemetery_shade_altus",
-          "name": "Тень кладбища",
-          "icon": "images/bosses/elden/altus/cemetery_shade.png",
-          "image": "images/bosses/elden/altus/cemetery_shade.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "tree_spirit_altus",
-          "name": "Гниющий древесный дух",
-          "icon": "images/bosses/elden/altus/tree_spirit.png",
-          "image": "images/bosses/elden/altus/tree_spirit.png",
-          "description": "Описание скоро появится."
-        }
-      ]
-    },
-    {
-      "title": "Elden Ring — Лейнделл, столица королевства",
-      "bosses": [
-        {
-          "id": "godfrey_golden_shade",
-          "name": "Годфри, Золотая тень",
-          "icon": "images/bosses/elden/leyndell/godfrey_shade.png",
-          "image": "images/bosses/elden/leyndell/godfrey_shade.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "morgott",
-          "name": "Моргoтт, Король Знамений",
-          "icon": "images/bosses/elden/leyndell/morgott.png",
-          "image": "images/bosses/elden/leyndell/morgott.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "fell_twins",
-          "name": "Павшие близнецы",
-          "icon": "images/bosses/elden/leyndell/fell_twins.png",
-          "image": "images/bosses/elden/leyndell/fell_twins.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "crucible_knight_ordovis",
-          "name": "Рыцарь Горнила Ордовис",
-          "icon": "images/bosses/elden/leyndell/ordovis.png",
-          "image": "images/bosses/elden/leyndell/ordovis.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "crucible_knight_siluria",
-          "name": "Рыцарь Горнила Силурия",
-          "icon": "images/bosses/elden/leyndell/siluria.png",
-          "image": "images/bosses/elden/leyndell/siluria.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "esgar_priest",
-          "name": "Эсгар, Жрец Крови",
-          "icon": "images/bosses/elden/leyndell/esgar.png",
-          "image": "images/bosses/elden/leyndell/esgar.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "erdtree_avatar_leyndell",
-          "name": "Аватар Древа Эрд",
-          "icon": "images/bosses/elden/leyndell/erdtree_avatar.png",
-          "image": "images/bosses/elden/leyndell/erdtree_avatar.png",
-          "description": "Описание скоро появится."
-        }
-      ]
-    },
-    {
-      "title": "Elden Ring — Вулканово поместье",
-      "bosses": [
-        {
-          "id": "rykard_lord_of_blasphemy",
-          "name": "Рикард, Повелитель богохульства",
-          "icon": "images/bosses/elden/volcano/rykard.png",
-          "image": "images/bosses/elden/volcano/rykard.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "godskin_noble_volcano",
-          "name": "Аристократ кожи богов",
-          "icon": "images/bosses/elden/volcano/godskin_noble.png",
-          "image": "images/bosses/elden/volcano/godskin_noble.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "abductor_virgins",
-          "name": "Девы-похитители (двое)",
-          "icon": "images/bosses/elden/volcano/abductor_virgins.png",
-          "image": "images/bosses/elden/volcano/abductor_virgins.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "magma_wyrm_volcano",
+          "id": "magmovyy_zmey",
           "name": "Магмовый змей",
-          "icon": "images/bosses/elden/volcano/magma_wyrm.png",
-          "image": "images/bosses/elden/volcano/magma_wyrm.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "kindred_black_blade_volcano",
-          "name": "Родич Чёрного клинка",
-          "icon": "images/bosses/elden/volcano/black_blade_kindred.png",
-          "image": "images/bosses/elden/volcano/black_blade_kindred.png",
+          "id": "voin_bastard",
+          "name": "Воин-бастард",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "gnilostnoe_voploschenie",
+          "name": "Гнилостное воплощение",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rytsar_chistoy_gnili",
+          "name": "Рыцарь чистой гнили",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "apostol_bozhestvennoy_kozhi",
+          "name": "Апостол божественной кожи",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rodich_chyornogo_klinka",
+          "name": "Родич Чёрного Клинка",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         }
       ]
     },
     {
-      "title": "Elden Ring — Вершины Великанов",
+      "title": "Плато Альтус",
       "bosses": [
         {
-          "id": "fire_giant",
-          "name": "Огненный великан",
-          "icon": "images/bosses/elden/mountaintops/fire_giant.png",
-          "image": "images/bosses/elden/mountaintops/fire_giant.png",
+          "id": "radagon_iz_zolotogo_poryadka",
+          "name": "Радагон из Золотого порядка",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "borealis",
-          "name": "Бореалис, Туманный дракон",
-          "icon": "images/bosses/elden/mountaintops/borealis.png",
-          "image": "images/bosses/elden/mountaintops/borealis.png",
+          "id": "mog_znamenie",
+          "name": "Мог, Знамение",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "death_rite_bird",
-          "name": "Птица обряда смерти",
-          "icon": "images/bosses/elden/mountaintops/death_rite_bird.png",
-          "image": "images/bosses/elden/mountaintops/death_rite_bird.png",
+          "id": "drevniy_drakon_lanseaks",
+          "name": "Древний дракон Лансеакс",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "erdtree_avatar_mountaintops",
-          "name": "Аватар Древа Эрд",
-          "icon": "images/bosses/elden/mountaintops/erdtree_avatar.png",
-          "image": "images/bosses/elden/mountaintops/erdtree_avatar.png",
+          "id": "krovavyy_aristokrat",
+          "name": "Кровавый аристократ",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "ulcerated_tree_spirit",
-          "name": "Изъязвлённый дух Древа",
-          "icon": "images/bosses/elden/mountaintops/ulcerated_tree_spirit.png",
-          "image": "images/bosses/elden/mountaintops/ulcerated_tree_spirit.png",
+          "id": "aristokrat_bozhestvennoy_kozhi",
+          "name": "Аристократ божественной кожи",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "zamoor_knight",
-          "name": "Рыцарь Замора",
-          "icon": "images/bosses/elden/mountaintops/zamoor_knight.png",
-          "image": "images/bosses/elden/mountaintops/zamoor_knight.png",
+          "id": "gideon_ofnir",
+          "name": "Гидеон Офнир",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "ancient_hero_zamor",
+          "id": "godfri_pervyy_povelitel_eldena_zolotaya_ten",
+          "name": "Годфри, первый повелитель Элдена (Золотая тень)",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "alyy_volk_chempiona",
+          "name": "Алый волк чемпиона",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "parfyumersha_trisha",
+          "name": "Парфюмерша Триша",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rytsar_gornila_ordovis",
+          "name": "Рыцарь Горнила Ордовис",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "uzhasnye_bliznetsy",
+          "name": "Ужасные близнецы",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "chervemordyy",
+          "name": "Червемордый",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "elemer_iz_shipov",
+          "name": "Элемер из Шипов",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "vzroslyy_zver_padayuschey_zvezdy",
+          "name": "Взрослый зверь Падающей звезды",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "zhrets_krovi_esgar",
+          "name": "Жрец крови Эсгар",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "deva_pohititelnitsa",
+          "name": "Дева-похитительница",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "nekromant_garris",
+          "name": "Некромант Гаррис",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rodich_gnili",
+          "name": "Родич гнили",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "koroleva_polulyudey_gilika",
+          "name": "Королева полулюдей Гилика",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "koroleva_polulyudey_margo",
+          "name": "Королева полулюдей Марго",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "koroleva_polulyudey_meggi",
+          "name": "Королева полулюдей Мэгги",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "godfroy_storukiy",
+          "name": "Годфрой Сторукий",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "nochnoy_vsadnik",
+          "name": "Ночной всадник",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "tserber_kladbischa_dreva_erd",
+          "name": "Цербер кладбища Древа Эрд",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lodochnik_tibiya",
+          "name": "Лодочник Тибия",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ohotnik_za_kolokolnymi_sferami",
+          "name": "Охотник за колокольными сферами",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ptitsa_smerti",
+          "name": "Птица смерти",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "izyazvlyonnyy_drevesnyy_duh",
+          "name": "Изъязвлённый древесный дух",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ubiytsa_iz_chyornyh_nozhey",
+          "name": "Убийца из Чёрных ножей",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "kristaliets",
+          "name": "Кристалиец",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "drevniy_geroy_zamora",
           "name": "Древний герой Замора",
-          "icon": "images/bosses/elden/mountaintops/ancient_hero_zamor.png",
-          "image": "images/bosses/elden/mountaintops/ancient_hero_zamor.png",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "misbegotten_crusader",
-          "name": "Крестоносец-полукровка",
-          "icon": "images/bosses/elden/mountaintops/misbegotten_crusader.png",
-          "image": "images/bosses/elden/mountaintops/misbegotten_crusader.png",
-          "description": "Описание скоро появится."
-        }
-      ]
-    },
-    {
-      "title": "Elden Ring — Освящённое снежное поле",
-      "bosses": [
-        {
-          "id": "putrid_avatar_snowfield",
-          "name": "Гниющий аватар Древа Эрд",
-          "icon": "images/bosses/elden/consecrated/putrid_avatar.png",
-          "image": "images/bosses/elden/consecrated/putrid_avatar.png",
+          "id": "duelyant_hranitel_mogil",
+          "name": "Дуэлянт, хранитель могил",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "death_rite_bird_snowfield",
-          "name": "Птица обряда смерти",
-          "icon": "images/bosses/elden/consecrated/death_rite_bird.png",
-          "image": "images/bosses/elden/consecrated/death_rite_bird.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "night_cavalry_snowfield",
-          "name": "Ночная кавалерия",
-          "icon": "images/bosses/elden/consecrated/night_cavalry.png",
-          "image": "images/bosses/elden/consecrated/night_cavalry.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "great_wyrm_theodorix",
-          "name": "Великий змей Теодорикс",
-          "icon": "images/bosses/elden/consecrated/theodorix.png",
-          "image": "images/bosses/elden/consecrated/theodorix.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "misbegotten_warrior_snowfield",
-          "name": "Воин-полукровка",
-          "icon": "images/bosses/elden/consecrated/misbegotten_warrior.png",
-          "image": "images/bosses/elden/consecrated/misbegotten_warrior.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "perfumer_tricia",
-          "name": "Парфюмер Триция",
-          "icon": "images/bosses/elden/consecrated/perfumer_tricia.png",
-          "image": "images/bosses/elden/consecrated/perfumer_tricia.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "crystalian_trio",
-          "name": "Кристалийцы (трое)",
-          "icon": "images/bosses/elden/consecrated/crystalian_trio.png",
-          "image": "images/bosses/elden/consecrated/crystalian_trio.png",
-          "description": "Описание скоро появится."
-        }
-      ]
-    },
-    {
-      "title": "Elden Ring — Фарум-Азула и Финал",
-      "bosses": [
-        {
-          "id": "er_godskin_duo",
-          "name": "Дуэт Богоубийц",
-          "icon": "images/bosses/godskin_duo.png",
-          "image": "images/bosses/godskin_duo.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_dragonlord_placidusax",
-          "name": "Драконлорд Пласидусакс",
-          "icon": "images/bosses/placidusax.png",
-          "image": "images/bosses/placidusax.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_beast_clergyman",
-          "name": "Звериный священник / Маликет, Чёрный Клинок",
-          "icon": "images/bosses/maliketh.png",
-          "image": "images/bosses/maliketh.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_godfrey_hoarah_loux",
-          "name": "Годфри, Первый Повелитель Элдена / Хоара Лукс",
-          "icon": "images/bosses/godfrey.png",
-          "image": "images/bosses/godfrey.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_radagon",
-          "name": "Радагон Золотого Порядка",
-          "icon": "images/bosses/radagon.png",
-          "image": "images/bosses/radagon.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_elden_beast",
-          "name": "Зверь Элдена",
-          "icon": "images/bosses/elden_beast.png",
-          "image": "images/bosses/elden_beast.png",
-          "description": "Описание скоро появится."
-        }
-      ]
-    },
-    {
-      "title": "Elden Ring — Подземные регионы",
-      "bosses": [
-        {
-          "id": "er_ancestor_spirit",
-          "name": "Дух предка",
-          "icon": "images/bosses/ancestor_spirit.png",
-          "image": "images/bosses/ancestor_spirit.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_regal_ancestor_spirit",
-          "name": "Царственный дух предка",
-          "icon": "images/bosses/regal_ancestor_spirit.png",
-          "image": "images/bosses/regal_ancestor_spirit.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_dragonkin_soldier_siofra",
-          "name": "Драконий солдат (Сиофра)",
-          "icon": "images/bosses/dragonkin_soldier.png",
-          "image": "images/bosses/dragonkin_soldier.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_dragonkin_soldier_ainsel",
-          "name": "Драконий солдат (Айнсел)",
-          "icon": "images/bosses/dragonkin_soldier.png",
-          "image": "images/bosses/dragonkin_soldier.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_astel_naturalborn",
-          "name": "Астель, Рождённый Пустотой",
-          "icon": "images/bosses/astel_naturalborn.png",
-          "image": "images/bosses/astel_naturalborn.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_mimic_tear",
-          "name": "Слеза-подражатель",
-          "icon": "images/bosses/mimic_tear.png",
-          "image": "images/bosses/mimic_tear.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_valiant_gargoyles",
-          "name": "Доблестные горгульи",
-          "icon": "images/bosses/valiant_gargoyles.png",
-          "image": "images/bosses/valiant_gargoyles.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_dragonkin_soldier_nokstella",
-          "name": "Драконий солдат Нокстеллы",
-          "icon": "images/bosses/dragonkin_soldier.png",
-          "image": "images/bosses/dragonkin_soldier.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_fia_champions",
-          "name": "Чемпионы Фии",
-          "icon": "images/bosses/fia_champions.png",
-          "image": "images/bosses/fia_champions.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_lichdragon_fortissax",
-          "name": "Личдракон Фортиссакс",
-          "icon": "images/bosses/fortissax.png",
-          "image": "images/bosses/fortissax.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_mohg_lord_of_blood",
-          "name": "Мог, Повелитель крови",
-          "icon": "images/bosses/mohg_lord_of_blood.png",
-          "image": "images/bosses/mohg_lord_of_blood.png",
-          "description": "Описание скоро появится."
-        }
-      ]
-    },
-    {
-      "title": "Elden Ring — Халигтри Микеллы",
-      "bosses": [
-        {
-          "id": "loretta_haligtree_knight",
-          "name": "Лоретта, рыцарь Халигтри",
-          "icon": "images/bosses/elden/haligtree/loretta.png",
-          "image": "images/bosses/elden/haligtree/loretta.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "malenia_blade_of_miquella",
-          "name": "Маления, Клинок Микеллы",
-          "icon": "images/bosses/elden/haligtree/malenia.png",
-          "image": "images/bosses/elden/haligtree/malenia.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "putrid_avatar_haligtree",
-          "name": "Гниющий аватар Древа Эрд",
-          "icon": "images/bosses/elden/haligtree/putrid_avatar.png",
-          "image": "images/bosses/elden/haligtree/putrid_avatar.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "misbegotten_crusader",
-          "name": "Полукровка-крестоносец",
-          "icon": "images/bosses/elden/haligtree/misbegotten_crusader.png",
-          "image": "images/bosses/elden/haligtree/misbegotten_crusader.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "crystalian_spear_ringblade",
-          "name": "Кристалийцы (копьё и кольцевой клинок)",
-          "icon": "images/bosses/elden/haligtree/crystalian_duo.png",
-          "image": "images/bosses/elden/haligtree/crystalian_duo.png",
-          "description": "Описание скоро появится."
-        }
-      ]
-    },
-    {
-      "title": "Тень Древа Эрд",
-      "bosses": [
-        {
-          "id": "dlc_blackgaol_knight",
-          "name": "Рыцарь Чёрной темницы",
-          "region": "Равнина могильных цветов (Gravesite Plain)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_chief_bloodfiend",
-          "name": "Вождь кровавых извергов",
-          "region": "Равнина могильных цветов (Gravesite Plain)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_demihuman_swordmaster_onze",
-          "name": "Получеловек-мечник Онзе",
-          "region": "Равнина могильных цветов (Gravesite Plain)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_ancient_dragon_man",
-          "name": "Древний человек-дракон",
-          "region": "Равнина могильных цветов (Gravesite Plain)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_furnace_golem_1",
-          "name": "Печной голем",
-          "region": "Равнина могильных цветов (Gravesite Plain)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_ghostflame_dragon_gp",
-          "name": "Дракон призрачного пламени",
-          "region": "Равнина могильных цветов (Gravesite Plain)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_divine_beast_dancing_lion",
-          "name": "Священный зверь: Танцующий лев",
-          "region": "Белурат, Поселение башни (Belurat)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_rellana_twin_moon_knight",
-          "name": "Реллана, рыцарь Двух Лун",
-          "region": "Замок Энсис (Castle Ensis)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_red_bear",
-          "name": "Красный медведь",
-          "region": "Руины Раух (Rauh Ruins)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_rugalea_great_red_bear",
-          "name": "Ругалея, Великий красный медведь",
-          "region": "Руины Раух (Rauh Ruins)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_romina_saint_of_the_bud",
-          "name": "Ромина, святая Бутона",
-          "region": "Древние руины Раух (Ancient Ruins of Rauh)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_death_knight",
-          "name": "Рыцарь смерти",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_black_knight_edredd",
-          "name": "Чёрный рыцарь Эдредд",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_black_knight_garrew",
-          "name": "Чёрный рыцарь Гаррев",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_dryleaf_dane",
-          "name": "Дэйн, Сухой лист",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_curseblade_labirith",
-          "name": "Клинок проклятия Лабирит",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_rakshasa",
-          "name": "Ракшаса",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_jori_elder_inquisitor",
-          "name": "Джори, старший инквизитор",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_count_ymir_mother_of_fingers",
-          "name": "Граф Инир, Мать Пальцев",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_metyr_mother_of_fingers",
-          "name": "Метир, Мать Пальцев",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_ralva_great_red_bear",
-          "name": "Ралва, Великий красный медведь",
-          "region": "Скаду-Альтус (Scadu Altus)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_golden_hippopotamus",
-          "name": "Золотой гиппопотам",
-          "region": "Твердыня Тени (Shadow Keep)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_commander_gaius",
-          "name": "Командир Гайюс",
-          "region": "Твердыня Тени (Shadow Keep)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_messmer_the_impaler",
-          "name": "Мессмер-пронзатель",
-          "region": "Твердыня Тени (Shadow Keep)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_scadutree_avatar",
-          "name": "Аватар Древа Скаду",
-          "region": "Твердыня Тени (Shadow Keep)",
-          "image": "",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "dlc_tree_sentinel_dlc",
+          "id": "strazh_dreva",
           "name": "Страж Древа",
-          "region": "Скадувью (Scaduview)",
-          "image": "",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_fallingstar_beast_dlc",
-          "name": "Зверь падающей звезды",
-          "region": "Скадувью (Scaduview)",
-          "image": "",
+          "id": "drakoniy_strazh_dreva",
+          "name": "Драконий Страж Древа",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_midra_lord_of_frenzied_flame",
-          "name": "Мидра, владыка Безумного Пламени",
-          "region": "Лес Бездны (Abyssal Woods)",
-          "image": "",
+          "id": "troll_kamnekop",
+          "name": "Тролль-камнекоп",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_dancer_of_ranah",
-          "name": "Танцовщица Раны",
-          "region": "Лазурный берег (Cerulean Coast)",
-          "image": "",
+          "id": "miranda_smertotsvet",
+          "name": "Миранда Смертоцвет",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_demihuman_queen_marigga",
-          "name": "Королева получеловеков Маригга",
-          "region": "Лазурный берег (Cerulean Coast)",
-          "image": "",
+          "id": "oniksovyy_povelitel",
+          "name": "Ониксовый повелитель",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_putrescent_knight",
-          "name": "Гнилостный рыцарь",
-          "region": "Трещина каменного гроба (Stone Coffin Fissure)",
-          "image": "",
+          "id": "ubiytsa_znameniy",
+          "name": "Убийца знамений",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_death_rite_bird",
-          "name": "Птица погребального обряда",
-          "region": "Скрытая могила Харо (Charo's Hidden Grave)",
-          "image": "",
+          "id": "voin_bastard",
+          "name": "Воин-бастард",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_lamenter",
-          "name": "Плакальщик",
-          "region": "Скрытая могила Харо (Charo's Hidden Grave)",
-          "image": "",
+          "id": "magmovyy_zmey",
+          "name": "Магмовый змей",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_tibia_mariner_dlc",
-          "name": "Кормчий Тибии",
-          "region": "Скрытая могила Харо (Charo's Hidden Grave)",
-          "image": "",
+          "id": "apostol_bozhestvennoy_kozhi",
+          "name": "Апостол божественной кожи",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_ancient_dragon_senessax",
+          "id": "zver_padayuschey_zvezdy",
+          "name": "Зверь Падающей звезды",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        }
+      ]
+    },
+    {
+      "title": "Вершины великанов",
+      "bosses": [
+        {
+          "id": "astel_zvyozdy_tmy",
+          "name": "Астель, Звёзды Тьмы",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "borelis_ledenyaschiy_tuman",
+          "name": "Борелис Леденящий Туман",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "velikiy_zmey_teodoriks",
+          "name": "Великий змей Теодорикс",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "komandir_nayll",
+          "name": "Командир Найлл",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "gnilostnyy_duelyant_hranitel_mogil",
+          "name": "Гнилостный дуэлянт, хранитель могил",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "krestonosets_bastard",
+          "name": "Крестоносец-бастард",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "vik_rytsar_kruglogo_stola",
+          "name": "Вик, рыцарь Круглого стола",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "nochnoy_vsadnik",
+          "name": "Ночной всадник",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "voploschenie_dreva_erd",
+          "name": "Воплощение Древа Эрд",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "izyazvlyonnyy_drevesnyy_duh",
+          "name": "Изъязвлённый древесный дух",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "drevniy_geroy_zamora",
+          "name": "Древний герой Замора",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "pogrebalnaya_ptitsa",
+          "name": "Погребальная птица",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "gnilostnoe_voploschenie",
+          "name": "Гнилостное воплощение",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "ulitka_prizyvatelnitsa_duhov",
+          "name": "Улитка-призывательница духов",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rodich_chyornogo_klinka",
+          "name": "Родич Чёрного Клинка",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lozhnaya_sleza",
+          "name": "Ложная Слеза",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        }
+      ]
+    },
+    {
+      "title": "Разрушающийся Фарум-Азула",
+      "bosses": [
+        {
+          "id": "dvoe_iz_bozhestvennoy_kozhi",
+          "name": "Двое из божественной кожи",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        }
+      ]
+    },
+    {
+      "title": "Святое Древо Микеллы",
+      "bosses": [
+        {
+          "id": "loretta_rytsar_svyatogo_dreva",
+          "name": "Лоретта, рыцарь Святого Древа",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        }
+      ]
+    },
+    {
+      "title": "Река Сиофра",
+      "bosses": [
+        {
+          "id": "duh_predka",
+          "name": "Дух предка",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "otvazhnye_gorguli",
+          "name": "Отважные горгульи",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "drakoniy_soldat",
+          "name": "Драконий солдат",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "lozhnaya_sleza",
+          "name": "Ложная Слеза",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        }
+      ]
+    },
+    {
+      "title": "Река Ансель",
+      "bosses": [
+        {
+          "id": "drakoniy_soldat_nokstelly",
+          "name": "Драконий солдат Нокстеллы",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "drakoniy_soldat",
+          "name": "Драконий солдат",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        }
+      ]
+    },
+    {
+      "title": "Низовье Глубокого Корня",
+      "bosses": [
+        {
+          "id": "geroi_fii",
+          "name": "Герои Фии",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rytsar_gornila_siluriya",
+          "name": "Рыцарь Горнила Силурия",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        }
+      ]
+    },
+    {
+      "title": "Царство Теней (Shadow of the Erdtree)",
+      "bosses": [
+        {
+          "id": "tsarstvo_teney",
+          "name": "Царство Теней",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rytsar_smerti",
+          "name": "Рыцарь Смерти",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "zolotoy_gippopotam",
+          "name": "Золотой гиппопотам",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "drakon_smerti",
+          "name": "Дракон смерти",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "drakon_zubatoy_gory",
+          "name": "Дракон зубатой горы",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "drevniy_drakon_senessaks",
           "name": "Древний дракон Сенессакс",
-          "region": "Зазубренный пик (Jagged Peak)",
-          "image": "",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_bayle_the_dread",
+          "id": "beyl_uzhasnyy",
           "name": "Бейл Ужасный",
-          "region": "Зазубренный пик (Jagged Peak)",
-          "image": "",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_jagged_peak_drake_bottom",
-          "name": "Дрейк Зазубренного пика (низ)",
-          "region": "Зазубренный пик (Jagged Peak)",
-          "image": "",
+          "id": "glavnyy_inkvizitor_yori",
+          "name": "Главный инквизитор Йори",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_jagged_peak_drake_top",
-          "name": "Дрейк Зазубренного пика (верх)",
-          "region": "Зазубренный пик (Jagged Peak)",
-          "image": "",
+          "id": "labirit_proklyatyy_klinok",
+          "name": "Лабирит, проклятый клинок",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_leda_and_allies",
-          "name": "Леда и союзники",
-          "region": "Энир-Илим (Enir-Ilim)",
-          "image": "",
+          "id": "vozhd_krovopuskateley",
+          "name": "Вождь кровопускателей",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_promised_consort_radahn",
-          "name": "Радан — обещанный консорт",
-          "region": "Энир-Илим (Enir-Ilim)",
-          "image": "",
+          "id": "velikiy_krasnyy_medved_ralva",
+          "name": "Великий красный медведь Ральва",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_divine_beast_dancing_lion_rauh",
-          "name": "Священный зверь: Танцующий лев (Руины Раух)",
-          "region": "Древние руины Раух (Ancient Ruins of Rauh)",
-          "image": "",
+          "id": "velikiy_krasnyy_medved_rugali",
+          "name": "Великий красный медведь Ругали",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "dlc_ghostflame_dragon_southern_shore",
-          "name": "Дракон призрачного пламени (Южный берег)",
-          "region": "Южный берег (Southern Shore)",
-          "image": "",
+          "id": "strazh_dreva",
+          "name": "Страж Древа",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "zver_padayuschey_zvezdy",
+          "name": "Зверь Падающей звезды",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "pogrebalnaya_ptitsa",
+          "name": "Погребальная птица",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "koroleva_polulyudey_marigga",
+          "name": "Королева полулюдей Маригга",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "mechnik_poluchelovek_onze",
+          "name": "Мечник-получеловек Онзе",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "chyornyy_rytsar_edred",
+          "name": "Чёрный рыцарь Эдред",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "chyornyy_rytsar_geryu",
+          "name": "Чёрный рыцарь Гэрью",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "drevniy_chelovek_drakon",
+          "name": "Древний человек-дракон",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "plakalschik",
+          "name": "Плакальщик",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "tantsovschitsa_ranaha",
+          "name": "Танцовщица Ранаха",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rakshasa",
+          "name": "Ракшаса",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "krasnyy_medved",
+          "name": "Красный медведь",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "rytsar_odinochnoy_tyurmy",
+          "name": "Рыцарь Одиночной тюрьмы",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "deyn_suhoy_list",
+          "name": "Дейн Сухой Лист",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "graf_imir_mater_paltsev",
+          "name": "Граф Имир, матерь Пальцев",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         }
       ]
