@@ -233,11 +233,11 @@
       ]
     },
     {
-      "title": "Elden Ring — Лиурния Озёр",
+      "title": "Озёрная Лиурния",
       "bosses": [
         {
           "id": "er_red_wolf_radagon",
-          "name": "Красный волк Радагона",
+          "name": "Алый волк Радагона",
           "icon": "images/bosses/elden/liurnia/red_wolf.png",
           "rank": "B",
           "image": "images/bosses/elden/liurnia/red_wolf.png",
@@ -245,7 +245,7 @@
         },
         {
           "id": "er_rennala",
-          "name": "Реннала, Королева Полнолуния",
+          "name": "Королева Реннала Полнолунная",
           "icon": "images/bosses/elden/liurnia/rennala.png",
           "rank": "A",
           "image": "images/bosses/elden/liurnia/rennala.png",
@@ -253,72 +253,57 @@
         },
         {
           "id": "er_glintstone_dragon_smarag",
-          "name": "Блестящий каменный дракон Смараг",
+          "name": "Смараг, дракон блестящих камней",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
           "id": "er_glintstone_dragon_adula",
-          "name": "Блестящий каменный дракон Адула",
+          "name": "Адула, дракон блестящих камней",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
           "id": "er_tree_sentinel_liurnia",
-          "name": "Древесный страж (Лиурния)",
+          "name": "Воплощение Древа Эрд из Озёрной Лиурнии",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
           "id": "er_bell_bearing_hunter_church_vows",
-          "name": "Охотник за колокольными подшипниками (Храм обетов)",
+          "name": "Охотник за колокольными сферами из Озёрной Лиурнии",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
           "id": "er_deathbird_liurnia",
-          "name": "Птица смерти (Лиурния)",
+          "name": "Птица смерти из Озёрной Лиурнии",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
           "id": "er_night_cavalry_liurnia_north",
-          "name": "Ночной всадник (Север Лиурнии)",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_night_cavalry_liurnia_south",
-          "name": "Ночной всадник (Юг Лиурнии)",
+          "name": "Ночной всадник из Озёрной Лиурнии",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
           "id": "er_loretta",
-          "name": "Королевский рыцарь Лоретта",
+          "name": "Лоретта, королевский рыцарь",
           "icon": "images/bosses/elden/liurnia/loretta.png",
           "rank": "B",
           "image": "images/bosses/elden/liurnia/loretta.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_adula",
-          "name": "Дракон Смарагд",
-          "icon": "images/bosses/elden/liurnia/smarag.png",
-          "rank": "B",
-          "image": "images/bosses/elden/liurnia/smarag.png",
-          "description": "Описание скоро появится."
-        },
-        {
           "id": "er_magma_wyrm_makar",
-          "name": "Магмозмей Макар",
+          "name": "Магмовый змей Макар",
           "icon": "images/bosses/elden/liurnia/makar.png",
           "rank": "B",
           "image": "images/bosses/elden/liurnia/makar.png",
@@ -326,7 +311,7 @@
         },
         {
           "id": "er_cleanrot_knight",
-          "name": "Рыцарь гниения",
+          "name": "Рыцарь чистой гнили",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
@@ -340,14 +325,7 @@
         },
         {
           "id": "er_crystalian",
-          "name": "Кристаллиец",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
-          "description": "Описание скоро появится."
-        },
-        {
-          "id": "er_crystalian_duo",
-          "name": "Кристаллийцы (дуэт)",
+          "name": "Кристалиец из Озёрной Лиурнии",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
@@ -361,21 +339,77 @@
         },
         {
           "id": "er_black_knife_assassin_liurnia",
-          "name": "Ассасин Чёрного Ножа (Лиурния)",
+          "name": "Убийца из Чёрных ножей Озёрной Лиурнии",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
           "id": "er_erdtree_avatar_liurnia",
-          "name": "Аватар Древа Эрд",
+          "name": "Цербер кладбища Древа Эрд из Озёрной Лиурнии",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
         },
         {
-          "id": "er_royal_knight_loretta",
-          "name": "Королевский рыцарь Лоретта",
+          "id": "er_erdtree_onix_lord",
+          "name": "Ониксовый повелитель",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "er_erdtree_boat_tibia",
+          "name": "Лодочник Тибия из Озёрной Лиурнии",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "er_erdtree_kill_znamenie",
+          "name": "Убийца знамений",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "er_erdtree_spirit_ulitka",
+          "name": "Улитка-призывательница духов",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "er_erdtree_knight_search",
+          "name": "Рыцарь-ищейка",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "er_erdtree_bolls",
+          "name": "Болс, карианский рыцарь",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "er_erdtree_alekto",
+          "name": "Алекто, Главарь Чёрного ножа",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "er_erdtree_adan",
+          "name": "Адан, вор огня",
+          "icon": "images/bosses/placeholder.png",
+          "image": "images/bosses/placeholder.png",
+          "description": "Описание скоро появится."
+        },
+        {
+          "id": "er_royal_dead_bird",
+          "name": "Погребальная птица",
           "icon": "images/bosses/placeholder.png",
           "image": "images/bosses/placeholder.png",
           "description": "Описание скоро появится."
