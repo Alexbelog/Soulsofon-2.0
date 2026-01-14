@@ -288,30 +288,30 @@
     // --- Bloodborne ---
 
     { id:"bb_pale",         img:"images/achievements/bb_pale.png",         name:"PALEBLOOD HUNT", desc:"Bloodborne: начать охоту за бледной кровью.", kind:"manual" },
-    { id:"bb_workshop",         img:"images/achievements/bb_pale.png",         name:"WHISPER TO THE WORKSHOP", desc:"Bloodborne: впервые улучшить оружие и сразу после сделать жест “поклон/уважение” у верстака.", kind:"manual" },
+    { id:"bb_workshop",         img:"images/achievements/bb_workshop.png",         name:"WHISPER TO THE WORKSHOP", desc:"Bloodborne: впервые улучшить оружие и сразу после сделать жест “поклон/уважение” у верстака.", kind:"manual" },
 
-    { id:"bb_kills_15",   img:"images/achievements/bb_all.png",      name:"NIGHTMARE WARDEN", desc:"Bloodborne: победить 15 боссов.", kind:"manual",
+    { id:"bb_kills_15",   img:"images/achievements/bb_kills_15.png",      name:"NIGHTMARE WARDEN", desc:"Bloodborne: победить 15 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.bloodborne||0) >= 15 },
 
-    { id:"bb_clean_hands",  img:"images/achievements/bb_all.png",      name:"CLEANSE THE NIGHT", desc:"Bloodborne: победить 5 боссов без смертей на них.", kind:"manual",
+    { id:"bb_clean_hands",  img:"images/achievements/bb_clean_hands.png",      name:"CLEANSE THE NIGHT", desc:"Bloodborne: победить 5 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.bloodborne||0) >= 5 },
 
-    { id:"bb_nightmare_fed",img:"images/achievements/die_300.png",      name:"NIGHTMARE-FED", desc:"Bloodborne: умереть 60 раз.", kind:"manual",
+    { id:"bb_nightmare_fed",img:"images/achievements/bb_nightmare_fed.png",      name:"NIGHTMARE-FED", desc:"Bloodborne: умереть 60 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.bloodborne||0) >= 60 },
-    { id:"bb_beast_patience",img:"images/achievements/kills_50.png",    name:"BEAST PATIENCE", desc:"Bloodborne: потратить 30 попыток на одного босса.", kind:"manual",
+    { id:"bb_beast_patience",img:"images/achievements/bb_beast_patience.png",    name:"BEAST PATIENCE", desc:"Bloodborne: потратить 30 попыток на одного босса.", kind:"manual",
       check:({gameMaxTries}) => (gameMaxTries.bloodborne||0) >= 30 },
     
-    { id:"bb_max_insight",  img:"images/achievements/bb_pale.png", name:"EYES WIDE OPEN", desc:"Bloodborne: получить максимальное озарение (99 единиц).", kind:"manual" },
+    { id:"bb_max_insight",  img:"images/achievements/bb_max_insight.png", name:"EYES WIDE OPEN", desc:"Bloodborne: получить максимальное озарение (99 единиц).", kind:"manual" },
     { id:"bb_visceral",     img:"images/achievements/bb_visceral.png",     name:"VISCERAL", desc:"Bloodborne: добить босса висцеральной атакой.", kind:"manual" },
     
     
     { id:"bb_transcend", img:"images/achievements/bb_transcend.png", name:"TRANSCENDENCE",
       desc:"Bloodborne: дойти до одного из финалов (любой).", kind:"manual" },
 
-    { id:"bb_chalice", img:"images/achievements/bb_visceral.png", name:"PSALMS OF THE CHALICE",
+    { id:"bb_chalice", img:"images/achievements/bb_chalice.png", name:"PSALMS OF THE CHALICE",
       desc:"Bloodborne: открыть доступ ко всем Чашам", kind:"manual" },
 
-    { id:"bb_hunter's_dream", img:"images/achievements/bb_visceral.png", name:"DREAMWALKER",
+    { id:"bb_hunter's_dream", img:"images/achievements/bb_hunter's_dream.png", name:"DREAMWALKER",
       desc:"Bloodborne: открыть все ключевые зоны сна Охотника (надгробия).", kind:"manual" },
 
 { id:"bb_all",          img:"images/achievements/bb_all.png",          name:"THE HUNT ENDS", desc:"Bloodborne: убить всех боссов игры.", kind:"manual",
@@ -320,28 +320,28 @@
     // --- Sekiro ---
 
     { id:"sek_shinobi",     img:"images/achievements/sek_shinobi.png",     name:"SHINOBI", desc:"Sekiro: убить босса, полагаясь на стойкость и клинки.", kind:"manual" },
-    { id:"sek_shinobi2",     img:"images/achievements/sek_shinobi.png",     name:"A SHINOBI'S STILLNESS", desc:"Sekiro: простоять 60 секунд в скрытности (в кустах/тени), не двигаясь и не открывая меню.", kind:"manual" },
-    { id:"sek_shinobi3",     img:"images/achievements/sek_shinobi.png",     name:"HEEL ON THE SPEAR", desc:"Sekiro: выполнить 5 микири в одном бою и победить", kind:"manual" },
-    { id:"sek_kills_25",  img:"images/achievements/sek_shinobi.png", name:"IRON RESOLVE", desc:"Sekiro: победить 25 боссов.", kind:"manual",
+    { id:"sek_shinobi2",     img:"images/achievements/sek_shinobi2.png",     name:"A SHINOBI'S STILLNESS", desc:"Sekiro: простоять 60 секунд в скрытности (в кустах/тени), не двигаясь и не открывая меню.", kind:"manual" },
+    { id:"sek_shinobi3",     img:"images/achievements/sek_shinobi3.png",     name:"HEEL ON THE SPEAR", desc:"Sekiro: выполнить 5 микири в одном бою и победить", kind:"manual" },
+    { id:"sek_kills_25",  img:"images/achievements/sek_kills_25.png", name:"IRON RESOLVE", desc:"Sekiro: победить 25 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.sekiro||0) >= 25 },
 
-    { id:"sek_clean_hands", img:"images/achievements/sek_all.png",      name:"BLADE UNSULLIED", desc:"Sekiro: победить 8 боссов без смертей на них.", kind:"manual",
+    { id:"sek_clean_hands", img:"images/achievements/sek_clean_hands.png",      name:"BLADE UNSULLIED", desc:"Sekiro: победить 8 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.sekiro||0) >= 8 },
-    { id:"sek_fallen",      img:"images/achievements/die_666.png",      name:"FALLEN SHINOBI", desc:"Sekiro: умереть 100 раз.", kind:"manual",
+    { id:"sek_fallen",      img:"images/achievements/sek_fallen.png",      name:"FALLEN SHINOBI", desc:"Sekiro: умереть 100 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.sekiro||0) >= 100 },
-    { id:"sek_tenacity",    img:"images/achievements/kills_100.png",    name:"TENACITY OF STEEL", desc:"Sekiro: потратить 30 попыток на одного босса.", kind:"manual",
+    { id:"sek_tenacity",    img:"images/achievements/sek_tenacity.png",    name:"TENACITY OF STEEL", desc:"Sekiro: потратить 30 попыток на одного босса.", kind:"manual",
       check:({gameMaxTries}) => (gameMaxTries.sekiro||0) >= 30 },        
     
-    { id:"sek_mortal_blade", img:"images/achievements/sek_shinobi.png", name:"MORTAL BLADE",
+    { id:"sek_mortal_blade", img:"images/achievements/sek_mortal_blade.png", name:"MORTAL BLADE",
       desc:"Sekiro: получить Клинок бессмертных.", kind:"manual" },
 
     { id:"sek_severed_silence", img:"images/achievements/sek_silence.png", name:"SEVERED SILENCE",
       desc:"Sekiro: убить всех Безголовых на одном прохождении (5 штук)", kind:"manual" },
     
-    { id:"sek_arm_blade", img:"images/achievements/sek_shinobi.png", name:"ONE ARM, ONE BLADE",
+    { id:"sek_arm_blade", img:"images/achievements/sek_arm_blade.png", name:"ONE ARM, ONE BLADE",
       desc:"Sekiro: пройти игру до финальных титров, ни разу не используя боевые инструменты протеза.", kind:"manual" },
     
-    { id:"sek_ending", img:"images/achievements/sek_shinobi.png", name:"SHINOBI'S FATE",
+    { id:"sek_ending", img:"images/achievements/sek_ending.png", name:"SHINOBI'S FATE",
       desc:"Sekiro: получить любой финал.", kind:"manual" },
 
 { id:"sek_all",         img:"images/achievements/sek_all.png",         name:"ASHINA CLEARED", desc:"Sekiro: убить всех боссов игры.", kind:"manual",
