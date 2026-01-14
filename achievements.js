@@ -289,8 +289,7 @@
 
     { id:"bb_pale",         img:"images/achievements/bb_pale.png",         name:"PALEBLOOD HUNT", desc:"Bloodborne: начать охоту за бледной кровью.", kind:"manual" },
     { id:"bb_workshop",         img:"images/achievements/bb_pale.png",         name:"WHISPER TO THE WORKSHOP", desc:"Bloodborne: впервые улучшить оружие и сразу после сделать жест “поклон/уважение” у верстака.", kind:"manual" },
-    { id:"bb_gentleman",         img:"images/achievements/bb_pale.png",         name:"A GENTLEMAN OF YHARNAM", desc:"Bloodborne: перед боссом сделать жест “поклон”, а после его убийства жест “уважение”", kind:"manual" },
-    
+
     { id:"bb_kills_15",   img:"images/achievements/bb_all.png",      name:"NIGHTMARE WARDEN", desc:"Bloodborne: победить 15 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.bloodborne||0) >= 15 },
 
