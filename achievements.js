@@ -258,7 +258,7 @@
       check:({gameKills}) => (gameKills.ds2||0) >= 41 },
 
     { id:"ds3_blind",      img:"images/achievements/blind_gundir.png",      name:"BLIND JUDGEMENT", desc:"Dark Souls III: убить Гундира вслепую", kind:"manual" },
-
+    { id:"ds3_waltz",      img:"images/achievements/waltz.png",      name:"EARLY WALTZ", desc:"Dark Souls III: убить Танцовщицу до убийства Вордта из Холодной долины", kind:"manual" },
     { id:"ds3_kills_20",   img:"images/achievements/unkindled.png",    name:"UNKINDLED CHAMPION", desc:"Dark Souls III: победить 20 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.ds3||0) >= 20 },
 
@@ -273,7 +273,9 @@
       check:({gameMaxTries}) => (gameMaxTries.ds3||0) >= 30 },
         
     { id:"ds3_champion", img:"images/achievements/ds3_clan.png", name:"ASHEN CLAN",
-      desc:"Dark Souls III: достичь ранга 3 (или максимального) в одном из ковенантов.", kind:"manual" },    
+      desc:"Dark Souls III: достичь ранга 3 (или максимального) в одном из ковенантов.", kind:"manual" },
+    { id:"ds3_giantfalls",      img:"images/achievements/giantfalls.png",      name:"A GIANT FALLS UNBOWED", desc:"Dark Souls III: победить Гиганта Йорма без использования Повелителя бурь (особого меча из арены).", kind:"manual" },
+    
 
     { id:"ds3_cinder",      img:"images/achievements/ds3_cinder.png",      name:"LORD OF CINDER", desc:"Dark Souls III: одолеть повелителей пепла и довести дело до конца.", kind:"manual" },
 
