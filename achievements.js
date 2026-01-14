@@ -324,8 +324,6 @@
     { id:"sek_shinobi3",     img:"images/achievements/sek_shinobi.png",     name:"HEEL ON THE SPEAR", desc:"Sekiro: выполнить 5 микири в одном бою и победить", kind:"manual" },
     { id:"sek_kills_25",  img:"images/achievements/sek_shinobi.png", name:"IRON RESOLVE", desc:"Sekiro: победить 25 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.sekiro||0) >= 25 },
-    { id:"sek_kills_35",  img:"images/achievements/sek_all.png",     name:"EDGE OF DEATH", desc:"Sekiro: победить 35 боссов.", kind:"manual",
-      check:({gameKills}) => (gameKills.sekiro||0) >= 35 },
 
     { id:"sek_clean_hands", img:"images/achievements/sek_all.png",      name:"BLADE UNSULLIED", desc:"Sekiro: победить 8 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.sekiro||0) >= 8 },
