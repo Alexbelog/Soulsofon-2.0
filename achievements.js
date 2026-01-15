@@ -323,8 +323,6 @@
       check:({gameNoDeathKills}) => (gameNoDeathKills.sekiro||0) >= 8 },
     { id:"sek_fallen",      img:"images/achievements/sek_fallen.png",      name:"FALLEN SHINOBI", desc:"Sekiro: умереть 100 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.sekiro||0) >= 100 },
-    { id:"sek_tenacity",    img:"images/achievements/sek_tenacity.png",    name:"TENACITY OF STEEL", desc:"Sekiro: потратить 30 попыток на одного босса.", kind:"manual",
-      check:({gameMaxTries}) => (gameMaxTries.sekiro||0) >= 30 },        
     
     { id:"sek_mortal_blade", img:"images/achievements/sek_mortal_blade.png", name:"MORTAL BLADE",
       desc:"Sekiro: получить Клинок бессмертных.", kind:"manual" },
