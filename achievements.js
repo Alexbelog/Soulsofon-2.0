@@ -242,8 +242,6 @@
 
     { id:"ds2_broken_road", img:"images/achievements/broke_road.png",   name:"BROKEN ROAD", desc:"Dark Souls II: умереть 100 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.ds2||0) >= 100 },
-    { id:"ds2_stubborn",    img:"images/achievements/stubborn_h.png",  name:"STUBBORN HEART", desc:"Dark Souls II: потратить 30 попыток на одного босса.", kind:"manual",
-      check:({gameMaxTries}) => (gameMaxTries.ds2||0) >= 30 },
         
     { id:"ds2_champion", img:"images/achievements/ds2_champion.png", name:"CHAMPION",
       desc:"Dark Souls II: достичь ранга 3 (или максимального) в одном из ковенантов.", kind:"manual" },    
@@ -258,7 +256,7 @@
       check:({gameKills}) => (gameKills.ds2||0) >= 41 },
 
     { id:"ds3_blind",      img:"images/achievements/blind_gundir.png",      name:"BLIND JUDGEMENT", desc:"Dark Souls III: убить Гундира вслепую", kind:"manual" },
-    { id:"ds3_waltz",      img:"images/achievements/waltz.png",      name:"EARLY WALTZ", desc:"Dark Souls III: убить Танцовщицу до убийства Вордта из Холодной долины", kind:"manual" },
+    { id:"ds3_waltz",      img:"images/achievements/waltz.png",      name:"EARLY WALTZ", desc:"Dark Souls III: убить Танцовщицу до убийства Гиганта Йорма (а лучше ещё раньше)", kind:"manual" },
     { id:"ds3_kills_20",   img:"images/achievements/unkindled.png",    name:"UNKINDLED CHAMPION", desc:"Dark Souls III: победить 20 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.ds3||0) >= 20 },
 
