@@ -267,8 +267,6 @@
       check:(ctx) => (ctx.gameKills?.ds3 || 0) >= 5 && (ctx.gameMaxTries?.ds3 || 0) <= 10 },
     { id:"ds3_ashen_deaths",img:"images/achievements/ds3misery.png",    name:"ASHEN MISERY", desc:"Dark Souls III: умереть 100 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.ds3||0) >= 100 },
-    { id:"ds3_unbroken",    img:"images/achievements/ubrokenash.png",   name:"UNBROKEN ASH", desc:"Dark Souls III: потратить 30 попыток на одного босса.", kind:"manual",
-      check:({gameMaxTries}) => (gameMaxTries.ds3||0) >= 30 },
         
     { id:"ds3_champion", img:"images/achievements/ds3_clan.png", name:"ASHEN CLAN",
       desc:"Dark Souls III: достичь ранга 3 (или максимального) в одном из ковенантов.", kind:"manual" },
@@ -296,8 +294,6 @@
 
     { id:"bb_nightmare_fed",img:"images/achievements/bb_nightmare_fed.png",      name:"NIGHTMARE-FED", desc:"Bloodborne: умереть 60 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.bloodborne||0) >= 60 },
-    { id:"bb_beast_patience",img:"images/achievements/bb_beast_patience.png",    name:"BEAST PATIENCE", desc:"Bloodborne: потратить 30 попыток на одного босса.", kind:"manual",
-      check:({gameMaxTries}) => (gameMaxTries.bloodborne||0) >= 30 },
     
     { id:"bb_max_insight",  img:"images/achievements/bb_max_insight.png", name:"EYES WIDE OPEN", desc:"Bloodborne: получить максимальное озарение (99 единиц).", kind:"manual" },
     { id:"bb_visceral",     img:"images/achievements/bb_visceral.png",     name:"VISCERAL", desc:"Bloodborne: добить босса висцеральной атакой.", kind:"manual" },
