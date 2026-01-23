@@ -302,12 +302,6 @@
     { id:"bb_transcend", img:"images/achievements/bb_transcend.png", name:"TRANSCENDENCE",
       desc:"Bloodborne: дойти до одного из финалов (любой).", kind:"manual" },
 
-    { id:"bb_chalice", img:"images/achievements/bb_chalice.png", name:"PSALMS OF THE CHALICE",
-      desc:"Bloodborne: открыть доступ ко всем Чашам", kind:"manual" },
-
-    { id:"bb_hunter's_dream", img:"images/achievements/bb_hunter's_dream.png", name:"DREAMWALKER",
-      desc:"Bloodborne: открыть все ключевые зоны сна Охотника (надгробия).", kind:"manual" },
-
 { id:"bb_all",          img:"images/achievements/bb_all.png",          name:"THE HUNT ENDS", desc:"Bloodborne: убить всех боссов игры.", kind:"manual",
       check:({gameKills}) => (gameKills.bloodborne||0) >= 22 },
 
