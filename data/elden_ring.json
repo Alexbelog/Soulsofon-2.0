@@ -1273,183 +1273,211 @@
         {
           "id": "rytsar_smerti_DLC",
           "name": "Рыцарь Смерти",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/rytsar_smerti_DLC1.png",
+          "image": "images/bosses/elden/DLC/rytsar_smerti_DLC.png",
           "description": "Рыцарь Смерти — мрачный воин, служащий силам, которые отвергают саму границу между жизнью и гибелью. Его движения холодны и точны, будто он давно перестал быть живым человеком. Он использует силу смерти не как проклятие, а как оружие и источник дисциплины. В его образе чувствуется фанатичная преданность тьме, ставшей законом. Бой с ним давит атмосферой неизбежности и ошибки здесь наказываются сразу. Победа означает, что даже смерть можно заставить отступить."
         },
         {
           "id": "zolotoy_gippopotam_DLC",
           "name": "Золотой гиппопотам",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/zolotoy_gippopotam_DLC1.png",
+          "image": "images/bosses/elden/DLC/zolotoy_gippopotam_DLC.png",
           "description": "Золотой гиппопотам — чудовищное создание, искажённое благодатью и жадностью. Его массивное тело и неестественная скорость превращают бой в хаос и давление. Он символизирует то, как благодать может извратить даже простое существо, сделав его орудием разрушения. Гиппопотам атакует без рассуждений, полагаясь на массу и ярость. Сражение требует внимательности и правильного выбора дистанции. Победа выглядит как слом ещё одного уродливого эксперимента этого мира."
         },
         {
-          "id": "drakon_smerti_DLC",
-          "name": "Дракон смерти",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "id": "drakon_smerti_DLC1",
+          "name": "Дракон смерти (Лазурное побережье)",
+          "icon": "images/bosses/elden/DLC/drakon_smerti_DLC11.png",
+          "image": "images/bosses/elden/DLC/drakon_smerti_DLC1.png",
           "description": "Дракон смерти — древний ящер, поражённый силами тления и истинной гибели. Его дыхание и атаки несут не просто урон, а само ощущение конца. В отличие от обычных драконов, он выглядит как ходячий труп, удерживаемый магией. Бой с ним тяжёл и изматывающий, наполненный эффектами смерти. Этот дракон символизирует вырождение даже самых могучих существ. Победа ощущается как торжество жизни над абсолютным распадом."
         },
         {
-          "id": "drakon_zubatoy_gory_DLC",
+          "id": "drakon_smerti_DLC2",
+          "name": "Дракон смерти (Равнина Надгробий)",
+          "icon": "images/bosses/elden/DLC/drakon_smerti_DLC21.png",
+          "image": "images/bosses/elden/DLC/drakon_smerti_DLC2.png",
+          "description": "Дракон смерти — древний ящер, поражённый силами тления и истинной гибели. Его дыхание и атаки несут не просто урон, а само ощущение конца. В отличие от обычных драконов, он выглядит как ходячий труп, удерживаемый магией. Бой с ним тяжёл и изматывающий, наполненный эффектами смерти. Этот дракон символизирует вырождение даже самых могучих существ. Победа ощущается как торжество жизни над абсолютным распадом."
+        },
+        {
+          "id": "drakon_smerti_DLC3",
+          "name": "Дракон смерти (Теневой Альтус)",
+          "icon": "images/bosses/elden/DLC/drakon_smerti_DLC31.png",
+          "image": "images/bosses/elden/DLC/drakon_smerti_DLC3.png",
+          "description": "Дракон смерти — древний ящер, поражённый силами тления и истинной гибели. Его дыхание и атаки несут не просто урон, а само ощущение конца. В отличие от обычных драконов, он выглядит как ходячий труп, удерживаемый магией. Бой с ним тяжёл и изматывающий, наполненный эффектами смерти. Этот дракон символизирует вырождение даже самых могучих существ. Победа ощущается как торжество жизни над абсолютным распадом."
+        },
+        {
+          "id": "drakon_zubatoy_gory_DLC1",
           "name": "Дракон зубатой горы",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/drakon_zubatoy_gory_DLC11.png",
+          "image": "images/bosses/elden/DLC/drakon_zubatoy_gory_DLC1.png",
           "description": "Дракон Зубатой горы — хищник, приспособившийся к суровым условиям Царства Теней. Его атаки резкие и агрессивные, а рельеф местности делает бой особенно опасным. Он не выглядит благородным, это чистый зверь, выживший за счёт жестокости. Дракон использует высоту и внезапность как оружие. Сражение требует постоянного движения. Победа доказывает превосходство над природной яростью."
+        },
+        {
+          "id": "drakon_zubatoy_gory_DLC2",
+          "name": "Драконы зубатой горы",
+          "icon": "images/bosses/elden/DLC/drakon_zubatoy_gory_DLC21.png",
+          "image": "images/bosses/elden/DLC/drakon_zubatoy_gory_DLC2.png",
+          "description": "Драконы Зубатой горы — хищники, приспособившийся к суровым условиям Царства Теней. Их атаки резкие и агрессивные, а рельеф местности делает бой особенно опасным. Он не выглядит благородным, это чистые звери, выжившие за счёт жестокости. Драконы используют высоту и внезапность как оружие. Сражение требует постоянного движения. Победа доказывает превосходство над природной яростью."
         },
         {
           "id": "drevniy_drakon_senessaks_DLC",
           "name": "Древний дракон Сенессакс",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/drevniy_drakon_senessaks_DLC1.png",
+          "image": "images/bosses/elden/DLC/drevniy_drakon_senessaks_DLC.png",
           "description": "Древний дракон Сенессакс — одно из последних воплощений истинной драконьей эпохи. Его присутствие внушает уважение и страх, ведь он несёт в себе память времён до Порядка. Сенессакс использует молнии и сокрушительные удары, демонстрируя первородную мощь. Бой с ним ощущается как столкновение с живой легендой. Он не служит никому, кроме собственной природы. Победа — это прикосновение к истокам мира."
         },
         {
           "id": "beyl_uzhasnyy_DLC",
           "name": "Бейл Ужасный",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/beyl_uzhasnyy_DLC1.png",
+          "image": "images/bosses/elden/DLC/beyl_uzhasnyy_DLC.png",
           "description": "Бейл Ужасный — легендарный дракон, чьё имя внушает страх даже среди других чудовищ. Он воплощает чистое разрушение и ярость, не сдерживаемую ни разумом, ни долгом. Его атаки жестоки и беспощадны, а поле боя быстро превращается в ад. Бейл не защищает ничего — он уничтожает ради самого уничтожения. Сражение требует максимальной концентрации и выносливости. Победа становится одной из самых тяжёлых и значимых в пути Погасшего."
         },
         {
           "id": "glavnyy_inkvizitor_yori_DLC",
           "name": "Главный инквизитор Йори",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/glavnyy_inkvizitor_yori_DLC1.png",
+          "image": "images/bosses/elden/DLC/glavnyy_inkvizitor_yori_DLC.png",
           "description": "Главный инквизитор Йори — палач и судья Царства Теней, карающий тех, кто нарушает запретные законы. Он сражается хладнокровно и методично, используя власть и страх как оружие. Йори символизирует репрессивную сторону порядка, где истина заменена наказанием. Его атаки точны и не прощают ошибок. В этом бою чувствуется не ярость, а холодная система. Победа означает разрушение ещё одного столпа угнетения."
         },
         {
           "id": "labirit_proklyatyy_klinok_DLC",
           "name": "Лабирит, проклятый клинок",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/labirit_proklyatyy_klinok_DLC1.png",
+          "image": "images/bosses/elden/DLC/labirit_proklyatyy_klinok_DLC.png",
           "description": "Лабирит, проклятый клинок, — воин, связавший свою судьбу с запретным оружием. Его движения быстры и смертоносны, будто клинок ведёт его сам. Проклятие усиливает его силу, но лишает остатка человечности. Бой с ним напоминает дуэль с ожившим оружием. Ошибки здесь смертельны. Победа освобождает клинок от очередного носителя."
         },
         {
           "id": "vozhd_krovopuskateley_DLC",
           "name": "Вождь кровопускателей",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/vozhd_krovopuskateley_DLC1.png",
+          "image": "images/bosses/elden/DLC/vozhd_krovopuskateley_DLC.png",
           "description": "Вождь кровопускателей — предводитель дикого культа, поклоняющегося боли и кровопролитию. Его сила основана на жертвах и жестоких ритуалах. В бою он агрессивен и давит количеством эффектов. Этот противник подчёркивает, как легко вера превращается в резню. Сражение хаотично и опасно. Победа разрушает один из самых мрачных культов Царства Теней."
         },
         {
           "id": "velikiy_krasnyy_medved_ralva_DLC",
           "name": "Великий красный медведь Ральва",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/velikiy_krasnyy_medved_ralva_DLC1.png",
+          "image": "images/bosses/elden/DLC/velikiy_krasnyy_medved_ralva_DLC.png",
           "description": "Великий красный медведь Ральва — древний зверь, напитанный силой крови и ярости. Его удары сокрушительны, а агрессия не знает пауз. Ральва — воплощение дикости, выжившей в тени цивилизации. Бой требует осторожности и точных ответов. Медведь наказывает за самоуверенность. Победа доказывает превосходство разума над зверем."
         },
         {
           "id": "velikiy_krasnyy_medved_rugali_DLC",
           "name": "Великий красный медведь Ругали",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/velikiy_krasnyy_medved_rugali_DLC1.png",
+          "image": "images/bosses/elden/DLC/velikiy_krasnyy_medved_rugali_DLC.png",
           "description": "Великий красный медведь Ругали — родственный Ральве зверь, но ещё более жестокий и неуправляемый. Его стиль боя прямолинеен, но смертельно опасен. Он полагается на давление и грубую силу. Ругали символизирует неукротимую сторону природы Царства Теней. Сражение тяжёлое и изматывающее. Победа — это подавление чистой ярости."
         },
         {
-          "id": "strazh_dreva_DLC",
+          "id": "strazh_dreva_DLC1",
           "name": "Страж Древа",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/strazh_dreva_DLC11.png",
+          "image": "images/bosses/elden/DLC/strazh_dreva_DLC1.png",
+          "description": "Страж Древа — рыцарь, поставленный охранять влияние Эрдтри даже в Царстве Теней. Его золотые доспехи контрастируют с мрачной землёй. Он действует как орудие Порядка, а не как личность. В бою важна дисциплина и выдержка. Страж символизирует вторжение света в тьму. Победа ломает ещё один оплот навязанного порядка."
+        },
+        {
+          "id": "strazh_dreva_DLC2",
+          "name": "Страж Древа",
+          "icon": "images/bosses/elden/DLC/strazh_dreva_DLC21.png",
+          "image": "images/bosses/elden/DLC/strazh_dreva_DLC2.png",
           "description": "Страж Древа — рыцарь, поставленный охранять влияние Эрдтри даже в Царстве Теней. Его золотые доспехи контрастируют с мрачной землёй. Он действует как орудие Порядка, а не как личность. В бою важна дисциплина и выдержка. Страж символизирует вторжение света в тьму. Победа ломает ещё один оплот навязанного порядка."
         },
         {
           "id": "zver_padayuschey_zvezdy_DLC",
           "name": "Зверь Падающей звезды",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/zver_padayuschey_zvezdy_DLC1.png",
+          "image": "images/bosses/elden/DLC/zver_padayuschey_zvezdy_DLC.png",
           "description": "Зверь Падающей звезды — космическое создание, пришедшее в Царство Теней из глубин звёзд. Его атаки подчиняются гравитации и искажают пространство. Он агрессивен и непредсказуем. Бой с ним ощущается как столкновение с инородной физикой. Существо подчёркивает связь мира с космосом. Победа даёт ощущение победы над чуждым законом."
         },
         {
           "id": "pogrebalnaya_ptitsa_DLC",
           "name": "Погребальная птица",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/pogrebalnaya_ptitsa_DLC1.png",
+          "image": "images/bosses/elden/DLC/pogrebalnaya_ptitsa_DLC.png",
           "description": "Погребальная птица — ночное чудовище, связанное с ритуалами смерти и тления. Она появляется внезапно и атакует широкими взмахами. В Царстве Теней её образ выглядит особенно зловещим. Бой требует дистанции и внимания. Птица символизирует культ смерти. Победа лишает ночь одного из её слуг."
         },
         {
           "id": "koroleva_polulyudey_marigga_DLC",
           "name": "Королева полулюдей Маригга",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/koroleva_polulyudey_marigga_DLC1.png",
+          "image": "images/bosses/elden/DLC/koroleva_polulyudey_marigga_DLC.png",
           "description": "Королева полулюдей Маригга — вожак дикого племени, выжившего в условиях Царства Теней. Её власть держится на силе и страхе. В бою она полагается на стаю и агрессию. Сражение превращается в хаос и давление. Маригга символизирует звериную форму правления. Победа лишает племя центра силы."
         },
         {
           "id": "mechnik_poluchelovek_onze_DLC",
           "name": "Мечник-получеловек Онзе",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/mechnik_poluchelovek_onze_DLC1.png",
+          "image": "images/bosses/elden/DLC/mechnik_poluchelovek_onze_DLC.png",
           "description": "Мечник-получеловек Онзе — ловкий воин, сочетающий звериную ярость и человеческую технику. Его атаки быстры и смертоносны. Онзе выглядит как продукт выживания в жёстком мире. Бой требует реакции и точности. Этот противник опасен на ближней дистанции. Победа доказывает превосходство контроля над инстинктами."
         },
         {
           "id": "chyornyy_rytsar_edred_DLC",
           "name": "Чёрный рыцарь Эдред",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/chyornyy_rytsar_edred_DLC1.png",
+          "image": "images/bosses/elden/DLC/chyornyy_rytsar_edred_DLC.png",
           "description": "Чёрный рыцарь Эдред — воин, отрёкшийся от света и служащий тьме. Его броня и стиль боя отражают отказ от прежних клятв. Он сражается хладнокровно и без колебаний. Эдред символизирует падение рыцарства. Бой требует терпения. Победа закрывает путь ещё одному павшему идеалу."
         },
         {
           "id": "chyornyy_rytsar_geryu_DLC",
           "name": "Чёрный рыцарь Гэрью",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/chyornyy_rytsar_geryu_DLC1.png",
+          "image": "images/bosses/elden/DLC/chyornyy_rytsar_geryu_DLC.png",
           "description": "Чёрный рыцарь Гэрью — ещё один представитель павшего ордена. Он действует агрессивнее и давит сериями атак. Его ярость показывает, как идеалы превращаются в ненависть. В бою важно не поддаваться давлению. Гэрью — отражение деградации веры. Победа означает конец ещё одной искажённой клятвы."
         },
         {
           "id": "drevniy_chelovek_drakon_DLC",
           "name": "Древний человек-дракон",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/drevniy_chelovek_drakon_DLC1.png",
+          "image": "images/bosses/elden/DLC/drevniy_chelovek_drakon_DLC.png",
           "description": "Древний человек-дракон — гибрид, соединяющий человеческую форму и драконью силу. Он выглядит как результат запретных экспериментов. Его атаки сочетают магию и физическую мощь. Этот противник подчёркивает стремление людей стать чем-то большим любой ценой. Бой тяжёлый и непредсказуемый. Победа — отказ от ложной эволюции."
         },
         {
           "id": "plakalschik_DLC",
           "name": "Плакальщик",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/plakalschik_DLC1.png",
+          "image": "images/bosses/elden/DLC/plakalschik_DLC.png",
           "description": "Плакальщик — странное существо, чья сила основана на звуке, страхе и отчаянии. Его атаки сбивают ритм и ломают концентрацию. Он не выглядит сильным физически, но опасен психологически. Плакальщик символизирует боль и утрату. Бой требует хладнокровия. Победа — преодоление страха."
         },
         {
           "id": "tantsovschitsa_ranaha_DLC",
           "name": "Танцовщица Ранаха",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/tantsovschitsa_ranaha_DLC1.png",
+          "image": "images/bosses/elden/DLC/tantsovschitsa_ranaha_DLC.png",
           "description": "Танцовщица Ранаха — изящная и смертельно опасная воительница. Её движения напоминают танец, где каждый шаг — удар. Она использует скорость и ритм как оружие. Бой похож на дуэль искусства и смерти. Ошибки здесь дорого стоят. Победа означает слом идеальной формы."
         },
         {
           "id": "rakshasa_DLC",
           "name": "Ракшаса",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/rakshasa_DLC1.png",
+          "image": "images/bosses/elden/DLC/rakshasa_DLC.png",
           "description": "Ракшаса — демоническое существо, питающееся хаосом и болью. Его атаки жестоки и непредсказуемы. Он воплощает чуждую мораль и жестокость. Бой с ним давит атмосферой безысходности. Этот враг символизирует тьму без оправданий. Победа ощущается как очищение."
         },
         {
           "id": "krasnyy_medved_DLC",
           "name": "Красный медведь",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/krasnyy_medved_DLC1.png",
+          "image": "images/bosses/elden/DLC/krasnyy_medved_DLC.png",
           "description": "Красный медведь — свирепый хищник, выживший в условиях Царства Теней. Его стиль боя прост, но крайне опасен. Он полагается на массу и ярость. Медведь символизирует дикую сторону мира. Бой наказывает за ошибки. Победа — торжество разума над зверем."
         },
         {
           "id": "rytsar_odinochnoy_tyurmy_DLC",
           "name": "Рыцарь Одиночной тюрьмы",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/rytsar_odinochnoy_tyurmy_DLC1.png",
+          "image": "images/bosses/elden/DLC/rytsar_odinochnoy_tyurmy_DLC.png",
           "description": "Рыцарь Одиночной тюрьмы — заключённый воин, лишённый света и надежды. Его сила подпитана отчаянием и ненавистью. Он сражается яростно, будто желая разрушить всё вокруг. Этот противник отражает жестокость заключения. Бой требует выдержки. Победа освобождает территорию от узника."
         },
         {
           "id": "deyn_suhoy_list_DLC",
           "name": "Дейн Сухой Лист",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/deyn_suhoy_list_DLC1.png",
+          "image": "images/bosses/elden/DLC/deyn_suhoy_list_DLC.png",
           "description": "Дейн Сухой Лист — странствующий воин, избравший путь одиночества и отрешения. Его стиль боя спокоен и выверен. Он сражается не ради власти, а ради принципа. Дейн символизирует отказ от мира. Бой напоминает философскую дуэль. Победа — признание силы пути."
         },
         {
           "id": "graf_imir_mater_paltsev_DLC",
           "name": "Граф Имир, матерь Пальцев",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/DLC/graf_imir_mater_paltsev_DLC1.png",
+          "image": "images/bosses/elden/DLC/graf_imir_mater_paltsev_DLC.png",
           "description": "Граф Имир, матерь Пальцев, — одна из самых загадочных фигур Царства Теней. Он связан с волей Пальцев и тайнами, скрытыми от мира. Его образ сочетает власть, безумие и древнюю магию. Бой с ним ощущается как столкновение с самой идеей манипуляции судьбой. Имир не просто враг, а воплощение системы контроля. Победа означает разрыв ещё одной нити, ведущей к слепому подчинению."
         }
       ]
