@@ -187,6 +187,13 @@
       "title": "Замогилье",
       "bosses": [
         {
+          "id": "loskutik_zamogilie",
+          "name": "Лоскутик",
+          "icon": "images/bosses/elden/zamogilie/loskutik_zamogilie1.png",
+          "image": "images/bosses/elden/zamogilie/loskutik_zamogilie.png",
+          "description": "Лоскутик — является одним из Погасших и мятежником, который заправляет бандой бывших пехотинцев, нынче ставших бандитами. Благодаря им он сумел открыть небольшую лавку, в которой продаёт различные товары."
+        },
+        {
           "id": "priraschennyy_otprysk_zamogilie",
           "name": "Приращенный отпрыск",
           "icon": "images/bosses/elden/zamogilie/priraschennyy_otprysk_zamogilie1.png",
