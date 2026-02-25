@@ -1061,113 +1061,113 @@
         {
           "id": "astel_zvyozdy_tmy_velikani",
           "name": "Астель, Звёзды Тьмы",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/astel_zvyozdy_tmy_velikani1.png",
+          "image": "images/bosses/elden/velikans/astel_zvyozdy_tmy_velikani.png",
           "description": "Астель, Звёзды Тьмы, — космическое создание, связанное с глубинами пустоты и падением звёзд. Его форма выглядит чуждой и пугающей, будто он принадлежит иному миру с иными законами. Астель атакует гравитацией, взрывами энергии и резкими телепортациями. Бой с ним создаёт ощущение нестабильности пространства и времени. Он символизирует угрозу, пришедшую извне Междуземья. Победа над Астелем ощущается как одоление самой пустоты."
         },
         {
           "id": "borelis_ledenyaschiy_tuman_velikani",
           "name": "Борелис Леденящий Туман",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/borelis_ledenyaschiy_tuman_velikani1.png",
+          "image": "images/bosses/elden/velikans/borelis_ledenyaschiy_tuman_velikani.png",
           "description": "Борелис Леденящий Туман — древний ледяной дракон, чьё дыхание замораживает сам воздух. Он парит над снежными равнинами, превращая поле боя в смертельную бурю. Борелис сочетает мощь дракона с холодом, который замедляет и ломает выживание. Его присутствие подчёркивает суровость Вершин великанов. Сражение требует контроля дистанции и выносливости. Победа приносит ощущение покорения стихии холода."
         },
         {
           "id": "velikiy_zmey_teodoriks_velikani",
           "name": "Великий змей Теодорикс",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/velikiy_zmey_teodoriks_velikani1.png",
+          "image": "images/bosses/elden/velikans/velikiy_zmey_teodoriks_velikani.png",
           "description": "Великий змей Теодорикс — искажённое существо, в котором остатки человечности давно поглощены чудовищной формой. Он использует разрушительные атаки и магию, превращая бой в хаотичную схватку. Теодорикс охраняет путь среди снегов, словно живой барьер. Его образ напоминает о цене запретных экспериментов и силы. Бой тяжёлый и изматывающий. Победа открывает дорогу дальше и приносит редкие награды."
         },
         {
           "id": "komandir_nayll_velikani",
           "name": "Командир Найлл",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/komandir_nayll_velikani1.png",
+          "image": "images/bosses/elden/velikans/komandir_nayll_velikani.png",
           "description": "Командир Найлл — военачальник, сохранивший дисциплину даже на краю замёрзшего мира. Он использует призрачных солдат и молниеносные атаки. Найлл действует хладнокровно, как истинный командир. Его бой проверяет контроль толпы и приоритет целей. Он символизирует военную сторону Вершин великанов. Победа ослабляет влияние старых армий."
         },
         {
           "id": "gnilostnyy_duelyant_hranitel_mogil_velikani",
           "name": "Гнилостный дуэлянт, хранитель могил",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/gnilostnyy_duelyant_hranitel_mogil_velikani1.png",
+          "image": "images/bosses/elden/velikans/gnilostnyy_duelyant_hranitel_mogil_velikani.png",
           "description": "Гнилостный дуэлянт, хранитель могил, — воин, поражённый скверной, но не утративший боевых навыков. Его атаки агрессивны и ядовиты. Он охраняет катакомбы, не позволяя живым тревожить мёртвых. Бой опасен из-за накопления гнили. Дуэлянт отражает упадок орденов. Победа завершает его долг."
         },
         {
           "id": "krestonosets_bastard_velikani",
           "name": "Крестоносец-бастард",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/krestonosets_bastard_velikani1.png",
+          "image": "images/bosses/elden/velikans/krestonosets_bastard_velikani.png",
           "description": "Крестоносец-бастард — фанатичный воин, идущий по пути насилия и веры. Он атакует яростно, не заботясь о защите. Его присутствие подчёркивает жестокость религиозных конфликтов. Бой динамичен и беспощаден. Крестоносец символизирует слепую преданность. Победа ломает ещё один фанатичный клинок."
         },
         {
           "id": "vik_rytsar_kruglogo_stola_velikani",
           "name": "Вик, рыцарь Круглого стола",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/vik_rytsar_kruglogo_stola_velikani1.png",
+          "image": "images/bosses/elden/velikans/vik_rytsar_kruglogo_stola_velikani.png",
           "description": "Вик, рыцарь Круглого стола, — павший герой, утративший былую честь. Его стиль боя сочетает дисциплину и отчаяние. Вик сражается так, будто защищает давно утерянные идеалы. Бой напоминает дуэль с прошлым. Его образ трагичен и мрачен. Победа закрывает страницу забытой легенды."
         },
         {
           "id": "nochnoy_vsadnik_velikani",
           "name": "Ночной всадник",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/nochnoy_vsadnik_velikani1.png",
+          "image": "images/bosses/elden/velikans/nochnoy_vsadnik_velikani.png",
           "description": "Ночной всадник Вершин великанов — безмолвный каратель, выходящий на охоту под покровом снежной ночи. Он использует скорость коня и длинное оружие. Его атаки особенно опасны на открытых равнинах. Всадник словно часть самой ночи. Бой требует хладнокровия. Победа рассеивает ночную угрозу."
         },
         {
           "id": "voploschenie_dreva_erd_velikani",
           "name": "Воплощение Древа Эрд",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/voploschenie_dreva_erd_velikani1.png",
+          "image": "images/bosses/elden/velikans/voploschenie_dreva_erd_velikani.png",
           "description": "Воплощение Древа Эрд — аватар божественного порядка, проявляющийся даже в замёрзших землях. Оно атакует тяжёлыми ударами и священной магией. Его присутствие подчёркивает власть Эрдтри над миром. Бой символизирует конфликт с системой. Победа ослабляет влияние Порядка."
         },
         {
           "id": "izyazvlyonnyy_drevesnyy_duh_velikani",
           "name": "Изъязвлённый древесный дух",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/izyazvlyonnyy_drevesnyy_duh_velikani1.png",
+          "image": "images/bosses/elden/velikans/izyazvlyonnyy_drevesnyy_duh_velikani.png",
           "description": "Изъязвлённый древесный дух — искажённое порождение корней, поражённых гнилью. Он нападает яростно и хаотично. Бой часто происходит в тесном пространстве. Существо символизирует болезнь земли. Победа очищает заражённый участок."
         },
         {
           "id": "drevniy_geroy_zamora_velikani",
           "name": "Древний герой Замора",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/drevniy_geroy_zamora_velikani1.png",
+          "image": "images/bosses/elden/velikans/drevniy_geroy_zamora_velikani.png",
           "description": "Древний герой Замора — воин ледяных земель, связанный с древними войнами. Его стиль сочетает скорость и холодную магию. Он сражается молча и точно. Герой выглядит как призрак прошлого. Бой требует реакции. Победа приносит древние знания."
         },
         {
           "id": "pogrebalnaya_ptitsa_velikani",
           "name": "Погребальная птица",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/pogrebalnaya_ptitsa_velikani1.png",
+          "image": "images/bosses/elden/velikans/pogrebalnaya_ptitsa_velikani.png",
           "description": "Погребальная птица — ночное чудовище, связанное с ритуалами смерти. Она появляется среди снегов после заката. Её атаки широкие и опасные. Птица усиливает атмосферу ужаса. Бой требует дистанции. Победа лишает ночь одного из слуг."
         },
         {
           "id": "gnilostnoe_voploschenie_velikani",
           "name": "Гнилостное воплощение",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/gnilostnoe_voploschenie_velikani1.png",
+          "image": "images/bosses/elden/velikans/gnilostnoe_voploschenie_velikani.png",
           "description": "Гнилостное воплощение — живая форма алой гнили. Оно атакует агрессивно и быстро. В Вершинах великанов гниль выглядит особенно чуждо. Бой опасен из-за эффектов разложения. Существо символизирует болезнь мира. Победа очищает территорию."
         },
         {
           "id": "ulitka_prizyvatelnitsa_duhov_velikani",
           "name": "Улитка-призывательница духов",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/ulitka_prizyvatelnitsa_duhov_velikani1.png",
+          "image": "images/bosses/elden/velikans/ulitka_prizyvatelnitsa_duhov_velikani.png",
           "description": "Улитка-призывательница духов — коварный противник, скрывающийся за фантомами. Она предпочитает чужие руки прямому бою. В снегах её трудно заметить. Бой проверяет наблюдательность. Победа достигается пониманием, а не силой."
         },
         {
           "id": "rodich_chyornogo_klinka_velikani",
           "name": "Родич Чёрного Клинка",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/rodich_chyornogo_klinka_velikani1.png",
+          "image": "images/bosses/elden/velikans/rodich_chyornogo_klinka_velikani.png",
           "description": "Родич Чёрного Клинка — чудовище, связанное с силой истинной смерти. Он атакует стремительно и беспощадно. Его присутствие внушает страх даже опытным воинам. Бой смертельно опасен. Победа ощущается как торжество над смертью."
         },
         {
           "id": "lozhnaya_sleza_velikani",
           "name": "Ложная Слеза",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/velikans/lozhnaya_sleza_velikani1.png",
+          "image": "images/bosses/elden/velikans/lozhnaya_sleza_velikani.png",
           "description": "Ложная Слеза — зеркальное отражение Погасшего, повторяющее его стиль и приёмы. Этот бой становится проверкой собственных решений и сборки. Враг использует те же слабости и сильные стороны. Сражение выглядит как поединок с самим собой. Оно лишено лора, но наполнено смыслом. Победа — это превосходство над собственной тенью."
         }
       ]
