@@ -187,6 +187,13 @@
       "title": "Замогилье",
       "bosses": [
         {
+          "id": "godrik_soldier",
+          "name": "Солдат Годрика",
+          "icon": "images/bosses/elden/zamogilie/godrik_soldier1.png",
+          "image": "images/bosses/elden/zamogilie/godrik_soldier.png",
+          "description": "Cолдат Годрика - солдат, поклявшиеся служить Годрику Сторукому. На его накидке изображена эмблема золотого рода: Древо Эрд и регент-зверь. Два символа былой славы. "
+        },
+        {
           "id": "loskutik_zamogilie",
           "name": "Лоскутик",
           "icon": "images/bosses/elden/zamogilie/loskutik_zamogilie1.png",
