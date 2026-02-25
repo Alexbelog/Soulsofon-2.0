@@ -582,176 +582,176 @@
         {
           "id": "gniyuschiy_ekzikes_wasteland",
           "name": "Гниющий Экзикес",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/gniyuschiy_ekzikes_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/gniyuschiy_ekzikes_wasteland.png",
           "description": "Гниющий Экзикес — древний дракон, поражённый алой гнилью и утративший былое величие. Его тело разъедено болезнью, но сила осталась пугающе высокой. Экзикес выдыхает смертоносные облака гнили, превращая поле боя в заражённую зону. Он символизирует упадок драконьего рода в Звёздных пустошах. Сражение требует постоянного движения и контроля дистанции. Победа даёт понимание, насколько глубоко гниль проникла в этот край."
         },
         {
           "id": "greil_krylatyy_drakon_wasteland",
           "name": "Греил, крылатый дракон",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/greil_krylatyy_drakon_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/greil_krylatyy_drakon_wasteland.png",
           "description": "Греил, крылатый дракон, — яростный хищник, охраняющий подходы к логову Грейолл. Он атакует стремительно, используя огонь и мощные удары крыльями. В нём чувствуется инстинкт защитника стаи. Бой с Греилом динамичен и беспощаден. Он проверяет выносливость и умение читать атаки. Победа ослабляет драконью угрозу в пустошах."
         },
         {
           "id": "greyoll_velikaya_drakonitsa_wasteland",
           "name": "Грейолл, Великая драконица",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/greyoll_velikaya_drakonitsa_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/greyoll_velikaya_drakonitsa_wasteland.png",
           "description": "Грейолл, Великая драконица, — древнейшая мать драконов, почти утратившая способность двигаться. Её тело изранено временем и болезнями, но жизненная сила всё ещё огромна. Вокруг неё кружат защитники, готовые растерзать любого, кто приблизится. Грейолл — символ угасающей эпохи драконов. Сражение больше похоже на ритуал добивания древнего титана. Победа приносит огромное количество рун и чувство конца целой эры."
         },
         {
           "id": "komandir_o_nil_wasteland",
           "name": "Командир О'Нил",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/komandir_o_nil_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/komandir_o_nil_wasteland.png",
           "description": "Командир О’Нил — военачальник, служащий силам гнили в сердце Звёздных пустошей. Он вызывает призрачных солдат, превращая бой в хаотичную схватку. О’Нил сражается хладнокровно и дисциплинированно, как настоящий полководец. Его присутствие подчёркивает милитаризацию гнили. Бой требует контроля толпы и терпения. Победа ослабляет власть гнили над регионом."
         },
         {
           "id": "zver_padayuschey_zvezdy_wasteland",
           "name": "Зверь Падающей звезды",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/zver_padayuschey_zvezdy_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/zver_padayuschey_zvezdy_wasteland.png",
           "description": "Зверь Падающей звезды — космическое существо, рухнувшее в мир из глубин космоса. Его тело и атаки подчиняются гравитации, а не привычным законам. Он агрессивен и непредсказуем. Бой с ним ощущается как столкновение с инородной формой жизни. Существо символизирует связь мира с космосом. Победа открывает доступ к редким гравитационным силам."
         },
         {
           "id": "gnilostnyy_drevesnyy_duh_wasteland",
           "name": "Гнилостный древесный дух",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/gnilostnyy_drevesnyy_duh_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/gnilostnyy_drevesnyy_duh_wasteland.png",
           "description": "Гнилостный древесный дух — искажённое порождение корней, поражённых алой гнилью. Его движения хаотичны и яростны. Он нападает из тесных пространств, усиливая давление на противника. В нём воплощена болезнь самих земель пустошей. Бой проверяет выдержку и ориентацию. Победа очищает заражённый участок."
         },
         {
           "id": "mechnitsa_noks_wasteland",
           "name": "Мечница-нокс",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/mechnitsa_noks_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/mechnitsa_noks_wasteland.png",
           "description": "Мечница-нокс — представительница подземного народа, связанного с тайнами звёзд. Она сражается быстро и точно, используя тонкий клинок. В её движениях чувствуется изящество и холодный расчёт. Она не проявляет ярости, только исполнение долга. Бой напоминает дуэль. Победа открывает путь к тайнам Нокрон."
         },
         {
           "id": "monah_noks_wasteland",
           "name": "Монах-нокс",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/monah_noks_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/monah_noks_wasteland.png",
           "description": "Монах-нокс — жрец и воин народа Ноксов, использующий магию и ритуальные приёмы. Он атакует на расстоянии и давит заклинаниями. Его присутствие подчёркивает религиозную сторону звёздного культа. Бой требует умения сокращать дистанцию. Он опасен в затяжной схватке. Победа ослабляет влияние ноксов."
         },
         {
           "id": "yarostnyy_duelyant_wasteland",
           "name": "Яростный дуэлянт",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/yarostnyy_duelyant_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/yarostnyy_duelyant_wasteland.png",
           "description": "Яростный дуэлянт — безумный воин, потерявший честь и рассудок. Он атакует агрессивно и без пауз. Его стиль боя давит психологически. Дуэлянт символизирует деградацию бойцовских традиций. Бой динамичен и опасен. Победа — это подавление чистой ярости."
         },
         {
           "id": "gugo_boevoy_mag_wasteland",
           "name": "Гуго, боевой маг",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/gugo_boevoy_mag_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/gugo_boevoy_mag_wasteland.png",
           "description": "Гуго, боевой маг, — чародей, приспособивший магию для прямого боя. Он сочетает заклинания и оружие. Его стиль агрессивен и непредсказуем. Гуго представляет военную сторону колдовства. Бой требует быстрой реакции. Победа доказывает превосходство над магом-бойцом."
         },
         {
           "id": "nochnoy_vsadnik_wasteland",
           "name": "Ночной всадник",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/nochnoy_vsadnik_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/nochnoy_vsadnik_wasteland.png",
           "description": "Ночной всадник Звёздных пустошей — безмолвный каратель, выходящий на охоту только после заката. Он использует скорость коня и длинное оружие, превращая открытую местность в смертельную арену. Его атаки наказывают за потерю дистанции и самоуверенность. Всадник действует без эмоций, словно исполняя древний приговор. Ночная тьма усиливает его опасность. Победа рассеивает одну из угроз пустошей."
         },
         {
           "id": "tserber_kladbischa_dreva_erd_wasteland",
           "name": "Цербер кладбища Древа Эрд",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/tserber_kladbischa_dreva_erd_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/tserber_kladbischa_dreva_erd_wasteland.png",
           "description": "Цербер кладбища Древа Эрд — каменный страж катакомб Звёздных пустошей. Он движется рывками и атакует неожиданно. Его задача — защищать погребальные тайны от живых. Бой требует терпения и чтения пауз. Цербер символизирует холодный порядок смерти. Победа открывает доступ к реликвиям."
         },
         {
           "id": "ohotnik_za_kolokolnymi_sferami_wasteland",
           "name": "Охотник за колокольными сферами",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/ohotnik_za_kolokolnymi_sferami_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/ohotnik_za_kolokolnymi_sferami_wasteland.png",
           "description": "Охотник за колокольными сферами — ночной палач, появляющийся в самых неожиданных местах. Он охотится за силой и реликвиями, не щадя никого. Его атаки точны и жестоки, а движения холодны и расчётливы. В Звёздных пустошах он особенно опасен из-за открытых пространств. Бой требует концентрации и реакции. Победа возвращает чувство контроля над ночью."
         },
         {
           "id": "kristaliets_wasteland",
           "name": "Кристалиец",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/kristaliets_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/kristaliets_wasteland.png",
           "description": "Кристалиец — существо из чистой кристаллизованной магии. Его тело почти неуязвимо, пока не будет разрушена структура кристалла. Он атакует хладнокровно и методично. В Звёздных пустошах кристалиец подчёркивает холодную сторону магии. Бой требует правильных инструментов. Победа ломает идеальную оболочку."
         },
         {
           "id": "ten_kladbischa_wasteland",
           "name": "Тень кладбища",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/ten_kladbischa_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/ten_kladbischa_wasteland.png",
           "description": "Тень кладбища — призрачный страж, появляющийся там, где покой мёртвых нарушен. Она атакует внезапно и исчезает так же быстро. В пустошах её трудно заметить из-за тумана и пыли. Бой проверяет концентрацию. Тень символизирует беспокойное прошлое. Победа приносит кратковременное спокойствие."
         },
         {
           "id": "pogrebalnaya_ptitsa_wasteland",
           "name": "Погребальная птица",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/pogrebalnaya_ptitsa_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/pogrebalnaya_ptitsa_wasteland.png",
           "description": "Погребальная птица — усиленная разновидность Птиц смерти, связанная с ритуалами и древними погребениями. Она давит присутствием и широкими атаками. В Звёздных пустошах её сила ощущается особенно ярко. Бой требует дистанции и дисциплины. Существо символизирует искажённую духовность региона. Победа разрывает мрачный ритуал."
         },
         {
           "id": "zverochelovek_iz_farum_azuly_wasteland",
           "name": "Зверочеловек из Фарум-Азулы",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/zverochelovek_iz_farum_azuly_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/zverochelovek_iz_farum_azuly_wasteland.png",
           "description": "Зверочеловек из Фарум-Азулы — древний воин, чьё прошлое связано с разрушенным городом драконов. Он сражается быстро и яростно, полагаясь на инстинкты. Его присутствие в пустошах намекает на разломы времени. Бой требует реакции. Существо представляет доэрдтрийскую эпоху. Победа — столкновение с прошлым."
         },
         {
           "id": "rytsar_gornila_wasteland",
           "name": "Рыцарь Горнила",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/rytsar_gornila_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/rytsar_gornila_wasteland.png",
           "description": "Рыцарь Горнила — воин древнего порядка, существовавшего до Золотого Порядка. Он сочетает дисциплину и первобытную силу. В Звёздных пустошах его появление подчёркивает древность региона. Бой требует терпения и точности. Рыцарь символизирует старые законы мира. Победа — преодоление истории."
         },
         {
           "id": "tykvogolovyy_bezumets_wasteland",
           "name": "Тыквоголовый безумец",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/tykvogolovyy_bezumets_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/tykvogolovyy_bezumets_wasteland.png",
           "description": "Тыквоголовый безумец — жестокий палач, скрывающий лицо под тяжёлым шлемом. Он атакует прямолинейно, но яростно. В пустошах он служит живым инструментом страха. Бой наказывает за поспешность. Безумец лишён идеологии, только насилие. Победа ломает ещё одно орудие ужаса."
         },
         {
           "id": "magmovyy_zmey_wasteland",
           "name": "Магмовый змей",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/magmovyy_zmey_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/magmovyy_zmey_wasteland.png",
           "description": "Магмовый змей — искажённое существо, рождённое алчностью и магией. Его тело источает лаву, делая бой крайне опасным. В пустошах он охраняет древние проходы. Бой требует терпения. Змей символизирует цену силы. Победа открывает путь дальше."
         },
         {
           "id": "voin_bastard_wasteland",
           "name": "Воин-бастард",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/voin_bastard_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/voin_bastard_wasteland.png",
           "description": "Воин-бастард — тяжёлый наёмник, использующий грубую силу и выносливость. Он сражается без чести, полагаясь на давление. В Звёздных пустошах он выступает как символ упадка воинских традиций. Бой прямолинеен, но опасен. Победа достигается терпением. Это ещё один пример деградации мира."
         },
         {
           "id": "gnilostnoe_voploschenie_wasteland",
           "name": "Гнилостное воплощение",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/gnilostnoe_voploschenie_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/gnilostnoe_voploschenie_wasteland.png",
           "description": "Гнилостное воплощение — аватар алой гнили, принявший форму живого существа. Оно атакует яростно и хаотично. В пустошах гниль проявляет себя особенно сильно. Бой опасен из-за эффектов разложения. Существо символизирует болезнь земель. Победа очищает заражённую область."
         },
         {
           "id": "rytsar_chistoy_gnili_wasteland",
           "name": "Рыцарь чистой гнили",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/rytsar_chistoy_gnili_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/rytsar_chistoy_gnili_wasteland.png",
           "description": "Рыцарь чистой гнили — воин, поражённый скверной, но сохранивший дисциплину. Его атаки агрессивны и ядовиты. В пустошах он служит гнили как солдат. Бой требует аккуратности. Рыцарь отражает упадок орденов. Победа завершает его мучения."
         },
         {
           "id": "apostol_bozhestvennoy_kozhi_wasteland",
           "name": "Апостол божественной кожи",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/apostol_bozhestvennoy_kozhi_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/apostol_bozhestvennoy_kozhi_wasteland.png",
           "description": "Апостол божественной кожи — фанатик, отвергший плоть ради силы. Его движения гибки и пугающи. В Звёздных пустошах он продолжает ритуалы своего культа. Бой требует концентрации. Апостол символизирует искажённую веру. Победа прерывает мрачный обряд."
         },
         {
           "id": "rodich_chyornogo_klinka_wasteland",
           "name": "Родич Чёрного Клинка",
-          "icon": "images/bosses/placeholder.png",
-          "image": "images/bosses/placeholder.png",
+          "icon": "images/bosses/elden/star_wasteland/rodich_chyornogo_klinka_wasteland1.png",
+          "image": "images/bosses/elden/star_wasteland/rodich_chyornogo_klinka_wasteland.png",
           "description": "Родич Чёрного Клинка — чудовище, связанное с силой истинной смерти. Он атакует стремительно и беспощадно. Его присутствие внушает страх. В пустошах он охраняет запретные места. Бой смертельно опасен. Победа ощущается как победа над самой смертью."
         }
       ]
