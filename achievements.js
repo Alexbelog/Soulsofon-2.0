@@ -340,7 +340,6 @@
     { id:"er_grace",      img:"images/achievements/er_malenia.png",      name:"GUIDED BY GRACE", desc:"Elden Ring: активировать 30 мест благодати.", kind:"manual" },
     { id:"er_map",      img:"images/achievements/er_malenia.png",      name:"MAPMAKER'S OATH", desc:"Elden Ring: собрать фрагменты карты для 5 регионов.", kind:"manual" },
     { id:"er_read",      img:"images/achievements/er_malenia.png",      name:"READ THE STONE", desc:"Elden Ring: найти 10 лор-описаний (предметы/записки) и прочитать их подряд у благодати.", kind:"manual" },
- { id:"er_vow",      img:"images/achievements/er_malenia.png",      name:"VOW UNBROKEN", desc:"Elden Ring: вступить в любой ковенант и не менять его до финала.", kind:"manual" },      
     { id:"er_kills_40",   img:"images/achievements/er_dragon.png",    name:"RUNEBOUND", desc:"Elden Ring: победить 60 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 60 },
     { id:"er_kills_60",   img:"images/achievements/er_all.png",       name:"ELDEN VETERAN", desc:"Elden Ring: победить 120 боссов.", kind:"manual",
@@ -373,10 +372,13 @@
     { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
     
     { id:"er_two_great_runes", img:"images/achievements/er_tarnished.png", name:"GREAT RUNES",
-      desc:"Elden Ring: собрать две Великие Руны и получить доступ в столицу. Отметь вручную.", kind:"manual" },
+      desc:"Cобрать две Великие Руны и получить доступ в столицу.", kind:"manual" },
+    
+    { id:"er_two_great_runes", img:"images/achievements/er_tarnished.png", name:"SANYA DREAM",
+      desc:"Помочь Александру, Железному кулаку испольнить его мечту!", kind:"manual" },
 
     { id:"er_become_lord", img:"images/achievements/er_tarnished.png", name:"ELDEN LORD",
-      desc:"Elden Ring: завершить игру любым финалом. Отметь вручную.", kind:"manual" },
+      desc:"Elden Ring: завершить игру любым финалом.", kind:"manual" },
 
 { id:"er_all",          img:"images/achievements/er_all.png",          name:"THE LANDS BETWEEN", desc:"Elden Ring: убить всех боссов базовой игры и DLC Shadow of the Erdtree", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 71 },                      ];
