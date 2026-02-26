@@ -371,7 +371,7 @@
       desc:"Elden Ring: победить Маликета, Чёрный клинок.", kind:"manual" },
     { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
     { id:"er_sanya",      img:"images/achievements/er_sanya.png",      name:"SANYA DREAM", desc:"Помочь Александру, Железному кулаку испольнить его мечту!", kind:"manual" },
-    { id:"er_malenia",      img:"images/achievements/er_spirit_ashes.png",      name:"NO SPIRIT ASHES", desc:"Пройти игру полностью неиспользуя прах!", kind:"manual" },
+    { id:"er_spirit_ashes",      img:"images/achievements/er_spirit_ashes.png",      name:"NO SPIRIT ASHES", desc:"Пройти игру полностью неиспользуя прах!", kind:"manual" },
     
     { id:"er_two_great_runes", img:"images/achievements/er_tarnished.png", name:"GREAT RUNES",
       desc:"Cобрать две Великие Руны и получить доступ в столицу.", kind:"manual" },
