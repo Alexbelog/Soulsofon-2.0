@@ -337,26 +337,26 @@
 
     { id:"er_tarnished",    img:"images/achievements/er_tarnished.png",    name:"TARNISHED", desc:"Elden Ring: стать Междуземцем и сделать первый шаг.", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 1 },
-    { id:"er_grace",      img:"images/achievements/er_malenia.png",      name:"GUIDED BY GRACE", desc:"Elden Ring: активировать 30 мест благодати.", kind:"manual" },
-    { id:"er_map",      img:"images/achievements/er_malenia.png",      name:"MAPMAKER'S OATH", desc:"Elden Ring: собрать фрагменты карты для 5 регионов.", kind:"manual" },
-    { id:"er_read",      img:"images/achievements/er_malenia.png",      name:"READ THE STONE", desc:"Elden Ring: найти 10 лор-описаний (предметы/записки) и прочитать их подряд у благодати.", kind:"manual" },
-    { id:"er_kills_40",   img:"images/achievements/er_dragon.png",    name:"RUNEBOUND", desc:"Elden Ring: победить 60 боссов.", kind:"manual",
+    { id:"er_grace",      img:"images/achievements/er_grace.png",      name:"GUIDED BY GRACE", desc:"Elden Ring: активировать 30 мест благодати.", kind:"manual" },
+    { id:"er_map",      img:"images/achievements/er_map.png",      name:"MAPMAKER'S OATH", desc:"Elden Ring: собрать фрагменты карты для 5 регионов.", kind:"manual" },
+    { id:"er_read",      img:"images/achievements/er_read.png",      name:"READ THE STONE", desc:"Elden Ring: найти 10 лор-описаний (предметы/записки) и прочитать их подряд у благодати.", kind:"manual" },
+    { id:"er_kills_60",   img:"images/achievements/er_kills_60.png",    name:"RUNEBOUND", desc:"Elden Ring: победить 60 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 60 },
-    { id:"er_kills_60",   img:"images/achievements/er_all.png",       name:"ELDEN VETERAN", desc:"Elden Ring: победить 160 боссов.", kind:"manual",
+    { id:"er_kills_160",   img:"images/achievements/er_kills_160.png",       name:"ELDEN VETERAN", desc:"Elden Ring: победить 160 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 120 },
 
-    { id:"er_clean_hands",  img:"images/achievements/er_all.png",       name:"CLEANSE THE GRACE", desc:"Elden Ring: победить 20 боссов без смертей на них.", kind:"manual",
+    { id:"er_clean_hands",  img:"images/achievements/er_clean_hands.png",       name:"CLEANSE THE GRACE", desc:"Elden Ring: победить 20 боссов без смертей на них.", kind:"manual",
       check:({gameNoDeathKills}) => (gameNoDeathKills.elden||0) >= 10 },
        
-    { id:"er_no_big_wall", img:"images/achievements/er_tarnished.png", name:"NO BIG WALL",
+    { id:"er_no_big_wall", img:"images/achievements/er_no_big_wall.png", name:"NO BIG WALL",
       desc:"Elden Ring: победить 30 боссов, и при этом ни один не потребовал больше 20 попыток.", kind:"manual",
       check:(ctx) => (ctx.gameKills?.elden || 0) >= 30 && (ctx.gameMaxTries?.elden || 0) <= 20 },
     
-    { id:"er_rune_hungry",  img:"images/achievements/die_1000.png",     name:"RUNE-HUNGRY", desc:"Elden Ring: умереть 300 раз.", kind:"manual",
+    { id:"er_rune_hungry",  img:"images/achievements/er_rune_hungry.png",     name:"RUNE-HUNGRY", desc:"Elden Ring: умереть 300 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.elden||0) >= 300 },
-    { id:"er_endless_tries",img:"images/achievements/kills_all.png",    name:"ENDLESS TRIES", desc:"Elden Ring: потратить 30 попыток на одного босса.", kind:"manual",
+    { id:"er_endless_tries",img:"images/achievements/er_endless_tries.png",    name:"ENDLESS TRIES", desc:"Elden Ring: потратить 30 попыток на одного босса.", kind:"manual",
       check:({gameMaxTries}) => (gameMaxTries.elden||0) >= 80 },
-    { id:"er_radahn_down", img:"images/achievements/er_tarnished.png", name:"STARSCOURGE TOPPLED",
+    { id:"er_radahn_down", img:"images/achievements/er_radahn_down.png", name:"STARSCOURGE TOPPLED",
       desc:"Elden Ring: победить Радана, Бича Звёзд.", kind:"manual",
       check:() => {
         const p = loadJSON(STORE_PROGRESS, {});
@@ -364,17 +364,17 @@
         return !!(g?.radahn?.killed || g?.starscourge_radahn?.killed);
       }},
 
-    { id:"er_lord_of_blood", img:"images/achievements/er_tarnished.png", name:"LORD OF BLOOD",
+    { id:"er_lord_of_blood", img:"images/achievements/er_lord_of_blood.png", name:"LORD OF BLOOD",
       desc:"Elden Ring: победить Мога, Повелителя Крови.", kind:"manual" },
 
-    { id:"er_black_blade", img:"images/achievements/er_tarnished.png", name:"BLACK BLADE FALLEN",
+    { id:"er_black_blade", img:"images/achievements/er_black_blade.png", name:"BLACK BLADE FALLEN",
       desc:"Elden Ring: победить Маликета, Чёрный клинок.", kind:"manual" },
     { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
     { id:"er_radan_consord",      img:"images/achievements/er_radan_consord.png",      name:"RADANH RETURN", desc:"Elden Ring SOTE: победить Будущего консорта Радана.", kind:"manual" },
     { id:"er_sanya",      img:"images/achievements/er_sanya.png",      name:"SANYA DREAM", desc:"Помочь Александру, Железному кулаку испольнить его мечту!", kind:"manual" },
     { id:"er_spirit_ashes",      img:"images/achievements/er_spirit_ashes.png",      name:"NO SPIRIT ASHES", desc:"Пройти игру полностью не используя прах!", kind:"manual" },
 
-    { id:"er_become_lord", img:"images/achievements/er_tarnished.png", name:"ELDEN LORD",
+    { id:"er_become_lord", img:"images/achievements/er_become_lord.png", name:"ELDEN LORD",
       desc:"Elden Ring: завершить игру любым финалом.", kind:"manual" },
 
 { id:"er_all",          img:"images/achievements/er_all.png",          name:"THE LANDS BETWEEN", desc:"Elden Ring: убить всех боссов базовой игры и DLC Shadow of the Erdtree", kind:"manual",
