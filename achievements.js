@@ -373,9 +373,6 @@
     { id:"er_radan_consord",      img:"images/achievements/er_radan_consord.png",      name:"RADANH RETURN", desc:"Elden Ring SOTE: победить Будущего консорта Радана.", kind:"manual" },
     { id:"er_sanya",      img:"images/achievements/er_sanya.png",      name:"SANYA DREAM", desc:"Помочь Александру, Железному кулаку испольнить его мечту!", kind:"manual" },
     { id:"er_spirit_ashes",      img:"images/achievements/er_spirit_ashes.png",      name:"NO SPIRIT ASHES", desc:"Пройти игру полностью не используя прах!", kind:"manual" },
-    
-    { id:"er_two_great_runes", img:"images/achievements/er_tarnished.png", name:"GREAT RUNES",
-      desc:"Cобрать две Великие Руны и получить доступ в столицу.", kind:"manual" },
 
     { id:"er_become_lord", img:"images/achievements/er_tarnished.png", name:"ELDEN LORD",
       desc:"Elden Ring: завершить игру любым финалом.", kind:"manual" },
