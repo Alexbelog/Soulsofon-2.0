@@ -342,7 +342,7 @@
     { id:"er_read",      img:"images/achievements/er_malenia.png",      name:"READ THE STONE", desc:"Elden Ring: найти 10 лор-описаний (предметы/записки) и прочитать их подряд у благодати.", kind:"manual" },
     { id:"er_kills_40",   img:"images/achievements/er_dragon.png",    name:"RUNEBOUND", desc:"Elden Ring: победить 60 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 60 },
-    { id:"er_kills_60",   img:"images/achievements/er_all.png",       name:"ELDEN VETERAN", desc:"Elden Ring: победить 120 боссов.", kind:"manual",
+    { id:"er_kills_60",   img:"images/achievements/er_all.png",       name:"ELDEN VETERAN", desc:"Elden Ring: победить 160 боссов.", kind:"manual",
       check:({gameKills}) => (gameKills.elden||0) >= 120 },
 
     { id:"er_clean_hands",  img:"images/achievements/er_all.png",       name:"CLEANSE THE GRACE", desc:"Elden Ring: победить 20 боссов без смертей на них.", kind:"manual",
@@ -354,10 +354,10 @@
     
     { id:"er_rune_hungry",  img:"images/achievements/die_1000.png",     name:"RUNE-HUNGRY", desc:"Elden Ring: умереть 300 раз.", kind:"manual",
       check:({gameDeaths}) => (gameDeaths.elden||0) >= 300 },
-    { id:"er_endless_tries",img:"images/achievements/kills_all.png",    name:"ENDLESS TRIES", desc:"Elden Ring: потратить 80 попыток на одного босса.", kind:"manual",
+    { id:"er_endless_tries",img:"images/achievements/kills_all.png",    name:"ENDLESS TRIES", desc:"Elden Ring: потратить 30 попыток на одного босса.", kind:"manual",
       check:({gameMaxTries}) => (gameMaxTries.elden||0) >= 80 },
     { id:"er_radahn_down", img:"images/achievements/er_tarnished.png", name:"STARSCOURGE TOPPLED",
-      desc:"Elden Ring: победить Радана, Бича Звёзд.", kind:"auto",
+      desc:"Elden Ring: победить Радана, Бича Звёзд.", kind:"manual",
       check:() => {
         const p = loadJSON(STORE_PROGRESS, {});
         const g = (p && (p["elden"] || p.elden)) || {};
@@ -370,8 +370,9 @@
     { id:"er_black_blade", img:"images/achievements/er_tarnished.png", name:"BLACK BLADE FALLEN",
       desc:"Elden Ring: победить Маликета, Чёрный клинок.", kind:"manual" },
     { id:"er_malenia",      img:"images/achievements/er_malenia.png",      name:"BLADE OF MIQUELLA", desc:"Elden Ring: победить Малению.", kind:"manual" },
+    { id:"er_radan_consord",      img:"images/achievements/er_radan_consord.png",      name:"RADANH RETURN", desc:"Elden Ring SOTE: победить Будущего консорта Радана.", kind:"manual" },
     { id:"er_sanya",      img:"images/achievements/er_sanya.png",      name:"SANYA DREAM", desc:"Помочь Александру, Железному кулаку испольнить его мечту!", kind:"manual" },
-    { id:"er_spirit_ashes",      img:"images/achievements/er_spirit_ashes.png",      name:"NO SPIRIT ASHES", desc:"Пройти игру полностью неиспользуя прах!", kind:"manual" },
+    { id:"er_spirit_ashes",      img:"images/achievements/er_spirit_ashes.png",      name:"NO SPIRIT ASHES", desc:"Пройти игру полностью не используя прах!", kind:"manual" },
     
     { id:"er_two_great_runes", img:"images/achievements/er_tarnished.png", name:"GREAT RUNES",
       desc:"Cобрать две Великие Руны и получить доступ в столицу.", kind:"manual" },
