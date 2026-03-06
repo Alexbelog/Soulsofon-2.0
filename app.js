@@ -82,7 +82,7 @@ const GAMES = [
   { id: "ds3", title: "Dark Souls III", file: "data/ds3.json" },
   { id: "bloodborne", title: "Bloodborne", file: "data/bloodborne.json" },
   { id: "sekiro", title: "Sekiro", file: "data/sekiro.json" },
-  { id: "elden", title: "Elden Ring", file: "data/elden_ring.json" }
+  { id: "elden", title: "Elden Ring (NG+)", file: "data/elden_ring.json" }
 ];
 
 
